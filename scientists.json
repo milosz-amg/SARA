@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name": "Albert Einstein",
+        "field": "Physics",
+        "start_year": 1905,
+        "description": "Theoretical physicist who developed the theory of relativity.",
+        "current_institution": "Princeton University",
+        "institutions": [
+            "UAM",
+            "UNAM",
+            "MIT"
+        ],
+        "publications": [
+            {
+                "title": "Annus Mirabilis papers",
+                "year": 1905
+            },
+            {
+                "title": "General Theory of Relativity",
+                "year": 1915
+            }
+        ],
+        "awards": [
+            {
+                "name": "Nobel Prize in Physics",
+                "year": 1921
+            },
+            {
+                "name": "Copley Medal",
+                "year": 1925
+            }
+        ],
+        "grants": [
+            {
+                "name": "Nobel Prize",
+                "year": 1921
+            },
+            {
+                "name": "Max Planck Medal",
+                "year": 1929
+            }
+        ]
+    }
+]
