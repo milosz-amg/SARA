@@ -1,0 +1,164 @@
+{
+  "orcid_id": "0000-0002-1603-6206",
+  "researcher": {
+    "id": "de948416-b936-4561-b14a-3f59ea78eb72",
+    "orcid_id": "0000-0002-1603-6206",
+    "first_name": "Diane",
+    "last_name": "Dalby",
+    "full_name": "Diane Dalby",
+    "email": null,
+    "country": null,
+    "primary_affiliation": "University of Nottingham",
+    "created_at": "2025-05-11T10:26:30.156473",
+    "updated_at": "2025-05-11T10:26:30.156473"
+  },
+  "sources": [
+    {
+      "id": "498c4586-1d19-4383-b868-a6a0c98d2457",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "platform": "ORCID",
+      "source_id": "0000-0002-1603-6206",
+      "endpoint": "https://pub.orcid.org/v3.0/0000-0002-1603-6206/person",
+      "last_fetched": "2025-05-11T10:26:30.156473",
+      "last_status": "200",
+      "active": true
+    }
+  ],
+  "keywords": [],
+  "affiliations": [
+    {
+      "id": "88dd6ec4-66be-4d19-9570-f73f5f686cdc",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "institution": "University of Nottingham",
+      "department": "School of Education",
+      "role": "Senior Research Fellow",
+      "country": "GB",
+      "start_date": "2014-09-01",
+      "end_date": null
+    }
+  ],
+  "education": [
+    {
+      "id": "af860b5f-a13f-4c89-b8ee-631708b14cc9",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "degree": "PhD in Mathematics Education",
+      "field": "School of Education",
+      "institution": "University of Nottingham",
+      "country": "GB",
+      "start_date": "2013-09-01",
+      "end_date": "2016-08-31"
+    }
+  ],
+  "publications": [
+    {
+      "id": "82336c86-a490-41e2-a468-6c508996761d",
+      "title": "Using digital technology to enhance formative assessment in mathematics classrooms",
+      "journal": "British Journal of Educational Technology",
+      "doi": null,
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:30.157475",
+      "updated_at": "2025-05-11T10:26:30.157475"
+    },
+    {
+      "id": "ba1b8a13-695b-4db0-868b-f55ed7544a9a",
+      "title": "Mathematics education policy enactment in England’s Further Education colleges",
+      "journal": "Journal of Vocational Education and Training",
+      "doi": "https://doi.org/10.1080/13636820.2018.1462245",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:30.157475",
+      "updated_at": "2025-05-11T10:26:30.157475"
+    },
+    {
+      "id": "66d50df2-5aea-4426-bec9-c3927c3ceecd",
+      "title": "The professional identity of mathematics teachers in Further Education",
+      "journal": "Adults Learning Mathematics",
+      "doi": null,
+      "year": "2017",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:30.157475",
+      "updated_at": "2025-05-11T10:26:30.157475"
+    },
+    {
+      "id": "c526f631-f04e-4797-b726-1281d9867633",
+      "title": "Locating mathematics within post-16 vocational education in England",
+      "journal": "Journal of Vocational Education and Training",
+      "doi": "https://doi.org/10.1080/13636820.2015.1110828",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:30.157475",
+      "updated_at": "2025-05-11T10:26:30.157475"
+    },
+    {
+      "id": "01f60a49-a78b-4e0e-afdd-c7876b9cb605",
+      "title": "The isolation of mathematics teaching from vocational learning",
+      "journal": "Adults Learning Mathematics",
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:30.157475",
+      "updated_at": "2025-05-11T10:26:30.157475"
+    },
+    {
+      "id": "78763107-b8a3-4b43-86eb-7c2af948463c",
+      "title": "The connections and contradictions in student responses to contextualised tasks",
+      "journal": "Research in Mathematics Education",
+      "doi": "https://doi.org/10.1080/14794802.2013.849083",
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:30.157475",
+      "updated_at": "2025-05-11T10:26:30.157475"
+    }
+  ],
+  "publications_authors": [
+    {
+      "id": "d29f4a57-b173-4fff-a468-84a38ada7126",
+      "publication_id": "82336c86-a490-41e2-a468-6c508996761d",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "9a956944-16ba-4c74-91c9-91a951e13bae",
+      "publication_id": "ba1b8a13-695b-4db0-868b-f55ed7544a9a",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "54dd64b4-9dc0-4ab6-b81b-ca8d23c37987",
+      "publication_id": "66d50df2-5aea-4426-bec9-c3927c3ceecd",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "70e3e878-5d92-4603-8791-6c2bb72f5fa8",
+      "publication_id": "c526f631-f04e-4797-b726-1281d9867633",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "bb694893-09cf-4d0b-93e7-5206fb956095",
+      "publication_id": "01f60a49-a78b-4e0e-afdd-c7876b9cb605",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f23ad27e-5f66-469d-b13c-4dd84f4a81de",
+      "publication_id": "78763107-b8a3-4b43-86eb-7c2af948463c",
+      "researcher_id": "de948416-b936-4561-b14a-3f59ea78eb72",
+      "author_order": null,
+      "is_corresponding": null
+    }
+  ]
+}

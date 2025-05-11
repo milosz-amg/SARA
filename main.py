@@ -1,121 +1,190 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import List, Optional
+from fastapi import FastAPI
+from fastapi import Query
+from models import Scientist, ResearcherInfo, Affiliation, Keyword, Education, Publication
+from models import RequestBody
+from typing import List
+from pathlib import Path
+from fastapi import HTTPException
 import json
-import os
+from contextlib import asynccontextmanager
+from typing import Optional
+from pydantic import BaseModel
 from dotenv import load_dotenv
-from openai import OpenAI
+import os
+import openai
 
-# Load env
+
+# Wczytaj zmienne środowiskowe
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
-client = OpenAI(api_key=api_key)
+if not api_key:
+    raise RuntimeError("Brakuje OPENAI_API_KEY w pliku .env")
 
-# App init
-app = FastAPI(title="SARA")
+openai.api_key = api_key
 
-# Load scientists
-def load_scientists(filename="scientists.json"):
-    try:
-        with open(filename, "r", encoding="utf-8") as file:
-            return json.load(file)
-    except Exception as e:
-        print(f"Error loading scientists: {e}")
-        return []
+# Wczytaj dane o naukowcach
+DATA_PATH = Path("data/scientist")
+scientists: List[Scientist] = []
 
-scientists = load_scientists()
+def read_all_scientists():
+    if not DATA_PATH.exists():
+        print(f"[ERROR] Folder '{DATA_PATH}' nie istnieje.")
+        return
 
-# ------------------------------
-#          MODELE
-# ------------------------------
+    files = list(DATA_PATH.glob("*.json"))
+    if not files:
+        print(f"[INFO] Brak plików JSON w folderze '{DATA_PATH}'")
+        return
 
-class Grant(BaseModel):
-    name: str
-    year: int
+    for file in files:
+        try:
+            with open(file, "r", encoding="utf-8") as f:
+                data = json.load(f)
 
-class Award(BaseModel):
-    name: str
-    year: int
+                r = data.get("researcher", {})
+                researcher = ResearcherInfo(
+                    full_name=r.get("full_name"),
+                    orcid_id=r.get("orcid_id"),
+                    email=r.get("email"),
+                    country=r.get("country"),
+                    primary_affiliation=r.get("primary_affiliation"),
+                )
 
-class Publication(BaseModel):
-    title: str
-    year: int
+                affiliations = [Affiliation(**a) for a in data.get("affiliations", [])]
+                keywords = [Keyword(**k) for k in data.get("keywords", [])]
+                education = [Education(**e) for e in data.get("education", [])]
+                publications = [Publication(
+                    title=p.get("title"),
+                    journal=p.get("journal"),
+                    doi=p.get("doi"),
+                    year=p.get("year")
+                ) for p in data.get("publications", [])]
 
-class Scientist(BaseModel):
-    id: int
-    name: str
-    field: str
-    start_year: int
-    description: str
-    current_institution: str
-    institutions: List[str]
-    publications: List[Publication]
-    awards: List[Award]
-    grants: List[Grant]
+                scientist = Scientist(
+                    researcher=researcher,
+                    affiliations=affiliations,
+                    keywords=keywords,
+                    education=education,
+                    publications=publications
+                )
 
-class RequestBody(BaseModel):
-    request: str
+                scientists.append(scientist)
 
-# ------------------------------
-#         ENDPOINTS
-# ------------------------------
+        except Exception as e:
+            print(f"[ERROR] Błąd w pliku {file.name}: {e}")
+
+def get_earliest_year(affiliations: List[Affiliation]) -> Optional[int]:
+    years = [
+        int(a.start_date[:4])
+        for a in affiliations
+        if a.start_date and a.start_date[:4].isdigit()
+    ]
+    return min(years) if years else None
+
+
+# FastAPI startup
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    read_all_scientists()
+    yield
+
+app = FastAPI(lifespan=lifespan)
+
 
 @app.get("/")
-def home():
-    return {"message": "Welcome SARA!"}
+def read_root():
+    return {"message": "Witaj w SARA API!"}
 
 @app.get("/scientists", response_model=List[Scientist])
-def get_all_scientists():
-    return scientists
+def search_scientists(
+    affiliation: Optional[str] = Query(None, description="Nazwa instytucji"),
+    keyword: Optional[str] = Query(None, description="Słowo kluczowe z profilu"),
+    started_after: Optional[int] = Query(None, description="Kariera po roku"),
+    orcid_id: Optional[str] = Query(None, description="ORCID ID"),
+    full_name: Optional[str] = Query(None, description="Imię i nazwisko"),
+    publication_keyword: Optional[str] = Query(None, description="Słowo z tytułu publikacji")
+):
+    results = scientists
 
-@app.get("/scientists/{scientist_id}", response_model=Scientist)
-def get_scientist(scientist_id: int):
-    for s in scientists:
-        if s["id"] == scientist_id:
-            return s
-    raise HTTPException(status_code=404, detail="Scientist not found")
+    if orcid_id:
+        results = [s for s in results if s.researcher.orcid_id == orcid_id]
 
-@app.get("/scientists/name/{name}", response_model=Scientist)
-def get_scientist_by_name(name: str):
-    for s in scientists:
-        if s["name"].lower() == name.lower():
-            return s
-    raise HTTPException(status_code=404, detail="Scientist not found")
+    if full_name:
+        results = [s for s in results if full_name.lower() in (s.researcher.full_name or "").lower()]
 
-@app.get("/scientists/{scientist_id}/grants", response_model=List[Grant])
-def get_scientist_grants(scientist_id: int):
-    for s in scientists:
-        if s["id"] == scientist_id:
-            return s.get("grants", [])
-    raise HTTPException(status_code=404, detail="Scientist not found")
+    if affiliation:
+        results = [
+            s for s in results if any(
+                affiliation.lower() in (a.institution or "").lower()
+                for a in s.affiliations
+            )
+        ]
 
-@app.get("/scientists/{scientist_id}/description")
-def get_description(scientist_id: int):
-    for s in scientists:
-        if s["id"] == scientist_id:
-            return {"description": s.get("description", "")}
-    raise HTTPException(status_code=404, detail="Scientist not found")
+    if keyword:
+        results = [
+            s for s in results if any(
+                keyword.lower() in (k.keyword or "").lower()
+                for k in s.keywords
+            )
+        ]
 
-@app.get("/scientists/{scientist_id}/current_institution")
-def get_current_institution(scientist_id: int):
-    for s in scientists:
-        if s["id"] == scientist_id:
-            return {"current_institution": s.get("current_institution", "")}
-    raise HTTPException(status_code=404, detail="Scientist not found")
+    if started_after is not None:
+        results = [
+            s for s in results
+            if get_earliest_year(s.affiliations) and get_earliest_year(s.affiliations) > started_after
+        ]
+
+    if publication_keyword:
+        results = [
+            s for s in results if any(
+                publication_keyword.lower() in (p.title or "").lower()
+                for p in s.publications
+            )
+        ]
+
+    return results
 
 
-# This endpoint will be usefull when we will build AI agent :)
+@app.get("/publications")
+def get_publications(
+    full_name: Optional[str] = Query(None),
+    orcid_id: Optional[str] = Query(None)
+):
+    if not full_name and not orcid_id:
+        raise HTTPException(status_code=400, detail="Podaj 'full_name' lub 'orcid_id'.")
+
+    for scientist in scientists:
+        if orcid_id and scientist.researcher.orcid_id == orcid_id:
+            return [p.dict() for p in scientist.publications]
+
+        if full_name and full_name.lower() in (scientist.researcher.full_name or "").lower():
+            return [p.dict() for p in scientist.publications]
+
+    raise HTTPException(status_code=404, detail="Nie znaleziono naukowca.")
+
+
 @app.post("/request")
 def handle_request(payload: RequestBody):
     if not payload.request:
-        raise HTTPException(status_code=400, detail="Missing 'request' field")
-    
+        raise HTTPException(status_code=400, detail="Pole 'request' jest wymagane.")
+
     try:
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": payload.request}]
         )
-        reply = response.choices[0].message.content
+        reply = response.choices[0].message["content"]
         return {"response": reply}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+
+@app.post("/sara_request")
+def handle_sara_request(payload: RequestBody):
+    if not payload.request:
+        raise HTTPException(status_code=400, detail="Pole 'request' jest wymagane.")
+
+    try:
+        return {"response": payload.request}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

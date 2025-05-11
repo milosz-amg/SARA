@@ -1,0 +1,76 @@
+{
+  "orcid_id": "0000-0002-4935-1229",
+  "researcher": {
+    "id": "3fac17af-8325-44b3-8d40-5d4c88cac641",
+    "orcid_id": "0000-0002-4935-1229",
+    "first_name": "Richard",
+    "last_name": "Somerville",
+    "full_name": "Richard Somerville",
+    "email": null,
+    "country": null,
+    "primary_affiliation": null,
+    "created_at": "2025-05-11T10:26:21.445221",
+    "updated_at": "2025-05-11T10:26:21.445221"
+  },
+  "sources": [
+    {
+      "id": "0681002b-6b88-402f-ad7b-6d11d7ead04e",
+      "researcher_id": "3fac17af-8325-44b3-8d40-5d4c88cac641",
+      "platform": "ORCID",
+      "source_id": "0000-0002-4935-1229",
+      "endpoint": "https://pub.orcid.org/v3.0/0000-0002-4935-1229/person",
+      "last_fetched": "2025-05-11T10:26:21.445221",
+      "last_status": "200",
+      "active": true
+    }
+  ],
+  "keywords": [
+    {
+      "id": "72b443b6-aaca-4ea5-8545-53bf1620950f",
+      "researcher_id": "3fac17af-8325-44b3-8d40-5d4c88cac641",
+      "keyword": "climate, climate change"
+    }
+  ],
+  "affiliations": [],
+  "education": [],
+  "publications": [
+    {
+      "id": "9b64293c-0f35-43f0-b8f3-da0c7b77fb5e",
+      "title": "Can We Do Better at Teaching Mathematics to Undergraduate Atmospheric Science Students?",
+      "journal": "Bulletin of the American Meteorological Society",
+      "doi": "https://doi.org/10.1175/BAMS-D-22-0245.1",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:21.445221",
+      "updated_at": "2025-05-11T10:26:21.445221"
+    },
+    {
+      "id": "4797f22f-9750-4f60-89ec-6654f4a7745f",
+      "title": "Facts and opinions about climate change",
+      "journal": "Bulletin of the Atomic Scientists",
+      "doi": "https://doi.org/10.1080/00963402.2020.1846422",
+      "year": "2020",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:21.445221",
+      "updated_at": "2025-05-11T10:26:21.445221"
+    }
+  ],
+  "publications_authors": [
+    {
+      "id": "90438f89-edf7-4c1b-994f-fe058b336270",
+      "publication_id": "9b64293c-0f35-43f0-b8f3-da0c7b77fb5e",
+      "researcher_id": "3fac17af-8325-44b3-8d40-5d4c88cac641",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "71cd84af-eaab-4f0b-870b-319bbce1535e",
+      "publication_id": "4797f22f-9750-4f60-89ec-6654f4a7745f",
+      "researcher_id": "3fac17af-8325-44b3-8d40-5d4c88cac641",
+      "author_order": null,
+      "is_corresponding": null
+    }
+  ]
+}

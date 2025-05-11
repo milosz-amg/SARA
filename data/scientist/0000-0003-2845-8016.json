@@ -1,0 +1,232 @@
+{
+  "orcid_id": "0000-0003-2845-8016",
+  "researcher": {
+    "id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+    "orcid_id": "0000-0003-2845-8016",
+    "first_name": "Chanda",
+    "last_name": "Simfukwe",
+    "full_name": "Chanda Simfukwe",
+    "email": null,
+    "country": null,
+    "primary_affiliation": null,
+    "created_at": "2025-05-11T10:26:22.357449",
+    "updated_at": "2025-05-11T10:26:22.357449"
+  },
+  "sources": [
+    {
+      "id": "b7c316fd-092b-4d1c-b989-f6d1b39a28ce",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "platform": "ORCID",
+      "source_id": "0000-0003-2845-8016",
+      "endpoint": "https://pub.orcid.org/v3.0/0000-0003-2845-8016/person",
+      "last_fetched": "2025-05-11T10:26:22.357449",
+      "last_status": "200",
+      "active": true
+    }
+  ],
+  "keywords": [],
+  "affiliations": [],
+  "education": [],
+  "publications": [
+    {
+      "id": "add2d7d3-008f-45aa-98a4-b14898e899c5",
+      "title": "A machine-learning algorithm for predicting brain age using Rey–Osterrieth complex figure tests of healthy participants",
+      "journal": "Applied Neuropsychology: Adult",
+      "doi": "https://doi.org/10.1080/23279095.2022.2164198",
+      "year": "2025",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "bf9a5c4b-8291-41fd-8f1f-89cbbaa1ab8a",
+      "title": "Contribution of Scalp Regions to Machine Learning-Based Classification of Dementia Utilizing Resting-State qEEG Signals",
+      "journal": "Neuropsychiatric Disease and Treatment",
+      "doi": "https://doi.org/10.2147/NDT.S486452",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "c27662be-9cc0-4ccb-abcf-c830619ad922",
+      "title": "Contribution of Scalp Regions to Machine Learning-Based Classification of Dementia Utilizing Resting-State qEEG Signals [Corrigendum]",
+      "journal": "Neuropsychiatric Disease and Treatment",
+      "doi": "https://doi.org/10.2147/NDT.S513019",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "90ec7819-3f4b-46be-9043-ac223e2682a1",
+      "title": "Comparison of machine learning algorithms for predicting cognitive impairment using neuropsychological tests",
+      "journal": "Applied Neuropsychology: Adult",
+      "doi": "https://doi.org/10.1080/23279095.2024.2392282",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "302212dc-1ee4-4636-b893-5cfe4fb74169",
+      "title": "Neuropsychological test using machine learning for cognitive impairment screening",
+      "journal": "Applied Neuropsychology: Adult",
+      "doi": "https://doi.org/10.1080/23279095.2022.2078210",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "af20e01d-8b42-43d1-8c01-c4c982b03a4c",
+      "title": "qEEG as Biomarker for Alzheimer’s Disease: Investigating Relative PSD Difference and Coherence Analysis",
+      "journal": "Neuropsychiatric Disease and Treatment",
+      "doi": "https://doi.org/10.2147/NDT.S433207",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "f125cb66-0d12-4e42-8160-e1f03be00c48",
+      "title": "CNN for a Regression Machine Learning Algorithm for Predicting Cognitive Impairment Using qEEG [Corrigendum]",
+      "journal": "Neuropsychiatric Disease and Treatment",
+      "doi": "https://doi.org/10.2147/NDT.S422389",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "ff50d91c-949e-46ae-8928-730eb05490a7",
+      "title": "CNN for a Regression Machine Learning Algorithm for Predicting Cognitive Impairment Using qEEG",
+      "journal": "Neuropsychiatric Disease and Treatment",
+      "doi": "https://doi.org/10.2147/NDT.S404528",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "b43e1989-05f1-45db-afb5-fa50ae40c42d",
+      "title": "Classification of Aβ State From Brain Amyloid PET Images Using Machine Learning Algorithm",
+      "journal": "Dementia and Neurocognitive Disorders",
+      "doi": "https://doi.org/10.12779/dnd.2023.22.2.61",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "2e0e8b74-6bd0-4943-9bf5-c5632f88fd11",
+      "title": "Prediction of East Asian Brain Age using Machine Learning Algorithms Trained With Community-based Healthy Brain MRI",
+      "journal": "Dementia and Neurocognitive Disorders",
+      "doi": "https://doi.org/10.12779/dnd.2022.21.4.138",
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    },
+    {
+      "id": "163baf91-a1f2-4a5e-8cea-7b74c73fe88e",
+      "title": "Comparison of RCF Scoring System to Clinical Decision for the Rey Complex Figure Using Machine-Learning Algorithm",
+      "journal": "Dementia and Neurocognitive Disorders",
+      "doi": "https://doi.org/10.12779/dnd.2021.20.4.70",
+      "year": "2021",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:22.357449",
+      "updated_at": "2025-05-11T10:26:22.357449"
+    }
+  ],
+  "publications_authors": [
+    {
+      "id": "a1ea8b59-7b26-421d-903c-7b4349cc16e1",
+      "publication_id": "add2d7d3-008f-45aa-98a4-b14898e899c5",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f8828b47-a2f5-4fd2-938f-01130c7d6459",
+      "publication_id": "bf9a5c4b-8291-41fd-8f1f-89cbbaa1ab8a",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c995cc7e-5730-47c2-888c-159fa9119c68",
+      "publication_id": "c27662be-9cc0-4ccb-abcf-c830619ad922",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "9ce2faf7-b6a0-45d2-a60a-3d096f7beecd",
+      "publication_id": "90ec7819-3f4b-46be-9043-ac223e2682a1",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "40cb9bb7-e832-4f49-8e3b-4688f47925ff",
+      "publication_id": "302212dc-1ee4-4636-b893-5cfe4fb74169",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "905621a0-e6a0-4925-aca3-51bf47b36763",
+      "publication_id": "af20e01d-8b42-43d1-8c01-c4c982b03a4c",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "913e2e66-8403-47d9-957e-56a5ff0afab8",
+      "publication_id": "f125cb66-0d12-4e42-8160-e1f03be00c48",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "2e00bacf-f352-4db9-a2ff-7c7f48bdf07c",
+      "publication_id": "ff50d91c-949e-46ae-8928-730eb05490a7",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5b5f49d7-2e39-4c41-ab47-218bffcd852e",
+      "publication_id": "b43e1989-05f1-45db-afb5-fa50ae40c42d",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "fca5f920-4995-48af-85e2-33220c435ae2",
+      "publication_id": "2e0e8b74-6bd0-4943-9bf5-c5632f88fd11",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "2212f7dd-402e-4b77-808b-d328202a48ca",
+      "publication_id": "163baf91-a1f2-4a5e-8cea-7b74c73fe88e",
+      "researcher_id": "2d0bf61f-2c36-42bb-9b15-468eea139ed3",
+      "author_order": null,
+      "is_corresponding": null
+    }
+  ]
+}

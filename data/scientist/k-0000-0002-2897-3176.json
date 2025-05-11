@@ -1,0 +1,1698 @@
+{
+  "orcid_id": "0000-0002-2897-3176",
+  "researcher": {
+    "id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+    "orcid_id": "0000-0002-2897-3176",
+    "first_name": "Krzysztof",
+    "last_name": "Dyczkowski",
+    "full_name": "Krzysztof Dyczkowski",
+    "email": "chris@amu.edu.pl",
+    "country": "PL",
+    "primary_affiliation": "Adam Mickiewicz University",
+    "created_at": "2025-05-11T10:25:09.048328",
+    "updated_at": "2025-05-11T10:25:09.048328"
+  },
+  "sources": [
+    {
+      "id": "ff9d86bd-3228-4f8c-8971-0508d4a1dce5",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "platform": "ORCID",
+      "source_id": "0000-0002-2897-3176",
+      "endpoint": "https://pub.orcid.org/v3.0/0000-0002-2897-3176/person",
+      "last_fetched": "2025-05-11T10:25:09.048328",
+      "last_status": "200",
+      "active": true
+    }
+  ],
+  "keywords": [
+    {
+      "id": "9c048370-a5ad-46ae-9b2a-28ff34e38ff5",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "keyword": "Fuzzy systems, Soft Computing, Medical Diagnosis,  Sport Analitics, Data Scence"
+    }
+  ],
+  "affiliations": [
+    {
+      "id": "6198390a-8152-4ae4-ad79-1e74e83758cd",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "institution": "Adam Mickiewicz University",
+      "department": "Faculty of Mathematics and Computer Science",
+      "role": "Dean",
+      "country": "PL",
+      "start_date": "2020-10-01",
+      "end_date": null
+    },
+    {
+      "id": "a02d4df3-486a-43fb-a8ad-9aa3a4478095",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "institution": "Adam Mickiewicz University in Poznań",
+      "department": "Faculty of Mathematics and Computer Science",
+      "role": "Associate Professor",
+      "country": "PL",
+      "start_date": "2019-10-01",
+      "end_date": null
+    },
+    {
+      "id": "7222145d-0a0a-4ef5-9d38-bb07c28eb0e9",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "institution": "Uniwersytet im Adama Mickiewicza w Poznaniu",
+      "department": "Faculty of Mathematics and Computer Science",
+      "role": "Assistant Professor",
+      "country": "PL",
+      "start_date": "2002-09-01",
+      "end_date": "2019-09-30"
+    },
+    {
+      "id": "7e7efb0b-466e-492c-9a50-02c1ec314f16",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "institution": "SOL-SYSTEM Ltd.",
+      "department": null,
+      "role": "CEO",
+      "country": "PL",
+      "start_date": "2008-05-03",
+      "end_date": "2012-04-31"
+    },
+    {
+      "id": "ab47827a-8b71-45f9-86f8-7cc94279a9ae",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "institution": "ADCOM-BIS",
+      "department": null,
+      "role": "Owner",
+      "country": "PL",
+      "start_date": "1996-12-01",
+      "end_date": "2008-12-01"
+    },
+    {
+      "id": "fbcfb7ed-c5a0-4077-b177-5f08e68d3db7",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "institution": "ICL Polska",
+      "department": null,
+      "role": "Consultant",
+      "country": "PL",
+      "start_date": "1999-01-01",
+      "end_date": "2001-01-01"
+    }
+  ],
+  "education": [
+    {
+      "id": "f03eaad2-cb17-46cf-a93e-126f54d7e1ec",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "degree": "Postgraduate studies, R&D Project Management",
+      "field": null,
+      "institution": "Wyzsza Szkola Bankowa w Poznaniu",
+      "country": "PL",
+      "start_date": "2012-01-01",
+      "end_date": "2013-01-01"
+    },
+    {
+      "id": "a051e7d0-d973-44f3-874d-8a275ccb2cce",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "degree": "Ph. D. in Computer Science",
+      "field": "Faculty of Mathematics and Computer Science",
+      "institution": "Uniwersytet im Adama Mickiewicza w Poznaniu",
+      "country": "PL",
+      "start_date": "1997-09-01",
+      "end_date": "2002-06-30"
+    },
+    {
+      "id": "92bcc836-6863-4389-9582-0b47c2a5105e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "degree": "M. Sc. in Computer Science",
+      "field": "Faculty of Mathematics and Computer Science",
+      "institution": "Uniwersytet im Adama Mickiewicza w Poznaniu",
+      "country": "PL",
+      "start_date": "1992-09-01",
+      "end_date": "1997-06-30"
+    }
+  ],
+  "publications": [
+    {
+      "id": "1e0e26c5-1f93-4500-9d43-c4af808d1178",
+      "title": "A Novel Method for Human Fall Detection Using Federated Learning and Interval-Valued Fuzzy Inference Systems",
+      "journal": "Journal of Artificial Intelligence and Soft Computing Research",
+      "doi": "https://doi.org/10.2478/jaiscr-2025-0005",
+      "year": "2025",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "9dab00ff-365e-4461-9aa3-8636dfdaae90",
+      "title": "Advanced Vision Techniques in Soccer Match Analysis: From Detection to Classification",
+      "journal": "Proceedings of the 20th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications",
+      "doi": "https://doi.org/10.5220/0013377100003912",
+      "year": "2025",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "f5be3f56-585c-4f40-a444-3bf229ee1cc4",
+      "title": "Python library for interval-valued fuzzy inference",
+      "journal": "SoftwareX",
+      "doi": "https://doi.org/10.1016/j.softx.2024.101730",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "a8efea34-309a-4ec8-b362-59f22f677c3f",
+      "title": "Applications of IFIS python library in interval-valued fuzzy inference problems",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz-ieee60900.2024.10612169",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "32294ac9-293a-4259-8f98-29fbe3537c87",
+      "title": "Federated Learning with the Choquet Integral as Aggregation Method",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz-ieee60900.2024.10611748",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "fa9d590c-a76e-4b86-b98d-e6a18f772b93",
+      "title": "Improving The Evaluation of Defensive Player Values with Advanced Machine Learning Techniques",
+      "journal": null,
+      "doi": "https://doi.org/10.62036/isd.2024.67",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "4f30d7b1-5430-489b-9ac5-9b8d4351d8ec",
+      "title": "Integrating AI and Sports Science for Enhanced Football Analytics and Injury Prediction",
+      "journal": null,
+      "doi": null,
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "6b896632-2634-4d51-a846-d8c301e72688",
+      "title": "O zbiorach rozmytych, czyli o tym, jak nauczyć komputery rozumieć oraz wykorzystywać informację nieprecyzyjną",
+      "journal": null,
+      "doi": null,
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "a6d4583f-0404-44d9-880d-b7183deaeb6b",
+      "title": "Sensor-Based Injury Prediction in Football Using a New Interval-Valued Fuzzy Inference Library",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz-ieee60900.2024.10611885",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "25539cce-bf6c-4932-adba-76a862d02b1f",
+      "title": "Team Strengths via Bayesian Modeling",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/iceccme62383.2024.10797054",
+      "year": "2024",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "fb258054-57df-42e7-b9b3-bb97b8ba53e8",
+      "title": "Implementation of an Artificially Empathetic Robot Swarm",
+      "journal": "Sensors",
+      "doi": "https://doi.org/10.3390/s24010242",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "b89f9463-0f57-4d6b-9298-3318f2edfd2f",
+      "title": "Implementation of an Artificially Empathetic Robot Swarm",
+      "journal": null,
+      "doi": "https://doi.org/10.20944/preprints202312.1190.v1",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "87a99588-497b-4417-bcdf-cf246b983f52",
+      "title": "Predicting Injuries in Football Based on Data Collected from GPS-Based Wearable Sensors",
+      "journal": "Sensors",
+      "doi": "https://doi.org/10.3390/s23031227",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "0d9784f6-f8b5-467f-8d45-5b3d515d398d",
+      "title": "A Comparison of Client Weighting Schemes in Federated Learning",
+      "journal": null,
+      "doi": "https://doi.org/10.1007/978-3-031-45069-3_11",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "8dbcfc90-9fc6-4a49-b0b5-ed6bd6758cf9",
+      "title": "A New Look at the Entropy of Interval-Valued Fuzzy Sets - Theory and Applications",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz52849.2023.10309780",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "e55eab6f-237f-4d4b-8ad9-91eabf174578",
+      "title": "Evaluation of selected Cardinality Pattern functions and linguistic variables applied to authors dominant discipline classification",
+      "journal": null,
+      "doi": "https://doi.org/10.15439/2023f2798",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "556ecd7a-ccc6-4d2d-887f-5ebecb125839",
+      "title": "Federated Similarity-Based Learning with Incomplete Data",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz52849.2023.10309757",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "5efa4331-6ca0-4769-b9bc-4e903df58295",
+      "title": "Fusion of a Fuzzy Rule-Based Method and Other Decision-Making Models in Injury Prediction Problem in Football",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz52849.2023.10309726",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "0d3760ff-cd4b-474d-8186-243874dcb24c",
+      "title": "The Sugeno Integral Used for Federated Learning with Uncertainty for Unbalanced Data",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz52849.2023.10309680",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "82f9bfbb-2446-43e4-b773-e095850738c4",
+      "title": "The Use of a Fuzzy Rule-Based System in Adaptive e-Learning Content Based on Intercultural Competence",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz52849.2023.10309813",
+      "year": "2023",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "64d86458-9f62-4f54-bffc-04bee89ce2fd",
+      "title": "Federated learning with uncertainty on the example of a medical data",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz-ieee55066.2022.9882862",
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "38583408-fb18-457c-bdd6-ece589481368",
+      "title": "Impact of changes in volumes of external training loads collected with wearable GPS sensors on the occurrence of injuries in footbal",
+      "journal": null,
+      "doi": null,
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "02ed08fc-9d71-4939-b655-0099a3a76196",
+      "title": "Impact of changes in volumes of external training loads collected with wearable GPS sensors on the occurrence of injuries in footbal",
+      "journal": null,
+      "doi": null,
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "75407966-8a4e-425d-be5d-24f51de93709",
+      "title": "Lech Drewnowski : odnowienie doktoratu 7 listopada 2022",
+      "journal": null,
+      "doi": null,
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "5652ae46-0763-48ea-ac2d-c57f3fc93fa1",
+      "title": "Lech Drewnowski : odnowienie doktoratu 7 listopada 2022",
+      "journal": null,
+      "doi": null,
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "154b48a0-6fe6-464e-b1b1-9dfffa5e89a2",
+      "title": "Selection of Relevant Features Based on Optimistic and Pessimistic Similarities Measures of Interval-Valued Fuzzy Sets",
+      "journal": null,
+      "doi": "https://doi.org/10.1007/978-3-031-08971-8_26",
+      "year": "2022",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "6a0f1af1-7369-4ffc-9966-028e9c3970cb",
+      "title": "Gaze and Event Tracking for Evaluation of Recommendation-Driven Purchase",
+      "journal": "Sensors",
+      "doi": "https://doi.org/10.3390/s21041381",
+      "year": "2021",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "c7d0a339-9513-4fea-8b35-b394661079d5",
+      "title": "Inclusion and similarity measures for interval-valued fuzzy sets based on aggregation and uncertainty assessment",
+      "journal": "Information Sciences",
+      "doi": "https://doi.org/10.1016/j.ins.2020.09.072",
+      "year": "2021",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "70f52abf-0437-45a4-b166-0b9b16b82948",
+      "title": "Application of entropy measures with uncertainty in classification methods with missing data problem",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz45933.2021.9494498",
+      "year": "2021",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "41bd1daf-9027-4f83-9bad-c3c6425e8cef",
+      "title": "Classification of uncertain data with a selection of relevant features based on similarities measures of Interval-Valued Fuzzy Sets",
+      "journal": null,
+      "doi": "https://doi.org/10.1109/fuzz45933.2021.9494595",
+      "year": "2021",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "ea387dd0-09be-446b-9526-01869da129a4",
+      "title": "The ordering methods of interval-valued fuzzy cardinal numbers with application in an uncertain decision making",
+      "journal": "2020 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+      "doi": "https://doi.org/10.1109/fuzz48607.2020.9177807",
+      "year": "2020",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "71d4a1c4-e8cf-4961-a5ed-50835a028831",
+      "title": "New methods for comparing interval-valued fuzzy cardinal numbers",
+      "journal": "Communications in Computer and Information Science",
+      "doi": "https://doi.org/10.1007/978-3-030-50143-3_41",
+      "year": "2020",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "6d4f319c-8ce2-4db2-aa5a-5b67378b8878",
+      "title": "Rating system analysis in quality engineering based on fuzzy similarity",
+      "journal": "Journal of Multiple-Valued Logic and Soft Computing",
+      "doi": null,
+      "year": "2019",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "fe489072-464d-459e-90e9-cc80f1ed4f3f",
+      "title": "Rating system analysis in quality engineering based on fuzzy similarity",
+      "journal": "Journal of Multiple-Valued Logic and Soft Computing",
+      "doi": null,
+      "year": "2019",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "142cdff6-391b-4728-b274-f4c4731aadd3",
+      "title": "Rating system analysis in quality engineering based on fuzzy similarity",
+      "journal": "Journal of Multiple-Valued Logic and Soft Computing",
+      "doi": null,
+      "year": "2019",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "65b2b264-a9b1-4f22-8df8-b3f759404e05",
+      "title": "A decision-making model in an IVFS environment based on sigma f-count cardinality",
+      "journal": "Advances in Intelligent Systems and Computing",
+      "doi": "https://doi.org/10.1007/978-3-319-65545-1_11",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "9959eb07-dcc1-44d1-9acd-78cbf93b5b64",
+      "title": "An Uncertainty Aware Medical Diagnosis Support System",
+      "journal": null,
+      "doi": "https://doi.org/10.1007/978-3-319-91479-4_32",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "cb65439c-b3b5-45bd-bc58-b61f187afed3",
+      "title": "Cardinalities of interval-valued fuzzy sets and their applications in decision making with imperfect information",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8_4",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "28942e20-72cf-4a92-950a-4196f832c79e",
+      "title": "Elements of fuzzy set theory",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8_3",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "2087afd1-1bb3-4319-8760-bf484a29d149",
+      "title": "Intelligent Medical Decision Support System Based on Imperfect Information",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "e18da4fd-372f-4c86-b911-cac2e4441db7",
+      "title": "Introduction",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8_1",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "15795767-01fd-44f2-aef9-b03465b6a296",
+      "title": "Medical foundations",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8_2",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "30e03b62-77db-4038-a3f0-cc583ea0876e",
+      "title": "OvaExpert system",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8_5",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "2e9914d1-0caa-489b-b562-f2cfa8a2078e",
+      "title": "Summary",
+      "journal": "Studies in Computational Intelligence",
+      "doi": "https://doi.org/10.1007/978-3-319-67005-8_6",
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "3e6b16f8-d0fb-472f-89dc-93aae611c666",
+      "title": "Solving the problem of incomplete data in medical diagnosis via interval modeling",
+      "journal": "Applied Soft Computing",
+      "doi": "https://doi.org/10.1016/j.asoc.2016.05.029",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "ab494779-f1bf-4e74-ad4b-112724644b56",
+      "title": "External validation of the IOTA ADNEX model performed by two independent gynecologic centers",
+      "journal": "Gynecologic Oncology",
+      "doi": "https://doi.org/10.1016/j.ygyno.2016.06.020",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "c39caa8e-48e6-4f6b-93b2-9ae3a77ea8d5",
+      "title": "A Bipolar View on Medical Diagnosis in OvaExpert System",
+      "journal": "Flexible Query Answering Systems 2015",
+      "doi": "https://doi.org/10.1007/978-3-319-26154-6_37",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "52c4da7e-e7bf-444c-aae0-1807915c2bd3",
+      "title": "Assessing the raters agreement in the diagnostic catheter tube connector production process using novel fuzzy similarity coefficient",
+      "journal": "IEEE International Conference on Industrial Engineering and Engineering Management",
+      "doi": "https://doi.org/10.1109/IEEM.2016.7797870",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "619b982f-1eac-4190-b8dc-e3be6f385f88",
+      "title": "Development of a fuzzy-driven system for ovarian tumor diagnosis",
+      "journal": "Biocybernetics and Biomedical Engineering",
+      "doi": "https://doi.org/10.1016/j.bbe.2016.08.003",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "8109c5ab-d07d-4b04-b2ca-d7dc39b1e07d",
+      "title": "Nowe rozwiązania w zakresie systemów do strumieniowania obrazu ruchomego w sieciach bezprzewodowych",
+      "journal": "Przegląd Telekomunikacyjny - Wiadomości Telekomunikacyjne",
+      "doi": "https://doi.org/10.15199/59.2016.6.100",
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "854a3e74-4866-465f-8b12-69a900420bfe",
+      "title": "A Fuzzy Cardinality Based Method to Aggregate Decisions in IVFS Environment",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "51be868a-77f6-45aa-bc77-8dd84820ab8d",
+      "title": "A Fuzzy Cardinality Based Method to Aggregate Decisions in IVFS Environment",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "ecf1d2e8-5b88-4142-b9e2-888153c2f183",
+      "title": "An Intelligent System for Computer-Aided Ovarian Tumor Diagnosis",
+      "journal": "Intelligent Systems'2014, Vol 2: Tools, Architectures, Systems, Applications",
+      "doi": "https://doi.org/10.1007/978-3-319-11310-4_29",
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "4a833c78-8dfc-43d9-a97e-2df7859050de",
+      "title": "An Interval-Valued Fuzzy Classifier Based on an Uncertainty-Aware Similarity Measure",
+      "journal": "Intelligent Systems'2014, Vol 1: Mathematical Foundations, Theory, Analyses",
+      "doi": "https://doi.org/10.1007/978-3-319-11313-5_65",
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "4a5aba0e-e12a-4f13-8b27-27e26ef09906",
+      "title": "Gramatyka fonetyczna w ujęciu aksjomatycznej teorii języka. Analiza komputerowa języków polskiego, chińskiego i hindi.",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "98a341b2-4d40-439b-b73f-738b16408494",
+      "title": "Improving medical decisions under incomplete data using interval-valued fuzzy aggregation",
+      "journal": "Proceedings of the 2015 Conference of the International Fuzzy Systems Association and the European Society for Fuzzy Logic and Technology",
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "9d3f4dea-34f6-4b4d-98ae-406c50e251a9",
+      "title": "Improving medical decisions under incomplete data using interval-valued fuzzy aggregation",
+      "journal": null,
+      "doi": "https://doi.org/10.2991/ifsa-eusflat-15.2015.83",
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "484ed201-0e47-4060-bbc5-217af1c9ffb2",
+      "title": "Interval-valued aggregation as a tool to improve medical diagnosis",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "e72706a3-4fe7-4acf-8c72-0538f6fc6f05",
+      "title": "Interval-valued aggregation as a tool to improve medical diagnosis",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "7c07a977-fe8a-4c5e-9769-09b61ca254bd",
+      "title": "New method for assessment of raters agreement based on fuzzy similarity",
+      "journal": "Advances in Intelligent Systems and Computing",
+      "doi": "https://doi.org/10.1007/978-3-319-19719-7_36",
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "52098e52-9fdb-4dc6-8cbb-85ff26a7b9ef",
+      "title": "OvaExpert system successfully differentiates ovarian tumors using imprecise and incomplete information – results of preliminary research",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "0af1e4c1-1b95-440a-8da6-d1c144e09419",
+      "title": "OvaExpert system successfully differentiates ovarian tumors using imprecise and incomplete information – results of preliminary research",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "620b02dd-795c-45e0-881c-db128f87af94",
+      "title": "PROCA – new diagnostic tool for pre-operative decision support of women with ovarian tumors",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "381c2e34-305f-4ec0-8090-6e9d0659ab5e",
+      "title": "PROCA – new diagnostic tool for pre-operative decision support of women with ovarian tumors",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "a46826be-8e31-45c0-8db2-f17e7b34f63c",
+      "title": "Szacowanie poziomu zgodności ocen w kontroli wizualnej - problemy w wyznaczaniu współczynników typu Kappa",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "0106ba6a-6bc7-4f11-8f48-8a62b6d59cee",
+      "title": "Szacowanie poziomu zgodności ocen w kontroli wizualnej - problemy w wyznaczaniu współczynników typu Kappa",
+      "journal": null,
+      "doi": null,
+      "year": "2015",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "d7767ba7-f261-46b4-9800-d8a6eff4011f",
+      "title": "Dealing with Uncertainty in Ovarian Tumor Diagnosis",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "da47f1fb-cd30-4fc7-a1b6-42f23cbb6fe0",
+      "title": "Dealing with Uncertainty in Ovarian Tumor Diagnosis",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "fb4b472b-29e6-499a-b75c-5bd81a479888",
+      "title": "Elevator Pitch i Business Model Canvas jako elementy dialogu w relacjach nauka-biznes",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "c7791218-0c91-4a59-b97a-6fe215ee060e",
+      "title": "Elevator Pitch i Business Model Canvas jako elementy dialogu w relacjach nauka-biznes",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "36c68d1a-56e1-4e4f-a3a0-2b6b29268bcc",
+      "title": "External validation of selected predictive models in differential diagnosis of adnexal masses difficult to classify as benign or malignant",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "b0b17a5f-9667-46c2-bcc9-988ecb22e935",
+      "title": "External validation of selected predictive models in differential diagnosis of adnexal masses difficult to classify as benign or malignant",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "7857259b-f3a4-4381-9260-0d777e59c90c",
+      "title": "Logika rozmyta w ocenie alternatywnych systemów pomiarowych jako jeden z kierunków rozwoju MSA",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "b5dc0af0-08e9-440c-a702-f2251e271f61",
+      "title": "Logika rozmyta w ocenie alternatywnych systemów pomiarowych jako jeden z kierunków rozwoju MSA",
+      "journal": null,
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "e41cecbb-01cd-4ae9-b49f-78bc24b2b653",
+      "title": "Menopausal status strongly influences the utility of predictive models in differential diagnosis of ovarian tumors: An external validation of selected diagnostic tools",
+      "journal": "Ginekologia Polska",
+      "doi": null,
+      "year": "2014",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "0cdde049-fc96-4817-ac7d-ebc38098b815",
+      "title": "A similarity measure with uncertainty for incompletely known fuzzy sets",
+      "journal": "Proceedings of the 2013 Joint IFSA World Congress and NAFIPS Annual Meeting, IFSA/NAFIPS 2013",
+      "doi": "https://doi.org/10.1109/IFSA-NAFIPS.2013.6608432",
+      "year": "2013",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "e1da920f-021c-49c7-afac-a260042908f0",
+      "title": "A recommender system with uncertainty on the example of political elections",
+      "journal": "Communications in Computer and Information Science",
+      "doi": "https://doi.org/10.1007/978-3-642-31715-6_47",
+      "year": "2012",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "d8645d73-e7cd-44e1-b80d-58d752aa848e",
+      "title": "Application of IF-Sets to modeling of lip shapes similarities",
+      "journal": "Communications in Computer and Information Science",
+      "doi": "https://doi.org/10.1007/978-3-642-14055-6_64",
+      "year": "2010",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "23d946c1-e911-4fe9-9c11-0300b8820994",
+      "title": "A Comparative Phonetic Grammar on the Example of Mandarin Chinese and Polish",
+      "journal": "Rocznik Orientalistyczny",
+      "doi": null,
+      "year": "2009",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "3f7e87e9-54a5-4ebd-be23-df5e9af9a07a",
+      "title": "A Comparative Phonetic Grammar on the Example of Mandarin Chinese and Polish",
+      "journal": "Rocznik Orientalistyczny",
+      "doi": null,
+      "year": "2009",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "14bdf6bc-5762-4b50-9ee5-4014bb14db8f",
+      "title": "Computing the hierarchy of the articulatory dimensions",
+      "journal": "Proceedings of the International Multiconference on Computer Science and Information Technology, IMCSIT '09",
+      "doi": "https://doi.org/10.1109/IMCSIT.2009.5352726",
+      "year": "2009",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "60a466f7-f7af-44ed-9c09-71e16c4e95da",
+      "title": "An application supporting language analysis within the framework of the phonetic grammar",
+      "journal": "Proceedings of the International Multiconference on Computer Science and Information Technology, IMCSIT 2008",
+      "doi": "https://doi.org/10.1109/IMCSIT.2008.4747265",
+      "year": "2008",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "1d6c9082-5489-4c63-81cd-3a91412304e2",
+      "title": "A less cumulative algorithm of mining linguistic browsing patterns in the world wide web",
+      "journal": null,
+      "doi": null,
+      "year": "2007",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "6d0e3a47-b41b-4e41-9eef-db6f82c993f4",
+      "title": "A less cumulative algorithm of mining linguistic browsing patterns in the world wide web",
+      "journal": "New Dimensions in Fuzzy Logic and Related Technologies - Proceedings of the 5th EUSFLAT 2005 Conference",
+      "doi": null,
+      "year": "2007",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "b05c3e86-885b-4755-9af5-1ebb883e45b4",
+      "title": "On triangular norm-based generalized cardinals and singular fuzzy sets",
+      "journal": "Fuzzy Sets and Systems",
+      "doi": "https://doi.org/10.1016/s0165-0114(02)00332-9",
+      "year": "2003",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "6d31b0e5-c8d4-442b-841e-80b3aa16b748",
+      "title": "Singularity and fuzziness of fuzzy sets",
+      "journal": null,
+      "doi": null,
+      "year": "2003",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    },
+    {
+      "id": "2ce32ec3-acbd-41e6-8e5a-c51ae5511eff",
+      "title": "On cardinality and singular fuzzy sets",
+      "journal": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
+      "doi": null,
+      "year": "2001",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:25:09.050323",
+      "updated_at": "2025-05-11T10:25:09.050323"
+    }
+  ],
+  "publications_authors": [
+    {
+      "id": "ae4cb330-9ba0-4059-ae18-8852190cd0d1",
+      "publication_id": "1e0e26c5-1f93-4500-9d43-c4af808d1178",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4485e262-2d7f-4dca-b96c-4eab369064cf",
+      "publication_id": "9dab00ff-365e-4461-9aa3-8636dfdaae90",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "bae5bb30-0968-4f53-956c-82721b4bc446",
+      "publication_id": "f5be3f56-585c-4f40-a444-3bf229ee1cc4",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4973ebbc-dec1-4876-96bb-d803a8ab497c",
+      "publication_id": "a8efea34-309a-4ec8-b362-59f22f677c3f",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4020e6b5-8316-4f53-9633-e53b45597117",
+      "publication_id": "32294ac9-293a-4259-8f98-29fbe3537c87",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b782b04b-cdbe-4400-8196-0cf79ba2dc50",
+      "publication_id": "fa9d590c-a76e-4b86-b98d-e6a18f772b93",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5486369c-d804-442f-8640-e4ab99b9a914",
+      "publication_id": "4f30d7b1-5430-489b-9ac5-9b8d4351d8ec",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a631f01f-f6c5-4ae9-9a18-45ec055f2ab7",
+      "publication_id": "6b896632-2634-4d51-a846-d8c301e72688",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7b9ef5d7-5e76-47fa-a596-946ac806b490",
+      "publication_id": "a6d4583f-0404-44d9-880d-b7183deaeb6b",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e9dcbba1-059c-4109-8daf-434a98dede40",
+      "publication_id": "25539cce-bf6c-4932-adba-76a862d02b1f",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "2fdbb8f7-2bc3-477d-86f2-d2e86fe2071d",
+      "publication_id": "fb258054-57df-42e7-b9b3-bb97b8ba53e8",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d5131ae5-c254-4393-92f5-69cbe5563665",
+      "publication_id": "b89f9463-0f57-4d6b-9298-3318f2edfd2f",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "41b12c96-de91-4a5d-a6a0-b92ab6e15b5b",
+      "publication_id": "87a99588-497b-4417-bcdf-cf246b983f52",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "05932244-7995-46ec-b2aa-32c540e5fb10",
+      "publication_id": "0d9784f6-f8b5-467f-8d45-5b3d515d398d",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a9d69e6a-87b2-403d-ac2f-3af88d739396",
+      "publication_id": "8dbcfc90-9fc6-4a49-b0b5-ed6bd6758cf9",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "0494dec8-2c0f-4a65-9385-4dfc2943af52",
+      "publication_id": "e55eab6f-237f-4d4b-8ad9-91eabf174578",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e20bf59d-2f17-4889-a042-12d0f31c5ca8",
+      "publication_id": "556ecd7a-ccc6-4d2d-887f-5ebecb125839",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "92274d72-05b8-4387-a611-6e8f62fa8835",
+      "publication_id": "5efa4331-6ca0-4769-b9bc-4e903df58295",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f9c109e7-c4e7-43de-bf41-a273e60abe87",
+      "publication_id": "0d3760ff-cd4b-474d-8186-243874dcb24c",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a0f33b95-327b-46fc-93d3-bf8de8afae79",
+      "publication_id": "82f9bfbb-2446-43e4-b773-e095850738c4",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "29a33895-9735-4719-810f-66d072bf18dd",
+      "publication_id": "64d86458-9f62-4f54-bffc-04bee89ce2fd",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "49aac2cc-a933-4e1f-9be7-24446ecb8398",
+      "publication_id": "38583408-fb18-457c-bdd6-ece589481368",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d5088eda-3f10-4d58-8654-93e82e785ec7",
+      "publication_id": "02ed08fc-9d71-4939-b655-0099a3a76196",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "177d9933-4622-492d-a50b-cb7ec5a67ffe",
+      "publication_id": "75407966-8a4e-425d-be5d-24f51de93709",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f837de25-297d-453b-8751-c893c1534cf0",
+      "publication_id": "5652ae46-0763-48ea-ac2d-c57f3fc93fa1",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a6b74846-8f55-4c2a-b8b9-ac90040be3a0",
+      "publication_id": "154b48a0-6fe6-464e-b1b1-9dfffa5e89a2",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d19dcd27-8fc0-443c-9bc1-ccf3ed858d9d",
+      "publication_id": "6a0f1af1-7369-4ffc-9966-028e9c3970cb",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "85a8c612-477c-4709-ace1-f94ec9333485",
+      "publication_id": "c7d0a339-9513-4fea-8b35-b394661079d5",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8c2bff8f-6bac-46ad-a3fd-5690705374a1",
+      "publication_id": "70f52abf-0437-45a4-b166-0b9b16b82948",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "42762a01-e20b-48bb-9178-d157a7991b95",
+      "publication_id": "41bd1daf-9027-4f83-9bad-c3c6425e8cef",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "627925be-a755-4769-856b-e46fd5234067",
+      "publication_id": "ea387dd0-09be-446b-9526-01869da129a4",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4b648b44-373b-49d6-8454-adbda8b0e43a",
+      "publication_id": "71d4a1c4-e8cf-4961-a5ed-50835a028831",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3e87c6d9-09c1-4d8e-9c17-ae23d2fc4e4a",
+      "publication_id": "6d4f319c-8ce2-4db2-aa5a-5b67378b8878",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6ff3b9e6-253e-49cb-b79f-18611970b9b2",
+      "publication_id": "fe489072-464d-459e-90e9-cc80f1ed4f3f",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a4cbdf13-35b5-43ec-9b08-d19297fa84ca",
+      "publication_id": "142cdff6-391b-4728-b274-f4c4731aadd3",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f5b4f2e4-4df3-42c6-95d8-c69bd5600414",
+      "publication_id": "65b2b264-a9b1-4f22-8df8-b3f759404e05",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "9c1414d0-596a-482d-a74f-72a5f21b2eb9",
+      "publication_id": "9959eb07-dcc1-44d1-9acd-78cbf93b5b64",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6e1ef4a0-2a01-42a9-9999-4fbd5e23e88d",
+      "publication_id": "cb65439c-b3b5-45bd-bc58-b61f187afed3",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5652b07a-121d-4361-bc90-aec2fba0fdc9",
+      "publication_id": "28942e20-72cf-4a92-950a-4196f832c79e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "28f6839f-ef63-4c02-adc8-836d2306e058",
+      "publication_id": "2087afd1-1bb3-4319-8760-bf484a29d149",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "194df42b-697e-46c9-bc29-fe38a3f585f4",
+      "publication_id": "e18da4fd-372f-4c86-b911-cac2e4441db7",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a65c9288-3124-414b-a6f7-b9854256ad0e",
+      "publication_id": "15795767-01fd-44f2-aef9-b03465b6a296",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "527f3af9-83d2-489d-b79e-c4784bd0b2b7",
+      "publication_id": "30e03b62-77db-4038-a3f0-cc583ea0876e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e4164c04-50e8-492f-8d16-1b5b1bbc248d",
+      "publication_id": "2e9914d1-0caa-489b-b562-f2cfa8a2078e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "60ed392c-e799-42a6-b613-4cf4a82dfe5e",
+      "publication_id": "3e6b16f8-d0fb-472f-89dc-93aae611c666",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "98f1895c-c45f-4981-817b-b335ef9fff7d",
+      "publication_id": "ab494779-f1bf-4e74-ad4b-112724644b56",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f3819a40-254a-438d-bfba-b997a440a1a4",
+      "publication_id": "c39caa8e-48e6-4f6b-93b2-9ae3a77ea8d5",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4b35b22b-2323-4fb2-8dbd-5de6bd681c61",
+      "publication_id": "52c4da7e-e7bf-444c-aae0-1807915c2bd3",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b7e7531b-1a72-4c07-8d5c-e82af9fcbc7e",
+      "publication_id": "619b982f-1eac-4190-b8dc-e3be6f385f88",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3f1b3f55-5963-4059-8324-545f085d85e3",
+      "publication_id": "8109c5ab-d07d-4b04-b2ca-d7dc39b1e07d",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "fa89aec0-d8ec-4f80-a5bb-e9a728148e74",
+      "publication_id": "854a3e74-4866-465f-8b12-69a900420bfe",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e0f91237-72ca-41f0-9bf0-43c492341c78",
+      "publication_id": "51be868a-77f6-45aa-bc77-8dd84820ab8d",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c9300f2a-8439-43aa-88d0-a7cd229ab732",
+      "publication_id": "ecf1d2e8-5b88-4142-b9e2-888153c2f183",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "0d398a8b-6f7c-4a64-9cda-da9c5311283d",
+      "publication_id": "4a833c78-8dfc-43d9-a97e-2df7859050de",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3daefab1-469b-49e4-8b6a-44e7bef4abc6",
+      "publication_id": "4a5aba0e-e12a-4f13-8b27-27e26ef09906",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3e8ad2f1-54ea-41d0-bb34-e31b6f9e4ed9",
+      "publication_id": "98a341b2-4d40-439b-b73f-738b16408494",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "596eac70-358c-4a43-8b1b-d8d30496e1f3",
+      "publication_id": "9d3f4dea-34f6-4b4d-98ae-406c50e251a9",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f5084e87-fe9e-4b3b-bfe6-aad1c17a4f8e",
+      "publication_id": "484ed201-0e47-4060-bbc5-217af1c9ffb2",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "af8f4da1-50b2-4f91-834e-74f7879b7623",
+      "publication_id": "e72706a3-4fe7-4acf-8c72-0538f6fc6f05",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "091c33a9-2e02-496d-8a83-92a7fede9c66",
+      "publication_id": "7c07a977-fe8a-4c5e-9769-09b61ca254bd",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6dbeb9e2-3a8a-472d-b3e9-f2a1569f766c",
+      "publication_id": "52098e52-9fdb-4dc6-8cbb-85ff26a7b9ef",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "83d346d4-a265-441e-be26-4d505bdb319a",
+      "publication_id": "0af1e4c1-1b95-440a-8da6-d1c144e09419",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "607d00fd-f69e-4f43-8a4d-1bdad4d50cea",
+      "publication_id": "620b02dd-795c-45e0-881c-db128f87af94",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "bea70d42-4d1c-48da-b6c4-b7e6b4305556",
+      "publication_id": "381c2e34-305f-4ec0-8090-6e9d0659ab5e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "82203832-532e-4b96-8147-656eab73ffef",
+      "publication_id": "a46826be-8e31-45c0-8db2-f17e7b34f63c",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "eae10d9e-33af-4d09-a5c9-5d966f680e04",
+      "publication_id": "0106ba6a-6bc7-4f11-8f48-8a62b6d59cee",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ca08b3b1-0e11-49a0-b7b1-1fd5c166e020",
+      "publication_id": "d7767ba7-f261-46b4-9800-d8a6eff4011f",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "20e31184-97b4-4d0f-b5d2-14832dc20bd7",
+      "publication_id": "da47f1fb-cd30-4fc7-a1b6-42f23cbb6fe0",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "83c512f8-ccff-4c42-aa1c-f4c01082ebe6",
+      "publication_id": "fb4b472b-29e6-499a-b75c-5bd81a479888",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "49ac74bd-adb5-4925-ac5f-7ee5ba405c07",
+      "publication_id": "c7791218-0c91-4a59-b97a-6fe215ee060e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f0ec1b5b-45b4-4074-a247-d6acda747002",
+      "publication_id": "36c68d1a-56e1-4e4f-a3a0-2b6b29268bcc",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d7a73b10-8b3b-43d7-94c4-048bb15d807e",
+      "publication_id": "b0b17a5f-9667-46c2-bcc9-988ecb22e935",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a5f76c4c-7025-48a7-aa37-7575da207728",
+      "publication_id": "7857259b-f3a4-4381-9260-0d777e59c90c",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4a0efe5d-b252-4144-a6c9-de6262b3c7f9",
+      "publication_id": "b5dc0af0-08e9-440c-a702-f2251e271f61",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7f678799-ca8d-49e9-92cb-7d88ba7c71d7",
+      "publication_id": "e41cecbb-01cd-4ae9-b49f-78bc24b2b653",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8115919e-e33e-46c5-9d6c-2029e93dd7d1",
+      "publication_id": "0cdde049-fc96-4817-ac7d-ebc38098b815",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a9904e0f-216b-4ccd-a4ad-d04b9c5863f9",
+      "publication_id": "e1da920f-021c-49c7-afac-a260042908f0",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "05fb8ff5-9710-456a-bb7d-faca053631c9",
+      "publication_id": "d8645d73-e7cd-44e1-b80d-58d752aa848e",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ae4c54b7-5708-460a-b739-dde7f66c8bae",
+      "publication_id": "23d946c1-e911-4fe9-9c11-0300b8820994",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "12cbd113-5eeb-4827-a315-3982064023b9",
+      "publication_id": "3f7e87e9-54a5-4ebd-be23-df5e9af9a07a",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5a48c74a-56a1-473f-9db6-7aad11a83397",
+      "publication_id": "14bdf6bc-5762-4b50-9ee5-4014bb14db8f",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a7956302-0eed-47ff-8055-1c9276aa94ac",
+      "publication_id": "60a466f7-f7af-44ed-9c09-71e16c4e95da",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f65f37ad-35e8-41cf-90e2-507e9fb49068",
+      "publication_id": "1d6c9082-5489-4c63-81cd-3a91412304e2",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "df65428b-5cd1-485b-87ab-faef235f5590",
+      "publication_id": "6d0e3a47-b41b-4e41-9eef-db6f82c993f4",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "046b588a-4f64-4870-8544-9aa41ff34179",
+      "publication_id": "b05c3e86-885b-4755-9af5-1ebb883e45b4",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e57e45ad-59ce-42df-8808-0cb624b0a9bc",
+      "publication_id": "6d31b0e5-c8d4-442b-841e-80b3aa16b748",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a42a8c0e-31d7-4f26-92e3-45ea698c8e24",
+      "publication_id": "2ce32ec3-acbd-41e6-8e5a-c51ae5511eff",
+      "researcher_id": "408b3983-9e41-4dbf-b9d2-a7a472f4c2c6",
+      "author_order": null,
+      "is_corresponding": null
+    }
+  ]
+}

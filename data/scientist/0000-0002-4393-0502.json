@@ -1,0 +1,216 @@
+{
+  "orcid_id": "0000-0002-4393-0502",
+  "researcher": {
+    "id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+    "orcid_id": "0000-0002-4393-0502",
+    "first_name": "Gökçe",
+    "last_name": "Sanul",
+    "full_name": "Gökçe Sanul",
+    "email": null,
+    "country": null,
+    "primary_affiliation": "İzmir University of Economics",
+    "created_at": "2025-05-11T10:26:26.343486",
+    "updated_at": "2025-05-11T10:26:26.343486"
+  },
+  "sources": [
+    {
+      "id": "745bb4e7-33bb-4786-a42a-ab87958d5baf",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "platform": "ORCID",
+      "source_id": "0000-0002-4393-0502",
+      "endpoint": "https://pub.orcid.org/v3.0/0000-0002-4393-0502/person",
+      "last_fetched": "2025-05-11T10:26:26.343486",
+      "last_status": "200",
+      "active": true
+    }
+  ],
+  "keywords": [],
+  "affiliations": [
+    {
+      "id": "38a374b4-f4e0-4d81-b685-4fa352d27d34",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "institution": "İzmir University of Economics",
+      "department": "Sociology",
+      "role": "parttime lecturer",
+      "country": "TR",
+      "start_date": "2021-03-01",
+      "end_date": null
+    },
+    {
+      "id": "356a92c2-118e-4007-9ce8-c6329ea49f8d",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "institution": "University of Amsterdam",
+      "department": "Centre for Urban Studies",
+      "role": "visiting research fellow",
+      "country": "NL",
+      "start_date": "2020-01-15",
+      "end_date": "2020-04-15"
+    },
+    {
+      "id": "1b615e91-7eb0-49ea-ab5e-9cc0ddf41062",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "institution": "Istanbul Foundation for Culture and Arts",
+      "department": "Cultural Policies",
+      "role": "researcher in the yearly cultural policy report",
+      "country": "TR",
+      "start_date": "2015-06-01",
+      "end_date": "2016-01-01"
+    },
+    {
+      "id": "820401e7-64cd-4d53-a2a5-a5e94cca95fa",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "institution": "Izmir Development Agency",
+      "department": null,
+      "role": "Researcher for the project entitled as Izmir Cultural Economy Compendium, realized with the collaboration of 9 Eylul University Departmentof City and Regional Planning and Aegean University Department of Economics",
+      "country": "TR",
+      "start_date": "2012-06-01",
+      "end_date": "2013-06-01"
+    },
+    {
+      "id": "244a3429-d00e-4c3b-bb22-c4da7f34327f",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "institution": "Istanbul Bilgi University",
+      "department": "Cultural Management",
+      "role": "Teaching assistant",
+      "country": "TR",
+      "start_date": "2011-06-01",
+      "end_date": "2012-06-01"
+    }
+  ],
+  "education": [
+    {
+      "id": "96de7545-c516-4539-babe-ea7382b412d5",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "degree": "PhD",
+      "field": "Department of Geography",
+      "institution": "Vrije Universiteit Brussel",
+      "country": "BE",
+      "start_date": "2013-09-01",
+      "end_date": "2019-10-01"
+    },
+    {
+      "id": "4e809657-8925-4040-8d20-fde24aed7a57",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "degree": null,
+      "field": "Summer Institute in Urban Studies",
+      "institution": "University of Manchester",
+      "country": "GB",
+      "start_date": "2016-06-26",
+      "end_date": "2016-06-30"
+    },
+    {
+      "id": "290d0a1a-1f13-411f-bc24-fa0bab88a200",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "degree": "Master of Arts",
+      "field": "Cultural Management",
+      "institution": "Istanbul Bilgi University ",
+      "country": "TR",
+      "start_date": "2010-09-01",
+      "end_date": "2012-06-01"
+    },
+    {
+      "id": "3d938c4c-8e4f-4417-917d-24ef610dfa75",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "degree": "Bachelor of Arts",
+      "field": "International Relations",
+      "institution": "Koç University",
+      "country": "TR",
+      "start_date": "2005-09-01",
+      "end_date": "2010-06-01"
+    }
+  ],
+  "publications": [
+    {
+      "id": "61a3dda2-b14e-4629-929b-bc2befc9bdbc",
+      "title": "Towards a solidary form of publicness: Circulation of tangible and intangible cultural assets between alternative cultural organisations of Istanbul and their micro public(s). ",
+      "journal": "CIDADES, Comunidades e Territórios (Cities, Communities and Territories)",
+      "doi": null,
+      "year": "2020",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:26.348340",
+      "updated_at": "2025-05-11T10:26:26.348340"
+    },
+    {
+      "id": "13bc7de3-2e05-4621-afa0-b5b3bd8a25b2",
+      "title": "Spaces of openness: Urban citizenship and cultural infrastructures of common life in Istanbul",
+      "journal": "City",
+      "doi": null,
+      "year": "2018",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:26.348340",
+      "updated_at": "2025-05-11T10:26:26.348340"
+    },
+    {
+      "id": "f9867a9b-d7be-42b2-8c84-1dbe65d58c24",
+      "title": "Cultural Planning for Local Governments",
+      "journal": "Istanbul Foundation for Culture and Arts (IKSV)",
+      "doi": null,
+      "year": "2016",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:26.348340",
+      "updated_at": "2025-05-11T10:26:26.348340"
+    },
+    {
+      "id": "6d54a0ff-635f-483c-a01a-8ec6c0883ece",
+      "title": "Genctur: First Step to the World Citizenship",
+      "journal": "Social Entrepreneurship Cases in Turkey",
+      "doi": null,
+      "year": "2012",
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:26.348340",
+      "updated_at": "2025-05-11T10:26:26.348340"
+    },
+    {
+      "id": "bf6fbbd1-ebc0-4c81-adfd-41f08215976c",
+      "title": "The Invisible City of Alternative Theater: Tactics, Collective Actions and Micro-publics in Istanbul’s Cultural Economy",
+      "journal": "Law, Social Justice and Global Development, Special Issue ‘Cultural Economies and Cultural Activism’",
+      "doi": null,
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:26.348340",
+      "updated_at": "2025-05-11T10:26:26.348340"
+    }
+  ],
+  "publications_authors": [
+    {
+      "id": "da616ab4-42a4-4e20-8ac5-ba22e2aa529d",
+      "publication_id": "61a3dda2-b14e-4629-929b-bc2befc9bdbc",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "649e1a67-6c06-46d5-a481-72ddc578140b",
+      "publication_id": "13bc7de3-2e05-4621-afa0-b5b3bd8a25b2",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "08241135-1dcf-49cf-b8cd-8875cc0a201c",
+      "publication_id": "f9867a9b-d7be-42b2-8c84-1dbe65d58c24",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "56555216-8b66-40e4-861d-195c2e5ee6ea",
+      "publication_id": "6d54a0ff-635f-483c-a01a-8ec6c0883ece",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "0667c567-9e91-49f1-bf86-f58fbe96a44a",
+      "publication_id": "bf6fbbd1-ebc0-4c81-adfd-41f08215976c",
+      "researcher_id": "3cfc8eba-d891-4a97-b8fe-3d957f70d561",
+      "author_order": null,
+      "is_corresponding": null
+    }
+  ]
+}

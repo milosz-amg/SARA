@@ -1,0 +1,2428 @@
+{
+  "orcid_id": "0009-0004-5974-1986",
+  "researcher": {
+    "id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+    "orcid_id": "0009-0004-5974-1986",
+    "first_name": "mohadeseh",
+    "last_name": "delshad",
+    "full_name": "mohadeseh delshad",
+    "email": null,
+    "country": null,
+    "primary_affiliation": null,
+    "created_at": "2025-05-11T10:26:23.600523",
+    "updated_at": "2025-05-11T10:26:23.600523"
+  },
+  "sources": [
+    {
+      "id": "6ea86871-b45a-42dd-9a0b-50f8a0624366",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "platform": "ORCID",
+      "source_id": "0009-0004-5974-1986",
+      "endpoint": "https://pub.orcid.org/v3.0/0009-0004-5974-1986/person",
+      "last_fetched": "2025-05-11T10:26:23.600523",
+      "last_status": "200",
+      "active": true
+    }
+  ],
+  "keywords": [],
+  "affiliations": [],
+  "education": [],
+  "publications": [
+    {
+      "id": "2324acf1-390c-4ded-8afb-233ee1d5ef0d",
+      "title": "A modeling framework for design of nonlinear renewable energy systems through integrated simulation modeling and metaheuristic optimization: Applications to biorefineries",
+      "journal": "Computers &amp; Chemical Engineering",
+      "doi": "https://doi.org/10.1016/j.compchemeng.2013.10.005",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "991307f4-104d-41b5-831e-8ee168d106e1",
+      "title": "Acknowledgment",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.09991-7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ea3414fe-0fc8-4b3c-b7c3-a362e5bbfcb9",
+      "title": "Also of Interest",
+      "journal": "Renewable Energy Systems",
+      "doi": "https://doi.org/10.1002/9781119804017.oth",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e61ed159-8070-46e0-a177-8fc0ec6bd239",
+      "title": "Alternative Energy Systems",
+      "journal": "Modeling, Analysis and Optimization of Process and Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118121160.ch17",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "7ff84cc6-f014-4ade-8c44-98bf96b18b42",
+      "title": "Appendix",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.09999-1",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "46977549-3551-4fc3-9805-ebe8731c9ff8",
+      "title": "Aspects and Multi-aspects",
+      "journal": "Guide to Modeling and Simulation of Systems of Systems",
+      "doi": "https://doi.org/10.1007/978-3-319-64134-8_6",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "14f8d0f3-4636-490f-bd9e-bf4e517b51fa",
+      "title": "Aspects of Lifecycle Engineerining for Reliable Microelectromechanical Systems Containing Multilayer Material Systems",
+      "journal": "Modeling and Simulation Based Life-Cycle Engineering",
+      "doi": "https://doi.org/10.1201/9781482264715-16",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "68c2adf8-7b90-4e89-ab4f-2019c443db3a",
+      "title": "Aspects of Uncertainty in Qualitative Systems Modeling",
+      "journal": "Qualitative Simulation Modeling and Analysis",
+      "doi": "https://doi.org/10.1007/978-1-4613-9072-5_2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "5f08f6ea-61cc-4882-b8ab-a0def51c399b",
+      "title": "Atom Modeling",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0007",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "b1b20c76-0bce-4c43-81f9-c7065c90a53c",
+      "title": "BACK MATTER",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_bmatter",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ef6a0bb3-fff9-41e5-b207-35633ea7fbb5",
+      "title": "Brief data report on parent-child pro-environmental engagement across five cities in China",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2021.106970",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "05642108-2529-4714-89fb-f3bc26e61abc",
+      "title": "Brief data report on prototype of moral personality and environmentalism",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2017.10.013",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "d1eb3451-b20f-41a3-a26d-fc966cbd3943",
+      "title": "Building Energy Systems Modeling and Simulation",
+      "journal": "Handbook of Integrated and Sustainable Buildings Equipment and Systems, Volume I: Energy Systems",
+      "doi": "https://doi.org/10.1115/1.861271_ch2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e278edcb-f5d1-4ab3-8e2d-ea013b081b57",
+      "title": "Call for Papers: Special Issue on Intelligent Optimization, Modeling, and Simulation with Knowledge for Complex Systems",
+      "journal": "Complex System Modeling and Simulation",
+      "doi": "https://doi.org/10.23919/csms.2021.0020",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f6cdb86a-3690-46fe-819e-a738a5c3f31a",
+      "title": "Combined thermal, economic, and environmental models",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.00004-x",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "cc980242-6c6a-4246-8487-2ad91105526a",
+      "title": "Conclusion",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.00009-9",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1e392a7d-607a-4d39-8bad-c27e7d0e437c",
+      "title": "Cooling and preheating with buried pipe systems: monitoring, simulation and economic aspects",
+      "journal": "Energy and Buildings",
+      "doi": "https://doi.org/10.1016/s0378-7788(00)00105-5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1858c45c-a015-4f02-a110-d2ed39156033",
+      "title": "Copyright",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.09995-4",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "242279ca-0e14-4fec-90c4-5880fa5b5cc6",
+      "title": "Corrigendum to “Data for the narrative skills of Urdu-speaking Preschoolers” [Data in Brief, 34 (2021) 106,737]",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2021.106911",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "7e8ad466-54df-4ab1-a364-cb97e9f0aaaf",
+      "title": "Corrigendum to “Data, data flows, and model specifications for linking multi-level contribution margin accounting with multi-level fixed-charge problems” [Data in Brief 35 (2021) 106931]",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2021.107200",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0eda32fc-f47f-45cc-aafd-2dbc569a20ac",
+      "title": "Corrigendum to: “FreeSurfer subcortical normative data” [Data in Brief 9 (2016) 732–736]",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2019.103704",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e28716d3-5ac2-48da-b6d1-b095b79c2e39",
+      "title": "Curated eutherian third party data gene data sets",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2015.11.056",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "059ac0aa-e0a0-48f0-b343-694ee3c0751c",
+      "title": "Data for estimating the U.S. labor wedge",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2018.04.128",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "2605151e-2f2d-400b-b5a3-d207dbe613b1",
+      "title": "Data in brief – making your data count",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2014.09.001",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ba4d8a91-9c2a-4f48-8fff-23240598bb7c",
+      "title": "Data on adult skills formation",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2019.104953",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "23796f5e-17f6-4431-aa18-53675fc3f207",
+      "title": "Data on higher education student ethics model",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2019.104904",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "7feb0d36-28fa-46a4-b3fc-954611d7f82b",
+      "title": "Decision-making in optimization and assessment of energy systems",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.00007-5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "a407b746-0922-41b5-95c0-d2f879db6a95",
+      "title": "Dedication",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.09990-5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e6231390-ed29-43aa-b50d-f0836b853af7",
+      "title": "Design, Development, and Simulation Modeling of Hybrid Electric Vehicles Incorporating with BLDC Drive",
+      "journal": "Energy Systems in Electrical Engineering",
+      "doi": "https://doi.org/10.1007/978-981-19-0979-5_20",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "5b8986ed-a126-4996-9a5b-c81fde5c952d",
+      "title": "Economic Aspects of Energy Storage",
+      "journal": "Energy Storage Systems",
+      "doi": "https://doi.org/10.1007/978-94-009-2350-8_33",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "5c3d16b3-7676-4e67-8c59-3e91170e8420",
+      "title": "Economic Operation of Energy Generating Systems",
+      "journal": "Industrial Power Systems",
+      "doi": "https://doi.org/10.1201/9781003231240-17",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "cd9f4003-9a8f-4c01-bfda-92f3e4e58080",
+      "title": "Economic Simulation Models in Agricultural Economics: The Current and Possible Future Role of Algebraic Modeling Languages",
+      "journal": "Algebraic Modeling Systems",
+      "doi": "https://doi.org/10.1007/978-3-642-23592-4_11",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "2470b570-eab2-4d0a-84d0-bb7a5aef111e",
+      "title": "Electrochemical data of ferrocenylsubphthalocyanine dyads",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2020.106245",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "bf2ece5c-99e8-439c-8b04-adc22777e429",
+      "title": "Energy Estimation And Optimization For Piecewise Regular Processor Arrays",
+      "journal": "Signal Processing and Communications",
+      "doi": "https://doi.org/10.1201/9780203913185.ch6",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "253cdc89-f97c-4c05-9ab3-49f002d9586b",
+      "title": "Energy Hub Modeling and Optimization‐Based Operation Strategy for<scp>CCHP</scp>Systems",
+      "journal": "Combined Cooling, Heating, and Power Systems",
+      "doi": "https://doi.org/10.1002/9781119283362.ch4",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "bb4491e1-33b7-4580-a46e-e26e27cd936d",
+      "title": "Ethnocentrism in Austria – Historical data",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2023.109326",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "d9b9bc30-0215-412d-87e4-b7411b8949ce",
+      "title": "Front Matter",
+      "journal": "Renewable Energy Systems",
+      "doi": "https://doi.org/10.1002/9781119804017.fmatter",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1a6a454b-b614-49a6-a82f-c7add000abdd",
+      "title": "Global Prediction of Wind Energy Market Strategy for Electricity Generation",
+      "journal": "Modeling, Simulation and Optimization of Wind Farms and Hybrid Systems",
+      "doi": "https://doi.org/10.5772/intechopen.89968",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "7b1c3d6c-c74d-4a57-9623-bb0c7370743a",
+      "title": "Guest Editorial: Smart Fuzzy Optimization in Operational Research and Renewable Energy: Modeling, Simulation, and Application",
+      "journal": "IEEE Transactions on Fuzzy Systems",
+      "doi": "https://doi.org/10.1109/tfuzz.2020.3023572",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "94b9e196-faac-45d9-afb9-f091d1b9bf5c",
+      "title": "HLA-Transparent Distributed Simulation of Agent-based Systems",
+      "journal": "Modeling Simulation and Optimization - Focus on Applications",
+      "doi": "https://doi.org/10.5772/8955",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e7badbe4-ca38-4d32-ac4f-5d1eb173dad9",
+      "title": "High-resolution microscopy and spectroscopy datasets meet Data in Brief",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2020.105596",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "03a7921b-7611-4c02-ba40-4383f32102b9",
+      "title": "Hybrid Computational Intelligent Systems",
+      "journal": null,
+      "doi": "https://doi.org/10.1201/9781003381167",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1f0a9231-c2cb-4453-9ed7-752d77548c52",
+      "title": "Hybrid Wind and Solar Systems Optimization",
+      "journal": "Modeling, Simulation and Optimization of Wind Farms and Hybrid Systems",
+      "doi": "https://doi.org/10.5772/intechopen.89136",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "667054d3-3c77-4010-b893-1bd5c1bfb0b8",
+      "title": "INTEGRATED MODELING, SIMULATION, AND OPTIMIZATION OF MULTIBODY SYSTEMS",
+      "journal": "Integrated Systems Engineering",
+      "doi": "https://doi.org/10.1016/b978-0-08-042361-6.50016-7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "61aa8616-d9aa-4796-ac74-d654f97fb66a",
+      "title": "Improving Energy Efficiency through Data-Driven Modeling, Simulation and Optimization",
+      "journal": null,
+      "doi": "https://doi.org/10.3390/books978-3-0365-1206-8",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "4735d7be-962f-4db4-8f2e-81dff53390ae",
+      "title": "Index",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.10000-4",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1eaa070d-00ba-41d7-aacf-ab1d92bc076d",
+      "title": "Introduction",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0001",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "d9d69eb2-0e94-4a1a-b154-b362f08735c1",
+      "title": "In‐Depth Analysis of Various Aspects of Charging Station Infrastructure for Electric Vehicle",
+      "journal": "Renewable Energy Systems",
+      "doi": "https://doi.org/10.1002/9781119804017.ch11",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "005259ac-17d2-4560-8aa1-8c7c752eab11",
+      "title": "Islamic microfinance institution: Survey data from Indonesia",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2019.104911",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "2d43d8ba-6b81-4355-9696-5ee83ca56650",
+      "title": "Landscape Optimization: Applications of a Spatial Ecosystem Model",
+      "journal": "Modeling Dynamic Systems",
+      "doi": "https://doi.org/10.1007/0-387-21555-7_12",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "45d3f2a6-a207-481c-b1be-5952a63539c3",
+      "title": "Life cycle inventory data of agricultural tractors",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2023.109174",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e6fcf745-1d2a-4be6-bc9d-df54346a3b29",
+      "title": "Long-term climate data description in Ethiopia",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2017.07.052",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f024c02c-631f-46d5-aab1-de7bf6919438",
+      "title": "Maxwell's Equations",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0008",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "2f6ac570-a763-4586-8ceb-66a4626c6db2",
+      "title": "Mixed neurodynamic optimization for the operation of multiple energy systems considering economic and environmental aspects",
+      "journal": "Energy",
+      "doi": "https://doi.org/10.1016/j.energy.2021.120965",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ba50f521-ddbe-4412-97da-361d3076e333",
+      "title": "Mobile operating systems",
+      "journal": "Smartphone Energy Consumption",
+      "doi": "https://doi.org/10.1017/cbo9781107326279.009",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f9755475-5aa9-45b7-8be8-5676f735cfd4",
+      "title": "Model and Modeling",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0002",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "a1f9bf25-f09c-4394-94ef-beff5b4642d8",
+      "title": "Model fitting data from syllogistic reasoning experiments",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2016.09.053",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ef6f40ba-0bf9-4f66-8d59-8c92f969827f",
+      "title": "Modeling &amp; Simulation for Intelligent Transportation Systems",
+      "journal": "International Journal of Modeling and Optimization",
+      "doi": "https://doi.org/10.7763/ijmo.2012.v2.126",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0956f4f4-54ab-41cd-bb31-8d6444bebacb",
+      "title": "Modeling Circuit Systems Coupled with Distributed Semiconductor Equations",
+      "journal": "Modeling, Simulation, and Optimization of Integrated Circuits",
+      "doi": "https://doi.org/10.1007/978-3-0348-8065-7_15",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "4e829f90-d9be-4081-b911-a3919db7ef4f",
+      "title": "Modeling and Energy Optimization of Hybrid Energy Storage System",
+      "journal": "Hybrid Renewable Energy Systems",
+      "doi": "https://doi.org/10.1002/9781119555667.ch4",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "6448511f-0f52-4fa1-a39f-9d51da018332",
+      "title": "Modeling and Optimization",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "6fa973ae-b562-4101-85df-ce3f5e27a717",
+      "title": "Modeling and Optimization of Cogeneration and Trigeneration Systems",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch10",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "4adf4257-4f51-43dc-91e1-94ca1970448a",
+      "title": "Modeling and Optimization of Fuel Cell Systems",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "9c30ff58-83b8-4c25-bb13-5ce9c5242157",
+      "title": "Modeling and Optimization of Heat Exchangers",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch4",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "5ab71bac-2380-4a0c-beb1-692a48666726",
+      "title": "Modeling and Optimization of Heat Pump Systems",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch6",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "9861ed82-9dd6-4383-b4a0-4f670b6df004",
+      "title": "Modeling and Optimization of Human Walking",
+      "journal": "Cognitive Systems Monographs",
+      "doi": "https://doi.org/10.1007/978-3-642-36368-9_3",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ad55b585-b843-44da-995f-0b8041ac09a7",
+      "title": "Modeling and Optimization of Multigeneration Energy Systems",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch11",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "dbccceae-a5e0-4c02-b2e6-0dcb15290c16",
+      "title": "Modeling and Optimization of Power Plants",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch9",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "c65e7aab-2f51-45b2-a2b8-63346a260782",
+      "title": "Modeling and Optimization of Refrigeration Systems",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "e5c5307a-e580-435e-9464-25964acfd86a",
+      "title": "Modeling and Optimization of Renewable Energy Based Systems",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch8",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "d8ed627e-91d3-4b9c-892b-b1604375426f",
+      "title": "Modeling and Optimization of Renewable Energy Systems",
+      "journal": null,
+      "doi": "https://doi.org/10.5772/2283",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0d05a471-ca2e-4664-a449-a469a84b86dc",
+      "title": "Modeling and Optimization of Thermal Components",
+      "journal": "Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118894484.ch3",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "36b2b2de-8580-4c0b-b133-dca919f62c42",
+      "title": "Modeling and Simulation",
+      "journal": "Energy Systems Modeling and Policy Analysis",
+      "doi": "https://doi.org/10.1201/9781003218401-2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "5e27d96b-c6bc-49c1-8fa7-2ffb585b9959",
+      "title": "Modeling and Simulation of Electricity Systems for Transport and Energy Storage",
+      "journal": null,
+      "doi": "https://doi.org/10.3390/books978-3-0365-0327-1",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "16427505-e337-4dc9-bea7-1da2f34f0971",
+      "title": "Modeling and Simulation of Energy Systems",
+      "journal": null,
+      "doi": "https://doi.org/10.3390/books978-3-03921-519-5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "a84e9647-fe47-4cc9-9132-d817424847a5",
+      "title": "Modeling and Simulation of Network Aspects for Distributed Cyber-Physical Energy Systems",
+      "journal": "Cyber Physical Systems Approach to Smart Electric Power Grid",
+      "doi": "https://doi.org/10.1007/978-3-662-45928-7_1",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f4d00a2f-26c5-4b84-9f0d-2c294274c0fd",
+      "title": "Modeling and Simulation of Offshore Wind Farms for Smart Cities",
+      "journal": "Modeling, Simulation and Optimization of Wind Farms and Hybrid Systems",
+      "doi": "https://doi.org/10.5772/intechopen.87008",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "dcef9f70-31f1-4935-8232-457f6b452fe6",
+      "title": "Modeling and Technical-Economic Optimization of Electricity Supply Network by Three Photovoltaic Systems",
+      "journal": "Journal of Solar Energy Engineering",
+      "doi": "https://doi.org/10.1115/1.4025120",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ca9dfd53-6b16-4eb5-ac9c-12b601493f59",
+      "title": "Modeling and daily operation optimization of a distributed energy system considering economic and energy aspects",
+      "journal": "International Journal of Energy Research",
+      "doi": "https://doi.org/10.1002/er.4070",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "b93bb94c-6b07-4dd5-bc04-222425123077",
+      "title": "Modeling and operation optimization of RE integrated microgrids considering economic, energy, and environmental aspects",
+      "journal": "International Journal of Energy Research",
+      "doi": "https://doi.org/10.1002/er.4604",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "d01580e4-c6c0-4bb2-97c0-3dd76c27c70d",
+      "title": "Modeling and optimization of cogeneration-based district energy systems accounting for economics and environmental impact",
+      "journal": "Cogeneration and District Energy Systems: Modelling, Analysis and Optimization",
+      "doi": "https://doi.org/10.1049/pbpo093e_ch11",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "b7fa7ac0-4c9b-4315-9265-ce3473a5cf21",
+      "title": "Modeling and techno-economic optimization of overhead panels and reflectors in near-wall mounted PV systems",
+      "journal": "Solar Energy",
+      "doi": "https://doi.org/10.1016/j.solener.2022.12.014",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "6eb3ad59-e87c-4106-acb5-ea08e79276d9",
+      "title": "Modeling of Electrohydraulic Servomechanisms",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0006",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "487a22c9-ad5b-4286-b895-12b34ab07676",
+      "title": "Modeling of Mechanical Fluid Systems",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0005",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0ff50557-9884-41c4-a165-fdc3ddb87956",
+      "title": "Modeling of Piezoelectric Phenomena",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0004",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "197d597b-f2a5-4896-acd5-a76af84bd418",
+      "title": "Modeling of Social Dynamics and Economic Systems",
+      "journal": "Modeling Complex Living Systems",
+      "doi": "https://doi.org/10.1007/978-0-8176-4600-4_5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "7be3e794-853f-4dad-831c-14d7e3b4c03e",
+      "title": "Modeling of Solar Irradiance and Cells",
+      "journal": "Optimization of Photovoltaic Power Systems",
+      "doi": "https://doi.org/10.1007/978-1-4471-2403-0_2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "a92685e5-4c1f-4b63-939c-98c74635490a",
+      "title": "Modeling of Storage Systems",
+      "journal": "Optimization of Photovoltaic Power Systems",
+      "doi": "https://doi.org/10.1007/978-1-4471-2403-0_5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "dc07a1c6-5bb6-4bb5-a7c8-43a1c55c7ead",
+      "title": "Modeling technological change in energy systems – From optimization to agent-based modeling",
+      "journal": "Energy",
+      "doi": "https://doi.org/10.1016/j.energy.2009.03.005",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "abb5b074-559b-4700-96b8-82bd0b734a77",
+      "title": "Modeling, Assessment, and Optimization of Energy Systems",
+      "journal": null,
+      "doi": "https://doi.org/10.1016/c2018-0-00441-7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0573459e-8872-4d40-9170-731a52de7c22",
+      "title": "Modeling, Simulation and Optimization of Wind Farms and Hybrid Systems",
+      "journal": null,
+      "doi": "https://doi.org/10.5772/intechopen.91639",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "058c63f6-9b6a-48f9-8db3-1c61e7e511cb",
+      "title": "Modeling, simulation and optimization of maintenance cost aspects on multi-unit systems by stochastic Petri nets with predicates",
+      "journal": "SIMULATION",
+      "doi": "https://doi.org/10.1177/0037549718782655",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "a35c6071-2a4b-44a6-ba58-89bfe7b8a080",
+      "title": "Modeling, simulation, and optimization environments",
+      "journal": "Handbook of Hybrid Systems Control",
+      "doi": "https://doi.org/10.1017/cbo9780511807930.012",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f1db55ea-4fa7-440e-97d7-1bcfe4ce3cdc",
+      "title": "Modular Approach for Simulation, Modeling, and Design of Energy Systems",
+      "journal": "Modular Systems for Energy Usage Management",
+      "doi": "https://doi.org/10.1201/9780367822392-10",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "70db27a1-d2e6-4eb8-9460-dbd45912440d",
+      "title": "Multi-objective optimization for the operation of distributed energy systems considering economic and environmental aspects",
+      "journal": "Applied Energy",
+      "doi": "https://doi.org/10.1016/j.apenergy.2010.06.013",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "8bf41762-ba6f-47ec-b1f5-e42e576ed9a0",
+      "title": "Multi-objective optimization of district heating systems with turbine-driving fans and pumps considering economic, exergic, and environmental aspects",
+      "journal": "Energy",
+      "doi": "https://doi.org/10.1016/j.energy.2023.127694",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "df23b1c3-3585-4b1f-a3f2-9a1dc4eabf63",
+      "title": "Multi-objective optimization of hydrothermal energy system considering economic and environmental aspects",
+      "journal": "International Journal of Electrical Power &amp; Energy Systems",
+      "doi": "https://doi.org/10.1016/j.ijepes.2012.03.031",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "01c5cc4c-ec1a-445f-ad39-e6d308d9a3e8",
+      "title": "Multimodal brain data and core dimensions of creativity",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2020.105176",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "2c495fa5-d987-4b70-b59c-08348be6db7a",
+      "title": "Nonlinear Optimization and the Modeling of Energy Systems [Slides]",
+      "journal": null,
+      "doi": "https://doi.org/10.2172/1999532",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "50fe6f3d-36d4-4687-a428-41942c2c7bdb",
+      "title": "Numerical Modeling and Simulation of Thermal Energy Storage Systems",
+      "journal": "Thermal Energy Storage",
+      "doi": "https://doi.org/10.1002/9780470970751.ch7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ea40ee93-4da9-4dde-ba46-f927ecf90345",
+      "title": "Numerical Modeling of a Shock Response",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0012",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "3aee18e8-7043-44c9-8770-7bef921930ce",
+      "title": "Optimization",
+      "journal": "Dynamics of Mechatronics Systems",
+      "doi": "https://doi.org/10.1142/9789813146556_0009",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "8267f02f-5f83-4351-b378-7dd12307fc1d",
+      "title": "Optimization and qualitative aspects of separation systems",
+      "journal": "Energy Optimization in Process Systems and Fuel Cells",
+      "doi": "https://doi.org/10.1016/b978-0-08-102557-4.00008-6",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "a5c4e40e-0f40-4763-a2c4-29610ddc7941",
+      "title": "Optimization basics",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.00006-3",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "83298b79-a7cd-46bc-b4e6-d5b4128c40b7",
+      "title": "Optimization in nuclear systems",
+      "journal": "Nuclear Engineering Mathematical Modeling and Simulation",
+      "doi": "https://doi.org/10.1016/b978-0-323-90618-0.00013-2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "b5e70f2d-deb9-48de-a6de-b834e064f7b7",
+      "title": "Optimization of Renewable Energy Systems: The Case of Desalination",
+      "journal": "Modeling and Optimization of Renewable Energy Systems",
+      "doi": "https://doi.org/10.5772/38638",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f775431b-649e-4359-9b03-3b2b38497b35",
+      "title": "Optimization of Renewable Energy-Based Smart Micro-Grid System",
+      "journal": "Modeling, Simulation and Optimization of Wind Farms and Hybrid Systems",
+      "doi": "https://doi.org/10.5772/intechopen.87093",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0366ca77-a31b-4892-9337-4f3cee1a5593",
+      "title": "Optimization of Solar Photovoltaic Hybrid Energy Systems",
+      "journal": "Toward Better Photovoltaic Systems",
+      "doi": "https://doi.org/10.1063/9780735425613_004",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "5a5ce034-193d-486b-af08-99d907e9f8ed",
+      "title": "Optimization on Operating Parameters of a Small-Scale CCHP System Based on Economic- Energy Efficiency",
+      "journal": "International Journal of Simulation: Systems, Science &amp; Technology",
+      "doi": "https://doi.org/10.5013/ijssst.a.17.26.03",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "bb647c9a-061e-45c4-8750-712e8db10cb5",
+      "title": "Output Analysis and Optimization",
+      "journal": "Modeling and Simulation of Discrete‐Event Systems",
+      "doi": "https://doi.org/10.1002/9781118732793.ch8",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1626bb56-0a40-49cf-bd91-63352e5b3391",
+      "title": "Photovoltaic Systems and Applications",
+      "journal": "Modeling and Optimization of Renewable Energy Systems",
+      "doi": "https://doi.org/10.5772/39244",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "8cf5feb6-115e-474a-98d4-c6515f1c46fb",
+      "title": "Platform-independent Modeling for Simulation-based Energy Optimization in Industrial Production",
+      "journal": "International journal of simulation: systems, science &amp; technology",
+      "doi": "https://doi.org/10.5013/ijssst.a.20.06.10",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "84d30229-6530-4e93-a5aa-319fb913e4a4",
+      "title": "Process Energy Balances",
+      "journal": "Modeling, Analysis and Optimization of Process and Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118121160.ch5",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "663608e2-29a0-40da-9863-b585129c6598",
+      "title": "Process Energy Integration",
+      "journal": "Modeling, Analysis and Optimization of Process and Energy Systems",
+      "doi": "https://doi.org/10.1002/9781118121160.ch13",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "ffea7322-2c2e-41c4-a562-59a0099dede0",
+      "title": "Reactive Distillation: Modeling, Simulation, and Optimization",
+      "journal": "Distillation - Modelling, Simulation and Optimization",
+      "doi": "https://doi.org/10.5772/intechopen.85433",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "863b26b5-467b-4628-953b-498f5dabe6dc",
+      "title": "Real-time optimization of energy systems using the soft-computing approaches",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.00008-7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "eaf01b5d-ed4b-4d7e-ac8a-77a6344fc83a",
+      "title": "Reply to the Comment on “On the general relativistic framework of the Sagnac effect”: [Eur. Phys. J. Plus (2020) 135:234]",
+      "journal": "The European Physical Journal Plus",
+      "doi": "https://doi.org/10.1140/epjp/s13360-020-01034-y",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "8cadc206-3180-437e-bd11-a8cb9347c900",
+      "title": "Russian bank data: Reasons of bank closure",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2020.105343",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "17957fc7-88cb-45c7-bd7f-2c10767ecbfd",
+      "title": "Simulation Modeling of Integrated Multi-Carrier Energy Systems",
+      "journal": "Simulation Modeling",
+      "doi": "https://doi.org/10.5772/intechopen.99323",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "0b02748e-7e00-4011-a702-083ceaf27da3",
+      "title": "Simulation and Optimization of Energy Systems",
+      "journal": "Handbook of Smart Energy Systems",
+      "doi": "https://doi.org/10.1007/978-3-030-97940-9_146",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "aff34439-e073-42a0-ae5f-312f05131a56",
+      "title": "Simulation and Systems Modeling",
+      "journal": "Agricultural Policy Analysis Tools For Economic Development",
+      "doi": "https://doi.org/10.4324/9780429042959-14",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "1251ee77-2666-4200-a8db-5e19debb9da7",
+      "title": "Simulation for Energy Savings in Pneumatic System",
+      "journal": "Systems Modeling and Simulation",
+      "doi": "https://doi.org/10.1007/978-4-431-49022-7_52",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "2219c888-4b8f-4756-a5ae-f40138fcf553",
+      "title": "Simulation, Evaluation, and Optimization of Thermal Energy Systems",
+      "journal": "Thermal Energy Systems",
+      "doi": "https://doi.org/10.1201/b18031-10",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "6101e664-24a5-41d7-8064-03c517d86f4d",
+      "title": "Simulation-based optimization of sustainable national energy systems",
+      "journal": "Energy",
+      "doi": "https://doi.org/10.1016/j.energy.2015.09.006",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "83caaa04-76ac-41cd-9f79-9d684428197a",
+      "title": "Solar-Energy Drying Systems",
+      "journal": "Modeling and Optimization of Renewable Energy Systems",
+      "doi": "https://doi.org/10.5772/39207",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "bbec18ff-35d2-44bb-ba3d-d7d96c85999e",
+      "title": "Systems design: Modeling, analysis, synthesis, and optimization",
+      "journal": "Complexity and Complex Thermo-Economic Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-818594-0.00005-2",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "23b275db-1c77-4270-9262-7f1424bf0b1b",
+      "title": "Systems engineering and optimization of wind turbines and power plants",
+      "journal": "Wind Energy Modeling and Simulation - Volume 2: Turbine and System",
+      "doi": "https://doi.org/10.1049/pbpo125g_ch7",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "7fd84f4e-c64d-4100-a14d-198135ac7067",
+      "title": "Techno-economic modeling and optimization of solar-driven high-temperature electrolysis systems",
+      "journal": "Solar Energy",
+      "doi": "https://doi.org/10.1016/j.solener.2017.07.077",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "da0b0b16-327b-4a08-90ff-de7f817392a4",
+      "title": "The TNO Multiband Image Data Collection",
+      "journal": "Data in Brief",
+      "doi": "https://doi.org/10.1016/j.dib.2017.09.038",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "89cccf49-9d00-4b54-a01e-997f61e7a08f",
+      "title": "Thermal modeling and analysis",
+      "journal": "Modeling, Assessment, and Optimization of Energy Systems",
+      "doi": "https://doi.org/10.1016/b978-0-12-816656-7.00002-6",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "827227aa-0f66-42b9-9f14-5b0acbc970be",
+      "title": "Urban Renewable Energy Resource Optimization Systems",
+      "journal": "Urban Energy Systems",
+      "doi": "https://doi.org/10.1002/9781119847595.ch3",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "41f26cac-20b5-4dc2-9bad-ce8ad33b3b03",
+      "title": "Urban Wind Energy Evaluation with Urban Morphology",
+      "journal": "Modeling, Simulation and Optimization of Wind Farms and Hybrid Systems",
+      "doi": "https://doi.org/10.5772/intechopen.89786",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    },
+    {
+      "id": "f9b2f45c-5d55-412e-8e6f-260be030a874",
+      "title": "Using Multi-Criteria Optimization in Decision Support under Risk",
+      "journal": "Systems of Systems - Engineering, Modeling, Simulation and Analysis [Working Title]",
+      "doi": "https://doi.org/10.5772/intechopen.93705",
+      "year": null,
+      "source": "ORCID",
+      "project_id": null,
+      "created_at": "2025-05-11T10:26:23.600523",
+      "updated_at": "2025-05-11T10:26:23.600523"
+    }
+  ],
+  "publications_authors": [
+    {
+      "id": "f11444a6-7a4f-4cb9-9281-35199f7a0e8b",
+      "publication_id": "2324acf1-390c-4ded-8afb-233ee1d5ef0d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "0b724ff6-0263-470e-91fd-4df04bb02545",
+      "publication_id": "991307f4-104d-41b5-831e-8ee168d106e1",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8c1a5bac-7e6e-403e-bd10-69ebf4198ca3",
+      "publication_id": "ea3414fe-0fc8-4b3c-b7c3-a362e5bbfcb9",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "cf6acdf1-8fa1-4e4f-9591-64a68e1e7df5",
+      "publication_id": "e61ed159-8070-46e0-a177-8fc0ec6bd239",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "1359d801-6900-44be-b67f-17f4b709f96d",
+      "publication_id": "7ff84cc6-f014-4ade-8c44-98bf96b18b42",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "69178ca5-2603-47a8-83f5-a80d79f62f3f",
+      "publication_id": "46977549-3551-4fc3-9805-ebe8731c9ff8",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "9288bc2a-36b6-4055-b290-e36b416120b6",
+      "publication_id": "14f8d0f3-4636-490f-bd9e-bf4e517b51fa",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b4dfb450-bbc8-49ea-9b93-d1e9010899bc",
+      "publication_id": "68c2adf8-7b90-4e89-ab4f-2019c443db3a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "91c86bcf-b547-42db-ade7-e007e483120e",
+      "publication_id": "5f08f6ea-61cc-4882-b8ab-a0def51c399b",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "345084a4-7f74-4624-a398-470614e7d9f8",
+      "publication_id": "b1b20c76-0bce-4c43-81f9-c7065c90a53c",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "60c84481-f37c-4506-8a82-8a9237960a46",
+      "publication_id": "ef6a0bb3-fff9-41e5-b207-35633ea7fbb5",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ce58089b-171d-4064-a9a0-7da7f8e0898d",
+      "publication_id": "05642108-2529-4714-89fb-f3bc26e61abc",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f8f4f9fa-5cb0-45b3-891d-e6a572b124cb",
+      "publication_id": "d1eb3451-b20f-41a3-a26d-fc966cbd3943",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f73708c2-edda-436d-8398-2987790952d7",
+      "publication_id": "e278edcb-f5d1-4ab3-8e2d-ea013b081b57",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7b293a71-fd82-42de-b2af-b2c1828065ce",
+      "publication_id": "f6cdb86a-3690-46fe-819e-a738a5c3f31a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "73f2943c-ae3c-40a6-9a9a-0351048d06aa",
+      "publication_id": "cc980242-6c6a-4246-8487-2ad91105526a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b03e09cd-ab06-4e2a-a7c2-a6a5a844e231",
+      "publication_id": "1e392a7d-607a-4d39-8bad-c27e7d0e437c",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3f5cd40e-406a-47d2-96b6-5946f9f39310",
+      "publication_id": "1858c45c-a015-4f02-a110-d2ed39156033",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "aa424156-b42f-4b30-b782-c62e7c1f996e",
+      "publication_id": "242279ca-0e14-4fec-90c4-5880fa5b5cc6",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ffadd548-53de-4748-b784-1373299e5d56",
+      "publication_id": "7e8ad466-54df-4ab1-a364-cb97e9f0aaaf",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8938121a-e770-4445-b033-b1a805d78eee",
+      "publication_id": "0eda32fc-f47f-45cc-aafd-2dbc569a20ac",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d53f13e5-1bf6-43e7-a0a9-49546c4c0bf4",
+      "publication_id": "e28716d3-5ac2-48da-b6d1-b095b79c2e39",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "41c36b5c-7953-4c2a-b882-ac54732d7ec4",
+      "publication_id": "059ac0aa-e0a0-48f0-b343-694ee3c0751c",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5d6d6a1f-caae-4129-8395-896ed79c9563",
+      "publication_id": "2605151e-2f2d-400b-b5a3-d207dbe613b1",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "223ea66e-81c7-471f-98a8-6a8203b6e902",
+      "publication_id": "ba4d8a91-9c2a-4f48-8fff-23240598bb7c",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3c7fb5b0-c5c9-43f8-9814-b2d073b8a091",
+      "publication_id": "23796f5e-17f6-4431-aa18-53675fc3f207",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "47cbc7f5-c408-4f2d-a80d-255d71fe5091",
+      "publication_id": "7feb0d36-28fa-46a4-b3fc-954611d7f82b",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8a480b42-df68-40b3-b547-2f07b294eae5",
+      "publication_id": "a407b746-0922-41b5-95c0-d2f879db6a95",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "149bbe6b-5d80-46aa-8691-49b3f653d6eb",
+      "publication_id": "e6231390-ed29-43aa-b50d-f0836b853af7",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "033825c3-a26e-4079-b9b3-84715476431a",
+      "publication_id": "5b8986ed-a126-4996-9a5b-c81fde5c952d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "1ea3bdac-f511-4fcb-a683-8731378518e8",
+      "publication_id": "5c3d16b3-7676-4e67-8c59-3e91170e8420",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "baf483c8-0344-49d4-b13d-2f4480fae06b",
+      "publication_id": "cd9f4003-9a8f-4c01-bfda-92f3e4e58080",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "72553e22-3056-4d47-84af-63302a4ecaee",
+      "publication_id": "2470b570-eab2-4d0a-84d0-bb7a5aef111e",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "76aedbd3-2f5b-4f20-8ac2-fefd67f2bc77",
+      "publication_id": "bf2ece5c-99e8-439c-8b04-adc22777e429",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "81becc2a-dfe1-4a03-b0e4-51ed3519c7b1",
+      "publication_id": "253cdc89-f97c-4c05-9ab3-49f002d9586b",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7f611271-b430-4604-a0be-b8cdc18d1690",
+      "publication_id": "bb4491e1-33b7-4580-a46e-e26e27cd936d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6e527d4a-3895-4d9d-870b-4879d1720abc",
+      "publication_id": "d9b9bc30-0215-412d-87e4-b7411b8949ce",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ef987984-4ddf-4dbd-a4c8-8da8236ecf3a",
+      "publication_id": "1a6a454b-b614-49a6-a82f-c7add000abdd",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8c1f7ceb-5f1e-45ce-a64e-a416860f9ef3",
+      "publication_id": "7b1c3d6c-c74d-4a57-9623-bb0c7370743a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "9d7f0658-1208-48a3-9c59-0879e32ec964",
+      "publication_id": "94b9e196-faac-45d9-afb9-f091d1b9bf5c",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6ac46eb1-c695-4bb0-9ea4-b6165713eda9",
+      "publication_id": "e7badbe4-ca38-4d32-ac4f-5d1eb173dad9",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "daa521c2-02e8-4d2a-8de4-96d65680ccdc",
+      "publication_id": "03a7921b-7611-4c02-ba40-4383f32102b9",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "17bb9c7b-8074-4da0-a760-46d15be68ae1",
+      "publication_id": "1f0a9231-c2cb-4453-9ed7-752d77548c52",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "236e2f40-6097-466e-9bd5-79ab60d6c04a",
+      "publication_id": "667054d3-3c77-4010-b893-1bd5c1bfb0b8",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e20bf9f1-67fb-4600-b3a5-65f69aa31c86",
+      "publication_id": "61aa8616-d9aa-4796-ac74-d654f97fb66a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b91d99fb-fb7e-46d9-bb87-f942c8f87414",
+      "publication_id": "4735d7be-962f-4db4-8f2e-81dff53390ae",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3175a9ad-d3f1-4031-ab4b-46f845d12435",
+      "publication_id": "1eaa070d-00ba-41d7-aacf-ab1d92bc076d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "84d1b76b-0f14-4399-9713-4ea4c3e06da7",
+      "publication_id": "d9d69eb2-0e94-4a1a-b154-b362f08735c1",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c04a8c37-126c-4b70-91bc-63676cd2963d",
+      "publication_id": "005259ac-17d2-4560-8aa1-8c7c752eab11",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f465bdf6-8cc8-44e0-8d14-2dd53deda168",
+      "publication_id": "2d43d8ba-6b81-4355-9696-5ee83ca56650",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4db37fc4-cbe8-4c89-9f05-91d75687536e",
+      "publication_id": "45d3f2a6-a207-481c-b1be-5952a63539c3",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "eb72624c-c803-4a65-ba51-147f79da5df5",
+      "publication_id": "e6fcf745-1d2a-4be6-bc9d-df54346a3b29",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6be12e0e-b143-48bf-bdde-0f3fd63bc1db",
+      "publication_id": "f024c02c-631f-46d5-aab1-de7bf6919438",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e18c8a29-0f90-4022-bb9a-fd77298545f1",
+      "publication_id": "2f6ac570-a763-4586-8ceb-66a4626c6db2",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "52ea5ac6-aaa7-4e60-83e7-463e60a7166c",
+      "publication_id": "ba50f521-ddbe-4412-97da-361d3076e333",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "bd91f4dd-f8c4-439e-9bcf-b98202ab0586",
+      "publication_id": "f9755475-5aa9-45b7-8be8-5676f735cfd4",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b5522aa6-979d-418f-9ae8-0c165206a26f",
+      "publication_id": "a1f9bf25-f09c-4394-94ef-beff5b4642d8",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c616ebab-5483-4b66-a719-6374941a081e",
+      "publication_id": "ef6f40ba-0bf9-4f66-8d59-8c92f969827f",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "911d2dfa-6592-4566-bcd5-55a12da9e3ef",
+      "publication_id": "0956f4f4-54ab-41cd-bb31-8d6444bebacb",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7237abc0-f287-4562-8f6d-0f08d032c63a",
+      "publication_id": "4e829f90-d9be-4081-b911-a3919db7ef4f",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "1550bca4-f21e-4b40-a890-19b7c666df54",
+      "publication_id": "6448511f-0f52-4fa1-a39f-9d51da018332",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "21138c6e-a528-480d-b750-ee572c9f6b6a",
+      "publication_id": "6fa973ae-b562-4101-85df-ce3f5e27a717",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3bdbc5b9-8acc-494c-b95c-713180b37064",
+      "publication_id": "4adf4257-4f51-43dc-91e1-94ca1970448a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7c5d209e-42fa-41ab-aa39-8ba545a95f76",
+      "publication_id": "9c30ff58-83b8-4c25-bb13-5ce9c5242157",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4fe694d2-4ac2-45d8-8ae7-92e9d6eb26ad",
+      "publication_id": "5ab71bac-2380-4a0c-beb1-692a48666726",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e9295e41-50eb-4e34-ac10-0d6565df5b83",
+      "publication_id": "9861ed82-9dd6-4383-b4a0-4f670b6df004",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "eacbc5f9-b28c-4807-b398-948a715eb3f9",
+      "publication_id": "ad55b585-b843-44da-995f-0b8041ac09a7",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4c393be7-0ef0-43ad-9a82-9fc7a374db0b",
+      "publication_id": "dbccceae-a5e0-4c02-b2e6-0dcb15290c16",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "00cb1f4c-786b-46b7-8aee-2bf340b7ad8a",
+      "publication_id": "c65e7aab-2f51-45b2-a2b8-63346a260782",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8f502225-4dc6-4351-9621-ad0212972234",
+      "publication_id": "e5c5307a-e580-435e-9464-25964acfd86a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "dbc34bed-1bcf-41ba-a443-acb7b094432f",
+      "publication_id": "d8ed627e-91d3-4b9c-892b-b1604375426f",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "982f3381-1469-4bab-af30-1a8a57df4283",
+      "publication_id": "0d05a471-ca2e-4664-a449-a469a84b86dc",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "95ce404b-a09f-4045-a21c-70e358c3de64",
+      "publication_id": "36b2b2de-8580-4c0b-b133-dca919f62c42",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5efa62ca-d11e-4791-8032-859c19b20637",
+      "publication_id": "5e27d96b-c6bc-49c1-8fa7-2ffb585b9959",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "bd703452-46d0-426a-b5bb-c8a183c74198",
+      "publication_id": "16427505-e337-4dc9-bea7-1da2f34f0971",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "20a87be7-734e-4a25-9838-689f234dced8",
+      "publication_id": "a84e9647-fe47-4cc9-9132-d817424847a5",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "9752d600-502b-422b-ad61-566eda76e09b",
+      "publication_id": "f4d00a2f-26c5-4b84-9f0d-2c294274c0fd",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "767df216-2208-49dc-af54-ccb27ce227f5",
+      "publication_id": "dcef9f70-31f1-4935-8232-457f6b452fe6",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f9e143b8-450a-46ea-884e-f2a6a02cb3e4",
+      "publication_id": "ca9dfd53-6b16-4eb5-ac9c-12b601493f59",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "08689a61-3cc2-4e66-9e16-8eb090070442",
+      "publication_id": "b93bb94c-6b07-4dd5-bc04-222425123077",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ce44393a-ba59-4f23-a376-8e2b0e15b9b7",
+      "publication_id": "d01580e4-c6c0-4bb2-97c0-3dd76c27c70d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "1818ceb8-19e9-44d8-8668-610698e72749",
+      "publication_id": "b7fa7ac0-4c9b-4315-9265-ce3473a5cf21",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8ceba693-b475-4966-9781-262a0df41c1b",
+      "publication_id": "6eb3ad59-e87c-4106-acb5-ea08e79276d9",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5356298f-47b8-4d10-bc61-df4191167676",
+      "publication_id": "487a22c9-ad5b-4286-b895-12b34ab07676",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "2916c6ff-58d5-47a2-be81-3399f84f99d5",
+      "publication_id": "0ff50557-9884-41c4-a165-fdc3ddb87956",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3999cd3f-070e-43db-bace-5835455ea65d",
+      "publication_id": "197d597b-f2a5-4896-acd5-a76af84bd418",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "54ad4186-0648-4197-b794-ff13c46e27bd",
+      "publication_id": "7be3e794-853f-4dad-831c-14d7e3b4c03e",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c353dbae-4998-4d5a-a01d-62afc1698ade",
+      "publication_id": "a92685e5-4c1f-4b63-939c-98c74635490a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "152744c8-1cd1-4347-99b1-c24564287ba7",
+      "publication_id": "dc07a1c6-5bb6-4bb5-a7c8-43a1c55c7ead",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "fa733e56-bbb9-4687-87c7-10825ad4f922",
+      "publication_id": "abb5b074-559b-4700-96b8-82bd0b734a77",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6830985f-a8a7-430d-b1fc-9ff28a98258e",
+      "publication_id": "0573459e-8872-4d40-9170-731a52de7c22",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5a4be6aa-311c-40b4-b24f-0ea1f1331da9",
+      "publication_id": "058c63f6-9b6a-48f9-8db3-1c61e7e511cb",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e4b2bbf2-372f-4fb8-b751-d852d2b4932f",
+      "publication_id": "a35c6071-2a4b-44a6-ba58-89bfe7b8a080",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7982b40b-d762-43f4-ab87-cc7fa571fcdc",
+      "publication_id": "f1db55ea-4fa7-440e-97d7-1bcfe4ce3cdc",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b7d3e95b-42cf-45a8-aea1-6c3d3a5894fb",
+      "publication_id": "70db27a1-d2e6-4eb8-9460-dbd45912440d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "8986030d-04a9-4af3-9360-7043b458545b",
+      "publication_id": "8bf41762-ba6f-47ec-b1f5-e42e576ed9a0",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "79c93a65-3344-44db-97d8-2590236e5d82",
+      "publication_id": "df23b1c3-3585-4b1f-a3f2-9a1dc4eabf63",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d006e00c-3997-4f4e-96f8-932ab2e50ab7",
+      "publication_id": "01c5cc4c-ec1a-445f-ad39-e6d308d9a3e8",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "af5ec4cf-7231-4b21-a51b-93eab2bbeb98",
+      "publication_id": "2c495fa5-d987-4b70-b59c-08348be6db7a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e444b5f7-4410-44ce-b100-ca238de0ad53",
+      "publication_id": "50fe6f3d-36d4-4687-a428-41942c2c7bdb",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "6c85c02a-8db7-47b0-947b-bdf4d48dc9c6",
+      "publication_id": "ea40ee93-4da9-4dde-ba46-f927ecf90345",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3cb621a0-3c0a-4b01-a63d-dc128fb7fce7",
+      "publication_id": "3aee18e8-7043-44c9-8770-7bef921930ce",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "7f4e8365-4376-4766-9229-2458d161c7fb",
+      "publication_id": "8267f02f-5f83-4351-b378-7dd12307fc1d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b22747f0-915b-4921-9e96-8d77a36b70a8",
+      "publication_id": "a5c4e40e-0f40-4763-a2c4-29610ddc7941",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "46413345-7ece-4888-8683-12f53eb0ba36",
+      "publication_id": "83298b79-a7cd-46bc-b4e6-d5b4128c40b7",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d7ed4a67-b20e-4f7b-a91c-6a055d450fda",
+      "publication_id": "b5e70f2d-deb9-48de-a6de-b834e064f7b7",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "0239f362-c838-499e-afe5-779109baf9d1",
+      "publication_id": "f775431b-649e-4359-9b03-3b2b38497b35",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "1c2135b4-1e45-4139-9674-e403988cff22",
+      "publication_id": "0366ca77-a31b-4892-9337-4f3cee1a5593",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e2fc8cfe-ff01-4ef2-8bdd-87f9729075de",
+      "publication_id": "5a5ce034-193d-486b-af08-99d907e9f8ed",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c838ed0b-b79b-4706-9c2a-02a049abef2c",
+      "publication_id": "bb647c9a-061e-45c4-8750-712e8db10cb5",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f7e29bc7-4065-4c94-b572-f0da01838762",
+      "publication_id": "1626bb56-0a40-49cf-bd91-63352e5b3391",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "2d1a2de6-095d-4635-bb3b-2fe3da470712",
+      "publication_id": "8cf5feb6-115e-474a-98d4-c6515f1c46fb",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "a61ff942-01fd-4fb7-ba2d-7bcbb8ec9691",
+      "publication_id": "84d30229-6530-4e93-a5aa-319fb913e4a4",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "e69251f2-c7e2-49d9-83dd-37179bbd4744",
+      "publication_id": "663608e2-29a0-40da-9863-b585129c6598",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "c217a73c-c346-447f-8134-1821d2736ed4",
+      "publication_id": "ffea7322-2c2e-41c4-a562-59a0099dede0",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "931695b6-f967-481c-987c-e9a3a2c6e442",
+      "publication_id": "863b26b5-467b-4628-953b-498f5dabe6dc",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "1af60e05-f60b-4fd2-9af7-0d8ee0343032",
+      "publication_id": "eaf01b5d-ed4b-4d7e-ac8a-77a6344fc83a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "f3cf94a8-4d82-46cb-9365-0f67033efcb2",
+      "publication_id": "8cadc206-3180-437e-bd11-a8cb9347c900",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b7a73840-9431-4aa4-a127-f6ee28168b47",
+      "publication_id": "17957fc7-88cb-45c7-bd7f-2c10767ecbfd",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "50d53784-2014-4671-842b-3ae097fb6c71",
+      "publication_id": "0b02748e-7e00-4011-a702-083ceaf27da3",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5fe0c1cd-7f3c-4d76-8ce1-535ebf71eb44",
+      "publication_id": "aff34439-e073-42a0-ae5f-312f05131a56",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "84ea306e-b221-4f16-b53c-a18174775b8a",
+      "publication_id": "1251ee77-2666-4200-a8db-5e19debb9da7",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3a8bb4ad-0281-464a-aafa-f29cb4f2b577",
+      "publication_id": "2219c888-4b8f-4756-a5ae-f40138fcf553",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "28d57f3a-4846-46b3-a5dc-a841e8d53999",
+      "publication_id": "6101e664-24a5-41d7-8064-03c517d86f4d",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "d5e6f5d8-5ed5-4b8c-a376-ac60b9f444bb",
+      "publication_id": "83caaa04-76ac-41cd-9f79-9d684428197a",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "4e79995d-66a4-4511-a6ed-6590fd4c75d1",
+      "publication_id": "bbec18ff-35d2-44bb-ba3d-d7d96c85999e",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "38566a53-7986-4e17-a88f-1228fe91d97a",
+      "publication_id": "23b275db-1c77-4270-9262-7f1424bf0b1b",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "5da4f02c-5707-4d35-b17e-8065a5dc7854",
+      "publication_id": "7fd84f4e-c64d-4100-a14d-198135ac7067",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b2ee5a58-49a7-4aa4-993d-4231d66be16d",
+      "publication_id": "da0b0b16-327b-4a08-90ff-de7f817392a4",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "3092770e-e064-4c34-9a00-c45bc1f6984b",
+      "publication_id": "89cccf49-9d00-4b54-a01e-997f61e7a08f",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "b5d47aad-d87a-4de6-9b17-43652f5792a5",
+      "publication_id": "827227aa-0f66-42b9-9f14-5b0acbc970be",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "2d799b45-6a2f-4757-b7ab-ba5aabc3b637",
+      "publication_id": "41f26cac-20b5-4dc2-9bad-ce8ad33b3b03",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    },
+    {
+      "id": "ac5bafc1-fd25-4644-8ec8-428574a83421",
+      "publication_id": "f9b2f45c-5d55-412e-8e6f-260be030a874",
+      "researcher_id": "744b1eb9-a6aa-4ac1-8515-39718fefc7c2",
+      "author_order": null,
+      "is_corresponding": null
+    }
+  ]
+}
