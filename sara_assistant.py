@@ -46,27 +46,15 @@ def _call_with_web_search(client, prompt: str) -> dict:
         print(f"[INFO] Raw content (web search): {content}")
         
         try:
-            # Dynamically detect if JSON is an object or array
-            if content.startswith("{") and content.endswith("}"):
-                return json.loads(content)
-            elif content.startswith("[") and content.endswith("]"):
-                return {"results": json.loads(content)}
-            else:
-                # Try extracting a valid JSON object or array
-                json_start = min(
-                    (pos for pos in [content.find('{'), content.find('[')] if pos != -1),
-                    default=-1
-                )
-                json_end = max(
-                    (pos for pos in [content.rfind('}'), content.rfind(']')] if pos != -1),
-                    default=-1
-                ) + 1
+            texts = [c.text for c in getattr(output_message, "content", []) if hasattr(c, "text")]
+            content = "\n".join(texts).strip()
+            # print(f"[INFO] Raw content (web search): {content}")
 
-                if json_start != -1 and json_end > json_start:
-                    content_cleaned = content[json_start:json_end]
-                    return json.loads(content_cleaned)
-                else:
-                    return {"response": content}
+            if content.startswith("{") or content.startswith("["):
+                return json.loads(content)
+            else:
+                return {"response": content}
+
         except json.JSONDecodeError as e:
             print(f"JSON decode failed: {e}")
             return {"response": content}
