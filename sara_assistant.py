@@ -89,5 +89,5 @@ def _call_standard_chat(client, prompt: str, model: str, temperature: float) -> 
         print(f"[ERROR] Standard chat API error: {e}")
         return {"error": str(e)}
     
-call_openai_json("Kim jest Patryk Żywica. Pracuje na UAM", use_web_search=True)
+# call_openai_json("Kim jest Patryk Żywica. Pracuje na UAM", use_web_search=True)
 #call_openai_json("Kim jest Patryk Żywica. Pracuje na UAM", use_web_search=False)
