@@ -3,6 +3,8 @@ import re
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import openpyxl
+
 
 load_dotenv()
 
@@ -89,5 +91,24 @@ def _call_standard_chat(client, prompt: str, model: str, temperature: float) -> 
         print(f"[ERROR] Standard chat API error: {e}")
         return {"error": str(e)}
     
-# call_openai_json("Kim jest Patryk Żywica. Pracuje na UAM", use_web_search=True)
-#call_openai_json("Kim jest Patryk Żywica. Pracuje na UAM", use_web_search=False)
+def update_excel_file(question: str, response: str):
+    excel_file = "Analiza_promptów.xlsx"
+    wb = openpyxl.load_workbook(excel_file)
+    sheet = wb.active
+    
+    last_row = sheet.max_row
+    sheet.cell(row=last_row + 1, column=2).value = question
+    sheet.cell(row=last_row + 1, column=3).value = response
+    
+    wb.save(excel_file)
+
+question = "Kim jest Patryk Żywica?"
+response = call_openai_json(question, use_web_search=True)
+
+if 'error' not in response:
+    if 'response' in response:
+        update_excel_file(question, response['response'])
+    elif 'results' in response:
+        update_excel_file(question, response['results'][0])
+else:
+    print("Error occurred during OpenAI API call:", response['error'])
