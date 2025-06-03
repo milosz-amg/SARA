@@ -102,7 +102,7 @@ def update_excel_file(question: str, response: str):
     
     wb.save(excel_file)
 
-question = "Z kim współpracował najczęściej prof. Patryk Żywica w latach 2014-2018?"
+question = "Podaj informacje o grantach badawczych dostępnych dla projektów AI w medycynie w 2024 roku"
 response = call_openai_json(question, use_web_search=True)
 
 if 'error' not in response:
