@@ -1,8 +1,22 @@
 import os
 from dotenv import load_dotenv
 from langchain_openai import AzureChatOpenAI, OpenAIEmbeddings
+from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain.agents import Tool
+
 
 load_dotenv()
+
+search = TavilySearchResults(api_key=os.getenv("TAVILY_API_KEY"))
+
+tools = [
+    Tool(
+        name="TavilySearch",
+        func=search.run,
+        # description="Use this tool to search for recent or factual information from the web" # for responses in english
+        description="Użyj tego narzędzia, aby wyszukać najnowsze lub faktograficzne informacje z internetu. Odpowiadaj po polsku."
+    )
+]
 
 def get_llm():
     return AzureChatOpenAI(
