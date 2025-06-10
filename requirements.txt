@@ -7,3 +7,8 @@ langchain
 langchain-openai
 langchain-core
 langchain-community
+faiss-cpu
+tqdm
+python-dotenv
+numpy
+polymorph
