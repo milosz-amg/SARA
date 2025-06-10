@@ -15,6 +15,9 @@ agent = initialize_agent(
     verbose=True
 )
 
+def run_agent_query(query: str):
+    return agent.invoke(query)
+
 query = "Kim jest Patryk Żywica pracownik UAM? Z jakimi naukowcami mógłby współpracować, podaj przykładowych naukowców?"
 
 # response = llm.invoke("Kim jest Patryk Żywica? Pracownik UAM") # pure llm without any tools for web searching
