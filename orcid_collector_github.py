@@ -55,22 +55,21 @@ class ORCIDDataCollectorGitHub:
         self.conn = sqlite3.connect(self.db_path)
         cursor = self.conn.cursor()
         
-        # Create Researchers table
+        # Create Researchers table (matching existing schema)
         cursor.execute('''
         CREATE TABLE IF NOT EXISTS Researchers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id TEXT PRIMARY KEY,
             orcid_id TEXT UNIQUE NOT NULL,
-            given_names TEXT,
-            family_name TEXT,
-            credit_name TEXT,
-            other_names TEXT,
+            first_name TEXT,
+            last_name TEXT,
+            full_name TEXT,
             country TEXT,
-            keywords TEXT,
-            external_ids TEXT,
-            researcher_urls TEXT,
-            bio TEXT,
+            current_affiliation TEXT,
+            degree TEXT,
+            field TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            bio TEXT
         )
         ''')
         
@@ -296,28 +295,40 @@ class ORCIDDataCollectorGitHub:
         family_name = name_data.get("family-name", {}).get("value") if name_data.get("family-name") else None
         credit_name = name_data.get("credit-name", {}).get("value") if name_data.get("credit-name") else None
         
-        # Extract other names
-        other_names_list = name_data.get("other-names", {}).get("other-name", []) if name_data.get("other-names") else []
-        other_names = ", ".join([name.get("content", "") for name in other_names_list if name.get("content")])
+        # Build full name
+        full_name = credit_name if credit_name else f"{given_names or ''} {family_name or ''}".strip()
         
         # Extract country
         addresses = person_data.get("addresses", {}).get("address", []) if person_data else []
         country = addresses[0].get("country", {}).get("value") if addresses else None
         
-        # Extract keywords
+        # Extract current affiliation from employment data
+        current_affiliation = ""
+        if employment_data and employment_data.get("affiliation-group"):
+            affiliations = employment_data.get("affiliation-group", [])
+            if affiliations:
+                first_affiliation = affiliations[0].get("summaries", [{}])[0] if affiliations[0].get("summaries") else {}
+                org_name = first_affiliation.get("organization", {}).get("name") if first_affiliation.get("organization") else None
+                if org_name:
+                    current_affiliation = org_name
+        
+        # Extract field from keywords
         keywords_data = person_data.get("keywords", {}).get("keyword", []) if person_data else []
-        keywords = ", ".join([kw.get("content", "") for kw in keywords_data if kw.get("content")])
+        field = ", ".join([kw.get("content", "") for kw in keywords_data if kw.get("content")])
         
         # Extract bio
         bio_data = person_data.get("biography", {}) if person_data else {}
         bio = bio_data.get("content") if bio_data else None
         
-        # Insert researcher
+        # Generate unique ID
+        unique_id = str(uuid.uuid4())
+        
+        # Insert researcher (matching existing schema)
         cursor.execute('''
         INSERT OR REPLACE INTO Researchers 
-        (orcid_id, given_names, family_name, credit_name, other_names, country, keywords, bio, updated_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (orcid_id, given_names, family_name, credit_name, other_names, country, keywords, bio, datetime.now().isoformat()))
+        (id, orcid_id, first_name, last_name, full_name, country, current_affiliation, degree, field, bio, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (unique_id, orcid_id, given_names, family_name, full_name, country, current_affiliation, "", field, bio, datetime.now().isoformat()))
         
         researcher_id = cursor.lastrowid
         self.conn.commit()
