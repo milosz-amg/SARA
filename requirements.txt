@@ -13,3 +13,4 @@ python-dotenv
 numpy
 polymorph
 pandas
+requests
