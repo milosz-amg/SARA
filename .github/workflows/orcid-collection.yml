@@ -46,14 +46,14 @@ jobs:
         pip install -r requirements.txt
         
     - name: Download previous database
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: polish-scientists-database
         path: ./
       continue-on-error: true  # Don't fail if no previous database exists
       
     - name: Download researcher IDs file
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: polish-researchers-ids
         path: ./
@@ -98,21 +98,21 @@ jobs:
         fi
         
     - name: Upload database artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: polish-scientists-database
         path: polish_scientists.db
         retention-days: 90  # Keep for 3 months
         
     - name: Upload researcher IDs artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: polish-researchers-ids
         path: polish_researchers_all.txt
         retention-days: 90
         
     - name: Upload logs (if any)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: collection-logs-${{ github.run_number }}
         path: "*.log"
