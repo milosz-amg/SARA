@@ -12,3 +12,4 @@ tqdm
 python-dotenv
 numpy
 polymorph
+pandas
