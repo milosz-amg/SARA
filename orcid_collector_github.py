@@ -30,8 +30,8 @@ logger = logging.getLogger(__name__)
 # Configuration for GitHub Actions
 BATCH_SIZE = int(os.getenv('BATCH_SIZE', '6250'))  # Max researchers per run
 MAX_API_CALLS = int(os.getenv('MAX_API_CALLS', '25000'))  # Daily API limit
-DB_PATH = os.getenv('DB_PATH', 'polish_scientists.db')
-IDS_FILE = os.getenv('IDS_FILE', 'polish_researchers_all.txt')
+DB_PATH = os.getenv('DB_PATH', 'data/polish_scientists.db')
+IDS_FILE = os.getenv('IDS_FILE', 'data/polish_researchers_all.txt')
 
 # ORCID API configuration
 BASE_URL = "https://pub.orcid.org/v3.0"

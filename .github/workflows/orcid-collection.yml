@@ -49,28 +49,34 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: polish-scientists-database
-        path: ./
+        path: data/
       continue-on-error: true  # Don't fail if no previous database exists
       
     - name: Download researcher IDs file
       uses: actions/download-artifact@v4
       with:
         name: polish-researchers-ids
-        path: ./
+        path: data/
       continue-on-error: true  # Don't fail if no previous IDs file exists
       
     - name: Check existing files
       run: |
         echo "=== Workspace contents ==="
         ls -la
-        if [ -f "polish_scientists.db" ]; then
-          echo "📊 Database size: $(du -h polish_scientists.db)"
-          echo "📊 Database records: $(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'No Researchers table')"
+        echo "=== Data folder contents ==="
+        ls -la data/ || echo "No data folder found"
+        
+        # Check database
+        if [ -f "data/polish_scientists.db" ]; then
+          echo "📊 Database size: $(du -h data/polish_scientists.db)"
+          echo "📊 Database records: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'No Researchers table')"
         else
           echo "📄 No existing database found"
         fi
-        if [ -f "polish_researchers_all.txt" ]; then
-          echo "📋 IDs file size: $(wc -l < polish_researchers_all.txt) lines"
+        
+        # Check IDs file
+        if [ -f "data/polish_researchers_all.txt" ]; then
+          echo "📋 IDs file size: $(wc -l < data/polish_researchers_all.txt) lines"
         else
           echo "📄 No IDs file found"
         fi
@@ -79,8 +85,8 @@ jobs:
       env:
         BATCH_SIZE: ${{ github.event.inputs.batch_size || '6250' }}
         MAX_API_CALLS: ${{ github.event.inputs.max_api_calls || '25000' }}
-        DB_PATH: 'polish_scientists.db'
-        IDS_FILE: 'polish_researchers_all.txt'
+        DB_PATH: 'data/polish_scientists.db'
+        IDS_FILE: 'data/polish_researchers_all.txt'
       run: |
         echo "🚀 Starting ORCID collection with batch size: $BATCH_SIZE"
         python orcid_collector_github.py
@@ -88,11 +94,11 @@ jobs:
     - name: Check results
       run: |
         echo "=== Collection Results ==="
-        if [ -f "polish_scientists.db" ]; then
-          echo "📊 Final database size: $(du -h polish_scientists.db)"
-          echo "📊 Total researchers: $(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'Error reading database')"
-          echo "📊 Total institutions: $(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'Error reading database')"
-          echo "📊 Total publications: $(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'Error reading database')"
+        if [ -f "data/polish_scientists.db" ]; then
+          echo "📊 Final database size: $(du -h data/polish_scientists.db)"
+          echo "📊 Total researchers: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'Error reading database')"
+          echo "📊 Total institutions: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'Error reading database')"
+          echo "📊 Total publications: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'Error reading database')"
         else
           echo "❌ No database file found"
         fi
@@ -101,14 +107,14 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: polish-scientists-database
-        path: polish_scientists.db
+        path: data/polish_scientists.db
         retention-days: 90  # Keep for 3 months
         
     - name: Upload researcher IDs artifact
       uses: actions/upload-artifact@v4
       with:
         name: polish-researchers-ids
-        path: polish_researchers_all.txt
+        path: data/polish_researchers_all.txt
         retention-days: 90
         
     - name: Upload logs (if any)
@@ -123,17 +129,17 @@ jobs:
       run: |
         echo "## 🎯 ORCID Collection Summary" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        if [ -f "polish_scientists.db" ]; then
-          researchers_count=$(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'Unknown')
+        if [ -f "data/polish_scientists.db" ]; then
+          researchers_count=$(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'Unknown')
           echo "- **Researchers processed:** $researchers_count" >> $GITHUB_STEP_SUMMARY
           
-          institutions_count=$(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'Unknown')
+          institutions_count=$(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'Unknown')
           echo "- **Institutions:** $institutions_count" >> $GITHUB_STEP_SUMMARY
           
-          publications_count=$(sqlite3 polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'Unknown')
+          publications_count=$(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'Unknown')
           echo "- **Publications:** $publications_count" >> $GITHUB_STEP_SUMMARY
           
-          db_size=$(du -h polish_scientists.db | cut -f1)
+          db_size=$(du -h data/polish_scientists.db | cut -f1)
           echo "- **Database size:** $db_size" >> $GITHUB_STEP_SUMMARY
         else
           echo "- **Status:** ❌ Collection failed - no database generated" >> $GITHUB_STEP_SUMMARY
