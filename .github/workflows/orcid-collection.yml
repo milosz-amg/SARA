@@ -45,11 +45,22 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements_github.txt
         
+    - name: Get latest successful run ID
+      id: latest-run
+      run: |
+        # Get the latest successful workflow run (excluding current run)
+        LATEST_RUN=$(gh run list --workflow="orcid-collection.yml" --status=completed --limit=1 --json databaseId --jq '.[0].databaseId')
+        echo "latest_run_id=$LATEST_RUN" >> $GITHUB_OUTPUT
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      continue-on-error: true
+      
     - name: Download previous database
       uses: actions/download-artifact@v4
       with:
         name: polish-scientists-database
         path: data/
+        run-id: ${{ steps.latest-run.outputs.latest_run_id }}
       continue-on-error: true  # Don't fail if no previous database exists
       
     - name: Download researcher IDs file
@@ -57,6 +68,7 @@ jobs:
       with:
         name: polish-researchers-ids
         path: data/
+        run-id: ${{ steps.latest-run.outputs.latest_run_id }}
       continue-on-error: true  # Don't fail if no previous IDs file exists
       
     - name: Check existing files

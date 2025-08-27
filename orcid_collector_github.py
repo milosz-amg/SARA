@@ -52,8 +52,27 @@ class ORCIDDataCollectorGitHub:
     
     def setup_database(self):
         """Set up SQLite database with the new schema."""
+        # Check if database exists before connecting
+        db_exists = os.path.exists(self.db_path)
+        if db_exists:
+            db_size = os.path.getsize(self.db_path)
+            logger.info(f"📊 Connecting to existing database: {self.db_path} ({db_size} bytes)")
+        else:
+            logger.info(f"📊 Creating new database: {self.db_path}")
+        
         self.conn = sqlite3.connect(self.db_path)
         cursor = self.conn.cursor()
+        
+        # Check if tables already exist
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Researchers'")
+        table_exists = cursor.fetchone() is not None
+        
+        if table_exists:
+            cursor.execute("SELECT COUNT(*) FROM Researchers")
+            existing_count = cursor.fetchone()[0]
+            logger.info(f"📊 Found existing Researchers table with {existing_count} records")
+        else:
+            logger.info("📊 Creating new database schema")
         
         # Create Researchers table (matching existing schema)
         cursor.execute('''
@@ -160,10 +179,34 @@ class ORCIDDataCollectorGitHub:
     def get_processed_researchers(self) -> set:
         """Get ORCID IDs of researchers already in database."""
         cursor = self.conn.cursor()
-        cursor.execute("SELECT orcid_id FROM Researchers")
-        processed = {row[0] for row in cursor.fetchall()}
-        logger.info(f"📊 Found {len(processed)} researchers already in database")
-        return processed
+        
+        # Check if database file exists and has content
+        if os.path.exists(self.db_path):
+            db_size = os.path.getsize(self.db_path)
+            logger.info(f"📊 Database file exists: {self.db_path} ({db_size} bytes)")
+        else:
+            logger.warning(f"📊 Database file not found: {self.db_path}")
+            return set()
+        
+        try:
+            cursor.execute("SELECT COUNT(*) FROM Researchers")
+            count = cursor.fetchone()[0]
+            logger.info(f"📊 Total researchers in database: {count}")
+            
+            cursor.execute("SELECT orcid_id FROM Researchers")
+            processed = {row[0] for row in cursor.fetchall()}
+            logger.info(f"📊 Loaded {len(processed)} ORCID IDs from database")
+            
+            # Log some sample IDs for debugging
+            if processed:
+                sample_ids = list(processed)[:5]
+                logger.info(f"📊 Sample processed IDs: {sample_ids}")
+            
+            return processed
+            
+        except Exception as e:
+            logger.error(f"❌ Error reading from database: {e}")
+            return set()
 
     def collect_batch_data_github(self, orcid_ids: List[str]):
         """Collect data with GitHub Actions constraints."""
@@ -341,6 +384,20 @@ class ORCIDDataCollectorGitHub:
 def main_github():
     """Main function optimized for GitHub Actions."""
     logger.info("🚀 Starting GitHub Actions ORCID collection...")
+    logger.info(f"🗂️ Database path: {DB_PATH}")
+    logger.info(f"📋 IDs file path: {IDS_FILE}")
+    
+    # Check if files exist before creating collector
+    if os.path.exists(DB_PATH):
+        db_size = os.path.getsize(DB_PATH)
+        logger.info(f"📊 Found existing database: {DB_PATH} ({db_size} bytes)")
+    else:
+        logger.info(f"📊 No existing database found at: {DB_PATH}")
+        
+    if os.path.exists(IDS_FILE):
+        logger.info(f"📋 Found IDs file: {IDS_FILE}")
+    else:
+        logger.error(f"❌ IDs file not found: {IDS_FILE}")
     
     collector = ORCIDDataCollectorGitHub()
     
@@ -352,7 +409,7 @@ def main_github():
             logger.error("❌ No researcher IDs found. Please ensure polish_researchers_all.txt exists.")
             sys.exit(1)
         
-        logger.info(f"📋 Found {len(all_ids)} total researchers to process")
+        logger.info(f"📋 Loaded {len(all_ids)} total researcher IDs")
         
         # Process batch
         collector.collect_batch_data_github(all_ids)
