@@ -2,7 +2,6 @@ name: ORCID Polish Researchers Collection
 
 on:
   schedule:
-    # Run daily at 2 AM UTC (avoids peak hours)
     - cron: '0 2 * * *'
   workflow_dispatch:
     inputs:
@@ -17,19 +16,22 @@ on:
         default: '25000'
         type: string
 
-# Needed to read artifacts from prior runs
+# we push to the repo
 permissions:
-  contents: read
-  actions: read
+  contents: write
 
 jobs:
   collect-orcid-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # 6 hours max
+    timeout-minutes: 360
 
     steps:
-      - name: Checkout repository
+      # checkout main to run code
+      - name: Checkout repository (main)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -50,80 +52,50 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements_github.txt
 
-      - name: Ensure data directory
+      - name: Ensure data dir
         run: mkdir -p data
 
-      # Find latest non-expired artifacts by name in this repo
-      - name: Find latest artifacts
-        id: find_artifacts
-        uses: actions/github-script@v7
+      # pull the latest DB/IDs from the dedicated LFS-backed `data` branch
+      - name: Checkout data branch (LFS)
+        uses: actions/checkout@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
+          path: _data_branch
+          ref: data
+          fetch-depth: 1
+          lfs: true
+        continue-on-error: true  # first run: branch may not exist
 
-            const artifacts = await github.paginate(
-              github.rest.actions.listArtifactsForRepo,
-              { owner, repo, per_page: 100 }
-            );
-
-            function latestByName(name) {
-              const list = artifacts
-                .filter(a => a.name === name && !a.expired)
-                .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-              return list[0] || null;
-            }
-
-            const db = latestByName('polish-scientists-database');
-            const ids = latestByName('polish-researchers-ids');
-
-            core.setOutput('db_artifact_id', db ? String(db.id) : '');
-            core.setOutput('ids_artifact_id', ids ? String(ids.id) : '');
-            core.info(`DB artifact id: ${db ? db.id : 'none'}`);
-            core.info(`IDs artifact id: ${ids ? ids.id : 'none'}`);
-
-      - name: Download previous database
-        if: steps.find_artifacts.outputs.db_artifact_id != ''
-        uses: actions/download-artifact@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          artifact-ids: ${{ steps.find_artifacts.outputs.db_artifact_id }}
-          path: data/
-
-      - name: Download researcher IDs file
-        if: steps.find_artifacts.outputs.ids_artifact_id != ''
-        uses: actions/download-artifact@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          artifact-ids: ${{ steps.find_artifacts.outputs.ids_artifact_id }}
-          path: data/
-
-      - name: No previous artifacts found
-        if: steps.find_artifacts.outputs.db_artifact_id == '' && steps.find_artifacts.outputs.ids_artifact_id == ''
-        run: echo "No previous artifacts found (first run or artifacts expired). Continuing."
+      - name: Restore previous DB/IDs from data branch (if present)
+        run: |
+          set -euxo pipefail
+          if [ -d "_data_branch" ]; then
+            if [ -f "_data_branch/data/polish_scientists.db" ]; then
+              cp -f "_data_branch/data/polish_scientists.db" "data/polish_scientists.db"
+              echo "Restored previous DB."
+            else
+              echo "No previous DB in data branch."
+            fi
+            if [ -f "_data_branch/data/polish_researchers_all.txt" ]; then
+              cp -f "_data_branch/data/polish_researchers_all.txt" "data/polish_researchers_all.txt"
+              echo "Restored previous IDs file."
+            else
+              echo "No previous IDs file in data branch."
+            fi
+          else
+            echo "No data branch yet."
+          fi
 
       - name: Check existing files
         run: |
           set -euxo pipefail
-          echo "=== Workspace contents ==="
-          ls -la
-          echo "=== Data folder contents ==="
-          ls -la data/ || echo "No data folder found"
-
-          # Check database
+          echo "=== Workspace ==="; ls -la
+          echo "=== data/ ==="; ls -la data || true
           if [ -f "data/polish_scientists.db" ]; then
-            echo "📊 Database size: $(du -h data/polish_scientists.db)"
-            echo "📊 Database records: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'No Researchers table')"
-          else
-            echo "📄 No existing database found"
+            echo "DB size: $(du -h data/polish_scientists.db)"
+            echo "DB rows: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'N/A')"
           fi
-
-          # Check IDs file
           if [ -f "data/polish_researchers_all.txt" ]; then
-            echo "📋 IDs file size: $(wc -l < data/polish_researchers_all.txt) lines"
-          else
-            echo "📄 No IDs file found"
+            echo "IDs lines: $(wc -l < data/polish_researchers_all.txt)"
           fi
 
       - name: Run ORCID data collection
@@ -140,39 +112,67 @@ jobs:
       - name: Check results
         run: |
           set -euxo pipefail
-          echo "=== Collection Results ==="
+          echo "=== Results ==="
           if [ -f "data/polish_scientists.db" ]; then
-            echo "📊 Final database size: $(du -h data/polish_scientists.db)"
-            echo "📊 Total researchers: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'Error reading database')"
-            echo "📊 Total institutions: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'Error reading database')"
-            echo "📊 Total publications: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'Error reading database')"
+            echo "Final DB size: $(du -h data/polish_scientists.db)"
+            echo "Researchers: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'N/A')"
+            echo "Institutions: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'N/A')"
+            echo "Publications: $(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'N/A')"
           else
-            echo "❌ No database file found"
+            echo "❌ No DB produced"
           fi
 
-      - name: Upload database artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: polish-scientists-database
-          path: data/polish_scientists.db
-          retention-days: 90
-          if-no-files-found: warn
+      # --- Publish ONLY the latest snapshot to an orphan commit on branch `data` (Git LFS) ---
+      - name: Publish to single-commit LFS branch `data`
+        if: success() && hashFiles('data/polish_scientists.db') != ''
+        run: |
+          set -euxo pipefail
 
-      - name: Upload researcher IDs artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: polish-researchers-ids
-          path: data/polish_researchers_all.txt
-          retention-days: 90
-          if-no-files-found: warn
+          PUBDIR=_publish_data
+          rm -rf "$PUBDIR"
+          mkdir -p "$PUBDIR"
+          cd "$PUBDIR"
 
-      - name: Upload logs (if any)
-        uses: actions/upload-artifact@v4
-        with:
-          name: collection-logs-${{ github.run_number }}
-          path: "*.log"
-          retention-days: 30
-          if-no-files-found: ignore
+          # init a clean repo that points to the current repository
+          git init
+          git remote add origin "${{ github.server_url }}/${{ github.repository }}.git"
+
+          # user for the commit
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # LFS
+          git lfs install
+
+          # create ORPHAN commit (no parent) so the branch has exactly one commit
+          git checkout --orphan data
+          # bring in files
+          mkdir -p data
+          cp -f ../data/polish_scientists.db data/
+          if [ -f ../data/polish_researchers_all.txt ]; then
+            cp -f ../data/polish_researchers_all.txt data/
+          fi
+
+          # track DB with LFS (and optional IDs if you want)
+          git lfs track "data/*.db"
+          echo "/data/" > .gitignore
+          sed -i '1s|^|!data/\n|g' .gitignore  # keep data/
+
+          # ensure .gitattributes is committed so LFS applies
+          git add .gitattributes || true
+          git add -f data/polish_scientists.db
+          [ -f data/polish_researchers_all.txt ] && git add -f data/polish_researchers_all.txt || true
+          # keep a tiny README to explain the branch
+          echo "# Latest ORCID DB snapshot (LFS)\nThis branch always contains a single commit with the most recent files." > README.md
+          git add README.md
+
+          git commit -m "Publish latest DB snapshot [orphan, single-commit]"
+
+          # force push (replace branch history with this single commit)
+          git push -f origin HEAD:data
+
+          cd ..
+          echo "✅ Published latest snapshot to branch 'data' (single-commit, LFS)."
 
       - name: Collection summary
         run: |
@@ -181,16 +181,16 @@ jobs:
             echo
             if [ -f "data/polish_scientists.db" ]; then
               researchers_count=$(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Researchers;' 2>/dev/null || echo 'Unknown')
-              echo "- **Researchers processed:** $researchers_count"
               institutions_count=$(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Institutions;' 2>/dev/null || echo 'Unknown')
-              echo "- **Institutions:** $institutions_count"
               publications_count=$(sqlite3 data/polish_scientists.db 'SELECT COUNT(*) FROM Publications;' 2>/dev/null || echo 'Unknown')
-              echo "- **Publications:** $publications_count"
               db_size=$(du -h data/polish_scientists.db | cut -f1)
+              echo "- **Researchers processed:** $researchers_count"
+              echo "- **Institutions:** $institutions_count"
+              echo "- **Publications:** $publications_count"
               echo "- **Database size:** $db_size"
             else
               echo "- **Status:** ❌ Collection failed - no database generated"
             fi
             echo
-            echo "Next run scheduled for tomorrow at 2 AM UTC"
+            echo "The 'data' branch always contains a single LFS-backed snapshot of the latest DB."
           } >> "$GITHUB_STEP_SUMMARY"
