@@ -5,10 +5,10 @@ import logging
 from typing import List, Dict, Optional, Union, Set
 from pathlib import Path
 import time
-from semantic_scholar.utils.ner_utils import Entity
+from utils.ner_utils import STANDARD_LABELS, Entity
 import spacy
 from openai import OpenAI
-from semantic_scholar.utils.utils import extract_json_array
+from utils.utils import extract_json_array
 
 
 class NERError(Exception):
@@ -146,7 +146,7 @@ class CustomNER:
         """Normalize entity labels to standard format."""
         if not self.normalize_labels:
             return label
-        return self.STANDARD_LABELS.get(label, label.upper())
+        return STANDARD_LABELS.get(label, label.upper())
     
     def _validate_text(self, text: str) -> str:
         """Validate and preprocess input text."""

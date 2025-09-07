@@ -1,7 +1,8 @@
 import logging
 from dotenv import load_dotenv
 
-from semantic_scholar.utils.authors import AuthorSearcher
+from utils.authors import AuthorSearcher
+
 
 load_dotenv()
 

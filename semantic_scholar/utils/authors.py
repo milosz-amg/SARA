@@ -3,8 +3,8 @@ import logging
 from typing import List, Dict, Optional
 from dataclasses import dataclass
 
-from semantic_scholar.custom_ner import CustomNER, NERError
-from semantic_scholar.semanticscholar_api_client import SemanticScholarAPIClient, SemanticScholarAPIError
+from custom_ner import CustomNER, NERError
+from semanticscholar_api_client import SemanticScholarAPIClient, SemanticScholarAPIError
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 

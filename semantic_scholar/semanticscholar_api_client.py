@@ -5,7 +5,7 @@ from urllib3.util.retry import Retry
 import logging
 import time
 
-from semantic_scholar.settings import SEMANTIC_SCHOLAR_API_URL, DEFAULT_TIMEOUT, DEFAULT_LIMIT, DEFAULT_FIELDS_AUTHOR
+from settings import SEMANTIC_SCHOLAR_API_URL, DEFAULT_TIMEOUT, DEFAULT_LIMIT, DEFAULT_FIELDS_AUTHOR
 
 class SemanticScholarAPIError(RuntimeError):
     """Custom exception for Semantic Scholar API errors."""
