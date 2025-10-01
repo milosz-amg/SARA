@@ -1,0 +1,239 @@
+1759234024345	geckodriver	INFO	Listening on 127.0.0.1:56708
+1759234032175	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileUzgvdl"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759234034707	Marionette	INFO	Marionette enabled
+1759234035404	Marionette	INFO	Listening on port 56766
+Read port: 56766
+WebDriver BiDi listening on ws://127.0.0.1:56709
+1759234035684	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=312924054, line 1: unreachable code after return statement
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 4365: TypeError: can't access property "closedGroups", winData is undefined
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-RW3CBE8DZG, line 762: Script terminated by timeout at:
+k.sj@https://www.googletagmanager.com/gtag/js?id=G-RW3CBE8DZG:762:486
+get@https://www.googletagmanager.com/gtag/js?id=G-RW3CBE8DZG:761:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-RW3CBE8DZG:761:87
+k.bp/c/<@https://www.googletagmanager.com/gtag/js?id=G-RW3CBE8DZG:761:410
+
+1759234226378	geckodriver	INFO	Listening on 127.0.0.1:57568
+1759234226972	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileMEmRf6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759234228090	Marionette	INFO	Marionette enabled
+1759234228564	Marionette	INFO	Listening on port 57582
+Read port: 57582
+WebDriver BiDi listening on ws://127.0.0.1:57569
+1759234228889	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1456389359, line 1: unreachable code after return statement
+1759234390369	Marionette	INFO	Stopped listening on port 57582
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759234572011	geckodriver	INFO	Listening on 127.0.0.1:59091
+1759234572581	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileSDvTjC"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759234573727	Marionette	INFO	Marionette enabled
+1759234574260	Marionette	INFO	Listening on port 59106
+Read port: 59106
+WebDriver BiDi listening on ws://127.0.0.1:59092
+1759234574537	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1925762342, line 1: unreachable code after return statement
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1759234738666	geckodriver	INFO	Listening on 127.0.0.1:59886
+1759234739281	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileq8KZhV"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759234740501	Marionette	INFO	Marionette enabled
+1759234740931	Marionette	INFO	Listening on port 59901
+Read port: 59901
+WebDriver BiDi listening on ws://127.0.0.1:59887
+1759234741318	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1854130084, line 1: unreachable code after return statement
+1759234897796	Marionette	INFO	Stopped listening on port 59901
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759236491099	geckodriver	INFO	Listening on 127.0.0.1:65357
+1759236491946	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofiley2obvb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759236493473	Marionette	INFO	Marionette enabled
+1759236494067	Marionette	INFO	Listening on port 65376
+Read port: 65376
+WebDriver BiDi listening on ws://127.0.0.1:65358
+1759236494345	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=719324173, line 1: unreachable code after return statement
+1759236533800	Marionette	INFO	Stopped listening on port 65376
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759236650187	geckodriver	INFO	Listening on 127.0.0.1:49684
+1759236650933	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofile45jE8W"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759236652373	Marionette	INFO	Marionette enabled
+1759236652773	Marionette	INFO	Listening on port 49699
+Read port: 49699
+WebDriver BiDi listening on ws://127.0.0.1:49685
+1759236653133	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=2087438567, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=2087438567, line 1: unreachable code after return statement
+1759236693579	Marionette	INFO	Stopped listening on port 49699
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759308496457	geckodriver	INFO	Listening on 127.0.0.1:56084
+1759308497125	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileHFUyTZ"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759308500837	Marionette	INFO	Marionette enabled
+1759308501626	Marionette	INFO	Listening on port 56116
+WebDriver BiDi listening on ws://127.0.0.1:56085
+Read port: 56116
+1759308502406	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1312451612, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1312451612, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1312451612, line 1: unreachable code after return statement
+1759308512299	Marionette	INFO	Stopped listening on port 56116
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759308597498	geckodriver	INFO	Listening on 127.0.0.1:56539
+1759308598052	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileX6r0RC"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759308599217	Marionette	INFO	Marionette enabled
+1759308599549	Marionette	INFO	Listening on port 56553
+WebDriver BiDi listening on ws://127.0.0.1:56540
+Read port: 56553
+1759308599926	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1759308639001	geckodriver	INFO	Listening on 127.0.0.1:56726
+1759308639760	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileXM2wYC"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759308641431	Marionette	INFO	Marionette enabled
+1759308641849	Marionette	INFO	Listening on port 56744
+WebDriver BiDi listening on ws://127.0.0.1:56727
+Read port: 56744
+1759308642419	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1759308647013	Marionette	INFO	Stopped listening on port 56744
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759309014774	geckodriver	INFO	Listening on 127.0.0.1:58282
+1759309015135	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofile1mawzO"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759309017060	Marionette	INFO	Marionette enabled
+1759309017551	Marionette	INFO	Listening on port 58300
+WebDriver BiDi listening on ws://127.0.0.1:58283
+Read port: 58300
+1759309017886	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=972194830, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=972194830, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=972194830, line 1: unreachable code after return statement
+1759309025211	Marionette	INFO	Stopped listening on port 58300
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759309231190	geckodriver	INFO	Listening on 127.0.0.1:59252
+1759309231603	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofile4jpPcM"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759309233851	Marionette	INFO	Marionette enabled
+1759309234464	Marionette	INFO	Listening on port 59275
+WebDriver BiDi listening on ws://127.0.0.1:59253
+Read port: 59275
+1759309235267	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=317594510, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=317594510, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=317594510, line 1: unreachable code after return statement
+1759310371978	geckodriver	INFO	Listening on 127.0.0.1:64038
+1759310372394	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofileA8rMMZ"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759310374066	Marionette	INFO	Marionette enabled
+1759310374556	Marionette	INFO	Listening on port 64057
+WebDriver BiDi listening on ws://127.0.0.1:64039
+Read port: 64057
+1759310374936	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=44236115, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=44236115, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=44236115, line 1: unreachable code after return statement
+1759310482841	Marionette	INFO	Stopped listening on port 64057
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
+1759310761795	geckodriver	INFO	Listening on 127.0.0.1:49319
+1759310762234	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofiletOtI9g"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759310763865	Marionette	INFO	Marionette enabled
+1759310764226	Marionette	INFO	Listening on port 49337
+WebDriver BiDi listening on ws://127.0.0.1:49320
+Read port: 49337
+1759310764604	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=629246003, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=629246003, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=629246003, line 1: unreachable code after return statement
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1759310832423	geckodriver	INFO	Listening on 127.0.0.1:49642
+1759310848453	geckodriver	INFO	Listening on 127.0.0.1:49713
+1759310848821	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/usr/local/bin/firefox ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/5q/yh050zvd7756xymwnf3lx_yw0000gn/T/rust_mozprofilei6rWte"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1759310850166	Marionette	INFO	Marionette enabled
+1759310850503	Marionette	INFO	Listening on port 49727
+WebDriver BiDi listening on ws://127.0.0.1:49714
+Read port: 49727
+1759310850882	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1084157518, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1084157518, line 1: unreachable code after return statement
+JavaScript warning: https://projekty.ncn.gov.pl/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1084157518, line 1: unreachable code after return statement
+1759314201028	Marionette	INFO	Stopped listening on port 49727
+console.error: (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: (new Error("OHTTP was configured for https://ads.mozilla.org/v1/delete_user but we couldn't fetch a valid config", "moz-src:///browser/modules/ContextId.sys.mjs", 234))
+console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
+console.warn: TopSitesFeed: Failed to fetch data from MARS server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/ObliviousHTTP.sys.mjs, line 105: NS_ERROR_XPC_CANT_CONVERT_PRIMITIVE_TO_ARRAY: Cannot convert primitive JavaScript value into an array arg 2 [nsIObliviousHttpService.newChannel]
