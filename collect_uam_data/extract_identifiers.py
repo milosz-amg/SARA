@@ -149,6 +149,46 @@ class ProfileIdentifierExtractor:
             print(f"  Error extracting identifiers: {e}")
             return identifiers
     
+    def extract_orcid_from_scopus(self, scopus_url):
+        """Try to extract ORCID from Scopus profile page."""
+        if not scopus_url:
+            return None
+        
+        try:
+            print(f"  → Checking Scopus for ORCID: {scopus_url}")
+            self.driver.get(scopus_url)
+            time.sleep(3)
+            
+            try:
+                orcid_links = self.driver.find_elements(By.CSS_SELECTOR, "a[href*='orcid.org']")
+                
+                for link in orcid_links:
+                    href = link.get_attribute('href')
+                    orcid_match = re.search(r'orcid\.org/(\d{4}-\d{4}-\d{4}-\d{3}[0-9X])', href)
+                    if orcid_match:
+                        orcid = orcid_match.group(1)
+                        print(f"  ✓ Found ORCID from Scopus: {orcid}")
+                        return orcid
+            except NoSuchElementException:
+                pass
+            
+            try:
+                page_source = self.driver.page_source
+                orcid_match = re.search(r'\b(\d{4}-\d{4}-\d{4}-\d{3}[0-9X])\b', page_source)
+                if orcid_match:
+                    orcid = orcid_match.group(1)
+                    print(f"  ✓ Found ORCID from Scopus: {orcid}")
+                    return orcid
+            except Exception as e:
+                print(f"  Error searching page source: {e}")
+            
+            print("  ✗ No ORCID found on Scopus profile")
+            return None
+            
+        except Exception as e:
+            print(f"  Error extracting ORCID from Scopus: {e}")
+            return None
+    
     def process_all_scientists(self):
         scientists = self.read_scientists_from_csv()
         
@@ -176,6 +216,13 @@ class ProfileIdentifierExtractor:
             
             identifiers = self.extract_identifiers_from_profile(profile_url)
             
+            if not identifiers.get('orcid') and identifiers.get('scopus'):
+                scopus_url = identifiers['scopus'].get('url')
+                if scopus_url:
+                    orcid_from_scopus = self.extract_orcid_from_scopus(scopus_url)
+                    if orcid_from_scopus:
+                        identifiers['orcid'] = orcid_from_scopus
+            
             scientist_with_ids = {
                 **scientist,
                 'identifiers': identifiers
@@ -197,10 +244,21 @@ class ProfileIdentifierExtractor:
             print(f"Error saving to JSON: {e}")
             return False
     
-    def save_to_csv(self, filename="scientists_with_identifiers.csv"):
+    def save_to_csv(self, filename="./data/scientists_with_identifiers.csv"):
         try:
             if not self.scientists_with_identifiers:
                 print("No data to save")
+                return False
+            
+            scientists_with_orcid = []
+            for scientist in self.scientists_with_identifiers:
+                if scientist.get('identifiers') and scientist['identifiers'].get('orcid'):
+                    scientists_with_orcid.append(scientist)
+            
+            print(f"\nFiltering: {len(scientists_with_orcid)} out of {len(self.scientists_with_identifiers)} scientists have ORCID")
+            
+            if not scientists_with_orcid:
+                print("No scientists with ORCID to save")
                 return False
             
             with open(filename, 'w', newline='', encoding='utf-8') as f:
@@ -215,7 +273,7 @@ class ProfileIdentifierExtractor:
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
                 
-                for scientist in self.scientists_with_identifiers:
+                for scientist in scientists_with_orcid:
                     row = {
                         'profile_id': scientist.get('profile_id'),
                         'full_name': scientist.get('full_name'),
@@ -261,7 +319,7 @@ class ProfileIdentifierExtractor:
                     
                     writer.writerow(row)
             
-            print(f"Data saved to {filename}")
+            print(f"Saved {len(scientists_with_orcid)} scientists with ORCID to {filename}")
             return True
         except Exception as e:
             print(f"Error saving to CSV: {e}")
@@ -366,7 +424,10 @@ if __name__ == "__main__":
     
     if success:
         print("EXTRACTION COMPLETED SUCCESSFULLY!")
-        print("Output files:")
-        print("  - scientists_with_identifiers.csv")
+        print("Output file:")
+        print("  - ./data/scientists_with_identifiers.csv (only scientists with ORCID)")
+        print("\nNote: ORCIDs were extracted from both:")
+        print("  • UAM Research Portal profiles")
+        print("  • Scopus profiles (when not found in portal)")
     else:
         print("\nExtraction failed. Check error messages above.")
