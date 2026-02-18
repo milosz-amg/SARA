@@ -5,3 +5,4 @@ Materials
 __pycache__/*
 __pycache__
 OpenAlex/
+model_comparision/embeddings

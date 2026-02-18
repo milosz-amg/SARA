@@ -1,0 +1,13 @@
+tabelka korelacji:
+- podobieństwo
+- jaccard
+- śr odległosć sąsiadów od punktu
+
+sprawdzic czy jak ilosć prac wpływa na profilowanie naukowca, zaproponować odcięcie
+
+porzucić embedingi
+
+zrobić eksperyment w krótym sklejamy 2 embedingi (konkatenujemy):
+- np. spectr + Mini LM i na takim czymś budujemy mape podobieństwa
+- pamiętać że embeingi muszą mieć równą długość (np. 512 + 512) a jak różne to zredukować
+
