@@ -1,0 +1,725 @@
+% ============================================================
+%  ROZDZIAŁ: Profilowanie badaczy
+%  Wymagane pakiety: graphicx, booktabs, float, amsmath,
+%                   caption, subcaption, hyperref, array
+% ============================================================
+
+\chapter{Profilowanie badaczy na podstawie ich działalności naukowej
+         oraz analiza zachowań profili w~zależności od~zastosowanych
+         podejść profilowania}
+
+% ----------------------------------------------------------
+\section{Zbiór danych}
+\label{sec:dataset}
+% ----------------------------------------------------------
+
+Eksperymenty opisane w~niniejszym rozdziale przeprowadzono na~danych
+dotyczących pracowników naukowych Wydziału Matematyki i~Informatyki
+(WMIi) Uniwersytetu im.~Adama Mickiewicza w~Poznaniu.
+Wydział ten skupia badaczy reprezentujących szerokie spektrum
+dyscyplin: od~matematyki czystej (analiza funkcjonalna, kombinatoryka,
+topologia) poprzez informatykę teoretyczną i~algorytmikę,
+aż po~uczenie maszynowe, przetwarzanie języka naturalnego
+i~grafikę komputerową.
+Taka różnorodność tematyczna czyni zbiór szczególnie wartościowym
+do~testowania metod profilowania semantycznego: dobry model powinien
+zarówno wyraźnie separować naukowców z~odległych dziedzin,
+jak i~blisko umieszczać tych o~zbieżnych zainteresowaniach.
+
+\subsection{Źródła danych}
+
+Profile naukowców (identyfikatory ORCID, afiliacje, imiona i~nazwiska)
+pozyskano z~Portalu Badawczego UAM.
+Publikacje pobrano za pomocą API serwisu OpenAlex~\cite{priem2022openalex} --
+otwartego indeksu prac naukowych, który agreguje metadane
+z~Crossref, PubMed, arXiv i~innych źródeł.
+Dla każdego naukowca wysłano zapytanie filtrowane identyfikatorem
+ORCID, co~zapewniło jednoznaczne przypisanie prac do~autorów.
+
+\subsection{Statystyki zbioru}
+
+Ostateczny zbiór danych obejmuje:
+\begin{itemize}
+    \item \textbf{164 naukowców} posiadających identyfikator ORCID,
+    \item \textbf{3~440 publikacji},
+\end{itemize}
+
+
+% ----------------------------------------------------------
+\section{Modele embeddingów}
+\label{sec:models}
+% ----------------------------------------------------------
+
+\subsection{Charakterystyka modeli wykorzystanych podczas analizy}
+\label{subsec:models_overview}
+
+W~eksperymentach porównano sześć modeli transformerowych
+do~generowania wektorowych reprezentacji tekstów (embeddingów).
+Tabela~\ref{tab:models_full} zestawia ich podstawowe właściwości.
+
+\begin{table}[H]
+\centering
+\caption{Modele embeddingowe użyte w~eksperymentach.}
+\label{tab:models_full}
+\begin{tabular}{llccp{3.2cm}}
+\toprule
+\textbf{Skrót} & \textbf{Identyfikator (HuggingFace)} & \textbf{Wymiar} & \textbf{Parametry} & \textbf{Domena / trening} \\
+\midrule
+SPECTER            & \texttt{allenai/specter}                        & 768 & 110M & Naukowy (cytowania) \\
+MiniLM-L6          & \texttt{all-MiniLM-L6-v2}                       & 384 & 22M  & Ogólny (destylacja) \\
+MiniLM-L12         & \texttt{all-MiniLM-L12-v2}                      & 384 & 33M  & Ogólny (destylacja) \\
+MPNet-Base         & \texttt{all-mpnet-base-v2}                      & 768 & 110M & Ogólny (MPNet) \\
+BGE-Small          & \texttt{BAAI/bge-small-en-v1.5}                 & 384 & 24M  & Retrieval (kontrastywny) \\
+Multilingual-MiniLM & \texttt{paraphrase-multilingual-MiniLM-L12-v2} & 384 & 118M & Wielojęzyczny \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Wszystkie modele zostały użyte bez~dodatkowego dostrajania (\textit{out-of-the-box}),
+co~odzwierciedla realistyczny scenariusz wdrożeniowy, w~którym kosztowny
+fine-tuning nie jest dostępny.
+
+\subsubsection{SPECTER}
+
+SPECTER (\textit{Scientific Paper Embeddings using Citation-informed
+TransformERs})~\cite{specter2020} to~model zaproponowany przez Cohana i~in.,
+zbudowany na~bazie SciBERT~\cite{scibert2019} -- wariantu BERT
+wstępnie wytrenowanego na~korpusie ponad miliona pełnotekstowych artykułów
+naukowych z~bazy Semantic Scholar.
+Kluczową innowacją SPECTER jest drugi etap treningu: model optymalizowany jest
+funkcją straty \textit{triplet margin loss}
+\begin{equation}
+    \mathcal{L}(a,p,n) = \max\bigl(0,\;
+        \|\mathbf{E}(a) - \mathbf{E}(p)\|^2 -
+        \|\mathbf{E}(a) - \mathbf{E}(n)\|^2 + m\bigr),
+\end{equation}
+gdzie $a$ jest artykułem zakotwiczenia (\textit{anchor}),
+$p$ -- artykułem cytowanym przez $a$ (pozytywny),
+$n$ -- artykułem negatywnym dobranym losowo,
+a~$m$ -- marginesem separacji.
+Sygnałem nadzoru jest zatem istniejąca struktura grafu cytowań,
+a~nie ręcznie nadane etykiety tematyczne.
+Wynikowa przestrzeń embeddingów ma~wymiar 768;
+reprezentacja dokumentu uzyskiwana jest przez wybranie wektora
+tokenu \texttt{[CLS]} z~ostatniej warstwy transformerowej.
+
+\subsubsection{MiniLM-L6 (\texttt{all-MiniLM-L6-v2})}
+
+Model \texttt{all-MiniLM-L6-v2}~\cite{wang2020minilm} łączy dwa podejścia:
+destylację wiedzy (\textit{knowledge distillation}) z~frameworkiem
+Sentence-BERT~\cite{sbert2019}.
+Architektura składa się z~6~warstw transformerowych
+(zamiast 12 w~oryginalnym BERT) o~rozmiarze ukrytym 384,
+co~redukuje liczbę parametrów do~ok.~22 milionów.
+W~procesie destylacji uczeń minimalizuje rozbieżność Kullbacka--Leiblera
+między macierzami uwagi nauczyciela i~ucznia:
+\begin{equation}
+    \mathcal{L}_{\mathrm{KD}} = \mathrm{KL}(A_{\mathrm{teacher}} \| A_{\mathrm{student}}),
+\end{equation}
+co~pozwala przenieść wiedzę o~strukturze uwagi, nie tylko o~wynikach końcowych.
+Model trenowany jest następnie w~architekturze syjamskiej
+na~ponad miliardzie par zdań z~różnorodnych korpusów ogólnych,
+z~zastosowaniem funkcji straty \textit{Multiple Negatives Ranking Loss}.
+Reprezentacja zdania uzyskiwana jest przez \textit{mean pooling}
+-- uśrednianie wektorów wszystkich tokenów z~ostatniej warstwy.
+
+\subsubsection{MiniLM-L12 (\texttt{all-MiniLM-L12-v2})}
+
+\texttt{all-MiniLM-L12-v2} jest wariantem o~podwojonej głębokości
+(12 warstw zamiast 6) przy tym samym rozmiarze ukrytym 384.
+Procedura treningu jest analogiczna do~MiniLM-L6,
+lecz większa pojemność modelu pozwala uchwycić subtelniejsze
+relacje semantyczne kosztem nieco wyższego kosztu obliczeniowego.
+W~eksperymentach oba warianty MiniLM zachowują się bardzo podobnie,
+co~potwierdza dominację architektury i~danych treningowych
+nad liczbą warstw w~tym przedziale parametrów.
+
+\subsubsection{MPNet-Base (\texttt{all-mpnet-base-v2})}
+
+MPNet~\cite{mpnet2020} to~architektura łącząca zalety BERT
+(bierze pod uwagę zależności między wszystkimi tokenami)
+i~XLNet (unika problemu rozbieżności między pre-treningiem
+a~finetuningiem wynikającej z~maskowania).
+Model \texttt{all-mpnet-base-v2} to~MPNet-Base
+dostrojony do~generowania embeddingów zdaniowych na~szerokich,
+różnorodnych korpusach podobieństwa semantycznego.
+Wymiar wyjściowy wynosi 768; w~eksperymentach wymagających
+porównywania z~modelami 384-wymiarowymi zastosowano
+projekcję Johnsona--Lindenstraussa (zob.\ sekcja~\ref{subsec:jl}).
+
+\subsubsection{BGE-Small (\texttt{BAAI/bge-small-en-v1.5})}
+
+BGE-Small pochodzi z~rodziny modeli \textit{Beijing Academy of AI}
+(BAAI)~\cite{bge2023}, zaprojektowanych z~myślą o~efektywnym
+wyszukiwaniu informacji (\textit{retrieval}).
+Model wytrenowany jest metodą uczenia kontrastywnego
+z~trudnymi negatywami (\textit{hard negative mining}):
+dla każdego przykładu pozytywnego dobierane są pary negatywne,
+które są semantycznie bliskie, ale nie są odpowiedziami na~zapytanie.
+Taka procedura wymusza tworzenie zwartych, tematycznie skupionych
+reprezentacji -- właściwość ta~okazuje się kluczowa
+dla szybkiej stabilizacji profilu naukowca
+(zob.\ sekcja~\ref{sec:stability}).
+Pomimo małych rozmiarów (384 wymiary, ok.~24M parametrów)
+model osiąga wyniki porównywalne z~modelami wielokrotnie większymi.
+
+\subsubsection{Multilingual-MiniLM (\texttt{paraphrase-multilingual-MiniLM-L12-v2})}
+
+Model wielojęzyczny oparty na~architekturze MiniLM-L12,
+dostrojony na~parach parafraz w~ponad 50~językach.
+Włączony do~porównania jako punkt odniesienia dla scenariusza,
+w~którym część publikacji mogłaby być dostępna w~językach innych
+niż angielski (np.\ polskie monografie lub artykuły konferencyjne).
+Jak wykazują eksperymenty, model ten wykazuje największą
+rozbieżność w~stosunku do~pozostałych modeli anglojęzycznych,
+co~prawdopodobnie wynika z~kompromisu między jakością
+reprezentacji a~wielojęzycznym zakresem treningu.
+
+\subsection{Projekcja Johnson--Lindenstraussa}
+\label{subsec:jl}
+
+Modele SPECTER i~MPNet-Base generują wektory o~wymiarze 768,
+podczas gdy pozostałe cztery modele produkują wektory 384-wymiarowe.
+Aby umożliwić bezpośrednie porównania i~konkatenacje embeddingów,
+wektory 768-wymiarowe redukowano do~384 wymiarów za~pomocą
+\emph{losowej projekcji liniowej}:
+\begin{equation}
+    \mathbf{e}' = \frac{1}{\sqrt{384}}\,\mathbf{e}\,\mathbf{P},
+    \qquad \mathbf{P} \in \mathbb{R}^{768 \times 384},\;
+    P_{ij} \sim \mathcal{N}(0,1),
+    \label{eq:jl_proj}
+\end{equation}
+po~czym $\mathbf{e}'$ normalizowano do~normy jednostkowej $L_2$.
+Podejście to~uzasadnia lemat Johnsona--Lindenstraussa~\cite{jl1984},
+który gwarantuje, że~losowa projekcja z~wysokowymiarowej przestrzeni
+do~przestrzeni o~wymiarze $k \geq \frac{8 \ln n}{\varepsilon^2}$
+zachowuje parami odległości euklidesowe ze~zniekształceniem
+co~najwyżej $(1 \pm \varepsilon)$ z~wysokim prawdopodobieństwem.
+Macierz $\mathbf{P}$ jest deterministyczna (ustalono stałe ziarno
+losowości), dzięki czemu wyniki są w~pełni powtarzalne.
+
+% ----------------------------------------------------------
+\section{Podejścia do~budowania profilu badacza}
+\label{sec:approaches}
+% ----------------------------------------------------------
+
+\subsection{Reprezentacja centroidem}
+\label{subsec:centroid}
+
+Profil embeddingowy naukowca zdefiniowano jako \emph{centroid} --
+średnią arytmetyczną wektorów embeddingowych jego indywidualnych
+publikacji:
+\begin{equation}
+    \mathbf{c}_S = \frac{1}{|S|} \sum_{i \in S} \mathbf{e}_i,
+    \label{eq:centroid_def}
+\end{equation}
+gdzie 
+$\mathbf{e}_i \in \mathbb{R}^d$ 
+jest embeddingiem $i$-tej pracy,
+a~$S$ -- zbiorem prac naukowca (lub wybranym podzbiorem).
+
+Reprezentacja centroidem posiada kilka kluczowych zalet praktycznych.
+Po~pierwsze, \textbf{rozmiar profilu jest stały} niezależnie od~liczby
+publikacji -- nie rośnie wraz z~dorobkiem autora, co~jest niezbędne
+dla skalowalności systemu rekomendacji.
+Po~drugie, \textbf{profil jest łatwo aktualizowalny inkrementalnie}:
+dodanie nowej pracy wymaga jedynie aktualizacji centroidu
+$\mathbf{c}_{S \cup \{j\}} = \frac{|S| \cdot \mathbf{c}_S + \mathbf{e}_j}{|S|+1}$,
+bez ponownego przeliczania całego profilu.
+Po~trzecie, centroid posiada interpretację geometryczną jako punkt
+najlepiej reprezentujący chmurę wektorów publikacji w~sensie
+minimalizacji sumarycznej odległości euklidesowej.
+
+Alternatywą jest konkatenacja wszystkich tekstów publikacji
+w~jeden długi dokument i~zakodowanie go jako jednego wektora.
+Podejście to~zastosowano w~fazie wstępnej eksperymentów
+(zob.\ sekcja~\ref{subsec:validation_coauthor}),
+lecz ma~ono istotną wadę: dla naukowców z~dużym dorobkiem
+łączny tekst przekracza okno kontekstowe modeli
+(typowo 256--512 tokenów), co~prowadzi do~obcinania informacji.
+
+\subsection{Embeddingi tytułów prac}
+\label{subsec:titles}
+
+Pierwszą i~najskromniejszą pod względem informacyjnym reprezentacją
+jest embedding samego tytułu publikacji.
+Tytuł stanowi zwięzłą deklarację tematu pracy, pozbawioną
+szczegółów metodycznych ani wyników.
+Zalety tego podejścia to~universalność (praktycznie każda publikacja
+ma tytuł) i~odporność na~braki w~metadanych.
+
+W~eksperymencie porównawczym (sekcja~\ref{sec:validation})
+embeddingi tytułów wykazały zaskakująco dobrą zdolność
+do~separowania grup tematycznych.
+Wynika to~z~faktu, że~słownictwo tytułów naukowych jest
+silnie specjalistyczne: słowa kluczowe dziedziny pojawiają się
+już w~tytule, co~umożliwia modelowi poprawne wnioskowanie
+o~temacie nawet bez treści.
+
+\subsection{Embeddingi abstraktów prac}
+\label{subsec:abstracts}
+
+Abstrakt dostarcza znacznie więcej informacji niż sam tytuł:
+opisuje motywację, zastosowaną metodę, dane i~główne wyniki.
+Embeddingi abstraktów są zatem bogatszą reprezentacją pracy,
+choć kosztem wyższego czasu przetwarzania i~konieczności
+dostępności abstraktu w~metadanych.
+
+Eksperyment ablacyjny wykazał, że~włączenie abstraktów powoduje
+spójne przesunięcia pozycji naukowców w~przestrzeni PCA:
+badacze z~pokrewnych dziedzin przemieszczają się w~podobnych
+kierunkach, co~świadczy o~tym, że~abstrakty wnoszą
+semantycznie spójną informację, a~nie szum~\cite{ic_report}.
+
+W~eksperymencie porównawczym (sekcja~\ref{sec:validation})
+konfiguracje oparte na~abstraktach i~na~tytułach wykazały
+umiarkowaną zgodność co~do~rankingu sąsiadów
+(Jaccard $\approx 0{,}70$ dla tego samego modelu,
+różne typy tekstu), co~sugeruje, że~obydwa typy tekstu
+niosą uzupełniającą, lecz nie identyczną informację.
+
+\subsection{Embeddingi N-gramów zdań z~abstraktu (podejście wstępne)}
+\label{subsec:ngrams}
+
+W~fazie eksploracyjnej prototypowano alternatywną metodę
+budowania reprezentacji: abstrakt dzielono na~zdania,
+generowano wszystkie okna N-gramowe (tj.\ ciągi kolejnych zdań)
+z~przesunięciem o~jedno zdanie, embeddowano każde okno osobno,
+a~następnie uśredniano wynikowe wektory.
+Celem było uchwycenie lokalnych kontekstów semantycznych
+zawartych w~kolejnych akapitach abstraktu.
+
+Podejście to~zostało zidentyfikowane jako obiecujące koncepcyjnie,
+lecz w~toku eksperymentów nie wykazało jednoznacznej przewagi
+nad prostym embeddingiem całego abstraktu, przy znacznie wyższym
+koszcie obliczeniowym (wielokrotne wywołania modelu na~dokument).
+Z~tego powodu metoda N-gramów zdaniowych nie była stosowana
+w~dalszych eksperymentach i~pozostaje kierunkiem wartym
+zbadania w~przyszłości.
+
+\subsection{Konkatenacja embeddingów z~różnych modeli}
+\label{subsec:concat}
+
+Motywacją do~konkatenacji embeddingów dwóch różnych modeli jest hipoteza,
+że~różne modele mogą kodować uzupełniające sygnały semantyczne:
+SPECTER opiera się na~strukturze cytowań, modele ogólne --
+na~szerokim rozumieniu języka naturalnego.
+Połączenie ich reprezentacji mogłoby dać profil bogatszy
+niż każdy z~modeli osobno.
+
+Technicznie, dla naukowca $a$ jego profil konkatenowany definiuje się jako:
+% \begin{equation}
+%     \mathbf{c}^{\oplus}_{a} =
+%     \bigl[\,\mathbf{c}^{(M_1)}_{a} \;\|\; \mathbf{c}^{(M_2)}_{a}\,\bigr]
+%     \;\in\; \mathbb{R}^{384+384},
+% \end{equation}
+gdzie $\mathbf{c}^{(M_i)}_{a}$ jest centroidem modelu $M_i$
+(po~ewentualnej projekcji do~wymiaru 384),
+a~$\|$ oznacza konkatenację wektorów.
+Podobieństwo między profilami dwóch naukowców obliczano
+jako kosinusowe na~wektorach 768-wymiarowych.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/scientists_pca_concat_title.png}
+    \caption{Mapa naukowców WMIi w~przestrzeni PCA (2D) dla konkatenacji
+    embeddingów tytułów z~czterech modeli: MiniLM-L6, SPECTER,
+    MPNet-Base, Multilingual-MiniLM.
+    Kolor punktu odpowiada liczbie publikacji danego naukowca.}
+    \label{fig:pca_concat}
+\end{figure}
+
+Eksperyment zbadał kilkanaście par modeli,
+m.in.\ MiniLM-L6~$\oplus$~SPECTER,
+MiniLM-L6~$\oplus$~BGE-Small,
+MiniLM-L6~$\oplus$~MPNet-Base.
+Wizualizacje PCA i~macierze Jaccarda sąsiadów wskazują,
+że~konkatenacja przesuwa ``mapę'' naukowców w~sposób,
+który zależy od~wkładu obu modeli składowych.
+Pełna, ilościowa ocena tej metody względem najlepszego
+pojedynczego modelu pozostaje przedmiotem dalszych badań.
+
+% ----------------------------------------------------------
+\section{Metody walidacji profili badaczy}
+\label{sec:validation}
+% ----------------------------------------------------------
+
+\subsection{Walidacja hipotezy bliskości współautorów}
+\label{subsec:validation_coauthor}
+
+Fundamentalnym pytaniem jest, czy~embeddingi publikacji
+w~ogóle skutecznie reprezentują podobieństwo naukowe.
+Do~weryfikacji tej hipotezy zastosowano test bliskości współautorów:
+\textbf{jeśli dwoje naukowców współtworzyło co~najmniej jedną publikację,
+ich profile powinny być semantycznie bliższe niż profile
+losowo dobranych par}.
+
+\subsubsection{Metodologia testu}
+
+Dla każdego autora $a$ skonstruowano jego profil jako wektor
+$\mathbf{E}(a)$ -- w~tej fazie przez konkatenację tytułów i~abstraktów
+wszystkich prac w~jeden ciąg i~zakodowanie go~jako jeden wektor
+(bez~uśredniania).
+Podobieństwo między dwoma autorami zdefiniowano jako:
+\begin{equation}
+    \mathrm{sim}(a,b)
+    = \frac{\mathbf{E}(a)\cdot\mathbf{E}(b)}
+           {\|\mathbf{E}(a)\|\,\|\mathbf{E}(b)\|}.
+\end{equation}
+Obliczono podobieństwo dla:
+\begin{itemize}
+    \item 57~par współautorskich (ground truth: podobni),
+    \item 1~000~losowo dobranych par spośród pozostałych
+          (rozkład referencyjny).
+\end{itemize}
+Jako miarę separacji zastosowano jednostronny test Manna--Whitneya U
+(hipoteza alternatywna: współautorzy $>$ losowe pary)
+oraz rozmiar efektu $d$ Cohena~\cite{cohen1988}.
+
+\subsubsection{Wyniki}
+
+\begin{table}[H]
+\centering
+\caption{Wyniki testu bliskości współautorów dla dwóch modeli.}
+\label{tab:coauthor_test}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Model} &
+\textbf{Śr. sim.} & \textbf{Śr. sim.} & \textbf{Różnica} &
+\textbf{$d$ Cohena} & \textbf{$p$-wartość} \\
+& \textbf{(współaut.)} & \textbf{(losowe)} & & & \\
+\midrule
+SPECTER   & 0{,}787 & 0{,}624 & +0{,}163 & 1{,}51 & $1{,}82 \times 10^{-17}$ \\
+MiniLM-L6 & 0{,}419 & 0{,}109 & +0{,}310 & 2{,}19 & $9{,}11 \times 10^{-20}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/coauthor_evaluation.png}
+    \caption{Rozkład podobieństwa cosinusowego dla par współautorskich
+    i~losowych par naukowców -- SPECTER (lewy panel) i~MiniLM-L6 (prawy panel).
+    Przerywane linie oznaczają średnie grupowe.}
+    \label{fig:coauthor_hist}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/model_comparison.png}
+    \caption{Porównanie SPECTER i~MiniLM-L6: średnie podobieństwo kosinusowe
+    (lewy), rozmiar efektu $d$ Cohena (środkowy) i~różnica bezwzględna
+    między grupami (prawy). Przerywane linie~-- progi małego, średniego
+    i~dużego efektu według skali Cohena.}
+    \label{fig:model_comparison}
+\end{figure}
+
+Wyniki potwierdzają centralną hipotezę projektu SARA:
+obydwa modele osiągają statystycznie wysoce istotną separację
+($p < 10^{-16}$, rozmiar efektu $d \gg 0{,}8$),
+co~oznacza, że~embeddingi tekstowe skutecznie kodują podobieństwo
+naukowe bez~ręcznej taksonomii ani słów kluczowych.
+
+Nieintuicyjnym wynikiem jest \textbf{wyraźna przewaga MiniLM-L6
+nad SPECTER} ($d = 2{,}19$ vs $d = 1{,}51$) mimo~że SPECTER
+trenowany był specjalnie na~tekstach naukowych.
+Wyjaśnienia dostarcza geometria przestrzeni embeddingów:
+SPECTER charakteryzuje się efektem \emph{kompresji} --
+nawet losowe pary autorów osiągają średnie podobieństwo~$0{,}624$,
+co~pozostawia mało miejsca na~dyskryminację.
+MiniLM-L6 rozciąga swoją przestrzeń szerzej (losowe pary: $0{,}109$),
+przez co~różnica między parami podobnymi a~losowymi jest prawie
+dwukrotnie większa w~wartościach bezwzględnych.
+
+Korelacja Pearsona między pełnymi macierzami podobieństwa
+obu modeli wynosi $r = 0{,}729$ ($p \approx 0$),
+co~świadczy o~umiarkowanie silnej, ale~nie pełnej zgodności:
+modele zgadzają się co~do~ogólnej struktury podobieństwa,
+lecz różnią się w~szczegółach rankingów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{pictures/model_correlation.png}
+    \caption{Korelacja podobieństw kosinusowych SPECTER i~MiniLM-L6
+    dla wszystkich $\sim$6\,600 par autorów (Pearson $r = 0{,}729$).
+    Czerwona przerywana linia~-- idealna zgodność modeli.}
+    \label{fig:model_corr}
+\end{figure}
+
+\subsection{Podobieństwo Jaccarda dla zbiorów sąsiadów}
+\label{subsec:jaccard}
+
+Po~walidacji samego podejścia kolejnym krokiem jest porównanie,
+\textbf{jak spójne rankingi sąsiadów generują różne konfiguracje
+modeli i~typów tekstu}.
+Dla każdego z~107 naukowców wyznaczono listę $K$ najbliższych sąsiadów
+(top-$K$ NN) na~podstawie kosinusowego podobieństwa centroidów.
+Pairwise overlap dwóch konfiguracji $A$ i~$B$ dla naukowca $s$
+definiuje się jako:
+\begin{equation}
+    J_s(A, B) = \frac{|\mathrm{NN}_K^A(s) \cap \mathrm{NN}_K^B(s)|}
+                     {|\mathrm{NN}_K^A(s) \cup \mathrm{NN}_K^B(s)|},
+\end{equation}
+a~wynikowa miara to~średnia po~wszystkich naukowcach:
+$\bar{J}(A,B) = \frac{1}{N}\sum_s J_s(A,B)$.
+
+\subsubsection{Wyniki}
+
+Porównano wszystkie 67~unikalnych par spośród 12~konfiguracji
+(6~modeli $\times$ 2~typy tekstu: tytuł / abstrakt).
+Tabela~\ref{tab:jaccard_top} prezentuje ekstrema.
+
+\begin{table}[H]
+\centering
+\caption{Wybrane pary konfiguracji według średniego podobieństwa Jaccarda.}
+\label{tab:jaccard_top}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Konfiguracja A} & \textbf{Konfiguracja B} &
+\textbf{Śr. Jaccard} & \textbf{Śr. overlap} \\
+\midrule
+MiniLM-L6\_abstract   & MiniLM-L12\_abstract    & 0{,}792 & 0{,}873 \\
+MiniLM-L6\_title      & MiniLM-L12\_title       & 0{,}790 & 0{,}872 \\
+MiniLM-L6\_title      & MPNet-Base\_title       & 0{,}762 & 0{,}853 \\
+\midrule
+Specter\_title        & Multilingual-MiniLM\_title  & 0{,}454 & 0{,}602 \\
+Specter\_abstract     & Multilingual-MiniLM\_title  & 0{,}440 & 0{,}589 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pictures/jaccard_heatmap_title.png}
+    \caption{Macierz średniego podobieństwa Jaccarda (top-10 sąsiadów)
+    między sześcioma modelami dla embeddingów tytułów.
+    Ciemniejszy kolor oznacza wyższą zgodność rankingów sąsiadów.}
+    \label{fig:jaccard_heatmap}
+\end{figure}
+
+Wyniki wskazują na~\textbf{dwa klastry modeli}:
+\begin{itemize}
+    \item \textbf{Klaster spójny:} MiniLM-L6, MiniLM-L12, MPNet-Base
+    -- modele te~generują bardzo zbliżone rankingi sąsiadów
+    (Jaccard $0{,}76$--$0{,}79$), niezależnie od~tego,
+    czy~embeddowany jest tytuł, czy~abstrakt.
+    \item \textbf{Modele odmienne:} SPECTER i~Multilingual-MiniLM
+    -- wykazują najniższą zgodność z~pozostałymi
+    oraz między sobą (Jaccard $\approx 0{,}44$--$0{,}60$).
+\end{itemize}
+
+Pytanie o~to, \emph{który} model wskazuje ``właściwych'' sąsiadów,
+pozostaje otwarte wobec braku złotego standardu.
+Zjawisko rozbieżności sugeruje jednak, że~SPECTER i~Multilingual-MiniLM
+kodują inny wymiar podobieństwa niż modele ogólne,
+co~stanowi argument za~dalszym badaniem konkatenacji embeddingów
+(sekcja~\ref{subsec:concat}).
+
+\subsection{Podobieństwo cosinusowe centroidu cząstkowego do~pełnego}
+\label{subsec:cosine_stability}
+
+Miara ta~jest stosowana w~eksperymentach nad stabilnością profilu
+(sekcja~\ref{sec:stability}).
+Dla naukowca posiadającego $n$ prac, losowo wybierany jest podzbiór
+$S \subset \{1,\ldots,n\}$, $|S|=k$.
+Miarą wierności centroidu cząstkowego $\mathbf{c}_S$
+względem centroidu pełnego $\mathbf{c}_{\mathrm{all}}$ jest:
+\begin{equation}
+    \mathrm{stab}(k) =
+    \mathrm{sim}(\mathbf{c}_S, \mathbf{c}_{\mathrm{all}})
+    = \frac{\mathbf{c}_S \cdot \mathbf{c}_{\mathrm{all}}}
+           {\|\mathbf{c}_S\|\,\|\mathbf{c}_{\mathrm{all}}\|}.
+\end{equation}
+Wartość $\mathrm{stab}(k) \to 1$ gdy $k \to n$
+(centroid podzbioru zbiega do~centroidu pełnego).
+Za~progi praktycznej stosowalności przyjęto
+$\mathrm{stab} \geq 0{,}95$ (akceptowalne odchylenie)
+i~$\mathrm{stab} \geq 0{,}99$ (wysoka wierność).
+
+% ----------------------------------------------------------
+\section{Czynniki wpływające na~stabilność profilu}
+\label{sec:stability}
+% ----------------------------------------------------------
+
+Kluczowym pytaniem praktycznym jest: \textbf{ile publikacji potrzeba,
+by~profil embeddingowy był wiarygodną reprezentacją dorobku naukowca?}
+Odpowiedź ma~bezpośrednie znaczenie dla jakości systemu rekomendacji --
+naukowcy z~małym dorobkiem (doktoranci, asystenci)
+nie powinni być dyskwalifikowani, jeśli kilka prac wystarczy
+do~uformowania stabilnego profilu.
+
+\input{CHAPTERS/centroid_stability_section}
+
+\subsection{Interdyscyplinarność naukowca}
+\label{subsec:interdisciplinarity}
+
+Eksperymenty pilotażowe przeprowadzono na~prof.~UAM dr~hab.~Tomaszu
+Górecki -- badaczu o~wyjątkowo szerokim i~interdyscyplinarnym dorobku,
+obejmującym statystykę funkcjonalną, klasyfikację szeregów czasowych
+i~chemometrię żywności.
+Wyniki dla tego naukowca są systematycznie \textbf{gorsze} niż wyniki
+uśrednione po~107~badaczach (np.\ MiniLM-L6, $k=3$: $0{,}530$
+dla Góreckiego vs. $0{,}796$ w~agregacie).
+
+Zjawisko to~wyjaśnia geometria przestrzeni embeddingów:
+naukowiec interdyscyplinarny publikuje prace z~różnych dziedzin,
+których wektory są rozrzucone w~różnych regionach przestrzeni.
+Centroid z~małej próbki losowych prac może trafić
+w~obszar reprezentatywny tylko dla jednej z~dziedzin,
+dając niepełny obraz całego profilu.
+Naukowiec o~wąskiej, jednorodnej specjalizacji ma~prace skupione
+w~małym regionie przestrzeni -- losowa próbka kilku prac
+daje centroid bliski centroidowi pełnemu.
+
+\textbf{Wniosek:} Interdyscyplinarność jest czynnikiem niezależnym
+od~liczby prac -- nawet naukowiec z~dużym, interdyscyplinarnym
+dorobkiem może wymagać wielu prac do~uformowania stabilnego profilu.
+System rekomendacji powinien ideowo uwzględniać tę~właściwość,
+np.\ poprzez reprezentację multimodalną (kilka centroidów
+per naukowiec, jeden dla każdej dziedziny).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/heatmap_gorecki_abstract.png}
+    \caption{Heatmapa stabilności centroidu prof.~UAM dr~hab.~Tomasza Góreckiego
+    (naukowiec interdyscyplinarny, 114~prac, embeddingi abstraktów).
+    Czerwone obszary przy małym $k$ świadczą o~dużej wrażliwości modeli ogólnych
+    na~dobór próbki; modele SPECTER i~BGE-Small zachowują wysoką stabilność.}
+    \label{fig:heatmap_gorecki}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/heatmap_rucinski_abstract.png}
+    \caption{Heatmapa stabilności centroidu prof.~dr~hab.~Andrzeja Rucińskiego
+    (kombinatoryka, 199~prac, embeddingi abstraktów).
+    Jednorodna specjalizacja przekłada się na~szybszą stabilizację centroidu
+    nawet dla modeli ogólnych -- kontrast z~profilem Góreckiego.}
+    \label{fig:heatmap_rucinski}
+\end{figure}
+
+% ----------------------------------------------------------
+\section{Dyskusja i~wnioski}
+\label{sec:discussion}
+% ----------------------------------------------------------
+
+Eksperymenty opisane w~niniejszym rozdziale dostarczyły odpowiedzi
+na~trzy główne pytania badawcze:
+
+\paragraph{1.~Czy podejście embeddingowe w~ogóle działa?}
+
+Tak -- z~dużym marginesem pewności.
+Obydwa testowane modele (SPECTER i~MiniLM-L6) osiągają
+statystycznie wysoce istotną separację współautorów od~losowych par
+($p < 10^{-16}$, $d > 1{,}5$) bez~żadnego ręcznego nadzoru tematycznego.
+Podejście oparte wyłącznie na~tekście publikacji jest zatem
+solidnym punktem wyjścia dla systemu rekomendacji.
+
+\paragraph{2.~Który model wybrać?}
+
+Odpowiedź zależy od~liczby dostępnych publikacji:
+\begin{itemize}
+    \item Jeśli baza zawiera wielu naukowców z~\textbf{małym dorobkiem
+    ($< 20$~prac)}: należy zastosować \textbf{SPECTER lub~BGE-Small},
+    które osiągają stabilność ($\mathrm{sim} > 0{,}95$)
+    już przy~$k = 5$~pracach.
+    \item Jeśli zdecydowana większość naukowców ma
+    \textbf{ponad 30~prac}: modele z~rodziny \textbf{MiniLM lub~MPNet}
+    są akceptowalnym wyborem i~generują spójniejsze rankingi
+    (Jaccard $\approx 0{,}79$ wewnątrz rodziny).
+    \item Przy \textbf{ponad 50~pracach} różnice między wszystkimi
+    modelami zanikają.
+\end{itemize}
+Model Multilingual-MiniLM nie~był najlepszy w~żadnej kategorii
+i~wykazywał największe rozbieżności z~pozostałymi modelami --
+jego użycie należy ograniczyć do~scenariuszy z~wielojęzycznym
+korpusem publikacji.
+
+\paragraph{3.~Czy abstrakt jest lepszy niż tytuł?}
+
+Abstrakty wnoszą semantycznie spójną informację uzupełniającą
+(spójne przesunięcia w~PCA, Jaccard $\approx 0{,}70$
+dla tego samego modelu, różne typy tekstu).
+W~praktyce warto stosować abstrakty, gdy~są dostępne,
+przy~świadomości, że~część publikacji (szczególnie starszych)
+może ich nie~posiadać.
+Podejście hybrydyczne -- abstrakt gdy~dostępny, tytuł gdy~nie --
+jest rozsądnym kompromisem.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{pictures/correlation_metrics.png}
+    \caption{Korelacja Pearsona i~Spearmana między czterema metrykami profilu
+    naukowca: liczbą publikacji, zgodnością Jaccarda, średnim podobieństwem
+    sąsiadów i~średnią odległością sąsiadów.
+    Liczba prac nie koreluje z~Jaccardem ($r=0{,}04$),
+    ale koreluje umiarkowanie ze~średnim podobieństwem sąsiadów ($r=0{,}26$).}
+    \label{fig:corr_metrics}
+\end{figure}
+
+\paragraph{Ograniczenia.}
+
+Głównym ograniczeniem ewaluacji jest użycie współautorstwa
+jako proxy dla podobieństwa naukowego.
+Naukowcy mogą być współautorami z~powodów administracyjnych
+lub projektowych, a~brak współautorstwa nie~oznacza braku
+zbieżności zainteresowań.
+Brak złotego standardu (ręcznych ocen eksperckich)
+uniemożliwia ostateczne rozstrzygnięcie, który model wskazuje
+``właściwych'' kandydatów do~rekomendacji.
+Kolejnym ograniczeniem jest jednorodność instytucjonalna danych:
+zbiór pochodzi z~jednego wydziału jednej uczelni,
+co~może nie~odzwierciedlać zachowania modeli na~bardziej
+zróżnicowanych populacjach.
+
+% ----------------------------------------------------------
+\section{Dalsze kierunki badań}
+\label{sec:future_work}
+% ----------------------------------------------------------
+
+Na~podstawie przeprowadzonych eksperymentów wskazujemy
+następujące kierunki dalszych prac:
+
+\begin{enumerate}
+    \item \textbf{Ewaluacja ekspercka.}
+    Kluczowym uzupełnieniem byłoby przeprowadzenie ankiety
+    wśród samych naukowców WMIi, weryfikującej trafność
+    rekomendowanych par. Taka ocena pozwoliłaby odejść
+    od~pośredniego proxy współautorstwa i~bezpośrednio zmierzyć
+    użyteczność systemu dla końcowego użytkownika.
+
+    \item \textbf{Fine-tuning modeli na~danych UAM.}
+    Dostrojenie modelu (np.\ SPECTER lub~MiniLM)
+    na~parach prac naukowców z~WMIi -- z~sygnałem z~grafu
+    współautorstwa lub~cytowań -- mogłoby znacząco poprawić
+    jakość profilowania dla tej specyficznej populacji.
+
+    \item \textbf{Reprezentacja multimodalna dla naukowców interdyscyplinarnych.}
+    Zamiast jednego centroidu można reprezentować profil
+    naukowca jako \emph{zbiór centroidów} (po~jednym na~klaster tematyczny),
+    wyznaczonych np.\ algorytmem $k$-means na~embeddingach jego prac.
+    Taka reprezentacja mogłaby lepiej uchwycić wielowymiarowość
+    zainteresowań naukowych.
+
+    \item \textbf{Ocena konkatenacji embeddingów.}
+    Eksperyment z~konkatenacją (sekcja~\ref{subsec:concat})
+    miał charakter eksploracyjny.
+    Pełna ewaluacja -- z~porównaniem do~najlepszego
+    pojedynczego modelu na~tym samym zadaniu walidacyjnym --
+    jest niezbędna, by~ocenić rzeczywisty zysk z~tej metody.
+
+    \item \textbf{Integracja z~grafem cytowań.}
+    Uzupełnienie profilu tekstowego o~reprezentację
+    naukowca w~grafie cytowań (np.\ metodą GraphSAGE)
+    mogłoby uchwycić wymiar ``wpływu naukowego'',
+    niewidoczny w~samym tekście publikacji.
+
+    \item \textbf{Modele specjalizowane dla poddziedzin.}
+    Testowane modele traktują całą matematykę i~informatykę
+    jako jedną domenę. Modele specjalizowane dla wąskich
+    dziedzin (np.\ \texttt{math-bert}, \texttt{cs-bert})
+    mogłyby poprawić rozdzielczość profilowania
+    w~obrębie jednej dyscypliny.
+\end{enumerate}
+
+
