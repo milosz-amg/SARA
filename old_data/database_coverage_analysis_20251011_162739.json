@@ -1,0 +1,603 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-11T16:27:09.235296",
+    "database": "devdb"
+  },
+  "analyses": {
+    "h_index": {
+      "distribution": [
+        {
+          "h_index_range": "0",
+          "count": 119416,
+          "percentage": "27.26"
+        },
+        {
+          "h_index_range": "1-5",
+          "count": 250126,
+          "percentage": "57.11"
+        },
+        {
+          "h_index_range": "6-10",
+          "count": 36214,
+          "percentage": "8.27"
+        },
+        {
+          "h_index_range": "11-20",
+          "count": 23558,
+          "percentage": "5.38"
+        },
+        {
+          "h_index_range": "21-30",
+          "count": 5822,
+          "percentage": "1.33"
+        },
+        {
+          "h_index_range": "31-50",
+          "count": 2265,
+          "percentage": "0.52"
+        },
+        {
+          "h_index_range": "51-100",
+          "count": 521,
+          "percentage": "0.12"
+        },
+        {
+          "h_index_range": "100+",
+          "count": 78,
+          "percentage": "0.02"
+        }
+      ],
+      "thresholds": {
+        "h_gte_5": 81996,
+        "h_gte_10": 36987,
+        "h_gte_15": 18826,
+        "h_gte_20": 9821,
+        "h_gte_30": 3171,
+        "h_gte_50": 636,
+        "h_gte_100": 84,
+        "total": 438000
+      }
+    },
+    "citations": {
+      "distribution": [
+        {
+          "citations_range": "0",
+          "count": 119187,
+          "percentage": "27.21"
+        },
+        {
+          "citations_range": "1-100",
+          "count": 236383,
+          "percentage": "53.97"
+        },
+        {
+          "citations_range": "101-500",
+          "count": 52614,
+          "percentage": "12.01"
+        },
+        {
+          "citations_range": "501-1000",
+          "count": 14195,
+          "percentage": "3.24"
+        },
+        {
+          "citations_range": "1001-5000",
+          "count": 13545,
+          "percentage": "3.09"
+        },
+        {
+          "citations_range": "5001-10000",
+          "count": 1266,
+          "percentage": "0.29"
+        },
+        {
+          "citations_range": "10001-50000",
+          "count": 729,
+          "percentage": "0.17"
+        },
+        {
+          "citations_range": "50000+",
+          "count": 81,
+          "percentage": "0.02"
+        }
+      ],
+      "thresholds": {
+        "cit_gte_100": 82844,
+        "cit_gte_500": 29866,
+        "cit_gte_1000": 15639,
+        "cit_gte_5000": 2077,
+        "cit_gte_10000": 810,
+        "total": 438000
+      }
+    },
+    "cardiology": {
+      "stats": {
+        "total_cardiologists": 18274,
+        "min_h": 0,
+        "max_h": 174,
+        "avg_h": "3.9",
+        "min_cit": 0,
+        "max_cit": 265330,
+        "avg_cit": "308"
+      },
+      "top_10": [
+        {
+          "display_name": "Piotr Ponikowski",
+          "h_index": 174,
+          "cited_by_count": 265330,
+          "works_count": 1456,
+          "last_known_institution_name": "Wroclaw Medical University"
+        },
+        {
+          "display_name": "Michał Tendera",
+          "h_index": 104,
+          "cited_by_count": 171026,
+          "works_count": 643,
+          "last_known_institution_name": "Medical University of Silesia"
+        },
+        {
+          "display_name": "Maciej Banach",
+          "h_index": 131,
+          "cited_by_count": 157360,
+          "works_count": 1542,
+          "last_known_institution_name": "John Paul II Catholic University of Lublin"
+        },
+        {
+          "display_name": "Adam Torbicki",
+          "h_index": 101,
+          "cited_by_count": 148231,
+          "works_count": 549,
+          "last_known_institution_name": "Postgraduate School of Molecular Medicine"
+        },
+        {
+          "display_name": "Andrzej Budaj",
+          "h_index": 96,
+          "cited_by_count": 83854,
+          "works_count": 443,
+          "last_known_institution_name": "Grochowski Hospital"
+        },
+        {
+          "display_name": "Ewa A. Jankowska",
+          "h_index": 75,
+          "cited_by_count": 71907,
+          "works_count": 700,
+          "last_known_institution_name": "Wroclaw Medical University"
+        },
+        {
+          "display_name": "Krzysztof Narkiewicz",
+          "h_index": 80,
+          "cited_by_count": 70595,
+          "works_count": 948,
+          "last_known_institution_name": "Gdańsk Medical University"
+        },
+        {
+          "display_name": "Andrzej Więcek",
+          "h_index": 70,
+          "cited_by_count": 40545,
+          "works_count": 947,
+          "last_known_institution_name": "Medical University of Silesia"
+        },
+        {
+          "display_name": "Piotr Jankowski",
+          "h_index": 38,
+          "cited_by_count": 37506,
+          "works_count": 432,
+          "last_known_institution_name": "Postgraduate School of Molecular Medicine"
+        },
+        {
+          "display_name": "Lis Neubeck",
+          "h_index": 54,
+          "cited_by_count": 34901,
+          "works_count": 322,
+          "last_known_institution_name": "Edinburgh Napier University"
+        }
+      ],
+      "strict_count": {
+        "count_strict": 505
+      },
+      "relaxed": [
+        {
+          "display_name": "Piotr Ponikowski",
+          "h_index": 174,
+          "cited_by_count": 265330,
+          "works_count": 1456
+        },
+        {
+          "display_name": "Michał Tendera",
+          "h_index": 104,
+          "cited_by_count": 171026,
+          "works_count": 643
+        },
+        {
+          "display_name": "Maciej Banach",
+          "h_index": 131,
+          "cited_by_count": 157360,
+          "works_count": 1542
+        },
+        {
+          "display_name": "Adam Torbicki",
+          "h_index": 101,
+          "cited_by_count": 148231,
+          "works_count": 549
+        },
+        {
+          "display_name": "Andrzej Budaj",
+          "h_index": 96,
+          "cited_by_count": 83854,
+          "works_count": 443
+        },
+        {
+          "display_name": "Ewa A. Jankowska",
+          "h_index": 75,
+          "cited_by_count": 71907,
+          "works_count": 700
+        },
+        {
+          "display_name": "Krzysztof Narkiewicz",
+          "h_index": 80,
+          "cited_by_count": 70595,
+          "works_count": 948
+        },
+        {
+          "display_name": "Andrzej Więcek",
+          "h_index": 70,
+          "cited_by_count": 40545,
+          "works_count": 947
+        },
+        {
+          "display_name": "Piotr Jankowski",
+          "h_index": 38,
+          "cited_by_count": 37506,
+          "works_count": 432
+        },
+        {
+          "display_name": "Lis Neubeck",
+          "h_index": 54,
+          "cited_by_count": 34901,
+          "works_count": 322
+        }
+      ]
+    },
+    "oncology": {
+      "stats": {
+        "total_oncologists": 21643,
+        "min_cit": 0,
+        "max_cit": 81608,
+        "avg_cit": "347",
+        "min_h": 0,
+        "max_h": 121,
+        "avg_h": "4.6"
+      },
+      "top_10": [
+        {
+          "display_name": "Piotr Rutkowski",
+          "h_index": 108,
+          "cited_by_count": 81608,
+          "works_count": 1733,
+          "last_known_institution_name": "The Maria Sklodowska-Curie National Research Institute of Oncology"
+        },
+        {
+          "display_name": "Maciej Wiznerowicz",
+          "h_index": 83,
+          "cited_by_count": 78893,
+          "works_count": 199,
+          "last_known_institution_name": "International Institute for Molecular Oncology"
+        },
+        {
+          "display_name": "Jan Lubiński",
+          "h_index": 121,
+          "cited_by_count": 75508,
+          "works_count": 1314,
+          "last_known_institution_name": "Pomeranian Medical University"
+        },
+        {
+          "display_name": "Irmina Maria Michałek",
+          "h_index": 40,
+          "cited_by_count": 61090,
+          "works_count": 110,
+          "last_known_institution_name": "The Maria Sklodowska-Curie National Research Institute of Oncology"
+        },
+        {
+          "display_name": "Jolanta Lissowska",
+          "h_index": 110,
+          "cited_by_count": 59953,
+          "works_count": 732,
+          "last_known_institution_name": "The Maria Sklodowska-Curie National Research Institute of Oncology"
+        },
+        {
+          "display_name": "Stefano Volinia",
+          "h_index": 92,
+          "cited_by_count": 57017,
+          "works_count": 503,
+          "last_known_institution_name": "University of Warsaw"
+        },
+        {
+          "display_name": "Jacek Jassem",
+          "h_index": 86,
+          "cited_by_count": 53835,
+          "works_count": 1004,
+          "last_known_institution_name": "Gdańsk Medical University"
+        },
+        {
+          "display_name": "Dawid Murawa",
+          "h_index": 47,
+          "cited_by_count": 52234,
+          "works_count": 276,
+          "last_known_institution_name": "University of Zielona Góra"
+        },
+        {
+          "display_name": "Witold Kycler",
+          "h_index": 36,
+          "cited_by_count": 49803,
+          "works_count": 108,
+          "last_known_institution_name": "Greater Poland Cancer Center"
+        },
+        {
+          "display_name": "A. Bandura",
+          "h_index": 16,
+          "cited_by_count": 45725,
+          "works_count": 30,
+          "last_known_institution_name": "Gdańsk Medical University"
+        }
+      ],
+      "immuno_count": {
+        "count_with_immuno": 9587,
+        "min_cit": 0,
+        "max_cit": 81608
+      },
+      "strict_count": {
+        "count_strict": 2695
+      }
+    },
+    "quantum": {
+      "stats": {
+        "total_quantum": 111326,
+        "min_h": 0,
+        "max_h": 152,
+        "avg_h": "5.0",
+        "min_cit": 0,
+        "max_cit": 117670
+      },
+      "top_10": [
+        {
+          "display_name": "K. Piotrzkowski",
+          "h_index": 152,
+          "cited_by_count": 117670,
+          "works_count": 1649,
+          "last_known_institution_name": "AGH University of Krakow"
+        },
+        {
+          "display_name": "A. Olszewski",
+          "h_index": 149,
+          "cited_by_count": 115538,
+          "works_count": 1790,
+          "last_known_institution_name": "Institute of Nuclear Physics, Polish Academy of Sciences"
+        },
+        {
+          "display_name": "W. Dąbrowski",
+          "h_index": 148,
+          "cited_by_count": 114707,
+          "works_count": 2132,
+          "last_known_institution_name": "AGH University of Krakow"
+        },
+        {
+          "display_name": "K. Doroba",
+          "h_index": 148,
+          "cited_by_count": 117611,
+          "works_count": 2238,
+          "last_known_institution_name": "University of Warsaw"
+        },
+        {
+          "display_name": "P. Zalewski",
+          "h_index": 148,
+          "cited_by_count": 117002,
+          "works_count": 2235,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        },
+        {
+          "display_name": "M. Szleper",
+          "h_index": 148,
+          "cited_by_count": 107222,
+          "works_count": 2101,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        },
+        {
+          "display_name": "E. Banaś",
+          "h_index": 148,
+          "cited_by_count": 115939,
+          "works_count": 1924,
+          "last_known_institution_name": "Institute of Nuclear Physics, Polish Academy of Sciences"
+        },
+        {
+          "display_name": "P. A. Bruckman de Renstrom",
+          "h_index": 147,
+          "cited_by_count": 111592,
+          "works_count": 1809,
+          "last_known_institution_name": "Institute of Nuclear Physics, Polish Academy of Sciences"
+        },
+        {
+          "display_name": "K. Korcyl",
+          "h_index": 147,
+          "cited_by_count": 113889,
+          "works_count": 2004,
+          "last_known_institution_name": "Institute of Nuclear Physics, Polish Academy of Sciences"
+        },
+        {
+          "display_name": "T. Bołd",
+          "h_index": 147,
+          "cited_by_count": 112827,
+          "works_count": 1897,
+          "last_known_institution_name": "AGH University of Krakow"
+        }
+      ],
+      "computing_count": {
+        "count_quantum_computing": 68672,
+        "max_h": 152
+      }
+    },
+    "robotics": {
+      "stats": {
+        "total_robotics": 2895,
+        "min_h": 0,
+        "max_h": 58,
+        "avg_h": "2.7"
+      },
+      "top_10": [
+        {
+          "display_name": "Thomas Bak",
+          "h_index": 28,
+          "cited_by_count": 4027,
+          "works_count": 172,
+          "last_known_institution_name": "WSPIA University of Rzeszow"
+        },
+        {
+          "display_name": "Karol Seweryn",
+          "h_index": 23,
+          "cited_by_count": 3419,
+          "works_count": 169,
+          "last_known_institution_name": "Centrum Badań Kosmicznych"
+        },
+        {
+          "display_name": "Tadeusz Mikołajczyk",
+          "h_index": 30,
+          "cited_by_count": 3016,
+          "works_count": 117,
+          "last_known_institution_name": "Bydgoszcz University of Science and Technology"
+        },
+        {
+          "display_name": "Jim Nickolaou",
+          "h_index": 5,
+          "cited_by_count": 2930,
+          "works_count": 6,
+          "last_known_institution_name": "General Motors (Poland)"
+        },
+        {
+          "display_name": "Eduardo Bayro–Corrochano",
+          "h_index": 26,
+          "cited_by_count": 2557,
+          "works_count": 346,
+          "last_known_institution_name": "Poznań University of Technology"
+        },
+        {
+          "display_name": "Bipin Indurkhya",
+          "h_index": 23,
+          "cited_by_count": 2531,
+          "works_count": 238,
+          "last_known_institution_name": "Jagiellonian University"
+        },
+        {
+          "display_name": "Wen Qi",
+          "h_index": 27,
+          "cited_by_count": 2472,
+          "works_count": 122,
+          "last_known_institution_name": "Gdansk University of Physical Education and Sport"
+        },
+        {
+          "display_name": "Andrzej Kasiński",
+          "h_index": 18,
+          "cited_by_count": 1914,
+          "works_count": 102,
+          "last_known_institution_name": "Poznań University of Technology"
+        },
+        {
+          "display_name": "Monika Frontczak",
+          "h_index": 6,
+          "cited_by_count": 1875,
+          "works_count": 12,
+          "last_known_institution_name": "Nicolaus Copernicus University"
+        },
+        {
+          "display_name": "Wojciech Blajer",
+          "h_index": 24,
+          "cited_by_count": 1851,
+          "works_count": 114,
+          "last_known_institution_name": "Kazimierz Pułaski University of Technology and Humanities in Radom"
+        }
+      ]
+    },
+    "economics": {
+      "stats": {
+        "total_economists": 65210,
+        "min_h": 0,
+        "max_h": 152,
+        "avg_h": "3.0"
+      },
+      "top_10": [
+        {
+          "display_name": "K. Piotrzkowski",
+          "h_index": 152,
+          "cited_by_count": 117670,
+          "works_count": 1649,
+          "last_known_institution_name": "AGH University of Krakow"
+        },
+        {
+          "display_name": "K. Doroba",
+          "h_index": 148,
+          "cited_by_count": 117611,
+          "works_count": 2238,
+          "last_known_institution_name": "University of Warsaw"
+        },
+        {
+          "display_name": "P. Zalewski",
+          "h_index": 148,
+          "cited_by_count": 117002,
+          "works_count": 2235,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        },
+        {
+          "display_name": "M. Szleper",
+          "h_index": 148,
+          "cited_by_count": 107222,
+          "works_count": 2101,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        },
+        {
+          "display_name": "J. Królikowski",
+          "h_index": 145,
+          "cited_by_count": 113220,
+          "works_count": 2385,
+          "last_known_institution_name": "University of Warsaw"
+        },
+        {
+          "display_name": "M. Górski",
+          "h_index": 145,
+          "cited_by_count": 113823,
+          "works_count": 2212,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        },
+        {
+          "display_name": "A. Kalinowski",
+          "h_index": 145,
+          "cited_by_count": 110268,
+          "works_count": 2013,
+          "last_known_institution_name": "University of Warsaw"
+        },
+        {
+          "display_name": "M. Bluj",
+          "h_index": 145,
+          "cited_by_count": 110226,
+          "works_count": 2002,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        },
+        {
+          "display_name": "M. Konecki",
+          "h_index": 144,
+          "cited_by_count": 107772,
+          "works_count": 2039,
+          "last_known_institution_name": "University of Warsaw"
+        },
+        {
+          "display_name": "B. Boimska",
+          "h_index": 138,
+          "cited_by_count": 93586,
+          "works_count": 1809,
+          "last_known_institution_name": "National Centre for Nuclear Research"
+        }
+      ],
+      "behavioral_count": {
+        "count_behavioral": 373,
+        "max_h": 42
+      }
+    }
+  }
+}

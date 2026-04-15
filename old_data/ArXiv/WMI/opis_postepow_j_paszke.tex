@@ -1,0 +1,775 @@
+\documentclass[a4paper,11pt]{article}
+
+% ── Encoding & language ──
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+
+% ── Layout ──
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape Wizualizacja profili badawczych naukowców WMI UAM}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Math ──
+\usepackage{amsmath,amssymb,amsthm}
+
+% ── Tables ──
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+
+% ── Graphics ──
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{float}
+\usepackage{subcaption}
+
+% ── Code listings ──
+\usepackage{listings}
+\lstset{
+  language=Python,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\color[rgb]{0.13,0.29,0.53},
+  commentstyle=\itshape\color[rgb]{0.0,0.5,0.0},
+  stringstyle=\color[rgb]{0.77,0.12,0.23},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  breaklines=true,
+  captionpos=b,
+}
+
+% ── Hyperlinks ──
+\usepackage[colorlinks=true,linkcolor=blue!70!black,citecolor=green!40!black,urlcolor=blue!60!black]{hyperref}
+
+% ── Misc ──
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ── Title ──
+\title{%
+  \textbf{Wizualizacja profili badawczych naukowców WMI~UAM\\
+  za pomocą embeddingów tekstowych}\\[6pt]
+  \large From 768D Paper Embeddings to 2D Author Maps\\
+  with Multi-Cluster Representation
+}
+\author{%
+  Jakub Paszke\\
+  \small Wydział Matematyki i Informatyki\\
+  \small Uniwersytet im.\ Adama Mickiewicza w Poznaniu
+}
+\date{Marzec 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+Praca opisuje pipeline wizualizacji profili badawczych 115~naukowców Wydziału Matematyki i Informatyki UAM w przestrzeni dwuwymiarowej.
+Każdy naukowiec jest reprezentowany przez embeddingi swoich publikacji (768-wymiarowe wektory generowane przez model BGE-base-en-v1.5 po fine-tuningu CoSENT na zbiorze ArXiv).
+Proponujemy dwa warianty wizualizacji: \emph{mean pooling} (jeden punkt per autor) oraz \emph{multi-cluster} (wiele punktów per autor, odpowiadających odrębnym kierunkom badawczym, z automatycznym doborem liczby klastrów za pomocą silhouette score).
+Fine-tuning modelu bazowego poprawia separację kategorii naukowych o~5--7\,pp (fuzzy purity) i~zwiększa variance explained w PCA z~33\% do~55\% na danych autorów.
+Ewaluacja na strukturze zakładów WMI (NMI\,=\,0.702) potwierdza, że embeddingi sensownie odzwierciedlają pokrewieństwo tematyczne.
+Wynikowe interaktywne wizualizacje HTML (Plotly) umożliwiają wyszukiwanie i~porównywanie naukowców w przeglądarce.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Wstęp i motywacja}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Kontekst projektu SARA}
+
+Niniejsza praca powstała w~ramach projektu \textbf{SARA} (\emph{Search and Research Assistant}) --- systemu rekomendacji i~eksploracji dorobku naukowego realizowanego na~Wydziale Matematyki i~Informatyki UAM.
+Celem projektu SARA jest zbudowanie narzędzia umożliwiającego wyszukiwanie artykułów naukowych, identyfikację potencjalnych współpracowników oraz eksplorację struktury badawczej wydziału.
+Jednym z~kluczowych komponentów systemu jest interaktywna mapa naukowców, która wizualizuje profile badawcze pracowników WMI w~przestrzeni dwuwymiarowej.
+
+Wizualizacja autorów pełni w~systemie SARA konkretną rolę: nie jest jedynie efektownym wykresem, lecz narzędziem wspierającym decyzje.
+Nowy doktorant szukający promotora może na jej podstawie zidentyfikować badaczy o~pokrewnych zainteresowaniach.
+Zespół grantowy może wykryć, że dwóch naukowców z~różnych zakładów pracuje nad zbliżoną tematyką i~mógłby efektywnie współpracować.
+Administracja wydziału może ocenić, na ile struktura organizacyjna (podział na zakłady) odzwierciedla rzeczywiste pokrewieństwo badawcze.
+
+\subsection{Porównanie z podejściem opartym na wizualizacji artykułów}
+
+Równolegle M.\,Wujec opracował komplementarny moduł systemu SARA --- interaktywną wizualizację \textbf{artykułów} naukowych WMI~\cite{wujec2026}.
+W~jego podejściu każdy z~3440 artykułów reprezentowany jest jako punkt na mapie 2D, a~użytkownik eksploruje tematyczne sąsiedztwo poszczególnych publikacji.
+Wujec przeprowadził obszerną analizę porównawczą ośmiu metod redukcji wymiarowości (PCA, t-SNE, UMAP, PaCMAP, Isomap, Spectral Embedding, LDA, PCA\,8D+log) z~wykorzystaniem siedmiu metryk jakości projekcji.
+
+Niniejsza praca stawia inne pytanie badawcze: zamiast wizualizować poszczególne artykuły, wizualizuje \textbf{autorów} --- agregując dorobek każdego naukowca w~pojedynczy punkt (lub kilka punktów, w~wariancie multi-cluster).
+Różnica w~skali jest istotna: 3440~punktów/artykułów u~Wujca wobec 115~punktów/autorów w~niniejszej pracy.
+Ta zmiana skali prowadzi do odmiennych wyzwań:
+
+\begin{itemize}[nosep]
+  \item \textbf{Agregacja informacji:} Każdy punkt na mapie autorów reprezentuje średnio $\sim$30~prac, co wymaga strategii uśredniania embeddingów (mean pooling).
+  \item \textbf{Mniejszy zbiór:} Przy 115 punktach problem nakładania się jest mniejszy, ale za to każdy punkt jest ,,cięższy'' --- utrata informacji przy złym uśrednieniu jest bardziej dotkliwa.
+  \item \textbf{Interpretowalność:} Na mapie artykułów użytkownik widzi tytuły i~abstrakty; na mapie autorów widzi nazwiska i~zakłady, co pozwala na bezpośrednie wnioski organizacyjne.
+  \item \textbf{Wariancja danych:} Uśrednianie per autor wygładza szum pojedynczych prac, co skutkuje wyższym variance explained w~PCA (54.7\% na autorach vs 12.2--29.4\% na artykułach --- szczegóły w~sekcji~\ref{sec:pca}).
+\end{itemize}
+
+Ponadto M.\,Rolewski~\cite{rolewski2024} w~swojej pracy magisterskiej opisał fundamenty profilowania naukowców WMI za pomocą embeddingów, testując 6~modeli (SPECTER, MiniLM, MPNet, BGE-Small) i~metody walidacji oparte na współautorstwie.
+W~sekcji 1.7 jego pracy zaproponował jako kierunek przyszły \emph{reprezentację multimodalną} --- kilka centroidów per naukowiec.
+Niniejsza praca realizuje tę propozycję.
+
+\subsection{Zakres pracy}
+
+Praca obejmuje pełny pipeline --- od scrapingu danych o~pracownikach WMI, przez pobieranie ich dorobku naukowego z~OpenAlex, generowanie embeddingów tekstowych, fine-tuning modelu embeddingowego, po końcową wizualizację interaktywną.
+Dokument opisuje dwa warianty wizualizacji: \textbf{mean pooling} (jeden punkt per autor) oraz \textbf{multi-cluster} (wiele punktów per autor, odpowiadających odrębnym kierunkom badawczym).
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Pipeline danych}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Źródła danych}
+
+Pipeline danych składa się z~dwóch etapów zbierania informacji: scrapingu danych kadrowych WMI oraz pobierania dorobku naukowego z~otwartych baz bibliometrycznych.
+
+\paragraph{Scraper WMI.}
+Skrypt scrapingowy przechodzi po stronach poszczególnych zakładów i~pracowni wydziału, zbierając dla każdego naukowca: imię i~nazwisko, afiliację (zakład/pracownia), identyfikator ORCID oraz ewentualne dodatkowe identyfikatory.
+Dane zapisywane są w~pliku \texttt{scientists\_with\_identifiers.csv}.
+Na~tym etapie zidentyfikowano \textbf{164~pracowników} WMI~UAM, z~czego 160 posiada identyfikator ORCID.
+Po połączeniu z~danymi z~OpenAlex, \textbf{115~naukowców} miało co~najmniej jedną publikację w~bazie.
+Spośród nich 92 ma~jednoznaczne przypisanie do~konkretnego zakładu lub pracowni.
+
+\paragraph{OpenAlex API.}
+Drugi etap wykorzystuje identyfikatory ORCID do pobrania dorobku naukowego każdego autora z~bazy \textbf{OpenAlex}~\cite{openalex2022} --- otwartego katalogu publikacji naukowych.
+Wynikowy plik \texttt{titles\_with\_abstracts.csv} zawiera \textbf{3440~prac}.
+
+\begin{table}[H]
+\centering
+\caption{Podsumowanie zbioru danych.}
+\label{tab:dataset}
+\begin{tabular}{lr}
+\toprule
+Parametr & Wartość \\
+\midrule
+Pracownicy WMI UAM & 164 \\
+Z identyfikatorem ORCID & 160 \\
+Z publikacjami w OpenAlex & 115 \\
+Z przypisaniem do zakładu & 92 \\
+Publikacje (łącznie) & 3\,440 \\
+Średnia prac / autor & 29.9 \\
+Mediana prac / autor & 19.0 \\
+Zakłady / pracownie & 19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Rozkład prac per autor.}
+Rozkład liczby prac na autora jest silnie prawoskośny (rys.~\ref{fig:histogram}).
+Autorzy z mniej niż 5 pracami (9~osób) traktowani są w~wizualizacji jako ,,low confidence'' --- ich embeddingi mogą być niestabilne.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{fig_histogram_papers.png}
+\caption{Rozkład liczby publikacji per autor ($N=115$). Linia przerywana oznacza próg \texttt{MIN\_PAPERS\,=\,5}.}
+\label{fig:histogram}
+\end{figure}
+
+\subsection{Embeddingi artykułów}
+
+Każdy artykuł kodowany jest jako wektor 768-wymiarowy za pomocą modelu Sentence Transformer.
+Tekst wejściowy konstruowany jest jako konkatenacja tytułu i~abstraktu: \texttt{"\{title\}.\ \{abstract\}"}.
+W~przypadku braku abstraktu używany jest sam tytuł (w~praktyce dotyczy to jedynie 4~z~3440~prac).
+
+\paragraph{Wybór modelu.}
+W~ramach prac nad systemem SARA przetestowano 9~modeli embeddingowych na zbiorze 2\,397~artykułów ArXiv z~hierarchiczną strukturą kategorii (118~podkategorii).
+Rysunek~\ref{fig:models} przedstawia porównanie.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_models_comparison.png}
+\caption{Porównanie 9~modeli embeddingowych: main category purity (K-means, $k{=}118$) na zbiorze ArXiv. BGE-base osiąga najwyższy wynik (70.55\%) mimo mniejszego wymiaru niż BGE-large.}
+\label{fig:models}
+\end{figure}
+
+Model bazowy to \textbf{BAAI/bge-base-en-v1.5}~\cite{bge2023} --- model embeddingowy generujący wektory 768-wymiarowe, osiągający najwyższą main category purity (70.55\%) spośród wszystkich testowanych modeli.
+Warto odnotować, że największy testowany model --- e5-mistral-7b-instruct (4096D) --- osiąga najsłabszy wynik (65.08\%), co sugeruje, że większy wymiar embeddingu nie przekłada się automatycznie na lepszą jakość klastrowania.
+
+\paragraph{Normalizacja.}
+Embeddingi generowane są z~normalizacją $L_2$: $\|e_i\| = 1$.
+Dzięki temu odległość euklidesowa jest monotonicznie związana z~podobieństwem kosinusowym:
+\begin{equation}
+d_{\text{euc}}(e_i, e_j) = \sqrt{2\bigl(1 - \cos(e_i, e_j)\bigr)},
+\end{equation}
+co upraszcza zarówno obliczenia (K-means z~odległością euklidesową jest równoważny z~metryką kosinusową), jak i~interpretację.
+
+\subsection{Fine-tuning modelu}
+\label{sec:finetuning}
+
+\paragraph{Motywacja.}
+Model bazowy BGE-base został wytrenowany na ogólnym korpusie tekstów i~nie jest specjalnie dostosowany do rozróżniania subtelnych różnic między poddziedzinami nauki.
+
+\paragraph{Pierwsza próba: MNR.}
+Zastosowanie \emph{MultipleNegativesRankingLoss} (3~epoki, $\text{lr}=2\cdot10^{-5}$, batch 32) prowadziło do~overfittingu po 2.~epoce.
+Problem wynikał z~binarnej natury MNR --- artykuł z~\texttt{cs.AI} jest ,,bardziej podobny'' do~\texttt{cs.ML} niż do~\texttt{math.AG}, ale MNR traktuje obie pary jako negatywne.
+
+\paragraph{Rozwiązanie: CoSENTLoss.}
+Drugie podejście zastąpiło MNR funkcją straty \textbf{CoSENTLoss}~\cite{cosent2022}, która akceptuje ciągłe wyniki podobieństwa $\in [0, 1]$.
+Wyniki obliczane są na podstawie 3-poziomowej hierarchii kategorii ArXiv:
+
+\begin{equation}
+d_{\text{hier}}(c_i, c_j) = \begin{cases}
+  0.0  & \text{ta sama podkategoria (np.\ cs.AI vs cs.AI),} \\
+  0.33 & \text{to samo archiwum, inna podkat.\ (np.\ hep-ph vs hep-th),} \\
+  0.67 & \text{ta sama grupa, inne archiwum (np.\ astro-ph.CO vs quant-ph),} \\
+  1.0  & \text{inna grupa (np.\ cs.AI vs math.AG).}
+\end{cases}
+\end{equation}
+
+Ponieważ 63.8\% artykułów ma więcej niż jedną kategorię (średnio 2.06), stosujemy \textbf{rozmyte etykiety}:
+\begin{equation}
+\text{score}(A,B) = 0.5 \cdot J(C_A, C_B) + 0.5 \cdot \overline{d}_{\text{best}}(C_A, C_B),
+\end{equation}
+gdzie $J$ oznacza współczynnik Jaccarda zbiorów kategorii, a~$\overline{d}_{\text{best}}$ --- średnią najlepszego hierarchicznego dopasowania.
+
+\begin{table}[H]
+\centering
+\caption{Hiperparametry fine-tuningu.}
+\label{tab:finetuning}
+\begin{tabular}{lr}
+\toprule
+Parametr & Wartość \\
+\midrule
+Model bazowy & BAAI/bge-base-en-v1.5 (768D) \\
+Funkcja straty & CoSENTLoss \\
+Artykuły (trening) & 18\,880 \\
+Epoki & 1 \\
+Learning rate & $1 \cdot 10^{-5}$ \\
+Batch size & 64 \\
+GPU & Google Colab A100 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Metody reprezentacji autorów}
+%% ═══════════════════════════════════════════════════════════════
+
+Przejście od embeddingów per-artykuł do embeddingów per-autor wymaga strategii agregacji.
+Każdy autor $a$ ma zbiór prac $\mathcal{P}_a = \{p_1, \ldots, p_{n_a}\}$, gdzie każda praca $p_i$ jest reprezentowana przez embedding $e_i \in \mathbb{R}^{768}$.
+
+\subsection{Mean Pooling (jeden punkt per autor)}
+
+\paragraph{Definicja.}
+Embedding autora $a$ definiujemy jako znormalizowaną średnią embeddingów jego prac:
+\begin{equation}
+\bar{e}_a = \frac{1}{n_a} \sum_{i=1}^{n_a} e_i, \qquad
+\hat{e}_a = \frac{\bar{e}_a}{\|\bar{e}_a\|}.
+\end{equation}
+
+\paragraph{Dlaczego mean pooling?}
+Mean pooling jest nieobciążony --- średnia wektorów z~danej podprzestrzeni leży w~centroidzie tej podprzestrzeni, co jest naturalną ,,środkową'' reprezentacją dorobku.
+Rozważano alternatywne strategie (max pooling, weighted pooling ważony cytowaniami, attention pooling), ale żadna nie uzasadniała dodatkowej złożoności przy 115~autorach.
+
+\paragraph{Wpływ normalizacji.}
+Bez normalizacji autor z~dużą liczbą prac o~spójnej tematyce miałby wektor o~dużej normie, natomiast autor z~pracami rozrzuconymi tematycznie --- o~małej normie.
+Normalizacja eliminuje ten efekt: porównujemy jedynie \emph{kierunki} w~przestrzeni embeddingów.
+
+\paragraph{Próg wiarygodności.}
+Autorzy z~mniej niż 5~publikacjami oznaczani są jako ,,low-confidence'' i~domyślnie ukryci na wizualizacji.
+Próg ten jest spójny z~wynikami Rolewskiego~\cite{rolewski2024}, który wykazał, że centroid stabilizuje się ($\text{sim} > 0.95$) przy $\sim$5~pracach.
+
+\subsection{Multi-Cluster (wiele punktów per autor)}
+
+Mean pooling zakłada, że profil badawczy autora jest \textbf{unimodalny}.
+W~rzeczywistości wielu naukowców prowadzi badania w~dwóch lub więcej odrębnych kierunkach.
+Uśrednienie takich embeddingów dałoby punkt w~pustej przestrzeni ,,między'' dziedzinami --- niereprezentujący żadnego z~rzeczywistych kierunków.
+
+Wariant \textbf{multi-cluster} reprezentuje każdego autora jako $k_a \geq 1$ punktów, gdzie każdy punkt odpowiada jednemu kierunkowi badawczemu.
+Pomysł ten jest bezpośrednią realizacją ,,dalszego kierunku badań'' zaproponowanego przez Rolewskiego~\cite{rolewski2024} (sekcja~1.7, punkt~3).
+
+\paragraph{Algorytm.}
+Pełny pseudokod:
+
+\begin{enumerate}[nosep]
+  \item Jeśli $n \leq 1$: zwróć 1 klaster z~centroidem $= e_1$.
+  \item Jeśli $n < 5$ (\texttt{MIN\_PAPERS}): zwróć 1 klaster z~centroidem $= \hat{\bar{e}}$.
+  \item Dla $k = 2, 3, \ldots, \min(5, n{-}1)$: uruchom K-Means, oblicz silhouette score.
+  \item Wybierz $k$ z~najwyższym silhouette. Jeśli $\bar{s} < 0.15$ (\texttt{THRESHOLD}), ustaw $k{=}1$.
+  \item Dla każdego klastra oblicz i~znormalizuj centroid.
+\end{enumerate}
+
+\paragraph{Etykiety per klaster.}
+Każdy klaster otrzymuje automatycznie generowaną etykietę: top-3 tematy i~top-5 słów kluczowych z~metadanych OpenAlex (za pomocą \texttt{Counter.most\_common}).
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Automatyczny dobór liczby klastrów}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Silhouette Score}
+
+Metryką oceny jakości klasteryzacji jest \emph{silhouette score}~\cite{rousseeuw1987}.
+Dla~każdego punktu $i$ przypisanego do klastra $C_i$:
+\begin{equation}
+a(i) = \frac{1}{|C_i|-1} \sum_{\substack{j \in C_i \\ j \neq i}} d(i,j), \qquad
+b(i) = \min_{C_k \neq C_i} \frac{1}{|C_k|} \sum_{j \in C_k} d(i,j),
+\end{equation}
+gdzie $a(i)$ jest miarą \textbf{spójności} (średnia odległość do współklasterów), a~$b(i)$ miarą \textbf{separacji} (minimalna średnia odległość do obcego klastra).
+
+Silhouette score dla punktu $i$:
+\begin{equation}
+s(i) = \frac{b(i) - a(i)}{\max\bigl(a(i),\, b(i)\bigr)}, \qquad s(i) \in [-1, 1].
+\end{equation}
+
+\textbf{Interpretacja:}
+$s \approx 1$ --- punkt jest blisko swoich i~daleko od obcych;
+$s \approx 0$ --- punkt na granicy między klastrami;
+$s < 0$ --- punkt jest bliżej obcego klastra niż swojego.
+
+\paragraph{Przykład intuicyjny.}
+Autor z~10 pracami: 3 o~AI, 4 o~NLP, 3 o~grafach.
+Dla $k{=}2$: K-means grupuje AI i~NLP razem, $\bar{s} = 0.22$.
+Dla $k{=}3$: K-means rozdziela AI, NLP i~grafy, $\bar{s} = 0.38$.
+Algorytm wybiera $k{=}3$, bo $0.38 > 0.22$ i~$0.38 > 0.15$.
+
+\subsection{Dobór progu silhouette}
+
+Próg \texttt{SILHOUETTE\_THRESHOLD\,=\,0.15} decyduje, poniżej jakiego $\bar{s}$ odrzucamy klasteryzację.
+Zgodnie z~klasyfikacją Rousseeuw~\cite{rousseeuw1987}: $\bar{s} > 0.50$ oznacza silną strukturę, $0.25 < \bar{s} \leq 0.50$ rozsądną, $\bar{s} \leq 0.25$ słabą.
+
+\begin{table}[H]
+\centering
+\caption{Wpływ progu silhouette na liczbę klastrów.}
+\label{tab:threshold}
+\begin{tabular}{ccccc}
+\toprule
+Próg & Autorów z $k{>}1$ & \% autorów z $k{>}1$ & Średnie $k$ & Cluster-points \\
+\midrule
+0.05 & 106 & 92.2\% & 2.75 & 316 \\
+0.10 & 105 & 91.3\% & 2.71 & 312 \\
+\textbf{0.15} & \textbf{98} & \textbf{85.2\%} & \textbf{2.59} & \textbf{298} \\
+0.20 & 86 & 74.8\% & 2.37 & 272 \\
+0.30 & 59 & 51.3\% & 1.88 & 216 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Próg 0.15 daje 298~cluster-points z~115~autorów (średnio 2.59~punkty/autor), co zapewnia informatywną wizualizację bez nadmiernego zagęszczenia.
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Redukcja wymiarowości: PCA}
+\label{sec:pca}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Definicja}
+
+Niech $X = \{x_1, \ldots, x_n\} \subset \mathbb{R}^d$ ($d{=}768$).
+Macierz kowariancji: $\Sigma = \frac{1}{n} X^T X$.
+PCA polega na znalezieniu wektorów własnych $\Sigma$; pierwsze $k$ odpowiadających największym wartościom własnym $\lambda_1 \geq \ldots \geq \lambda_k$ definiuje przestrzeń projekcji:
+\begin{equation}
+y_i = W^T x_i, \qquad
+\text{VarExplained}(k) = \frac{\sum_{j=1}^k \lambda_j}{\sum_{j=1}^d \lambda_j}.
+\end{equation}
+
+\subsection{Variance explained: autorzy vs artykuły}
+
+\begin{table}[H]
+\centering
+\caption{Variance explained (2~komponenty PCA) dla różnych zbiorów i~modeli.}
+\label{tab:variance}
+\begin{tabular}{llc}
+\toprule
+Zbiór & Model & Var.\ expl.\ (2 PC) \\
+\midrule
+Artykuły ArXiv (18\,880) & BGE-base (oryginalny) & 12.19\% \\
+Artykuły ArXiv (18\,880) & BGE-base (fine-tuned) & 29.37\% \\
+Autorzy WMI (115) & BGE-base (oryginalny) & 33.11\% \\
+Autorzy WMI (115) & BGE-base (fine-tuned) & \textbf{54.71\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Mean pooling per autor działa jak filtr dolnoprzepustowy --- uśrednianie wygładza szum i~uwydatnia główne tematy, co skutkuje wyższym variance explained.
+
+\subsection{Scree plot}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_scree_plot.png}
+\caption{Scree plot embeddingów autorów (model fine-tuned). Lewo: wariancja per komponent. Prawo: skumulowana wariancja --- 2~komponenty uchwytują 54.7\%, 10~komponentów 82.7\%.}
+\label{fig:scree}
+\end{figure}
+
+Przejście z~2D do 3D daje jedynie $\sim$9\,pp dodatkowej wariancji, przy znacznym pogorszeniu interaktywności --- wykresy 3D w~przeglądarce są trudniejsze do nawigacji.
+
+\subsection{Dlaczego PCA a nie t-SNE/UMAP?}
+
+Na podstawie analizy Wujca~\cite{wujec2026}, metody nieliniowe (t-SNE, PaCMAP, UMAP) osiągają composite score 0.725--0.745 na 3440~artykułach, podczas gdy PCA jedynie 0.576.
+Jednak przy 115~punktach (autorach):
+\begin{enumerate}[nosep]
+  \item Variance explained jest znacznie wyższy (54.7\% vs 12.2\%) --- PCA uchwytuje ponad połowę struktury.
+  \item PCA jest deterministyczne --- ten sam wynik za każdym razem.
+  \item Odległości PCA mają interpretację geometryczną, w~odróżnieniu od t-SNE.
+  \item Metody nieliniowe są zaprojektowane dla tysięcy punktów; przy 115~nie przynoszą istotnych korzyści.
+\end{enumerate}
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Ewaluacja separacji zakładów}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Metryki}
+
+\begin{table}[H]
+\centering
+\caption{Metryki ewaluacji separacji zakładów.}
+\begin{tabular}{lp{8cm}}
+\toprule
+Metryka & Co mierzy \\
+\midrule
+Mean intra-dept cos-sim & Spójność wewnątrz zakładu \\
+Mean inter-dept cos-sim & Odległość między zakładami \\
+NN@$k$ dept accuracy & \% autorów z~sąsiadami z~tego samego zakładu \\
+NMI & Zgodność K-means z~prawdziwymi zakładami \\
+Silhouette (true depts) & Jakość naturalnych grup wg zakładów w~768D \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Wyniki globalne}
+
+Porównanie na 92 autorach z 14 zakładów:
+
+\begin{table}[H]
+\centering
+\caption{Metryki separacji zakładów: model oryginalny vs fine-tuned.}
+\label{tab:dept_global}
+\begin{tabular}{lccc}
+\toprule
+Metryka & Oryginalny & Fine-tuned & Diff \\
+\midrule
+Mean intra-dept cos-sim & 0.858 & 0.967 & $+$0.109 \\
+Mean inter-dept cos-sim & 0.756 & 0.911 & $+$0.156 \\
+NN@1 dept accuracy & \textbf{0.728} & 0.663 & $-$0.065 \\
+NN@5 dept accuracy & 0.609 & 0.478 & $-$0.130 \\
+NMI & 0.672 & \textbf{0.702} & $+$0.030 \\
+Silhouette (true depts) & 0.064 & 0.060 & $-$0.004 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Trade-off lokalny vs globalny.}
+Fine-tuning poprawia globalne uporządkowanie (NMI $+$0.030), ale ,,ściska'' embeddingi --- inter-dept similarity rośnie z~0.756 do~0.911, co sprawia, że lokalne sąsiedztwo (NN@$k$) staje się szumowe.
+
+\paragraph{Silhouette $\approx 0.06$.}
+Zakłady WMI nie tworzą wyraźnych skupisk w~przestrzeni embeddingów.
+Jest to oczekiwane: naukowcy z~różnych zakładów często współpracują i~badają powiązane tematy.
+
+\subsection{Analiza per zakład}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Wyniki per zakład (fine-tuned). Kolumna ,,Nearest'' to cosine similarity do najbliższego innego zakładu.}
+\label{tab:dept_detail}
+\begin{tabular}{lcccc}
+\toprule
+Zakład & $N$ & Intra (FT) & Najbliższy zakład & Nearest \\
+\midrule
+Z.\,Teorii Operatorów & 7 & 0.991 & Z.\,Przestrzeni Funkcyjnych & 0.996 \\
+Z.\,Przestrzeni Funkcyjnych & 5 & 0.989 & Z.\,Teorii Operatorów & 0.996 \\
+Z.\,Analizy Funkcjonalnej & 8 & 0.985 & Z.\,Analizy Matematycznej & 0.996 \\
+Z.\,Analizy Nieliniowej & 6 & 0.982 & Z.\,Analizy Matematycznej & 0.996 \\
+P.\,Algorytmiki & 4 & 0.981 & Z.\,Teorii Algorytmów & 0.976 \\
+Z.\,Analizy Matematycznej & 5 & 0.971 & Z.\,Analizy Funkcjonalnej & 0.996 \\
+Z.\,Matematyki Dyskretnej & 9 & 0.971 & Z.\,Teorii Algorytmów & 0.985 \\
+Z.\,Algebry i Teorii Liczb & 6 & 0.967 & Z.\,Analizy Nieliniowej & 0.986 \\
+Z.\,Sztucznej Inteligencji & 21 & 0.963 & P.\,Logiki i Fil.\ Informatyki & 0.976 \\
+Z.\,Geom.\,Algebraicznej i Diof. & 5 & 0.953 & Z.\,Arytm.\,Geom.\,Algebraicznej & 0.993 \\
+P.\,Logiki i Fil.\,Informatyki & 2 & 0.945 & Z.\,Sztucznej Inteligencji & 0.976 \\
+Z.\,Arytm.\,Geom.\,Algebraicznej & 4 & 0.941 & Z.\,Geom.\,Algebraicznej i Diof. & 0.993 \\
+Z.\,Teorii Algorytmów & 5 & 0.939 & Z.\,Matematyki Dyskretnej & 0.985 \\
+Z.\,Statystyki Mat.\,i Analizy Danych & 5 & 0.927 & P.\,Logiki i Fil.\ Informatyki & 0.968 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Zakłady ,,bliźniacze'' (Analiza Funkcjonalna $\leftrightarrow$ Analiza Matematyczna: 0.996; Geom.\,Algebraiczna $\leftrightarrow$ Arytm.\,Geom.\,Algebraiczna: 0.993) potwierdzają, że embeddingi sensownie uchwytują pokrewieństwo tematyczne.
+Najmniej spójny jest Zakład Statystyki (0.927), co wynika z~wewnętrznej heterogeniczności tej dyscypliny.
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Ewaluacja fine-tuningu na zbiorze ArXiv}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Metryki klastrowania}
+
+\begin{table}[H]
+\centering
+\caption{Metryki klastrowania na ArXiv: oryginalny vs fine-tuned.}
+\label{tab:arxiv_clustering}
+\begin{tabular}{clccc}
+\toprule
+$k$ & Metryka & Oryginalny & Fine-tuned & Poprawa \\
+\midrule
+8 & Main category purity & 65.76\% & 70.49\% & $+$4.74\,pp \\
+8 & Fuzzy purity & 74.18\% & 80.86\% & $+$6.68\,pp \\
+8 & Silhouette & 0.381 & 0.438 & $+$0.056 \\
+\midrule
+20 & Main category purity & 67.13\% & 72.60\% & $+$5.47\,pp \\
+118 & Main category purity & 68.07\% & 73.76\% & $+$5.69\,pp \\
+118 & Subcategory purity & 13.38\% & 16.17\% & $+$2.79\,pp \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Metryki wyszukiwania}
+
+\begin{table}[H]
+\centering
+\caption{Multi-label Precision@$k$ na ArXiv (2000 losowych zapytań).}
+\label{tab:arxiv_retrieval}
+\begin{tabular}{lccc}
+\toprule
+Metryka & Oryginalny & Fine-tuned & Poprawa \\
+\midrule
+P@1 & 0.740 & 0.758 & $+$1.80\,pp \\
+P@5 & 0.684 & 0.713 & $+$2.87\,pp \\
+P@10 & 0.654 & 0.690 & $+$3.61\,pp \\
+P@20 & 0.625 & 0.667 & $+$4.29\,pp \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Poprawa rośnie z~$k$ --- model po fine-tuningu lepiej organizuje strukturę tematyczną w~szerszym sąsiedztwie.
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Interaktywna wizualizacja}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Wariant Mean Pooling}
+
+Wizualizacja przedstawia 115~autorów w~układzie side-by-side: lewy panel --- model bazowy (33.1\%), prawy --- fine-tuned (54.7\%).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_singlepoint_comparison.png}
+\caption{PCA mean pooling: porównanie modelu oryginalnego (lewo) i~fine-tuned (prawo). Kolory odpowiadają klastrom K-means ($k{=}5$).}
+\label{fig:singlepoint}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_singlepoint_search.png}
+\caption{Wyszukiwanie autora (prof.\ Patryk Żywica): podświetlony punkt z~żółtą obwódką na obu panelach, pozostałe punkty wygaszone.}
+\label{fig:search}
+\end{figure}
+
+\subsection{Wariant Multi-Cluster}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_multicluster_overview.png}
+\caption{Multi-cluster view: 298~cluster-points, kolory wg zakładów. Rozmiar punktu $\propto \sqrt{n_{\text{prac}}}$. Linie łączą klastry tego samego autora.}
+\label{fig:multicluster}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_multicluster_compare.png}
+\caption{Porównanie dwóch naukowców: prof.\ Patryk Żywica (żółty) vs dr Bartosz Naskręcki (cyan). Pozostałe punkty wygaszone.}
+\label{fig:compare}
+\end{figure}
+
+\subsection{Elementy interaktywne}
+
+Obie wizualizacje, generowane jako standalone HTML (Plotly via CDN), oferują:
+\begin{itemize}[nosep]
+  \item \textbf{Wyszukiwarka} z~autocomplete --- podświetla wybranego autora.
+  \item \textbf{Porównanie A vs B} (multi-cluster) --- podświetlenie dwóch naukowców jednocześnie.
+  \item \textbf{Toggle cluster links} --- pokazywanie/ukrywanie linii łączących klastry.
+  \item \textbf{Checkbox ,,Show authors with $<$5 papers''} --- włączenie low-confidence autorów.
+\end{itemize}
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Wyniki i obserwacje}
+%% ═══════════════════════════════════════════════════════════════
+
+\subsection{Fine-tuning poprawia separację kategorii}
+Fuzzy purity rośnie o~5--7\,pp, silhouette o~0.056 (na ArXiv).
+Na danych WMI variance explained wzrasta z~33\% do~55\%.
+
+\subsection{Zakłady WMI nie tworzą wyraźnych skupisk}
+Silhouette wg prawdziwych zakładów wynosi $\sim$0.06.
+Zakłady o~zbliżonej tematyce (Analiza Funkcjonalna $\leftrightarrow$ Analiza Matematyczna: cos-sim 0.996) są praktycznie nieodróżnialne --- co jest prawidłowe z~perspektywy treści badawczej.
+
+\subsection{Multi-cluster ujawnia interdyscyplinarność}
+85\% autorów (z $\geq$5~pracami) ma więcej niż jeden odrębny kierunek badawczy.
+Linie łączące klastry tworzą na mapie wzór ,,konstelacji'' --- autor interdyscyplinarny rozpina się na dużej powierzchni mapy.
+
+\subsection{Trade-off fine-tuningu: globalne vs lokalne}
+Fine-tuning poprawia globalne uporządkowanie (NMI $+$0.030), ale pogarsza lokalne metryki sąsiedztwa (NN@1 $-$0.065).
+W~kontekście wizualizacji 2D ten trade-off jest akceptowalny: interesuje nas globalna struktura, a nie dokładna kolejność najbliższych sąsiadów.
+
+\subsection{Ograniczenia i przyszłe prace}
+
+\begin{itemize}[nosep]
+  \item \textbf{Chronologia:} Mean pooling traktuje prace z~2005 i~2024 równoważnie. Temporal embeddings z~ważeniem wykładniczym mogłyby poprawić aktualność profilu.
+  \item \textbf{Brak ważenia wg impactu:} Wszystkie prace mają równą wagę. Citation-weighted pooling mógłby poprawić jakość.
+  \item \textbf{Collaborative filtering:} Sieć współautorów mogłaby uzupełnić informację z~embeddingów tekstowych.
+  \item \textbf{Skalowalność:} Rozszerzenie na inne wydziały lub uczelnie.
+\end{itemize}
+
+
+%% ═══════════════════════════════════════════════════════════════
+\section{Wnioski}
+%% ═══════════════════════════════════════════════════════════════
+
+\begin{table}[H]
+\centering
+\caption{Podsumowanie wyników.}
+\begin{tabular}{lp{7.5cm}}
+\toprule
+Co zrobiliśmy & Wynik \\
+\midrule
+Fine-tuning BGE-base z~CoSENTLoss & Fuzzy purity 80.9\% ($k{=}8$), poprawa $+$6.7\,pp \\
+Mean pooling + PCA 2D & 54.7\% variance explained \\
+Ewaluacja separacji zakładów & NMI\,=\,0.702 \\
+Multi-cluster z~silhouette & 85\% autorów z~$k{>}1$, śr.\ 2.59 klastrów \\
+Interaktywna wizualizacja & Wyszukiwarka, porównanie A vs B \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+  \item \textbf{PCA na zagregowanych embeddingach autorów} jest wystarczające do wizualizacji 115~naukowców --- metody nieliniowe nie przynoszą istotnych korzyści przy tak małej liczbie punktów.
+  \item \textbf{Fine-tuning z~CoSENTLoss i~hierarchiczną odległością kategorii} daje konsystentną poprawę klastrowania ($+$5\,pp purity) i~wyszukiwania ($+$4\,pp P@20) bez overfittingu.
+  \item \textbf{Multi-cluster representation} to kluczowe rozszerzenie --- pozwala uchwycić interdyscyplinarność naukowców, co jest niemożliwe w~podejściu single-point. Stanowi realizację kierunku zaproponowanego przez Rolewskiego~\cite{rolewski2024}.
+  \item \textbf{Automatyczny dobór $k$} (silhouette) eliminuje konieczność ręcznego tuningu per autor.
+  \item \textbf{Interaktywne wizualizacje} z~wyszukiwarką i~porównaniem A~vs~B pozwalają na eksplorację mapy badawczej WMI w~przeglądarce.
+\end{enumerate}
+
+
+%% ═══════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+%% ═══════════════════════════════════════════════════════════════
+
+\bibitem{johnson1984}
+W.\,B.\,Johnson, J.\,Lindenstrauss,
+,,Extensions of Lipschitz mappings into a Hilbert space,''
+\emph{Contemp.\ Math.}, vol.\,26, pp.\,189--206, 1984.
+
+\bibitem{reimers2019}
+N.\,Reimers, I.\,Gurevych,
+,,Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks,''
+\emph{Proceedings of EMNLP-IJCNLP}, pp.\,3982--3992, 2019.
+
+\bibitem{bge2023}
+Z.\,Xiao et~al.,
+,,C-Pack: Packaged Resources To Advance General Chinese Embedding,''
+\emph{arXiv:2309.07597}, 2023.
+
+\bibitem{cosent2022}
+K.\,Li,
+,,CoSENT: A more efficient sentence vector scheme than Sentence-BERT,'' 2022.
+
+\bibitem{rousseeuw1987}
+P.\,J.\,Rousseeuw,
+,,Silhouettes: a graphical aid to the interpretation and validation of cluster analysis,''
+\emph{J.\,Comp.\,Appl.\,Math.}, vol.\,20, pp.\,53--65, 1987.
+
+\bibitem{jolliffe2002}
+I.\,T.\,Jolliffe,
+\emph{Principal Component Analysis}, 2nd ed.\ Springer, 2002.
+
+\bibitem{wang2021}
+Y.\,Wang, H.\,Huang, C.\,Rudin, Y.\,Shaposhnik,
+,,Understanding how dimension reduction tools work,''
+\emph{JMLR}, vol.\,22, no.\,201, pp.\,1--73, 2021.
+
+\bibitem{wujec2026}
+M.\,Wujec,
+,,Dimensionality Reduction and Quality Metrics for Scientific Paper Embeddings,''
+WMiI UAM, 2026.
+
+\bibitem{openalex2022}
+J.\,Priem, H.\,Piwowar, R.\,Orr,
+,,OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts,''
+\emph{arXiv:2205.01833}, 2022.
+
+\bibitem{rolewski2024}
+M.\,Rolewski,
+,,SARA,''
+Praca magisterska, WMiI UAM, 2024.
+
+\bibitem{lloyd1982}
+S.\,P.\,Lloyd,
+,,Least squares quantization in PCM,''
+\emph{IEEE Trans.\ Information Theory}, vol.\,28, no.\,2, pp.\,129--137, 1982.
+
+\bibitem{plotly2015}
+Plotly Technologies Inc.,
+,,Collaborative data science,'' Montréal, QC, 2015.
+
+\bibitem{sklearn2011}
+F.\,Pedregosa et~al.,
+,,Scikit-learn: Machine Learning in Python,''
+\emph{JMLR}, vol.\,12, pp.\,2825--2830, 2011.
+
+\end{thebibliography}
+
+
+%% ═══════════════════════════════════════════════════════════════
+\appendix
+\section{Kluczowe fragmenty kodu}
+%% ═══════════════════════════════════════════════════════════════
+
+\begin{lstlisting}[caption={\texttt{cluster\_author\_papers()} --- klasteryzacja prac autora.},label={lst:cluster}]
+def cluster_author_papers(author_embeddings):
+    n = len(author_embeddings)
+    if n < MIN_PAPERS_FOR_CLUSTERING:
+        centroid = author_embeddings.mean(axis=0, keepdims=True)
+        centroid /= np.linalg.norm(centroid, axis=1, keepdims=True)
+        return 1, np.zeros(n, dtype=int), centroid
+
+    max_k = min(MAX_CLUSTERS, n - 1)
+    best_k, best_sil, best_labels = 1, -1, None
+
+    for k in range(2, max_k + 1):
+        km = KMeans(n_clusters=k, random_state=42, n_init=10)
+        labels = km.fit_predict(author_embeddings)
+        if len(set(labels)) < 2: continue
+        sil = silhouette_score(author_embeddings, labels)
+        if sil > best_sil:
+            best_sil, best_k, best_labels = sil, k, labels
+
+    if best_sil < SILHOUETTE_THRESHOLD or best_labels is None:
+        centroid = author_embeddings.mean(axis=0, keepdims=True)
+        centroid /= np.linalg.norm(centroid, axis=1, keepdims=True)
+        return 1, np.zeros(n, dtype=int), centroid
+
+    centroids = []
+    for c in range(best_k):
+        mask = best_labels == c
+        cent = author_embeddings[mask].mean(axis=0)
+        centroids.append(cent / np.linalg.norm(cent))
+    return best_k, best_labels, np.array(centroids)
+\end{lstlisting}
+
+\begin{lstlisting}[caption={\texttt{embed\_and\_pool()} --- mean pooling per autor.},label={lst:pool}]
+def embed_and_pool(model_path, texts, paper_orcids, author_orcids):
+    model = SentenceTransformer(model_path)
+    embeddings = model.encode(texts, batch_size=128,
+        normalize_embeddings=True, convert_to_numpy=True)
+    author_embeddings = []
+    for orcid in author_orcids:
+        mask = paper_orcids == orcid
+        emb = embeddings[mask].mean(axis=0)
+        emb = emb / np.linalg.norm(emb)
+        author_embeddings.append(emb)
+    return np.array(author_embeddings)
+\end{lstlisting}
+
+\end{document}

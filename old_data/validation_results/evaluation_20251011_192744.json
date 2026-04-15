@@ -1,0 +1,757 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-11T19:27:35.467326",
+    "total_queries": 20,
+    "version": "1.0"
+  },
+  "queries": [
+    {
+      "query_id": "Q001",
+      "query_text": "cardiologist specializing in heart failure",
+      "category": "medical_research",
+      "search_type": "authors",
+      "elapsed_time": 4.942732810974121,
+      "analysis": {
+        "has_results": true,
+        "result_count": 10,
+        "avg_similarity": 0.6409732327019781,
+        "min_similarity": 0.5961601138114971,
+        "max_similarity": 0.6813908029431596,
+        "concept_match_rate": 0.7333333333333333,
+        "avg_h_index": 73.5,
+        "avg_citations": 68336.7,
+        "top_result": {
+          "name": "Piotr Ponikowski",
+          "institution": "Wroclaw Medical University",
+          "h_index": 174,
+          "citations": 265330,
+          "similarity": 0.6428393508696181
+        }
+      },
+      "notes": "Piotr Ponikowski powinien być w top 3",
+      "top_3_results": [
+        {
+          "name": "Piotr Ponikowski",
+          "similarity": 0.6428393508696181,
+          "h_index": 174,
+          "citations": 265330
+        },
+        {
+          "name": "Adam Torbicki",
+          "similarity": 0.6093118139486149,
+          "h_index": 101,
+          "citations": 148231
+        },
+        {
+          "name": "Andrzej Budaj",
+          "similarity": 0.5961601138114971,
+          "h_index": 96,
+          "citations": 83854
+        }
+      ]
+    },
+    {
+      "query_id": "Q002",
+      "query_text": "machine learning and artificial intelligence expert",
+      "category": "computer_science",
+      "search_type": "authors",
+      "elapsed_time": 0.21886205673217773,
+      "analysis": {
+        "has_results": true,
+        "result_count": 1,
+        "avg_similarity": 0.7468164857407196,
+        "min_similarity": 0.7468164857407196,
+        "max_similarity": 0.7468164857407196,
+        "concept_match_rate": 1.0,
+        "avg_h_index": 15.0,
+        "avg_citations": 696.0,
+        "top_result": {
+          "name": "Konrad Żołna",
+          "institution": "DeepMind (United Kingdom)",
+          "h_index": 15,
+          "citations": 696,
+          "similarity": 0.7468164857407196
+        }
+      },
+      "notes": "Szeroki zakres AI/ML",
+      "top_3_results": [
+        {
+          "name": "Konrad Żołna",
+          "similarity": 0.7468164857407196,
+          "h_index": 15,
+          "citations": 696
+        }
+      ]
+    },
+    {
+      "query_id": "Q003",
+      "query_text": "physicist working on particle physics",
+      "category": "physics",
+      "search_type": "authors",
+      "elapsed_time": 0.19672870635986328,
+      "analysis": {
+        "has_results": true,
+        "result_count": 4,
+        "avg_similarity": 0.7598751593861796,
+        "min_similarity": 0.7564100317466275,
+        "max_similarity": 0.7633384466171265,
+        "concept_match_rate": 0.6666666666666666,
+        "avg_h_index": 45.75,
+        "avg_citations": 7161.25,
+        "top_result": {
+          "name": "T. Pauly",
+          "institution": "European Organization for Nuclear Research",
+          "h_index": 73,
+          "citations": 17292,
+          "similarity": 0.7633384466171265
+        }
+      },
+      "notes": "CERN collaborations expected",
+      "top_3_results": [
+        {
+          "name": "T. Pauly",
+          "similarity": 0.7633384466171265,
+          "h_index": 73,
+          "citations": 17292
+        },
+        {
+          "name": "P. Traczyk",
+          "similarity": 0.7564100317466275,
+          "h_index": 43,
+          "citations": 5185
+        },
+        {
+          "name": "C. Bittrich",
+          "similarity": 0.7589545989659681,
+          "h_index": 37,
+          "citations": 3968
+        }
+      ]
+    },
+    {
+      "query_id": "Q004",
+      "query_text": "climate change and global warming researcher",
+      "category": "environmental",
+      "search_type": "authors",
+      "elapsed_time": 0.20408201217651367,
+      "analysis": {
+        "has_results": true,
+        "result_count": 1,
+        "avg_similarity": 0.6758822605539727,
+        "min_similarity": 0.6758822605539727,
+        "max_similarity": 0.6758822605539727,
+        "concept_match_rate": 0.3333333333333333,
+        "avg_h_index": 22.0,
+        "avg_citations": 1746.0,
+        "top_result": {
+          "name": "Dominik Paprotny",
+          "institution": "Potsdam Institute for Climate Impact Research",
+          "h_index": 22,
+          "citations": 1746,
+          "similarity": 0.6758822605539727
+        }
+      },
+      "notes": "Interdisciplinary - climate modeling, policy",
+      "top_3_results": [
+        {
+          "name": "Dominik Paprotny",
+          "similarity": 0.6758822605539727,
+          "h_index": 22,
+          "citations": 1746
+        }
+      ]
+    },
+    {
+      "query_id": "Q005",
+      "query_text": "oncologist researching cancer immunotherapy",
+      "category": "medical_research",
+      "search_type": "authors",
+      "elapsed_time": 0.21638727188110352,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "Hot topic - recent publications important"
+    },
+    {
+      "query_id": "Q006",
+      "query_text": "deep learning for medical image processing",
+      "category": "computer_science",
+      "search_type": "works",
+      "elapsed_time": 0.2716498374938965,
+      "analysis": {
+        "has_results": true,
+        "result_count": 10,
+        "avg_similarity": 0.771434457194478,
+        "min_similarity": 0.765589305662153,
+        "max_similarity": 0.7834027876497991,
+        "concept_match_rate": 0.3333333333333333,
+        "avg_citations": 192.1,
+        "avg_year": 2020.8,
+        "top_result": {
+          "title": "Brain Magnetic Resonance Imaging Classification Using Deep Learning Architectures with Gender and Age",
+          "year": 2022,
+          "citations": 56,
+          "similarity": 0.7834027876497991,
+          "type": "article"
+        }
+      },
+      "notes": "Interdisciplinary CS + Medicine",
+      "top_3_results": [
+        {
+          "title": "Brain Magnetic Resonance Imaging Classification Using Deep Learning Architectures with Gender and Ag",
+          "similarity": 0.7834027876497991,
+          "year": 2022,
+          "citations": 56
+        },
+        {
+          "title": "Multi-Label Classification of Chest X-ray Abnormalities Using Transfer Learning Techniques",
+          "similarity": 0.7767780753109544,
+          "year": 2023,
+          "citations": 20
+        },
+        {
+          "title": "Deep Learning Approaches in Histopathology",
+          "similarity": 0.7743549808475377,
+          "year": 2022,
+          "citations": 49
+        }
+      ]
+    },
+    {
+      "query_id": "Q007",
+      "query_text": "molecular biologist studying CRISPR gene editing mechanisms",
+      "category": "biology",
+      "search_type": "authors",
+      "elapsed_time": 0.17380666732788086,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "Nobel-prize level topic"
+    },
+    {
+      "query_id": "Q008",
+      "query_text": "gravitational wave detection",
+      "category": "physics",
+      "search_type": "works",
+      "elapsed_time": 0.19376850128173828,
+      "analysis": {
+        "has_results": true,
+        "result_count": 10,
+        "avg_similarity": 0.7544714428757542,
+        "min_similarity": 0.7411379372395432,
+        "max_similarity": 0.7674539366419445,
+        "concept_match_rate": 0.43333333333333335,
+        "avg_citations": 1715.3,
+        "avg_year": 2016.7,
+        "top_result": {
+          "title": "Observation of Gravitational Waves from a Binary Black Hole Merger",
+          "year": 2016,
+          "citations": 12672,
+          "similarity": 0.7674539366419445,
+          "type": "article"
+        }
+      },
+      "notes": "LIGO detection paper should be top result",
+      "top_3_results": [
+        {
+          "title": "Observation of Gravitational Waves from a Binary Black Hole Merger",
+          "similarity": 0.7674539366419445,
+          "year": 2016,
+          "citations": 12672
+        },
+        {
+          "title": "Speed of Gravitational Waves from Strongly Lensed Gravitational Waves and Electromagnetic Signals",
+          "similarity": 0.7628678366103421,
+          "year": 2017,
+          "citations": 121
+        },
+        {
+          "title": "Observing gravitational-wave transient GW150914 with minimal assumptions",
+          "similarity": 0.7605352544465631,
+          "year": 2016,
+          "citations": 180
+        }
+      ]
+    },
+    {
+      "query_id": "Q009",
+      "query_text": "materials engineer working on nanomaterials and graphene",
+      "category": "engineering",
+      "search_type": "authors",
+      "elapsed_time": 0.20046234130859375,
+      "analysis": {
+        "has_results": true,
+        "result_count": 6,
+        "avg_similarity": 0.7360300249508929,
+        "min_similarity": 0.730156735768514,
+        "max_similarity": 0.7462074979009482,
+        "concept_match_rate": 0.5,
+        "avg_h_index": 9.666666666666666,
+        "avg_citations": 443.1666666666667,
+        "top_result": {
+          "name": "Xuhai Zhang",
+          "institution": "Nano Carbon (Poland)",
+          "h_index": 19,
+          "citations": 876,
+          "similarity": 0.7383594228792931
+        }
+      },
+      "notes": "Applied physics/engineering",
+      "top_3_results": [
+        {
+          "name": "Xuhai Zhang",
+          "similarity": 0.7383594228792931,
+          "h_index": 19,
+          "citations": 876
+        },
+        {
+          "name": "Marcin Godzierz",
+          "similarity": 0.730156735768514,
+          "h_index": 14,
+          "citations": 738
+        },
+        {
+          "name": "B. Kania",
+          "similarity": 0.7350053033235863,
+          "h_index": 12,
+          "citations": 481
+        }
+      ]
+    },
+    {
+      "query_id": "Q010",
+      "query_text": "economist studying behavioral economics and decision making",
+      "category": "social_sciences",
+      "search_type": "authors",
+      "elapsed_time": 0.2657296657562256,
+      "analysis": {
+        "has_results": true,
+        "result_count": 3,
+        "avg_similarity": 0.7393544962822999,
+        "min_similarity": 0.7365334033966064,
+        "max_similarity": 0.7424773880866357,
+        "concept_match_rate": 0.3333333333333333,
+        "avg_h_index": 27.333333333333332,
+        "avg_citations": 5580.666666666667,
+        "top_result": {
+          "name": "Robert A. Mundell",
+          "institution": "Cardinal Stefan Wyszyński University in Warsaw",
+          "h_index": 34,
+          "citations": 12347,
+          "similarity": 0.7424773880866357
+        }
+      },
+      "notes": "Nobel economics topic",
+      "top_3_results": [
+        {
+          "name": "Robert A. Mundell",
+          "similarity": 0.7424773880866357,
+          "h_index": 34,
+          "citations": 12347
+        },
+        {
+          "name": "Oskar Kowalewski",
+          "similarity": 0.7365334033966064,
+          "h_index": 26,
+          "citations": 2431
+        },
+        {
+          "name": "Marcin Kolasa",
+          "similarity": 0.7390526973636579,
+          "h_index": 22,
+          "citations": 1964
+        }
+      ]
+    },
+    {
+      "query_id": "Q011",
+      "query_text": "COVID-19 vaccine clinical trials",
+      "category": "medical_research",
+      "search_type": "works",
+      "elapsed_time": 0.10564064979553223,
+      "analysis": {
+        "has_results": true,
+        "result_count": 10,
+        "avg_similarity": 0.6423579733173154,
+        "min_similarity": 0.584110098603669,
+        "max_similarity": 0.7317117292709202,
+        "concept_match_rate": 0.175,
+        "avg_citations": 889.4,
+        "avg_year": 2020.7,
+        "top_result": {
+          "title": "Novel 2019 coronavirus structure, mechanism of action, antiviral drug promises and rule out against its treatment",
+          "year": 2020,
+          "citations": 544,
+          "similarity": 0.7317117292709202,
+          "type": "review"
+        }
+      },
+      "notes": "High impact papers expected",
+      "top_3_results": [
+        {
+          "title": "Novel 2019 coronavirus structure, mechanism of action, antiviral drug promises and rule out against ",
+          "similarity": 0.7317117292709202,
+          "year": 2020,
+          "citations": 544
+        },
+        {
+          "title": "Mapping the human genetic architecture of COVID-19",
+          "similarity": 0.6746697626909546,
+          "year": 2021,
+          "citations": 901
+        },
+        {
+          "title": "The positive impact of lockdown in Wuhan on containing the COVID-19 outbreak in China",
+          "similarity": 0.6708415346836141,
+          "year": 2020,
+          "citations": 1317
+        }
+      ]
+    },
+    {
+      "query_id": "Q012",
+      "query_text": "cybersecurity and cryptography specialist",
+      "category": "computer_science",
+      "search_type": "authors",
+      "elapsed_time": 0.25234103202819824,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "Theory + applied security"
+    },
+    {
+      "query_id": "Q013",
+      "query_text": "artificial intelligence in medical diagnostics and radiology",
+      "category": "interdisciplinary",
+      "search_type": "works",
+      "elapsed_time": 0.18413710594177246,
+      "analysis": {
+        "has_results": true,
+        "result_count": 5,
+        "avg_similarity": 0.762788430850182,
+        "min_similarity": 0.7544732543512152,
+        "max_similarity": 0.775138901182349,
+        "concept_match_rate": 0.3,
+        "avg_citations": 78.2,
+        "avg_year": 2022.2,
+        "top_result": {
+          "title": "Deep Learning Approaches in Histopathology",
+          "year": 2022,
+          "citations": 49,
+          "similarity": 0.775138901182349,
+          "type": "review"
+        }
+      },
+      "notes": "Hot interdisciplinary topic",
+      "top_3_results": [
+        {
+          "title": "Deep Learning Approaches in Histopathology",
+          "similarity": 0.775138901182349,
+          "year": 2022,
+          "citations": 49
+        },
+        {
+          "title": "How Do Machines Learn? Artificial Intelligence as a New Era in Medicine",
+          "similarity": 0.7702942583227989,
+          "year": 2021,
+          "citations": 95
+        },
+        {
+          "title": "Clinical Applications of Artificial Intelligence in Medical Imaging and Image Processing—A Review",
+          "similarity": 0.759504505351589,
+          "year": 2024,
+          "citations": 30
+        }
+      ]
+    },
+    {
+      "query_id": "Q014",
+      "query_text": "renewable energy and photovoltaics",
+      "category": "environmental",
+      "search_type": "works",
+      "elapsed_time": 0.22131729125976562,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_citations": 0.0,
+        "avg_year": 0.0,
+        "top_result": null
+      },
+      "notes": "Applied research + policy"
+    },
+    {
+      "query_id": "Q015",
+      "query_text": "Alzheimer's disease and neurodegeneration research",
+      "category": "biology",
+      "search_type": "works",
+      "elapsed_time": 0.23803067207336426,
+      "analysis": {
+        "has_results": true,
+        "result_count": 4,
+        "avg_similarity": 0.7818715442911597,
+        "min_similarity": 0.7752341725141564,
+        "max_similarity": 0.7923281305129648,
+        "concept_match_rate": 0.16666666666666666,
+        "avg_citations": 206.25,
+        "avg_year": 2016.5,
+        "top_result": {
+          "title": "Gut microbiota and pro/prebiotics in Alzheimer’s disease",
+          "year": 2020,
+          "citations": 144,
+          "similarity": 0.7923281305129648,
+          "type": "review"
+        }
+      },
+      "notes": "Long-term major research area",
+      "top_3_results": [
+        {
+          "title": "Gut microbiota and pro/prebiotics in Alzheimer’s disease",
+          "similarity": 0.7923281305129648,
+          "year": 2020,
+          "citations": 144
+        },
+        {
+          "title": "Mitochondrial Dysfunction: The First Domino in Brain Aging and Alzheimer's Disease?",
+          "similarity": 0.783642494191006,
+          "year": 2007,
+          "citations": 194
+        },
+        {
+          "title": "Inflammatory Processes in Alzheimer’s Disease—Pathomechanism, Diagnosis and Treatment: A Review",
+          "similarity": 0.7762813799465117,
+          "year": 2023,
+          "citations": 182
+        }
+      ]
+    },
+    {
+      "query_id": "Q016",
+      "query_text": "natural language processing and language models",
+      "category": "computer_science",
+      "search_type": "works",
+      "elapsed_time": 0.4078183174133301,
+      "analysis": {
+        "has_results": true,
+        "result_count": 10,
+        "avg_similarity": 0.7050003626091762,
+        "min_similarity": 0.6685857772827148,
+        "max_similarity": 0.7695511120825357,
+        "concept_match_rate": 0.23333333333333334,
+        "avg_citations": 405.6,
+        "avg_year": 2019.5,
+        "top_result": {
+          "title": "ChatGPT: Jack of all trades, master of none",
+          "year": 2023,
+          "citations": 525,
+          "similarity": 0.7695511120825357,
+          "type": "article"
+        }
+      },
+      "notes": "Transformers/BERT/GPT era",
+      "top_3_results": [
+        {
+          "title": "ChatGPT: Jack of all trades, master of none",
+          "similarity": 0.7695511120825357,
+          "year": 2023,
+          "citations": 525
+        },
+        {
+          "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+          "similarity": 0.7320230326625122,
+          "year": 2017,
+          "citations": 503
+        },
+        {
+          "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization",
+          "similarity": 0.725612998008728,
+          "year": 2021,
+          "citations": 482
+        }
+      ]
+    },
+    {
+      "query_id": "Q017",
+      "query_text": "quantum physicist studying quantum computers",
+      "category": "physics",
+      "search_type": "authors",
+      "elapsed_time": 0.2805147171020508,
+      "analysis": {
+        "has_results": true,
+        "result_count": 5,
+        "avg_similarity": 0.6845585868070907,
+        "min_similarity": 0.6746885180473328,
+        "max_similarity": 0.6999333918054946,
+        "concept_match_rate": 0.3333333333333333,
+        "avg_h_index": 35.8,
+        "avg_citations": 11970.2,
+        "top_result": {
+          "name": "Paweł Horodecki",
+          "institution": "Quantum Technologies (Sweden)",
+          "h_index": 65,
+          "citations": 30801,
+          "similarity": 0.6919626593589783
+        }
+      },
+      "notes": "Theory + experimental implementations",
+      "top_3_results": [
+        {
+          "name": "Paweł Horodecki",
+          "similarity": 0.6919626593589783,
+          "h_index": 65,
+          "citations": 30801
+        },
+        {
+          "name": "Ryszard Horodecki",
+          "similarity": 0.6746885180473328,
+          "h_index": 43,
+          "citations": 21783
+        },
+        {
+          "name": "Markus Grassl",
+          "similarity": 0.6776531146558008,
+          "h_index": 37,
+          "citations": 4975
+        }
+      ]
+    },
+    {
+      "query_id": "Q018",
+      "query_text": "robotics and AI in industrial automation",
+      "category": "engineering",
+      "search_type": "works",
+      "elapsed_time": 0.25774598121643066,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_citations": 0.0,
+        "avg_year": 0.0,
+        "top_result": null
+      },
+      "notes": "Applied AI + hardware"
+    },
+    {
+      "query_id": "Q019",
+      "query_text": "social psychologist studying social media impact",
+      "category": "social_sciences",
+      "search_type": "authors",
+      "elapsed_time": 0.2419579029083252,
+      "analysis": {
+        "has_results": true,
+        "result_count": 5,
+        "avg_similarity": 0.7161196859094335,
+        "min_similarity": 0.7104479325351685,
+        "max_similarity": 0.7299281519694251,
+        "concept_match_rate": 0.6666666666666666,
+        "avg_h_index": 11.8,
+        "avg_citations": 801.0,
+        "top_result": {
+          "name": "Marta Marchlewska",
+          "institution": "Institute of Psychology",
+          "h_index": 26,
+          "citations": 2737,
+          "similarity": 0.7123803667795452
+        }
+      },
+      "notes": "Contemporary social science",
+      "top_3_results": [
+        {
+          "name": "Marta Marchlewska",
+          "similarity": 0.7123803667795452,
+          "h_index": 26,
+          "citations": 2737
+        },
+        {
+          "name": "Magdalena Śmieja",
+          "similarity": 0.7299281519694251,
+          "h_index": 10,
+          "citations": 469
+        },
+        {
+          "name": "Sabina Toruńczyk‐Ruiz",
+          "similarity": 0.7168138792029703,
+          "h_index": 9,
+          "citations": 371
+        }
+      ]
+    },
+    {
+      "query_id": "Q020",
+      "query_text": "sustainable urban development and city planning",
+      "category": "interdisciplinary",
+      "search_type": "works",
+      "elapsed_time": 0.20383501052856445,
+      "analysis": {
+        "has_results": true,
+        "result_count": 2,
+        "avg_similarity": 0.7610570704879573,
+        "min_similarity": 0.7580786039735605,
+        "max_similarity": 0.764035537002354,
+        "concept_match_rate": 0.3333333333333333,
+        "avg_citations": 41.5,
+        "avg_year": 2017.5,
+        "top_result": {
+          "title": "Concept of ‘Good Urban Governance’ and Its Application in Sustainable Urban Planning",
+          "year": 2017,
+          "citations": 28,
+          "similarity": 0.764035537002354,
+          "type": "article"
+        }
+      },
+      "notes": "Policy + engineering + social science",
+      "top_3_results": [
+        {
+          "title": "Concept of ‘Good Urban Governance’ and Its Application in Sustainable Urban Planning",
+          "similarity": 0.764035537002354,
+          "year": 2017,
+          "citations": 28
+        },
+        {
+          "title": "Urban tinkering",
+          "similarity": 0.7580786039735605,
+          "year": 2018,
+          "citations": 55
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "authors": 11,
+    "works": 9,
+    "avg_elapsed": 0.4638774275779724,
+    "avg_similarity": 0.5439295606979295,
+    "avg_results": 4.3
+  }
+}

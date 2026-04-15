@@ -1,0 +1,31 @@
+# Author Representation — Python dependencies
+
+# Core
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+
+# Embedding models
+sentence-transformers>=2.2.0
+torch>=2.0.0
+transformers>=4.35.0
+einops>=0.8.0                  # required by nomic-embed
+
+# Fine-tuning (faza 3)
+datasets>=2.14.0
+accelerate>=0.24.0
+
+# API & HTTP (faza 1 — ArXiv fetching)
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Visualization
+plotly>=5.17.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+kaleido>=0.2.1                 # static image export dla plotly
+
+# Utilities
+tqdm>=4.66.0
+python-dotenv>=1.0.0

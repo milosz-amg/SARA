@@ -1,0 +1,3980 @@
+{
+  "model_name": "nomic-ai/nomic-embed-text-v1.5",
+  "num_papers": 2397,
+  "embedding_dimension": 768,
+  "num_clusters": 118,
+  "category_purity_subcategory": 17.521902377972467,
+  "category_purity_main": 69.50354609929079,
+  "category_purity": 17.521902377972467,
+  "silhouette_score": 0.34269312024116516,
+  "variance_explained_2d": 0.10278334468603134,
+  "variance_explained_3d": 0.13190104067325592,
+  "cluster_details_subcategory": {
+    "0": {
+      "size": 17,
+      "dominant_category": "math-ph",
+      "dominant_count": 4,
+      "purity": 0.23529411764705882,
+      "category_distribution": {
+        "math-ph": 4,
+        "nlin.SI": 1,
+        "math.DG": 3,
+        "math.OA": 2,
+        "math.CA": 1,
+        "quant-ph": 1,
+        "math.FA": 1,
+        "hep-th": 1,
+        "math.AP": 1,
+        "math.GR": 1,
+        "math.DS": 1
+      }
+    },
+    "1": {
+      "size": 27,
+      "dominant_category": "cs.LG",
+      "dominant_count": 7,
+      "purity": 0.25925925925925924,
+      "category_distribution": {
+        "cs.LG": 7,
+        "cs.AR": 2,
+        "q-bio.OT": 1,
+        "q-fin.RM": 1,
+        "cs.PF": 1,
+        "cs.DC": 1,
+        "cs.CV": 3,
+        "cs.CR": 2,
+        "cs.NE": 2,
+        "q-bio.QM": 1,
+        "eess.IV": 1,
+        "cs.AI": 1,
+        "eess.SP": 1,
+        "stat.ML": 1,
+        "cs.IT": 1,
+        "cs.CY": 1
+      }
+    },
+    "2": {
+      "size": 23,
+      "dominant_category": "math.AG",
+      "dominant_count": 5,
+      "purity": 0.21739130434782608,
+      "category_distribution": {
+        "math.AG": 5,
+        "math.RT": 4,
+        "math.RA": 4,
+        "math.QA": 3,
+        "math.KT": 1,
+        "math.GR": 1,
+        "math.DG": 1,
+        "math.AC": 1,
+        "math.AT": 1,
+        "math.NT": 1,
+        "math.CO": 1
+      }
+    },
+    "3": {
+      "size": 12,
+      "dominant_category": "astro-ph.IM",
+      "dominant_count": 2,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "q-fin.TR": 1,
+        "q-bio.PE": 1,
+        "q-fin.PM": 1,
+        "econ.EM": 1,
+        "cs.LG": 1,
+        "econ.GN": 1,
+        "stat.AP": 1,
+        "q-fin.GN": 1,
+        "stat.ME": 1,
+        "astro-ph.IM": 2,
+        "astro-ph.CO": 1
+      }
+    },
+    "4": {
+      "size": 9,
+      "dominant_category": "cs.DS",
+      "dominant_count": 2,
+      "purity": 0.2222222222222222,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.LO": 1,
+        "econ.TH": 1,
+        "cs.FL": 1,
+        "cs.SI": 1,
+        "cs.DS": 2,
+        "cs.GR": 1,
+        "quant-ph": 1
+      }
+    },
+    "5": {
+      "size": 37,
+      "dominant_category": "cs.AI",
+      "dominant_count": 5,
+      "purity": 0.13513513513513514,
+      "category_distribution": {
+        "cs.AI": 5,
+        "stat.OT": 1,
+        "q-fin.CP": 1,
+        "q-bio.NC": 1,
+        "cs.DL": 2,
+        "cs.RO": 4,
+        "eess.IV": 1,
+        "q-bio.MN": 1,
+        "cs.CY": 4,
+        "cs.CE": 1,
+        "cs.IR": 2,
+        "cs.SD": 1,
+        "eess.AS": 1,
+        "cs.MA": 2,
+        "cs.ET": 1,
+        "cs.SI": 1,
+        "cs.MM": 1,
+        "cs.CR": 1,
+        "cs.CV": 1,
+        "cs.HC": 3,
+        "cs.CL": 1,
+        "cs.LG": 1
+      }
+    },
+    "6": {
+      "size": 24,
+      "dominant_category": "astro-ph.SR",
+      "dominant_count": 5,
+      "purity": 0.20833333333333334,
+      "category_distribution": {
+        "q-bio.BM": 1,
+        "nlin.CD": 1,
+        "physics.flu-dyn": 1,
+        "econ.TH": 1,
+        "astro-ph.CO": 2,
+        "nucl-th": 1,
+        "astro-ph.IM": 3,
+        "astro-ph.HE": 3,
+        "astro-ph.SR": 5,
+        "astro-ph.GA": 2,
+        "gr-qc": 1,
+        "astro-ph.EP": 1,
+        "nucl-ex": 1,
+        "cond-mat.stat-mech": 1
+      }
+    },
+    "7": {
+      "size": 41,
+      "dominant_category": "cs.LG",
+      "dominant_count": 8,
+      "purity": 0.1951219512195122,
+      "category_distribution": {
+        "stat.ML": 2,
+        "q-bio.OT": 1,
+        "stat.AP": 1,
+        "q-bio.QM": 1,
+        "q-bio.BM": 3,
+        "cs.LG": 8,
+        "econ.TH": 1,
+        "cs.DC": 1,
+        "cs.CY": 1,
+        "cs.CL": 1,
+        "cs.GR": 2,
+        "cs.CE": 3,
+        "cs.PF": 1,
+        "cs.CV": 1,
+        "math.ST": 1,
+        "cs.AI": 1,
+        "cs.NE": 3,
+        "eess.SP": 2,
+        "cond-mat.mtrl-sci": 1,
+        "eess.IV": 1,
+        "q-bio.NC": 1,
+        "eess.SY": 1,
+        "stat.CO": 1,
+        "stat.ME": 1,
+        "econ.GN": 1
+      }
+    },
+    "8": {
+      "size": 41,
+      "dominant_category": "math.RT",
+      "dominant_count": 4,
+      "purity": 0.0975609756097561,
+      "category_distribution": {
+        "math.GN": 2,
+        "math.RT": 4,
+        "cs.SC": 1,
+        "math.KT": 1,
+        "math.GM": 1,
+        "cs.LO": 2,
+        "math.GT": 3,
+        "math.CT": 3,
+        "math.LO": 2,
+        "math.AC": 4,
+        "math.QA": 3,
+        "math.RA": 4,
+        "math.CO": 3,
+        "math.AT": 2,
+        "math.AG": 3,
+        "cs.CC": 2,
+        "math.OA": 1
+      }
+    },
+    "9": {
+      "size": 15,
+      "dominant_category": "cs.CR",
+      "dominant_count": 3,
+      "purity": 0.2,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.CR": 3,
+        "cs.AI": 2,
+        "q-fin.CP": 1,
+        "q-bio.GN": 1,
+        "cs.DC": 1,
+        "cs.LG": 1,
+        "cs.NE": 2,
+        "cs.CL": 1,
+        "math.GM": 1,
+        "cs.MA": 1
+      }
+    },
+    "10": {
+      "size": 19,
+      "dominant_category": "q-fin.PR",
+      "dominant_count": 2,
+      "purity": 0.10526315789473684,
+      "category_distribution": {
+        "q-bio.CB": 1,
+        "q-bio.OT": 1,
+        "q-fin.PR": 2,
+        "q-fin.MF": 1,
+        "q-bio.TO": 1,
+        "q-bio.BM": 1,
+        "nlin.PS": 1,
+        "q-fin.TR": 2,
+        "nlin.AO": 1,
+        "econ.TH": 1,
+        "physics.soc-ph": 1,
+        "math.AT": 1,
+        "econ.EM": 1,
+        "stat.ML": 1,
+        "physics.bio-ph": 1,
+        "cs.NE": 1,
+        "hep-ph": 1
+      }
+    },
+    "11": {
+      "size": 24,
+      "dominant_category": "hep-th",
+      "dominant_count": 4,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "nlin.SI": 2,
+        "math.CO": 1,
+        "math.FA": 1,
+        "math.QA": 1,
+        "math.SP": 2,
+        "math.MG": 2,
+        "quant-ph": 1,
+        "math.CV": 3,
+        "math.AP": 2,
+        "math.AT": 1,
+        "hep-th": 4,
+        "math.LO": 1,
+        "math.DS": 1,
+        "math-ph": 1,
+        "math.GT": 1
+      }
+    },
+    "12": {
+      "size": 17,
+      "dominant_category": "nlin.CG",
+      "dominant_count": 2,
+      "purity": 0.11764705882352941,
+      "category_distribution": {
+        "nlin.CG": 2,
+        "eess.SY": 1,
+        "cs.MS": 1,
+        "q-bio.OT": 1,
+        "cs.GT": 2,
+        "math.NA": 2,
+        "econ.TH": 2,
+        "cs.LO": 1,
+        "quant-ph": 1,
+        "cs.GR": 1,
+        "math.ST": 1,
+        "cs.RO": 1,
+        "cs.LG": 1
+      }
+    },
+    "13": {
+      "size": 21,
+      "dominant_category": "cs.LG",
+      "dominant_count": 7,
+      "purity": 0.3333333333333333,
+      "category_distribution": {
+        "cs.OH": 3,
+        "q-bio.CB": 1,
+        "q-fin.PM": 1,
+        "cs.LG": 7,
+        "econ.EM": 1,
+        "cs.SD": 1,
+        "cs.ET": 1,
+        "physics.soc-ph": 1,
+        "q-bio.NC": 1,
+        "stat.ML": 1,
+        "stat.AP": 1,
+        "stat.ME": 1,
+        "cs.CV": 1
+      }
+    },
+    "14": {
+      "size": 19,
+      "dominant_category": "hep-ph",
+      "dominant_count": 3,
+      "purity": 0.15789473684210525,
+      "category_distribution": {
+        "math.AP": 1,
+        "nlin.CD": 2,
+        "nlin.AO": 1,
+        "hep-ph": 3,
+        "nucl-ex": 1,
+        "nucl-th": 2,
+        "math.DS": 1,
+        "gr-qc": 2,
+        "hep-ex": 1,
+        "physics.plasm-ph": 1,
+        "math.PR": 1,
+        "quant-ph": 1,
+        "cond-mat.quant-gas": 1,
+        "math-ph": 1
+      }
+    },
+    "15": {
+      "size": 20,
+      "dominant_category": "cs.AI",
+      "dominant_count": 7,
+      "purity": 0.35,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.AI": 7,
+        "stat.OT": 1,
+        "cs.OS": 1,
+        "cs.DL": 2,
+        "cs.NI": 1,
+        "cs.IR": 1,
+        "cs.LG": 2,
+        "cs.DB": 1,
+        "cs.CL": 1,
+        "cs.SE": 1,
+        "cs.CV": 1
+      }
+    },
+    "16": {
+      "size": 24,
+      "dominant_category": "cs.LG",
+      "dominant_count": 3,
+      "purity": 0.125,
+      "category_distribution": {
+        "cs.OH": 2,
+        "cs.RO": 2,
+        "q-fin.MF": 1,
+        "q-fin.TR": 1,
+        "cs.LG": 3,
+        "cs.DB": 1,
+        "eess.SY": 1,
+        "cs.GR": 1,
+        "q-bio.MN": 1,
+        "cs.GT": 1,
+        "cs.CR": 2,
+        "q-bio.NC": 1,
+        "cs.SI": 2,
+        "stat.ML": 1,
+        "math.OC": 2,
+        "eess.SP": 1,
+        "cs.CV": 1
+      }
+    },
+    "17": {
+      "size": 16,
+      "dominant_category": "cs.CG",
+      "dominant_count": 3,
+      "purity": 0.1875,
+      "category_distribution": {
+        "math-ph": 1,
+        "math.MG": 1,
+        "cs.CG": 3,
+        "econ.TH": 1,
+        "cs.CC": 1,
+        "math.QA": 1,
+        "math.OC": 1,
+        "math.GM": 1,
+        "math.RT": 1,
+        "cs.CR": 1,
+        "math.LO": 1,
+        "math.CO": 2,
+        "nlin.CD": 1
+      }
+    },
+    "18": {
+      "size": 25,
+      "dominant_category": "math.CV",
+      "dominant_count": 4,
+      "purity": 0.16,
+      "category_distribution": {
+        "math.OA": 1,
+        "math-ph": 1,
+        "math.GR": 3,
+        "nlin.SI": 1,
+        "math.GN": 1,
+        "math.AG": 2,
+        "math.QA": 1,
+        "math.AP": 2,
+        "math.CV": 4,
+        "math.HO": 1,
+        "math.DG": 1,
+        "math.MG": 1,
+        "math.RT": 1,
+        "math.CA": 1,
+        "math.FA": 2,
+        "hep-th": 1,
+        "math.NT": 1
+      }
+    },
+    "19": {
+      "size": 36,
+      "dominant_category": "stat.ME",
+      "dominant_count": 6,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "stat.ME": 6,
+        "q-bio.QM": 1,
+        "cond-mat.mtrl-sci": 1,
+        "stat.AP": 1,
+        "q-fin.TR": 2,
+        "q-bio.OT": 1,
+        "q-bio.MN": 1,
+        "q-bio.CB": 1,
+        "eess.SY": 2,
+        "q-fin.PM": 1,
+        "q-fin.GN": 2,
+        "q-fin.MF": 2,
+        "q-fin.CP": 1,
+        "nlin.AO": 1,
+        "q-fin.ST": 1,
+        "physics.bio-ph": 1,
+        "physics.optics": 1,
+        "cs.LG": 1,
+        "q-bio.PE": 1,
+        "cs.GR": 1,
+        "physics.ins-det": 1,
+        "eess.IV": 1,
+        "cs.AR": 2,
+        "cs.OH": 1,
+        "q-bio.BM": 1,
+        "econ.EM": 1
+      }
+    },
+    "20": {
+      "size": 6,
+      "dominant_category": "cs.DC",
+      "dominant_count": 1,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "cs.DC": 1,
+        "cs.CY": 1,
+        "econ.GN": 1,
+        "q-fin.ST": 1,
+        "cs.HC": 1,
+        "cs.IR": 1
+      }
+    },
+    "21": {
+      "size": 39,
+      "dominant_category": "cs.AI",
+      "dominant_count": 5,
+      "purity": 0.1282051282051282,
+      "category_distribution": {
+        "cs.AI": 5,
+        "q-fin.GN": 2,
+        "cs.OS": 2,
+        "cs.LG": 5,
+        "cs.SE": 2,
+        "cs.MM": 1,
+        "cs.NE": 1,
+        "stat.CO": 1,
+        "cs.SI": 1,
+        "cs.ET": 1,
+        "eess.IV": 1,
+        "q-bio.MN": 1,
+        "cs.AR": 1,
+        "cs.CL": 2,
+        "q-bio.GN": 1,
+        "cs.SD": 2,
+        "cs.DC": 1,
+        "eess.AS": 1,
+        "cs.HC": 3,
+        "cs.IR": 1,
+        "cs.RO": 2,
+        "cs.CR": 1,
+        "cs.CV": 1
+      }
+    },
+    "22": {
+      "size": 8,
+      "dominant_category": "astro-ph.HE",
+      "dominant_count": 5,
+      "purity": 0.625,
+      "category_distribution": {
+        "astro-ph.SR": 3,
+        "astro-ph.HE": 5
+      }
+    },
+    "23": {
+      "size": 22,
+      "dominant_category": "cs.AI",
+      "dominant_count": 3,
+      "purity": 0.13636363636363635,
+      "category_distribution": {
+        "cs.AI": 3,
+        "cs.GL": 2,
+        "cs.OH": 1,
+        "cs.CR": 2,
+        "cs.DL": 2,
+        "q-bio.NC": 1,
+        "q-bio.BM": 1,
+        "cs.IR": 1,
+        "cs.MA": 1,
+        "math.ST": 1,
+        "cs.IT": 2,
+        "stat.ML": 1,
+        "cs.DB": 1,
+        "cs.LG": 1,
+        "cs.SE": 1,
+        "cs.CV": 1
+      }
+    },
+    "24": {
+      "size": 17,
+      "dominant_category": "math.NA",
+      "dominant_count": 5,
+      "purity": 0.29411764705882354,
+      "category_distribution": {
+        "nlin.CG": 1,
+        "physics.soc-ph": 2,
+        "q-fin.MF": 1,
+        "math.OC": 1,
+        "math.FA": 1,
+        "quant-ph": 1,
+        "math.PR": 4,
+        "math.NA": 5,
+        "hep-lat": 1
+      }
+    },
+    "25": {
+      "size": 31,
+      "dominant_category": "eess.IV",
+      "dominant_count": 3,
+      "purity": 0.0967741935483871,
+      "category_distribution": {
+        "eess.IV": 3,
+        "q-bio.QM": 3,
+        "q-bio.OT": 2,
+        "q-fin.ST": 1,
+        "cond-mat.dis-nn": 1,
+        "q-bio.NC": 2,
+        "cs.CR": 1,
+        "q-fin.CP": 1,
+        "cs.AR": 1,
+        "cs.SI": 1,
+        "eess.AS": 2,
+        "q-fin.TR": 1,
+        "stat.ML": 2,
+        "cs.DC": 1,
+        "cs.SD": 1,
+        "cs.LG": 2,
+        "econ.TH": 1,
+        "eess.SP": 1,
+        "cs.RO": 2,
+        "math.OC": 1,
+        "cs.CV": 1
+      }
+    },
+    "26": {
+      "size": 6,
+      "dominant_category": "cs.FL",
+      "dominant_count": 2,
+      "purity": 0.3333333333333333,
+      "category_distribution": {
+        "cs.FL": 2,
+        "cs.LO": 1,
+        "cs.PL": 1,
+        "cs.CC": 1,
+        "cs.DS": 1
+      }
+    },
+    "27": {
+      "size": 18,
+      "dominant_category": "cs.FL",
+      "dominant_count": 3,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.MS": 2,
+        "cs.DC": 1,
+        "cs.FL": 3,
+        "math.HO": 1,
+        "econ.TH": 1,
+        "cs.LO": 1,
+        "cs.LG": 2,
+        "cs.CL": 1,
+        "cs.CC": 2,
+        "cs.GT": 2,
+        "cs.IT": 1
+      }
+    },
+    "28": {
+      "size": 16,
+      "dominant_category": "math.CO",
+      "dominant_count": 3,
+      "purity": 0.1875,
+      "category_distribution": {
+        "nlin.CG": 1,
+        "math.CT": 1,
+        "math.MG": 2,
+        "math.RA": 1,
+        "cs.DM": 1,
+        "math.DS": 2,
+        "math.HO": 1,
+        "math.CO": 3,
+        "math.NT": 1,
+        "math.QA": 1,
+        "math.FA": 1,
+        "math.LO": 1
+      }
+    },
+    "29": {
+      "size": 14,
+      "dominant_category": "q-fin.CP",
+      "dominant_count": 2,
+      "purity": 0.14285714285714285,
+      "category_distribution": {
+        "q-bio.TO": 1,
+        "q-fin.CP": 2,
+        "q-bio.MN": 1,
+        "q-bio.QM": 1,
+        "physics.optics": 1,
+        "stat.ML": 1,
+        "astro-ph.IM": 2,
+        "q-fin.ST": 1,
+        "cs.LG": 2,
+        "astro-ph.GA": 1,
+        "astro-ph.CO": 1
+      }
+    },
+    "30": {
+      "size": 20,
+      "dominant_category": "math.AP",
+      "dominant_count": 6,
+      "purity": 0.3,
+      "category_distribution": {
+        "gr-qc": 2,
+        "nlin.SI": 1,
+        "math.SP": 4,
+        "math.AP": 6,
+        "math.MG": 1,
+        "cond-mat.stat-mech": 1,
+        "hep-th": 1,
+        "cond-mat.quant-gas": 1,
+        "cond-mat.str-el": 1,
+        "math.DG": 1,
+        "quant-ph": 1
+      }
+    },
+    "31": {
+      "size": 19,
+      "dominant_category": "cs.CL",
+      "dominant_count": 4,
+      "purity": 0.21052631578947367,
+      "category_distribution": {
+        "cs.GL": 1,
+        "math.HO": 1,
+        "cs.DC": 1,
+        "cs.DB": 2,
+        "cs.CL": 4,
+        "cs.MM": 1,
+        "cs.NI": 2,
+        "cs.LO": 1,
+        "cs.ET": 1,
+        "cs.SE": 1,
+        "cs.HC": 1,
+        "cs.AI": 2,
+        "cs.RO": 1
+      }
+    },
+    "32": {
+      "size": 15,
+      "dominant_category": "cs.AI",
+      "dominant_count": 2,
+      "purity": 0.13333333333333333,
+      "category_distribution": {
+        "q-bio.OT": 1,
+        "q-fin.PM": 1,
+        "cs.AI": 2,
+        "cs.PF": 1,
+        "q-bio.GN": 1,
+        "q-fin.CP": 1,
+        "cs.SI": 2,
+        "cs.NI": 1,
+        "q-fin.TR": 1,
+        "cs.CY": 1,
+        "q-fin.ST": 1,
+        "cs.SD": 1,
+        "cs.NE": 1
+      }
+    },
+    "33": {
+      "size": 11,
+      "dominant_category": "hep-ph",
+      "dominant_count": 2,
+      "purity": 0.18181818181818182,
+      "category_distribution": {
+        "cond-mat.stat-mech": 1,
+        "nucl-th": 1,
+        "math.PR": 1,
+        "gr-qc": 1,
+        "hep-ph": 2,
+        "math.AP": 2,
+        "cs.LG": 1,
+        "hep-th": 1,
+        "math.NA": 1
+      }
+    },
+    "34": {
+      "size": 11,
+      "dominant_category": "nlin.CG",
+      "dominant_count": 3,
+      "purity": 0.2727272727272727,
+      "category_distribution": {
+        "nlin.CG": 3,
+        "q-bio.MN": 1,
+        "q-fin.PM": 1,
+        "quant-ph": 1,
+        "q-bio.PE": 1,
+        "cs.DM": 1,
+        "cs.NE": 1,
+        "math.OC": 1,
+        "math.PR": 1
+      }
+    },
+    "35": {
+      "size": 27,
+      "dominant_category": "astro-ph.HE",
+      "dominant_count": 4,
+      "purity": 0.14814814814814814,
+      "category_distribution": {
+        "physics.bio-ph": 2,
+        "q-fin.PR": 2,
+        "q-bio.MN": 1,
+        "q-fin.ST": 1,
+        "q-bio.PE": 2,
+        "physics.ins-det": 1,
+        "nucl-ex": 1,
+        "astro-ph.EP": 3,
+        "hep-ph": 3,
+        "nucl-th": 1,
+        "astro-ph.HE": 4,
+        "physics.optics": 1,
+        "astro-ph.CO": 1,
+        "astro-ph.GA": 1,
+        "astro-ph.SR": 3
+      }
+    },
+    "36": {
+      "size": 25,
+      "dominant_category": "math.NT",
+      "dominant_count": 5,
+      "purity": 0.2,
+      "category_distribution": {
+        "cs.SC": 1,
+        "math.GN": 2,
+        "math.GM": 2,
+        "math.MG": 1,
+        "math.CO": 2,
+        "math.GT": 3,
+        "math.AC": 2,
+        "math.FA": 1,
+        "math.GR": 2,
+        "math.OC": 1,
+        "math.OA": 1,
+        "math.NT": 5,
+        "hep-th": 1,
+        "math.LO": 1
+      }
+    },
+    "37": {
+      "size": 23,
+      "dominant_category": "nucl-th",
+      "dominant_count": 5,
+      "purity": 0.21739130434782608,
+      "category_distribution": {
+        "astro-ph.SR": 1,
+        "math.PR": 1,
+        "q-bio.PE": 1,
+        "nucl-th": 5,
+        "hep-ph": 3,
+        "cond-mat.mtrl-sci": 1,
+        "physics.atom-ph": 1,
+        "cond-mat.stat-mech": 1,
+        "astro-ph.CO": 1,
+        "physics.flu-dyn": 1,
+        "astro-ph.EP": 1,
+        "gr-qc": 3,
+        "astro-ph.IM": 1,
+        "cond-mat.mes-hall": 1,
+        "cond-mat.str-el": 1
+      }
+    },
+    "38": {
+      "size": 26,
+      "dominant_category": "econ.EM",
+      "dominant_count": 4,
+      "purity": 0.15384615384615385,
+      "category_distribution": {
+        "q-bio.SC": 1,
+        "q-bio.MN": 3,
+        "q-fin.CP": 1,
+        "physics.soc-ph": 3,
+        "q-fin.PM": 1,
+        "stat.OT": 1,
+        "quant-ph": 1,
+        "cond-mat.soft": 1,
+        "q-bio.NC": 1,
+        "econ.EM": 4,
+        "stat.ML": 1,
+        "q-fin.RM": 1,
+        "stat.AP": 1,
+        "math.NA": 1,
+        "stat.ME": 2,
+        "cond-mat.mtrl-sci": 1,
+        "eess.SP": 1,
+        "econ.GN": 1
+      }
+    },
+    "39": {
+      "size": 19,
+      "dominant_category": "cs.SE",
+      "dominant_count": 3,
+      "purity": 0.15789473684210525,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.DC": 1,
+        "cs.IR": 1,
+        "cs.NI": 1,
+        "cs.MM": 1,
+        "cs.LG": 2,
+        "cs.MA": 1,
+        "cs.AI": 2,
+        "cs.CL": 2,
+        "cs.SE": 3,
+        "cs.CY": 2,
+        "cs.CR": 1,
+        "cs.HC": 1
+      }
+    },
+    "40": {
+      "size": 17,
+      "dominant_category": "math.NA",
+      "dominant_count": 2,
+      "purity": 0.11764705882352941,
+      "category_distribution": {
+        "math.NA": 2,
+        "cs.CG": 1,
+        "math.HO": 1,
+        "math.GM": 2,
+        "math.CO": 2,
+        "cond-mat.stat-mech": 1,
+        "math.GT": 1,
+        "math.NT": 1,
+        "econ.TH": 1,
+        "math.GN": 1,
+        "cs.FL": 1,
+        "math.AG": 1,
+        "nlin.CD": 1,
+        "quant-ph": 1
+      }
+    },
+    "41": {
+      "size": 10,
+      "dominant_category": "cs.LO",
+      "dominant_count": 4,
+      "purity": 0.4,
+      "category_distribution": {
+        "cs.SC": 2,
+        "cs.LO": 4,
+        "cs.PL": 1,
+        "math.CO": 1,
+        "cs.CC": 2
+      }
+    },
+    "42": {
+      "size": 20,
+      "dominant_category": "math.DG",
+      "dominant_count": 4,
+      "purity": 0.2,
+      "category_distribution": {
+        "math-ph": 1,
+        "hep-th": 1,
+        "math.DG": 4,
+        "math.SP": 1,
+        "math.CV": 1,
+        "math.FA": 3,
+        "math.CA": 1,
+        "math.AP": 4,
+        "math.MG": 1,
+        "math.GR": 1,
+        "math.NT": 1,
+        "quant-ph": 1
+      }
+    },
+    "43": {
+      "size": 29,
+      "dominant_category": "astro-ph.EP",
+      "dominant_count": 3,
+      "purity": 0.10344827586206896,
+      "category_distribution": {
+        "q-bio.SC": 1,
+        "physics.bio-ph": 2,
+        "q-bio.CB": 1,
+        "q-bio.TO": 2,
+        "physics.ao-ph": 1,
+        "math.AP": 2,
+        "nlin.PS": 1,
+        "physics.soc-ph": 1,
+        "physics.acc-ph": 1,
+        "hep-lat": 2,
+        "cond-mat.mtrl-sci": 1,
+        "astro-ph.CO": 1,
+        "astro-ph.EP": 3,
+        "astro-ph.SR": 2,
+        "hep-ex": 1,
+        "hep-th": 1,
+        "math-ph": 1,
+        "hep-ph": 1,
+        "cond-mat.quant-gas": 1,
+        "quant-ph": 2,
+        "math.PR": 1
+      }
+    },
+    "44": {
+      "size": 24,
+      "dominant_category": "cs.OH",
+      "dominant_count": 2,
+      "purity": 0.08333333333333333,
+      "category_distribution": {
+        "cs.OH": 2,
+        "eess.SP": 1,
+        "cs.PL": 1,
+        "q-fin.GN": 1,
+        "cs.AI": 2,
+        "cs.CG": 1,
+        "cs.GT": 2,
+        "cs.MS": 1,
+        "q-bio.BM": 1,
+        "cs.CE": 1,
+        "stat.ME": 1,
+        "cs.DS": 1,
+        "cs.DB": 1,
+        "cs.NE": 1,
+        "stat.ML": 1,
+        "math.ST": 1,
+        "cs.DC": 1,
+        "cs.IT": 1,
+        "cs.CR": 1,
+        "cs.LG": 1,
+        "quant-ph": 1
+      }
+    },
+    "45": {
+      "size": 18,
+      "dominant_category": "cs.LG",
+      "dominant_count": 2,
+      "purity": 0.1111111111111111,
+      "category_distribution": {
+        "cs.OH": 1,
+        "physics.soc-ph": 1,
+        "physics.bio-ph": 1,
+        "q-fin.PM": 1,
+        "q-fin.TR": 1,
+        "cs.OS": 1,
+        "stat.OT": 1,
+        "q-fin.RM": 1,
+        "q-fin.CP": 1,
+        "q-bio.PE": 1,
+        "stat.ML": 1,
+        "cs.ET": 1,
+        "q-fin.ST": 1,
+        "cs.LG": 2,
+        "cs.AR": 2,
+        "econ.GN": 1
+      }
+    },
+    "46": {
+      "size": 28,
+      "dominant_category": "physics.bio-ph",
+      "dominant_count": 3,
+      "purity": 0.10714285714285714,
+      "category_distribution": {
+        "q-fin.CP": 1,
+        "q-fin.PR": 1,
+        "cond-mat.soft": 2,
+        "physics.bio-ph": 3,
+        "q-bio.QM": 1,
+        "q-fin.PM": 1,
+        "q-bio.CB": 1,
+        "math.OC": 1,
+        "nlin.PS": 1,
+        "physics.flu-dyn": 1,
+        "econ.EM": 1,
+        "q-fin.GN": 1,
+        "nlin.AO": 1,
+        "stat.CO": 1,
+        "q-fin.ST": 1,
+        "q-bio.PE": 1,
+        "cond-mat.stat-mech": 1,
+        "cs.CE": 1,
+        "stat.ML": 1,
+        "stat.ME": 1,
+        "math.AP": 1,
+        "eess.SP": 1,
+        "nucl-th": 1,
+        "quant-ph": 1,
+        "astro-ph.EP": 1
+      }
+    },
+    "47": {
+      "size": 8,
+      "dominant_category": "nlin.PS",
+      "dominant_count": 2,
+      "purity": 0.25,
+      "category_distribution": {
+        "nlin.PS": 2,
+        "nlin.CD": 2,
+        "math-ph": 1,
+        "nlin.SI": 1,
+        "hep-lat": 1,
+        "hep-th": 1
+      }
+    },
+    "48": {
+      "size": 26,
+      "dominant_category": "stat.ML",
+      "dominant_count": 3,
+      "purity": 0.11538461538461539,
+      "category_distribution": {
+        "cs.OH": 1,
+        "q-bio.MN": 1,
+        "stat.AP": 2,
+        "q-bio.TO": 1,
+        "physics.hist-ph": 1,
+        "q-fin.GN": 1,
+        "econ.EM": 1,
+        "q-bio.PE": 2,
+        "math.DS": 1,
+        "stat.ME": 2,
+        "stat.OT": 2,
+        "stat.ML": 3,
+        "math.ST": 1,
+        "eess.SP": 1,
+        "math.OC": 1,
+        "cs.LG": 2,
+        "eess.SY": 1,
+        "quant-ph": 1,
+        "hep-lat": 1
+      }
+    },
+    "49": {
+      "size": 27,
+      "dominant_category": "physics.bio-ph",
+      "dominant_count": 2,
+      "purity": 0.07407407407407407,
+      "category_distribution": {
+        "physics.bio-ph": 2,
+        "q-bio.SC": 1,
+        "q-bio.TO": 1,
+        "stat.OT": 1,
+        "q-fin.PR": 2,
+        "econ.TH": 1,
+        "q-bio.CB": 1,
+        "q-fin.MF": 1,
+        "q-fin.PM": 1,
+        "q-bio.PE": 2,
+        "cs.ET": 1,
+        "q-bio.NC": 1,
+        "econ.EM": 1,
+        "q-bio.OT": 1,
+        "stat.AP": 1,
+        "physics.geo-ph": 1,
+        "stat.ME": 1,
+        "q-fin.ST": 1,
+        "q-bio.QM": 1,
+        "physics.acc-ph": 1,
+        "hep-ph": 1,
+        "eess.AS": 1,
+        "quant-ph": 1,
+        "hep-ex": 1
+      }
+    },
+    "50": {
+      "size": 28,
+      "dominant_category": "cs.LG",
+      "dominant_count": 3,
+      "purity": 0.10714285714285714,
+      "category_distribution": {
+        "cs.SC": 1,
+        "cs.DL": 1,
+        "cs.LG": 3,
+        "cs.MM": 1,
+        "cs.CV": 2,
+        "cs.HC": 2,
+        "econ.TH": 1,
+        "cs.NI": 1,
+        "cs.NE": 2,
+        "cs.IR": 1,
+        "cs.MA": 2,
+        "q-bio.BM": 1,
+        "cs.CY": 1,
+        "cs.AR": 1,
+        "cs.CL": 1,
+        "cs.DC": 1,
+        "cs.CR": 1,
+        "cs.CE": 1,
+        "cs.SD": 3,
+        "cs.RO": 1
+      }
+    },
+    "51": {
+      "size": 2,
+      "dominant_category": "cs.PL",
+      "dominant_count": 1,
+      "purity": 0.5,
+      "category_distribution": {
+        "cs.PL": 1,
+        "cs.LO": 1
+      }
+    },
+    "52": {
+      "size": 39,
+      "dominant_category": "eess.SP",
+      "dominant_count": 4,
+      "purity": 0.10256410256410256,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.OH": 1,
+        "q-bio.MN": 1,
+        "q-bio.OT": 2,
+        "cs.DC": 3,
+        "q-bio.QM": 1,
+        "q-fin.PR": 1,
+        "q-fin.PM": 1,
+        "stat.ME": 1,
+        "q-bio.GN": 2,
+        "cs.SI": 1,
+        "cs.CE": 2,
+        "econ.EM": 1,
+        "cs.NI": 1,
+        "q-fin.ST": 1,
+        "cs.LG": 2,
+        "cs.RO": 2,
+        "stat.CO": 1,
+        "cs.CR": 2,
+        "stat.ML": 1,
+        "eess.SP": 4,
+        "cs.GT": 1,
+        "eess.IV": 1,
+        "math.OC": 1,
+        "cs.SD": 1,
+        "math.ST": 1,
+        "cs.AR": 1,
+        "cs.CV": 1
+      }
+    },
+    "53": {
+      "size": 13,
+      "dominant_category": "math.RA",
+      "dominant_count": 6,
+      "purity": 0.46153846153846156,
+      "category_distribution": {
+        "math.CT": 2,
+        "math.OA": 1,
+        "math.RA": 6,
+        "math.GR": 1,
+        "math.AT": 1,
+        "math.RT": 2
+      }
+    },
+    "54": {
+      "size": 19,
+      "dominant_category": "econ.EM",
+      "dominant_count": 4,
+      "purity": 0.21052631578947367,
+      "category_distribution": {
+        "q-bio.SC": 1,
+        "cs.LG": 2,
+        "q-bio.OT": 2,
+        "econ.EM": 4,
+        "q-fin.GN": 1,
+        "q-fin.RM": 1,
+        "q-bio.TO": 1,
+        "q-fin.ST": 1,
+        "stat.ME": 2,
+        "cond-mat.stat-mech": 1,
+        "physics.ins-det": 1,
+        "hep-ph": 1,
+        "astro-ph.GA": 1
+      }
+    },
+    "55": {
+      "size": 12,
+      "dominant_category": "cs.FL",
+      "dominant_count": 1,
+      "purity": 0.08333333333333333,
+      "category_distribution": {
+        "cs.FL": 1,
+        "nlin.CG": 1,
+        "math.HO": 1,
+        "math.DS": 1,
+        "math.FA": 1,
+        "math.RA": 1,
+        "math.CO": 1,
+        "cs.CG": 1,
+        "cs.LO": 1,
+        "cs.DS": 1,
+        "cs.CC": 1,
+        "cs.DC": 1
+      }
+    },
+    "56": {
+      "size": 38,
+      "dominant_category": "math.AG",
+      "dominant_count": 4,
+      "purity": 0.10526315789473684,
+      "category_distribution": {
+        "math.QA": 1,
+        "math.CT": 1,
+        "math.RT": 1,
+        "math.GM": 2,
+        "math.SG": 2,
+        "math.AG": 4,
+        "math.GR": 3,
+        "math.KT": 1,
+        "math.HO": 1,
+        "math.OA": 4,
+        "math.AC": 2,
+        "math.CA": 2,
+        "math.LO": 1,
+        "math.NT": 2,
+        "math.AT": 4,
+        "math.GT": 1,
+        "math.RA": 2,
+        "math.FA": 2,
+        "math.CO": 1,
+        "math.CV": 1
+      }
+    },
+    "57": {
+      "size": 14,
+      "dominant_category": "cs.CG",
+      "dominant_count": 3,
+      "purity": 0.21428571428571427,
+      "category_distribution": {
+        "cs.SC": 2,
+        "cs.CG": 3,
+        "cs.DM": 1,
+        "cs.DS": 2,
+        "math.GM": 1,
+        "cs.CC": 1,
+        "econ.TH": 1,
+        "cs.IT": 1,
+        "math.OC": 1,
+        "cs.FL": 1
+      }
+    },
+    "58": {
+      "size": 17,
+      "dominant_category": "hep-ph",
+      "dominant_count": 3,
+      "purity": 0.17647058823529413,
+      "category_distribution": {
+        "cond-mat.soft": 1,
+        "math-ph": 1,
+        "q-fin.MF": 1,
+        "physics.med-ph": 1,
+        "nlin.PS": 1,
+        "physics.acc-ph": 1,
+        "hep-th": 1,
+        "cond-mat.stat-mech": 1,
+        "physics.flu-dyn": 1,
+        "hep-ph": 3,
+        "q-fin.CP": 1,
+        "nucl-th": 1,
+        "gr-qc": 1,
+        "math.PR": 1,
+        "math.AP": 1
+      }
+    },
+    "59": {
+      "size": 21,
+      "dominant_category": "math.DG",
+      "dominant_count": 6,
+      "purity": 0.2857142857142857,
+      "category_distribution": {
+        "math.SG": 3,
+        "math.DG": 6,
+        "math.SP": 2,
+        "math.CV": 1,
+        "hep-th": 1,
+        "math.DS": 1,
+        "math.AT": 1,
+        "math.RT": 1,
+        "math.MG": 1,
+        "math.AP": 3,
+        "math.NT": 1
+      }
+    },
+    "60": {
+      "size": 16,
+      "dominant_category": "nucl-th",
+      "dominant_count": 4,
+      "purity": 0.25,
+      "category_distribution": {
+        "math.AP": 1,
+        "cond-mat.stat-mech": 1,
+        "nucl-th": 4,
+        "hep-ph": 1,
+        "gr-qc": 3,
+        "astro-ph.CO": 3,
+        "hep-th": 1,
+        "astro-ph.SR": 1,
+        "astro-ph.EP": 1
+      }
+    },
+    "61": {
+      "size": 25,
+      "dominant_category": "math.AG",
+      "dominant_count": 3,
+      "purity": 0.12,
+      "category_distribution": {
+        "math.GN": 1,
+        "math.OA": 2,
+        "math.SG": 1,
+        "math-ph": 1,
+        "math.FA": 1,
+        "math.RT": 2,
+        "math.AP": 2,
+        "math.AT": 2,
+        "math.DG": 1,
+        "math.MG": 1,
+        "math.GT": 1,
+        "math.DS": 1,
+        "math.AG": 3,
+        "math.GR": 2,
+        "math.RA": 1,
+        "math.NT": 1,
+        "math.LO": 1,
+        "math.CV": 1
+      }
+    },
+    "62": {
+      "size": 30,
+      "dominant_category": "math.GR",
+      "dominant_count": 4,
+      "purity": 0.13333333333333333,
+      "category_distribution": {
+        "math.KT": 2,
+        "math.CO": 3,
+        "math.GR": 4,
+        "math.OA": 2,
+        "math.GN": 1,
+        "math.QA": 3,
+        "math.AT": 2,
+        "math.AG": 3,
+        "math.AC": 1,
+        "math.RA": 2,
+        "math.FA": 1,
+        "math.RT": 3,
+        "math.GM": 1,
+        "math.CV": 1,
+        "math.DG": 1
+      }
+    },
+    "63": {
+      "size": 9,
+      "dominant_category": "cs.LO",
+      "dominant_count": 2,
+      "purity": 0.2222222222222222,
+      "category_distribution": {
+        "cs.LO": 2,
+        "cs.SC": 1,
+        "econ.TH": 1,
+        "cs.LG": 2,
+        "cs.DB": 1,
+        "cs.CL": 1,
+        "cs.FL": 1
+      }
+    },
+    "64": {
+      "size": 29,
+      "dominant_category": "cs.CV",
+      "dominant_count": 3,
+      "purity": 0.10344827586206896,
+      "category_distribution": {
+        "physics.optics": 1,
+        "q-bio.TO": 1,
+        "q-fin.MF": 1,
+        "q-fin.RM": 1,
+        "cs.LG": 2,
+        "q-bio.NC": 1,
+        "q-bio.PE": 1,
+        "nlin.AO": 1,
+        "cs.CV": 3,
+        "cs.CE": 1,
+        "q-fin.PM": 1,
+        "physics.soc-ph": 1,
+        "cs.GR": 1,
+        "q-bio.GN": 1,
+        "eess.IV": 2,
+        "stat.ME": 2,
+        "cs.SD": 1,
+        "eess.SP": 2,
+        "cs.NI": 1,
+        "cs.IT": 1,
+        "math.DS": 1,
+        "astro-ph.IM": 1,
+        "eess.SY": 1
+      }
+    },
+    "65": {
+      "size": 21,
+      "dominant_category": "quant-ph",
+      "dominant_count": 3,
+      "purity": 0.14285714285714285,
+      "category_distribution": {
+        "q-bio.MN": 1,
+        "cs.MS": 1,
+        "cs.CG": 1,
+        "cond-mat.stat-mech": 1,
+        "math.ST": 1,
+        "quant-ph": 3,
+        "cs.IT": 1,
+        "econ.TH": 2,
+        "cs.DS": 1,
+        "stat.CO": 1,
+        "cs.AI": 1,
+        "math.NA": 2,
+        "cs.LG": 2,
+        "math.FA": 1,
+        "math.OC": 1,
+        "cs.GT": 1
+      }
+    },
+    "66": {
+      "size": 21,
+      "dominant_category": "math.CO",
+      "dominant_count": 3,
+      "purity": 0.14285714285714285,
+      "category_distribution": {
+        "math.GN": 1,
+        "math.HO": 2,
+        "math.NT": 1,
+        "cs.FL": 1,
+        "math.GR": 2,
+        "math.GT": 1,
+        "math.LO": 2,
+        "math.RT": 1,
+        "math.CO": 3,
+        "math.FA": 2,
+        "math.DG": 1,
+        "cs.SC": 1,
+        "math.CA": 1,
+        "cs.IT": 1,
+        "math.AG": 1
+      }
+    },
+    "67": {
+      "size": 32,
+      "dominant_category": "cs.LG",
+      "dominant_count": 8,
+      "purity": 0.25,
+      "category_distribution": {
+        "cs.LG": 8,
+        "cs.DS": 1,
+        "cs.SE": 1,
+        "cs.CR": 2,
+        "cs.DL": 2,
+        "q-bio.BM": 1,
+        "cs.CY": 1,
+        "cs.CV": 5,
+        "cs.SI": 1,
+        "cs.HC": 1,
+        "cs.NE": 1,
+        "cs.ET": 1,
+        "cs.DC": 1,
+        "eess.AS": 1,
+        "eess.IV": 1,
+        "cs.SD": 1,
+        "cs.GR": 1,
+        "cs.NI": 1,
+        "cs.CL": 1
+      }
+    },
+    "68": {
+      "size": 29,
+      "dominant_category": "econ.GN",
+      "dominant_count": 3,
+      "purity": 0.10344827586206896,
+      "category_distribution": {
+        "q-bio.CB": 2,
+        "stat.OT": 1,
+        "cs.LG": 2,
+        "q-fin.PR": 1,
+        "q-bio.MN": 1,
+        "eess.AS": 1,
+        "cs.IT": 1,
+        "q-bio.GN": 1,
+        "q-bio.OT": 1,
+        "q-fin.PM": 1,
+        "cs.CV": 2,
+        "econ.GN": 3,
+        "q-bio.PE": 1,
+        "eess.SY": 1,
+        "cs.PF": 1,
+        "nlin.CD": 1,
+        "stat.CO": 1,
+        "cs.NI": 1,
+        "eess.IV": 3,
+        "math.OC": 1,
+        "eess.SP": 1,
+        "math.ST": 1
+      }
+    },
+    "69": {
+      "size": 27,
+      "dominant_category": "cs.LG",
+      "dominant_count": 3,
+      "purity": 0.1111111111111111,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.LG": 3,
+        "q-fin.PM": 1,
+        "cs.OH": 1,
+        "stat.AP": 1,
+        "q-fin.CP": 1,
+        "math.GM": 2,
+        "physics.soc-ph": 1,
+        "cs.CG": 1,
+        "eess.SP": 2,
+        "nlin.CD": 1,
+        "q-fin.GN": 1,
+        "stat.ME": 1,
+        "econ.EM": 1,
+        "quant-ph": 2,
+        "eess.IV": 1,
+        "cs.CR": 1,
+        "cs.RO": 1,
+        "stat.ML": 2,
+        "math.OC": 1,
+        "cs.CV": 1
+      }
+    },
+    "70": {
+      "size": 38,
+      "dominant_category": "cs.CL",
+      "dominant_count": 7,
+      "purity": 0.18421052631578946,
+      "category_distribution": {
+        "cs.OH": 1,
+        "cs.AI": 5,
+        "cs.SE": 2,
+        "cs.CY": 3,
+        "cs.NI": 2,
+        "q-bio.NC": 1,
+        "cs.DB": 1,
+        "cs.LG": 3,
+        "q-bio.BM": 1,
+        "cs.IR": 3,
+        "cs.HC": 3,
+        "cs.DC": 1,
+        "cs.CL": 7,
+        "eess.SP": 1,
+        "cs.MA": 2,
+        "cs.CV": 2
+      }
+    },
+    "71": {
+      "size": 20,
+      "dominant_category": "cs.CL",
+      "dominant_count": 3,
+      "purity": 0.15,
+      "category_distribution": {
+        "cs.GL": 2,
+        "cs.CY": 1,
+        "cs.MS": 1,
+        "cs.DL": 1,
+        "cs.CR": 2,
+        "cs.GT": 2,
+        "stat.ME": 1,
+        "cs.CL": 3,
+        "cs.DB": 1,
+        "math.HO": 1,
+        "q-bio.QM": 1,
+        "cs.LG": 2,
+        "cs.SI": 1,
+        "cs.DC": 1
+      }
+    },
+    "72": {
+      "size": 27,
+      "dominant_category": "cs.AI",
+      "dominant_count": 5,
+      "purity": 0.18518518518518517,
+      "category_distribution": {
+        "cs.GL": 1,
+        "cs.CL": 2,
+        "q-fin.PM": 1,
+        "cs.OS": 1,
+        "cs.PF": 1,
+        "cs.AI": 5,
+        "cs.NI": 1,
+        "cs.GT": 1,
+        "cs.DC": 1,
+        "cs.SD": 1,
+        "cs.HC": 3,
+        "cs.SE": 1,
+        "cs.CY": 1,
+        "cs.LG": 4,
+        "cs.CV": 2,
+        "cs.RO": 1
+      }
+    },
+    "73": {
+      "size": 12,
+      "dominant_category": "cs.FL",
+      "dominant_count": 2,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "cs.SC": 1,
+        "math.AT": 1,
+        "math.AC": 1,
+        "cs.FL": 2,
+        "math.GR": 1,
+        "math.QA": 1,
+        "math.LO": 2,
+        "math.RT": 2,
+        "math.CT": 1
+      }
+    },
+    "74": {
+      "size": 14,
+      "dominant_category": "math.PR",
+      "dominant_count": 2,
+      "purity": 0.14285714285714285,
+      "category_distribution": {
+        "quant-ph": 1,
+        "q-fin.PM": 1,
+        "nlin.CD": 1,
+        "q-fin.MF": 1,
+        "q-bio.PE": 1,
+        "math.HO": 1,
+        "math.DG": 1,
+        "hep-th": 1,
+        "math.PR": 2,
+        "math.FA": 1,
+        "math.OC": 1,
+        "math.NA": 1,
+        "math.CO": 1
+      }
+    },
+    "75": {
+      "size": 9,
+      "dominant_category": "cs.PL",
+      "dominant_count": 2,
+      "purity": 0.2222222222222222,
+      "category_distribution": {
+        "cs.OH": 1,
+        "cs.PL": 2,
+        "cs.LG": 2,
+        "cs.HC": 1,
+        "cs.CL": 1,
+        "cs.DB": 1,
+        "cs.RO": 1
+      }
+    },
+    "76": {
+      "size": 25,
+      "dominant_category": "math.CO",
+      "dominant_count": 5,
+      "purity": 0.2,
+      "category_distribution": {
+        "cs.MS": 1,
+        "math.DS": 2,
+        "math.GM": 2,
+        "math.GN": 1,
+        "math.GR": 1,
+        "math.CT": 1,
+        "math.LO": 1,
+        "math.MG": 1,
+        "math.CO": 5,
+        "math.AT": 1,
+        "math.CA": 1,
+        "math.HO": 1,
+        "cs.CG": 2,
+        "math.FA": 1,
+        "cs.DS": 1,
+        "math.AG": 1,
+        "cs.IT": 1,
+        "math.NT": 1
+      }
+    },
+    "77": {
+      "size": 9,
+      "dominant_category": "cs.AI",
+      "dominant_count": 3,
+      "purity": 0.3333333333333333,
+      "category_distribution": {
+        "cs.DL": 1,
+        "cs.AI": 3,
+        "cs.SE": 2,
+        "cs.HC": 1,
+        "cs.CL": 1,
+        "cs.CV": 1
+      }
+    },
+    "78": {
+      "size": 24,
+      "dominant_category": "q-fin.PM",
+      "dominant_count": 3,
+      "purity": 0.125,
+      "category_distribution": {
+        "quant-ph": 2,
+        "nlin.CG": 1,
+        "q-bio.TO": 1,
+        "q-bio.OT": 1,
+        "q-bio.PE": 1,
+        "q-fin.PM": 3,
+        "q-fin.CP": 1,
+        "q-fin.MF": 1,
+        "cond-mat.stat-mech": 1,
+        "econ.EM": 1,
+        "math.HO": 1,
+        "q-bio.NC": 1,
+        "econ.GN": 1,
+        "stat.CO": 1,
+        "cs.DS": 1,
+        "cs.LG": 2,
+        "eess.SY": 1,
+        "cs.RO": 1,
+        "econ.TH": 1,
+        "stat.ME": 1
+      }
+    },
+    "79": {
+      "size": 8,
+      "dominant_category": "cs.CL",
+      "dominant_count": 3,
+      "purity": 0.375,
+      "category_distribution": {
+        "math.HO": 1,
+        "cs.CL": 3,
+        "cs.PL": 1,
+        "cs.AI": 2,
+        "cs.AR": 1
+      }
+    },
+    "80": {
+      "size": 29,
+      "dominant_category": "cs.DC",
+      "dominant_count": 4,
+      "purity": 0.13793103448275862,
+      "category_distribution": {
+        "cs.CV": 2,
+        "cs.OS": 1,
+        "cs.SE": 1,
+        "cs.DL": 1,
+        "cs.DC": 4,
+        "econ.TH": 1,
+        "cs.CL": 4,
+        "cs.CY": 1,
+        "cs.DS": 1,
+        "cs.MA": 1,
+        "nlin.CG": 1,
+        "cs.HC": 1,
+        "cs.SD": 1,
+        "cs.LG": 3,
+        "cs.CR": 2,
+        "cs.PL": 1,
+        "eess.AS": 1,
+        "cs.IT": 1,
+        "cs.DB": 1
+      }
+    },
+    "81": {
+      "size": 22,
+      "dominant_category": "astro-ph.GA",
+      "dominant_count": 7,
+      "purity": 0.3181818181818182,
+      "category_distribution": {
+        "nlin.SI": 1,
+        "astro-ph.EP": 5,
+        "nucl-ex": 1,
+        "astro-ph.CO": 3,
+        "astro-ph.SR": 3,
+        "astro-ph.GA": 7,
+        "astro-ph.HE": 1,
+        "physics.atom-ph": 1
+      }
+    },
+    "82": {
+      "size": 13,
+      "dominant_category": "cs.FL",
+      "dominant_count": 3,
+      "purity": 0.23076923076923078,
+      "category_distribution": {
+        "cs.DM": 2,
+        "cs.FL": 3,
+        "math.HO": 1,
+        "cs.LO": 3,
+        "cs.CC": 2,
+        "cs.DS": 1,
+        "cs.IT": 1
+      }
+    },
+    "83": {
+      "size": 23,
+      "dominant_category": "cs.CR",
+      "dominant_count": 4,
+      "purity": 0.17391304347826086,
+      "category_distribution": {
+        "cs.CY": 1,
+        "cs.GL": 1,
+        "cs.OS": 2,
+        "q-fin.RM": 1,
+        "cs.CR": 4,
+        "q-bio.QM": 1,
+        "q-fin.PR": 1,
+        "econ.GN": 1,
+        "cs.DC": 2,
+        "cs.SI": 1,
+        "cs.LG": 2,
+        "eess.IV": 1,
+        "q-bio.BM": 1,
+        "cs.CV": 3,
+        "cs.IT": 1
+      }
+    },
+    "84": {
+      "size": 15,
+      "dominant_category": "q-bio.PE",
+      "dominant_count": 2,
+      "purity": 0.13333333333333333,
+      "category_distribution": {
+        "q-bio.SC": 1,
+        "q-fin.TR": 1,
+        "q-fin.RM": 1,
+        "cond-mat.stat-mech": 1,
+        "q-bio.OT": 1,
+        "q-bio.PE": 2,
+        "hep-lat": 1,
+        "econ.GN": 1,
+        "physics.bio-ph": 1,
+        "astro-ph.IM": 1,
+        "q-fin.MF": 1,
+        "math.PR": 1,
+        "math.ST": 1,
+        "cs.LG": 1
+      }
+    },
+    "85": {
+      "size": 15,
+      "dominant_category": "math.AP",
+      "dominant_count": 3,
+      "purity": 0.2,
+      "category_distribution": {
+        "math.HO": 1,
+        "math.SG": 1,
+        "math.AP": 3,
+        "cs.CG": 1,
+        "math.CA": 1,
+        "math.GM": 2,
+        "math.DG": 2,
+        "math.DS": 1,
+        "math.ST": 1,
+        "math.NT": 1,
+        "math.NA": 1
+      }
+    },
+    "86": {
+      "size": 18,
+      "dominant_category": "cs.LG",
+      "dominant_count": 3,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "cs.OH": 1,
+        "cs.CV": 2,
+        "cs.LG": 3,
+        "stat.OT": 1,
+        "q-fin.PR": 2,
+        "stat.AP": 1,
+        "econ.EM": 1,
+        "cs.GR": 1,
+        "econ.GN": 1,
+        "eess.IV": 1,
+        "q-fin.RM": 1,
+        "nucl-th": 1,
+        "math.DS": 1,
+        "astro-ph.IM": 1
+      }
+    },
+    "87": {
+      "size": 38,
+      "dominant_category": "cs.LG",
+      "dominant_count": 7,
+      "purity": 0.18421052631578946,
+      "category_distribution": {
+        "cs.SD": 1,
+        "cs.OH": 3,
+        "q-fin.CP": 2,
+        "q-bio.GN": 1,
+        "cs.LG": 7,
+        "physics.med-ph": 1,
+        "cs.DL": 2,
+        "cs.CL": 1,
+        "econ.GN": 2,
+        "q-fin.ST": 1,
+        "physics.ao-ph": 1,
+        "stat.AP": 3,
+        "q-fin.RM": 1,
+        "cs.NI": 2,
+        "stat.CO": 1,
+        "cs.CV": 2,
+        "cs.NE": 1,
+        "eess.AS": 1,
+        "eess.SY": 1,
+        "cs.CR": 1,
+        "eess.SP": 1,
+        "cs.CE": 1,
+        "cs.HC": 1
+      }
+    },
+    "88": {
+      "size": 20,
+      "dominant_category": "q-bio.NC",
+      "dominant_count": 2,
+      "purity": 0.1,
+      "category_distribution": {
+        "eess.SY": 1,
+        "q-bio.MN": 1,
+        "q-fin.ST": 1,
+        "q-fin.PR": 1,
+        "econ.EM": 1,
+        "stat.ME": 1,
+        "q-bio.NC": 2,
+        "q-fin.TR": 1,
+        "hep-ph": 1,
+        "q-bio.QM": 1,
+        "physics.acc-ph": 1,
+        "physics.soc-ph": 1,
+        "cs.CE": 1,
+        "astro-ph.IM": 1,
+        "stat.AP": 1,
+        "eess.SP": 2,
+        "nlin.CD": 1,
+        "stat.ML": 1
+      }
+    },
+    "89": {
+      "size": 10,
+      "dominant_category": "cs.HC",
+      "dominant_count": 4,
+      "purity": 0.4,
+      "category_distribution": {
+        "cs.DL": 1,
+        "cs.CE": 1,
+        "cs.HC": 4,
+        "cs.AI": 2,
+        "cs.SE": 1,
+        "cs.CL": 1
+      }
+    },
+    "90": {
+      "size": 15,
+      "dominant_category": "astro-ph.IM",
+      "dominant_count": 2,
+      "purity": 0.13333333333333333,
+      "category_distribution": {
+        "physics.bio-ph": 1,
+        "q-bio.MN": 1,
+        "stat.OT": 1,
+        "q-bio.OT": 1,
+        "econ.EM": 1,
+        "q-fin.ST": 1,
+        "econ.GN": 1,
+        "physics.ins-det": 1,
+        "q-bio.QM": 1,
+        "stat.ME": 1,
+        "quant-ph": 1,
+        "astro-ph.IM": 2,
+        "astro-ph.GA": 1,
+        "astro-ph.HE": 1
+      }
+    },
+    "91": {
+      "size": 23,
+      "dominant_category": "cond-mat.soft",
+      "dominant_count": 2,
+      "purity": 0.08695652173913043,
+      "category_distribution": {
+        "cond-mat.stat-mech": 1,
+        "cond-mat.soft": 2,
+        "physics.bio-ph": 2,
+        "physics.soc-ph": 1,
+        "q-bio.MN": 1,
+        "q-bio.NC": 1,
+        "q-bio.PE": 2,
+        "hep-ph": 2,
+        "nucl-th": 2,
+        "hep-ex": 2,
+        "physics.optics": 1,
+        "astro-ph.IM": 1,
+        "astro-ph.SR": 2,
+        "cond-mat.mtrl-sci": 1,
+        "astro-ph.HE": 1,
+        "astro-ph.CO": 1
+      }
+    },
+    "92": {
+      "size": 29,
+      "dominant_category": "cond-mat.soft",
+      "dominant_count": 3,
+      "purity": 0.10344827586206896,
+      "category_distribution": {
+        "physics.flu-dyn": 1,
+        "cond-mat.stat-mech": 1,
+        "nlin.CG": 1,
+        "cond-mat.soft": 3,
+        "cond-mat.mes-hall": 1,
+        "q-fin.CP": 1,
+        "q-fin.RM": 1,
+        "cond-mat.quant-gas": 2,
+        "q-fin.PR": 1,
+        "physics.optics": 1,
+        "cond-mat.str-el": 1,
+        "math.PR": 3,
+        "hep-ph": 2,
+        "hep-lat": 1,
+        "hep-th": 1,
+        "hep-ex": 1,
+        "astro-ph.EP": 1,
+        "astro-ph.CO": 1,
+        "stat.ME": 1,
+        "math.NA": 2,
+        "quant-ph": 1,
+        "math.AP": 1
+      }
+    },
+    "93": {
+      "size": 19,
+      "dominant_category": "math.DS",
+      "dominant_count": 3,
+      "purity": 0.15789473684210525,
+      "category_distribution": {
+        "nlin.SI": 2,
+        "math.CO": 2,
+        "nlin.CD": 1,
+        "math.DS": 3,
+        "hep-th": 1,
+        "math.GM": 1,
+        "quant-ph": 1,
+        "math.CA": 2,
+        "math.FA": 1,
+        "math.DG": 2,
+        "math.RT": 1,
+        "math.SP": 1,
+        "math-ph": 1
+      }
+    },
+    "94": {
+      "size": 22,
+      "dominant_category": "cs.GL",
+      "dominant_count": 2,
+      "purity": 0.09090909090909091,
+      "category_distribution": {
+        "cs.GL": 2,
+        "nlin.CG": 2,
+        "q-bio.OT": 1,
+        "cs.MS": 1,
+        "q-fin.CP": 1,
+        "q-bio.PE": 1,
+        "econ.GN": 1,
+        "econ.TH": 1,
+        "cs.GT": 2,
+        "q-fin.MF": 1,
+        "eess.SY": 1,
+        "cs.IT": 1,
+        "math.NA": 2,
+        "stat.ME": 1,
+        "cs.CE": 1,
+        "hep-ph": 1,
+        "quant-ph": 1,
+        "stat.ML": 1
+      }
+    },
+    "95": {
+      "size": 14,
+      "dominant_category": "quant-ph",
+      "dominant_count": 3,
+      "purity": 0.21428571428571427,
+      "category_distribution": {
+        "q-fin.MF": 1,
+        "math.HO": 1,
+        "math.ST": 1,
+        "math.PR": 2,
+        "math.GM": 1,
+        "hep-ph": 1,
+        "hep-lat": 1,
+        "math.OC": 1,
+        "quant-ph": 3,
+        "cond-mat.stat-mech": 1,
+        "hep-th": 1
+      }
+    },
+    "96": {
+      "size": 15,
+      "dominant_category": "hep-th",
+      "dominant_count": 3,
+      "purity": 0.2,
+      "category_distribution": {
+        "cond-mat.str-el": 1,
+        "math.DS": 2,
+        "math.HO": 1,
+        "nlin.CD": 1,
+        "math.FA": 1,
+        "math.DG": 1,
+        "hep-th": 3,
+        "math.AP": 1,
+        "math.PR": 2,
+        "math.NA": 1,
+        "quant-ph": 1
+      }
+    },
+    "97": {
+      "size": 11,
+      "dominant_category": "cs.LG",
+      "dominant_count": 2,
+      "purity": 0.18181818181818182,
+      "category_distribution": {
+        "cs.RO": 1,
+        "cs.SD": 1,
+        "cs.MS": 1,
+        "cs.SE": 1,
+        "cs.PL": 1,
+        "cs.DB": 1,
+        "cs.NE": 1,
+        "cs.DS": 1,
+        "cs.GR": 1,
+        "cs.LG": 2
+      }
+    },
+    "98": {
+      "size": 10,
+      "dominant_category": "nlin.PS",
+      "dominant_count": 2,
+      "purity": 0.2,
+      "category_distribution": {
+        "quant-ph": 1,
+        "nlin.PS": 2,
+        "math-ph": 1,
+        "math.ST": 1,
+        "math.AP": 1,
+        "hep-th": 1,
+        "gr-qc": 2,
+        "nucl-th": 1
+      }
+    },
+    "99": {
+      "size": 16,
+      "dominant_category": "math.LO",
+      "dominant_count": 6,
+      "purity": 0.375,
+      "category_distribution": {
+        "math.AG": 2,
+        "math.OA": 1,
+        "math.CO": 3,
+        "math.LO": 6,
+        "math.CT": 1,
+        "math.RT": 1,
+        "math.RA": 1,
+        "math.GT": 1
+      }
+    },
+    "100": {
+      "size": 28,
+      "dominant_category": "cs.LG",
+      "dominant_count": 5,
+      "purity": 0.17857142857142858,
+      "category_distribution": {
+        "cs.SE": 1,
+        "cs.OH": 1,
+        "cs.LG": 5,
+        "cs.CV": 5,
+        "cs.PF": 1,
+        "q-fin.PM": 1,
+        "q-bio.GN": 1,
+        "cs.MM": 2,
+        "nlin.CD": 1,
+        "cs.DL": 1,
+        "cs.AI": 1,
+        "cs.GR": 1,
+        "cs.NI": 2,
+        "cs.DB": 1,
+        "cs.CY": 1,
+        "cs.SD": 1,
+        "cs.RO": 2
+      }
+    },
+    "101": {
+      "size": 25,
+      "dominant_category": "eess.IV",
+      "dominant_count": 3,
+      "purity": 0.12,
+      "category_distribution": {
+        "cs.OH": 1,
+        "cs.SE": 1,
+        "q-bio.GN": 1,
+        "cs.NE": 2,
+        "q-bio.QM": 1,
+        "cs.GR": 1,
+        "cs.DL": 2,
+        "cs.HC": 1,
+        "eess.AS": 1,
+        "eess.IV": 3,
+        "cs.SD": 1,
+        "cs.NI": 2,
+        "cs.CR": 1,
+        "eess.SY": 1,
+        "cs.RO": 3,
+        "cs.AR": 1,
+        "cs.IT": 1,
+        "cs.LG": 1
+      }
+    },
+    "102": {
+      "size": 28,
+      "dominant_category": "math.DG",
+      "dominant_count": 4,
+      "purity": 0.14285714285714285,
+      "category_distribution": {
+        "math.DG": 4,
+        "nlin.SI": 1,
+        "math.GN": 2,
+        "math.SG": 1,
+        "math.CA": 2,
+        "math.FA": 3,
+        "math.NT": 4,
+        "math.AC": 1,
+        "math.LO": 2,
+        "math.CV": 2,
+        "math.GR": 1,
+        "hep-th": 1,
+        "math.CO": 1,
+        "math.GT": 1,
+        "math.MG": 1,
+        "math.RT": 1
+      }
+    },
+    "103": {
+      "size": 7,
+      "dominant_category": "cs.CL",
+      "dominant_count": 3,
+      "purity": 0.42857142857142855,
+      "category_distribution": {
+        "cs.CL": 3,
+        "cs.AI": 2,
+        "cs.DB": 1,
+        "cs.LG": 1
+      }
+    },
+    "104": {
+      "size": 22,
+      "dominant_category": "hep-ph",
+      "dominant_count": 6,
+      "purity": 0.2727272727272727,
+      "category_distribution": {
+        "cond-mat.stat-mech": 1,
+        "nlin.AO": 1,
+        "cond-mat.quant-gas": 1,
+        "physics.flu-dyn": 1,
+        "nlin.PS": 1,
+        "hep-lat": 2,
+        "hep-ph": 6,
+        "astro-ph.CO": 1,
+        "hep-th": 3,
+        "math.PR": 1,
+        "math.AP": 2,
+        "nucl-th": 1,
+        "hep-ex": 1
+      }
+    },
+    "105": {
+      "size": 12,
+      "dominant_category": "astro-ph.CO",
+      "dominant_count": 4,
+      "purity": 0.3333333333333333,
+      "category_distribution": {
+        "astro-ph.GA": 1,
+        "physics.optics": 1,
+        "astro-ph.SR": 2,
+        "astro-ph.EP": 2,
+        "astro-ph.CO": 4,
+        "astro-ph.IM": 2
+      }
+    },
+    "106": {
+      "size": 14,
+      "dominant_category": "math.NA",
+      "dominant_count": 3,
+      "purity": 0.21428571428571427,
+      "category_distribution": {
+        "q-bio.MN": 1,
+        "q-fin.PR": 1,
+        "q-fin.MF": 2,
+        "econ.EM": 1,
+        "q-fin.RM": 1,
+        "math.ST": 2,
+        "physics.hist-ph": 1,
+        "math.NA": 3,
+        "cs.DM": 1,
+        "math.OC": 1
+      }
+    },
+    "107": {
+      "size": 15,
+      "dominant_category": "math.HO",
+      "dominant_count": 3,
+      "purity": 0.2,
+      "category_distribution": {
+        "q-fin.MF": 1,
+        "math.HO": 3,
+        "cs.MS": 1,
+        "cs.DM": 1,
+        "hep-ph": 1,
+        "cs.DS": 2,
+        "cs.LG": 1,
+        "econ.TH": 2,
+        "cs.GT": 1,
+        "math.OC": 2
+      }
+    },
+    "108": {
+      "size": 18,
+      "dominant_category": "math.GM",
+      "dominant_count": 4,
+      "purity": 0.2222222222222222,
+      "category_distribution": {
+        "math.GM": 4,
+        "quant-ph": 1,
+        "math.NA": 4,
+        "cs.CC": 1,
+        "math.CA": 1,
+        "math.CV": 1,
+        "hep-ph": 1,
+        "math.CO": 2,
+        "math.GT": 1,
+        "math.PR": 1,
+        "math.NT": 1
+      }
+    },
+    "109": {
+      "size": 30,
+      "dominant_category": "cs.LG",
+      "dominant_count": 6,
+      "purity": 0.2,
+      "category_distribution": {
+        "cs.DB": 1,
+        "cs.MS": 1,
+        "cs.NE": 2,
+        "cs.OS": 1,
+        "cond-mat.dis-nn": 1,
+        "cs.LG": 6,
+        "cs.DL": 1,
+        "cs.AI": 1,
+        "cs.CR": 2,
+        "cs.AR": 1,
+        "cs.MA": 1,
+        "cs.DC": 1,
+        "stat.ME": 1,
+        "econ.TH": 1,
+        "q-bio.QM": 1,
+        "eess.IV": 1,
+        "cs.SD": 1,
+        "cs.IT": 1,
+        "quant-ph": 1,
+        "cs.GT": 1,
+        "cs.CL": 1,
+        "cs.RO": 2
+      }
+    },
+    "110": {
+      "size": 16,
+      "dominant_category": "cs.MM",
+      "dominant_count": 2,
+      "purity": 0.125,
+      "category_distribution": {
+        "cs.OH": 1,
+        "cs.DC": 1,
+        "q-fin.GN": 1,
+        "cs.AI": 1,
+        "cs.CR": 1,
+        "q-bio.QM": 1,
+        "cs.SD": 1,
+        "cs.MM": 2,
+        "cs.IR": 1,
+        "q-bio.NC": 1,
+        "econ.GN": 1,
+        "cs.HC": 2,
+        "cs.CL": 1,
+        "cs.SE": 1
+      }
+    },
+    "111": {
+      "size": 13,
+      "dominant_category": "physics.soc-ph",
+      "dominant_count": 2,
+      "purity": 0.15384615384615385,
+      "category_distribution": {
+        "q-fin.PR": 1,
+        "math.DS": 1,
+        "q-bio.OT": 1,
+        "physics.soc-ph": 2,
+        "math.FA": 1,
+        "cs.LO": 1,
+        "quant-ph": 1,
+        "cond-mat.stat-mech": 1,
+        "stat.ME": 1,
+        "math.NA": 1,
+        "stat.ML": 1,
+        "math.OC": 1
+      }
+    },
+    "112": {
+      "size": 16,
+      "dominant_category": "cs.LG",
+      "dominant_count": 4,
+      "purity": 0.25,
+      "category_distribution": {
+        "stat.AP": 1,
+        "stat.ML": 1,
+        "q-fin.CP": 1,
+        "q-bio.GN": 1,
+        "cs.LG": 4,
+        "cs.AR": 1,
+        "cs.CE": 1,
+        "q-fin.ST": 1,
+        "cs.DC": 2,
+        "eess.SY": 1,
+        "cs.CR": 1,
+        "eess.SP": 1
+      }
+    },
+    "113": {
+      "size": 22,
+      "dominant_category": "math.QA",
+      "dominant_count": 2,
+      "purity": 0.09090909090909091,
+      "category_distribution": {
+        "math.AT": 1,
+        "math.QA": 2,
+        "math.GN": 2,
+        "math.KT": 1,
+        "math.GT": 2,
+        "math.CT": 1,
+        "math.AG": 2,
+        "math.CO": 2,
+        "math.AC": 1,
+        "math.RT": 2,
+        "math.RA": 1,
+        "math.FA": 1,
+        "math.GR": 1,
+        "math.GM": 1,
+        "math.OA": 1,
+        "math-ph": 1
+      }
+    },
+    "114": {
+      "size": 5,
+      "dominant_category": "cs.CG",
+      "dominant_count": 2,
+      "purity": 0.4,
+      "category_distribution": {
+        "cs.CG": 2,
+        "cs.FL": 1,
+        "cs.LO": 1,
+        "math.CO": 1
+      }
+    },
+    "115": {
+      "size": 24,
+      "dominant_category": "cs.LG",
+      "dominant_count": 4,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "cs.OH": 1,
+        "q-fin.PR": 1,
+        "q-fin.GN": 1,
+        "q-fin.PM": 1,
+        "cs.AR": 2,
+        "cs.RO": 3,
+        "cs.ET": 1,
+        "cs.AI": 2,
+        "cs.LG": 4,
+        "cs.CR": 1,
+        "q-fin.ST": 2,
+        "stat.AP": 1,
+        "cs.CL": 1,
+        "cs.SE": 1,
+        "stat.ME": 1,
+        "cs.CV": 1
+      }
+    },
+    "116": {
+      "size": 30,
+      "dominant_category": "cs.LG",
+      "dominant_count": 5,
+      "purity": 0.16666666666666666,
+      "category_distribution": {
+        "cs.LG": 5,
+        "q-bio.OT": 1,
+        "q-fin.GN": 1,
+        "cs.OH": 1,
+        "q-bio.GN": 1,
+        "cs.DC": 2,
+        "cs.DL": 1,
+        "cs.DB": 1,
+        "cs.AR": 2,
+        "econ.GN": 2,
+        "cs.MM": 2,
+        "q-fin.ST": 1,
+        "cs.SD": 1,
+        "eess.AS": 1,
+        "cs.SI": 1,
+        "cs.HC": 3,
+        "cs.IT": 1,
+        "cs.CL": 2,
+        "cs.NI": 1
+      }
+    },
+    "117": {
+      "size": 20,
+      "dominant_category": "q-bio.MN",
+      "dominant_count": 2,
+      "purity": 0.1,
+      "category_distribution": {
+        "q-bio.MN": 2,
+        "q-bio.CB": 2,
+        "physics.med-ph": 1,
+        "q-bio.TO": 1,
+        "q-bio.OT": 1,
+        "q-fin.ST": 2,
+        "econ.EM": 1,
+        "q-bio.PE": 1,
+        "stat.ME": 1,
+        "hep-ph": 1,
+        "astro-ph.EP": 1,
+        "physics.optics": 1,
+        "stat.CO": 1,
+        "astro-ph.IM": 2,
+        "physics.soc-ph": 1,
+        "astro-ph.GA": 1
+      }
+    }
+  },
+  "cluster_details_main": {
+    "0": {
+      "size": 17,
+      "dominant_category": "math",
+      "dominant_count": 10,
+      "purity": 0.5882352941176471,
+      "category_distribution": {
+        "physics": 7,
+        "math": 10
+      }
+    },
+    "1": {
+      "size": 27,
+      "dominant_category": "cs",
+      "dominant_count": 21,
+      "purity": 0.7777777777777778,
+      "category_distribution": {
+        "cs": 21,
+        "q-bio": 2,
+        "q-fin": 1,
+        "eess": 2,
+        "stat": 1
+      }
+    },
+    "2": {
+      "size": 23,
+      "dominant_category": "math",
+      "dominant_count": 23,
+      "purity": 1.0,
+      "category_distribution": {
+        "math": 23
+      }
+    },
+    "3": {
+      "size": 12,
+      "dominant_category": "q-fin",
+      "dominant_count": 3,
+      "purity": 0.25,
+      "category_distribution": {
+        "q-fin": 3,
+        "q-bio": 1,
+        "econ": 2,
+        "cs": 1,
+        "stat": 2,
+        "physics": 3
+      }
+    },
+    "4": {
+      "size": 9,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.7777777777777778,
+      "category_distribution": {
+        "cs": 7,
+        "econ": 1,
+        "physics": 1
+      }
+    },
+    "5": {
+      "size": 37,
+      "dominant_category": "cs",
+      "dominant_count": 31,
+      "purity": 0.8378378378378378,
+      "category_distribution": {
+        "cs": 31,
+        "stat": 1,
+        "q-fin": 1,
+        "q-bio": 2,
+        "eess": 2
+      }
+    },
+    "6": {
+      "size": 24,
+      "dominant_category": "physics",
+      "dominant_count": 22,
+      "purity": 0.9166666666666666,
+      "category_distribution": {
+        "q-bio": 1,
+        "physics": 22,
+        "econ": 1
+      }
+    },
+    "7": {
+      "size": 41,
+      "dominant_category": "cs",
+      "dominant_count": 22,
+      "purity": 0.5365853658536586,
+      "category_distribution": {
+        "stat": 5,
+        "q-bio": 6,
+        "cs": 22,
+        "econ": 2,
+        "math": 1,
+        "eess": 4,
+        "physics": 1
+      }
+    },
+    "8": {
+      "size": 41,
+      "dominant_category": "math",
+      "dominant_count": 36,
+      "purity": 0.8780487804878049,
+      "category_distribution": {
+        "math": 36,
+        "cs": 5
+      }
+    },
+    "9": {
+      "size": 15,
+      "dominant_category": "cs",
+      "dominant_count": 12,
+      "purity": 0.8,
+      "category_distribution": {
+        "cs": 12,
+        "q-fin": 1,
+        "q-bio": 1,
+        "math": 1
+      }
+    },
+    "10": {
+      "size": 19,
+      "dominant_category": "q-fin",
+      "dominant_count": 5,
+      "purity": 0.2631578947368421,
+      "category_distribution": {
+        "q-bio": 4,
+        "q-fin": 5,
+        "physics": 5,
+        "econ": 2,
+        "math": 1,
+        "stat": 1,
+        "cs": 1
+      }
+    },
+    "11": {
+      "size": 24,
+      "dominant_category": "math",
+      "dominant_count": 16,
+      "purity": 0.6666666666666666,
+      "category_distribution": {
+        "physics": 8,
+        "math": 16
+      }
+    },
+    "12": {
+      "size": 17,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.4117647058823529,
+      "category_distribution": {
+        "physics": 3,
+        "eess": 1,
+        "cs": 7,
+        "q-bio": 1,
+        "math": 3,
+        "econ": 2
+      }
+    },
+    "13": {
+      "size": 21,
+      "dominant_category": "cs",
+      "dominant_count": 13,
+      "purity": 0.6190476190476191,
+      "category_distribution": {
+        "cs": 13,
+        "q-bio": 2,
+        "q-fin": 1,
+        "econ": 1,
+        "physics": 1,
+        "stat": 3
+      }
+    },
+    "14": {
+      "size": 19,
+      "dominant_category": "physics",
+      "dominant_count": 16,
+      "purity": 0.8421052631578947,
+      "category_distribution": {
+        "math": 3,
+        "physics": 16
+      }
+    },
+    "15": {
+      "size": 20,
+      "dominant_category": "cs",
+      "dominant_count": 19,
+      "purity": 0.95,
+      "category_distribution": {
+        "cs": 19,
+        "stat": 1
+      }
+    },
+    "16": {
+      "size": 24,
+      "dominant_category": "cs",
+      "dominant_count": 15,
+      "purity": 0.625,
+      "category_distribution": {
+        "cs": 15,
+        "q-fin": 2,
+        "eess": 2,
+        "q-bio": 2,
+        "stat": 1,
+        "math": 2
+      }
+    },
+    "17": {
+      "size": 16,
+      "dominant_category": "math",
+      "dominant_count": 8,
+      "purity": 0.5,
+      "category_distribution": {
+        "physics": 2,
+        "math": 8,
+        "cs": 5,
+        "econ": 1
+      }
+    },
+    "18": {
+      "size": 25,
+      "dominant_category": "math",
+      "dominant_count": 22,
+      "purity": 0.88,
+      "category_distribution": {
+        "math": 22,
+        "physics": 3
+      }
+    },
+    "19": {
+      "size": 36,
+      "dominant_category": "q-fin",
+      "dominant_count": 9,
+      "purity": 0.25,
+      "category_distribution": {
+        "stat": 7,
+        "q-bio": 6,
+        "physics": 5,
+        "q-fin": 9,
+        "eess": 3,
+        "cs": 5,
+        "econ": 1
+      }
+    },
+    "20": {
+      "size": 6,
+      "dominant_category": "cs",
+      "dominant_count": 4,
+      "purity": 0.6666666666666666,
+      "category_distribution": {
+        "cs": 4,
+        "econ": 1,
+        "q-fin": 1
+      }
+    },
+    "21": {
+      "size": 39,
+      "dominant_category": "cs",
+      "dominant_count": 32,
+      "purity": 0.8205128205128205,
+      "category_distribution": {
+        "cs": 32,
+        "q-fin": 2,
+        "stat": 1,
+        "eess": 2,
+        "q-bio": 2
+      }
+    },
+    "22": {
+      "size": 8,
+      "dominant_category": "physics",
+      "dominant_count": 8,
+      "purity": 1.0,
+      "category_distribution": {
+        "physics": 8
+      }
+    },
+    "23": {
+      "size": 22,
+      "dominant_category": "cs",
+      "dominant_count": 18,
+      "purity": 0.8181818181818182,
+      "category_distribution": {
+        "cs": 18,
+        "q-bio": 2,
+        "math": 1,
+        "stat": 1
+      }
+    },
+    "24": {
+      "size": 17,
+      "dominant_category": "math",
+      "dominant_count": 11,
+      "purity": 0.6470588235294118,
+      "category_distribution": {
+        "physics": 5,
+        "q-fin": 1,
+        "math": 11
+      }
+    },
+    "25": {
+      "size": 31,
+      "dominant_category": "cs",
+      "dominant_count": 10,
+      "purity": 0.3225806451612903,
+      "category_distribution": {
+        "eess": 6,
+        "q-bio": 7,
+        "q-fin": 3,
+        "physics": 1,
+        "cs": 10,
+        "stat": 2,
+        "econ": 1,
+        "math": 1
+      }
+    },
+    "26": {
+      "size": 6,
+      "dominant_category": "cs",
+      "dominant_count": 6,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 6
+      }
+    },
+    "27": {
+      "size": 18,
+      "dominant_category": "cs",
+      "dominant_count": 16,
+      "purity": 0.8888888888888888,
+      "category_distribution": {
+        "cs": 16,
+        "math": 1,
+        "econ": 1
+      }
+    },
+    "28": {
+      "size": 16,
+      "dominant_category": "math",
+      "dominant_count": 14,
+      "purity": 0.875,
+      "category_distribution": {
+        "physics": 1,
+        "math": 14,
+        "cs": 1
+      }
+    },
+    "29": {
+      "size": 14,
+      "dominant_category": "physics",
+      "dominant_count": 5,
+      "purity": 0.35714285714285715,
+      "category_distribution": {
+        "q-bio": 3,
+        "q-fin": 3,
+        "physics": 5,
+        "stat": 1,
+        "cs": 2
+      }
+    },
+    "30": {
+      "size": 20,
+      "dominant_category": "math",
+      "dominant_count": 12,
+      "purity": 0.6,
+      "category_distribution": {
+        "physics": 8,
+        "math": 12
+      }
+    },
+    "31": {
+      "size": 19,
+      "dominant_category": "cs",
+      "dominant_count": 18,
+      "purity": 0.9473684210526315,
+      "category_distribution": {
+        "cs": 18,
+        "math": 1
+      }
+    },
+    "32": {
+      "size": 15,
+      "dominant_category": "cs",
+      "dominant_count": 9,
+      "purity": 0.6,
+      "category_distribution": {
+        "q-bio": 2,
+        "q-fin": 4,
+        "cs": 9
+      }
+    },
+    "33": {
+      "size": 11,
+      "dominant_category": "physics",
+      "dominant_count": 6,
+      "purity": 0.5454545454545454,
+      "category_distribution": {
+        "physics": 6,
+        "math": 4,
+        "cs": 1
+      }
+    },
+    "34": {
+      "size": 11,
+      "dominant_category": "physics",
+      "dominant_count": 4,
+      "purity": 0.36363636363636365,
+      "category_distribution": {
+        "physics": 4,
+        "q-bio": 2,
+        "q-fin": 1,
+        "cs": 2,
+        "math": 2
+      }
+    },
+    "35": {
+      "size": 27,
+      "dominant_category": "physics",
+      "dominant_count": 21,
+      "purity": 0.7777777777777778,
+      "category_distribution": {
+        "physics": 21,
+        "q-fin": 3,
+        "q-bio": 3
+      }
+    },
+    "36": {
+      "size": 25,
+      "dominant_category": "math",
+      "dominant_count": 23,
+      "purity": 0.92,
+      "category_distribution": {
+        "cs": 1,
+        "math": 23,
+        "physics": 1
+      }
+    },
+    "37": {
+      "size": 23,
+      "dominant_category": "physics",
+      "dominant_count": 21,
+      "purity": 0.9130434782608695,
+      "category_distribution": {
+        "physics": 21,
+        "math": 1,
+        "q-bio": 1
+      }
+    },
+    "38": {
+      "size": 26,
+      "dominant_category": "physics",
+      "dominant_count": 6,
+      "purity": 0.23076923076923078,
+      "category_distribution": {
+        "q-bio": 5,
+        "q-fin": 3,
+        "physics": 6,
+        "stat": 5,
+        "econ": 5,
+        "math": 1,
+        "eess": 1
+      }
+    },
+    "39": {
+      "size": 19,
+      "dominant_category": "cs",
+      "dominant_count": 19,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 19
+      }
+    },
+    "40": {
+      "size": 17,
+      "dominant_category": "math",
+      "dominant_count": 11,
+      "purity": 0.6470588235294118,
+      "category_distribution": {
+        "math": 11,
+        "cs": 2,
+        "physics": 3,
+        "econ": 1
+      }
+    },
+    "41": {
+      "size": 10,
+      "dominant_category": "cs",
+      "dominant_count": 9,
+      "purity": 0.9,
+      "category_distribution": {
+        "cs": 9,
+        "math": 1
+      }
+    },
+    "42": {
+      "size": 20,
+      "dominant_category": "math",
+      "dominant_count": 17,
+      "purity": 0.85,
+      "category_distribution": {
+        "physics": 3,
+        "math": 17
+      }
+    },
+    "43": {
+      "size": 29,
+      "dominant_category": "physics",
+      "dominant_count": 22,
+      "purity": 0.7586206896551724,
+      "category_distribution": {
+        "q-bio": 4,
+        "physics": 22,
+        "math": 3
+      }
+    },
+    "44": {
+      "size": 24,
+      "dominant_category": "cs",
+      "dominant_count": 17,
+      "purity": 0.7083333333333334,
+      "category_distribution": {
+        "cs": 17,
+        "eess": 1,
+        "q-fin": 1,
+        "q-bio": 1,
+        "stat": 2,
+        "math": 1,
+        "physics": 1
+      }
+    },
+    "45": {
+      "size": 18,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.3888888888888889,
+      "category_distribution": {
+        "cs": 7,
+        "physics": 2,
+        "q-fin": 5,
+        "stat": 2,
+        "q-bio": 1,
+        "econ": 1
+      }
+    },
+    "46": {
+      "size": 28,
+      "dominant_category": "physics",
+      "dominant_count": 12,
+      "purity": 0.42857142857142855,
+      "category_distribution": {
+        "q-fin": 5,
+        "physics": 12,
+        "q-bio": 3,
+        "math": 2,
+        "econ": 1,
+        "stat": 3,
+        "cs": 1,
+        "eess": 1
+      }
+    },
+    "47": {
+      "size": 8,
+      "dominant_category": "physics",
+      "dominant_count": 8,
+      "purity": 1.0,
+      "category_distribution": {
+        "physics": 8
+      }
+    },
+    "48": {
+      "size": 26,
+      "dominant_category": "stat",
+      "dominant_count": 9,
+      "purity": 0.34615384615384615,
+      "category_distribution": {
+        "cs": 3,
+        "q-bio": 4,
+        "stat": 9,
+        "physics": 3,
+        "q-fin": 1,
+        "econ": 1,
+        "math": 3,
+        "eess": 2
+      }
+    },
+    "49": {
+      "size": 27,
+      "dominant_category": "q-bio",
+      "dominant_count": 8,
+      "purity": 0.2962962962962963,
+      "category_distribution": {
+        "physics": 7,
+        "q-bio": 8,
+        "stat": 3,
+        "q-fin": 5,
+        "econ": 2,
+        "cs": 1,
+        "eess": 1
+      }
+    },
+    "50": {
+      "size": 28,
+      "dominant_category": "cs",
+      "dominant_count": 26,
+      "purity": 0.9285714285714286,
+      "category_distribution": {
+        "cs": 26,
+        "econ": 1,
+        "q-bio": 1
+      }
+    },
+    "51": {
+      "size": 2,
+      "dominant_category": "cs",
+      "dominant_count": 2,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 2
+      }
+    },
+    "52": {
+      "size": 39,
+      "dominant_category": "cs",
+      "dominant_count": 19,
+      "purity": 0.48717948717948717,
+      "category_distribution": {
+        "cs": 19,
+        "q-bio": 6,
+        "q-fin": 3,
+        "stat": 3,
+        "econ": 1,
+        "eess": 5,
+        "math": 2
+      }
+    },
+    "53": {
+      "size": 13,
+      "dominant_category": "math",
+      "dominant_count": 13,
+      "purity": 1.0,
+      "category_distribution": {
+        "math": 13
+      }
+    },
+    "54": {
+      "size": 19,
+      "dominant_category": "q-bio",
+      "dominant_count": 4,
+      "purity": 0.21052631578947367,
+      "category_distribution": {
+        "q-bio": 4,
+        "cs": 2,
+        "econ": 4,
+        "q-fin": 3,
+        "stat": 2,
+        "physics": 4
+      }
+    },
+    "55": {
+      "size": 12,
+      "dominant_category": "cs",
+      "dominant_count": 6,
+      "purity": 0.5,
+      "category_distribution": {
+        "cs": 6,
+        "physics": 1,
+        "math": 5
+      }
+    },
+    "56": {
+      "size": 38,
+      "dominant_category": "math",
+      "dominant_count": 38,
+      "purity": 1.0,
+      "category_distribution": {
+        "math": 38
+      }
+    },
+    "57": {
+      "size": 14,
+      "dominant_category": "cs",
+      "dominant_count": 11,
+      "purity": 0.7857142857142857,
+      "category_distribution": {
+        "cs": 11,
+        "math": 2,
+        "econ": 1
+      }
+    },
+    "58": {
+      "size": 17,
+      "dominant_category": "physics",
+      "dominant_count": 13,
+      "purity": 0.7647058823529411,
+      "category_distribution": {
+        "physics": 13,
+        "q-fin": 2,
+        "math": 2
+      }
+    },
+    "59": {
+      "size": 21,
+      "dominant_category": "math",
+      "dominant_count": 20,
+      "purity": 0.9523809523809523,
+      "category_distribution": {
+        "math": 20,
+        "physics": 1
+      }
+    },
+    "60": {
+      "size": 16,
+      "dominant_category": "physics",
+      "dominant_count": 15,
+      "purity": 0.9375,
+      "category_distribution": {
+        "math": 1,
+        "physics": 15
+      }
+    },
+    "61": {
+      "size": 25,
+      "dominant_category": "math",
+      "dominant_count": 24,
+      "purity": 0.96,
+      "category_distribution": {
+        "math": 24,
+        "physics": 1
+      }
+    },
+    "62": {
+      "size": 30,
+      "dominant_category": "math",
+      "dominant_count": 30,
+      "purity": 1.0,
+      "category_distribution": {
+        "math": 30
+      }
+    },
+    "63": {
+      "size": 9,
+      "dominant_category": "cs",
+      "dominant_count": 8,
+      "purity": 0.8888888888888888,
+      "category_distribution": {
+        "cs": 8,
+        "econ": 1
+      }
+    },
+    "64": {
+      "size": 29,
+      "dominant_category": "cs",
+      "dominant_count": 10,
+      "purity": 0.3448275862068966,
+      "category_distribution": {
+        "physics": 4,
+        "q-bio": 4,
+        "q-fin": 3,
+        "cs": 10,
+        "eess": 5,
+        "stat": 2,
+        "math": 1
+      }
+    },
+    "65": {
+      "size": 21,
+      "dominant_category": "cs",
+      "dominant_count": 8,
+      "purity": 0.38095238095238093,
+      "category_distribution": {
+        "q-bio": 1,
+        "cs": 8,
+        "physics": 4,
+        "math": 5,
+        "econ": 2,
+        "stat": 1
+      }
+    },
+    "66": {
+      "size": 21,
+      "dominant_category": "math",
+      "dominant_count": 18,
+      "purity": 0.8571428571428571,
+      "category_distribution": {
+        "math": 18,
+        "cs": 3
+      }
+    },
+    "67": {
+      "size": 32,
+      "dominant_category": "cs",
+      "dominant_count": 29,
+      "purity": 0.90625,
+      "category_distribution": {
+        "cs": 29,
+        "q-bio": 1,
+        "eess": 2
+      }
+    },
+    "68": {
+      "size": 29,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.2413793103448276,
+      "category_distribution": {
+        "q-bio": 6,
+        "stat": 2,
+        "cs": 7,
+        "q-fin": 2,
+        "eess": 6,
+        "econ": 3,
+        "physics": 1,
+        "math": 2
+      }
+    },
+    "69": {
+      "size": 27,
+      "dominant_category": "cs",
+      "dominant_count": 9,
+      "purity": 0.3333333333333333,
+      "category_distribution": {
+        "cs": 9,
+        "q-fin": 3,
+        "stat": 4,
+        "math": 3,
+        "physics": 4,
+        "eess": 3,
+        "econ": 1
+      }
+    },
+    "70": {
+      "size": 38,
+      "dominant_category": "cs",
+      "dominant_count": 35,
+      "purity": 0.9210526315789473,
+      "category_distribution": {
+        "cs": 35,
+        "q-bio": 2,
+        "eess": 1
+      }
+    },
+    "71": {
+      "size": 20,
+      "dominant_category": "cs",
+      "dominant_count": 17,
+      "purity": 0.85,
+      "category_distribution": {
+        "cs": 17,
+        "stat": 1,
+        "math": 1,
+        "q-bio": 1
+      }
+    },
+    "72": {
+      "size": 27,
+      "dominant_category": "cs",
+      "dominant_count": 26,
+      "purity": 0.9629629629629629,
+      "category_distribution": {
+        "cs": 26,
+        "q-fin": 1
+      }
+    },
+    "73": {
+      "size": 12,
+      "dominant_category": "math",
+      "dominant_count": 9,
+      "purity": 0.75,
+      "category_distribution": {
+        "cs": 3,
+        "math": 9
+      }
+    },
+    "74": {
+      "size": 14,
+      "dominant_category": "math",
+      "dominant_count": 8,
+      "purity": 0.5714285714285714,
+      "category_distribution": {
+        "physics": 3,
+        "q-fin": 2,
+        "q-bio": 1,
+        "math": 8
+      }
+    },
+    "75": {
+      "size": 9,
+      "dominant_category": "cs",
+      "dominant_count": 9,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 9
+      }
+    },
+    "76": {
+      "size": 25,
+      "dominant_category": "math",
+      "dominant_count": 20,
+      "purity": 0.8,
+      "category_distribution": {
+        "cs": 5,
+        "math": 20
+      }
+    },
+    "77": {
+      "size": 9,
+      "dominant_category": "cs",
+      "dominant_count": 9,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 9
+      }
+    },
+    "78": {
+      "size": 24,
+      "dominant_category": "q-fin",
+      "dominant_count": 5,
+      "purity": 0.20833333333333334,
+      "category_distribution": {
+        "physics": 4,
+        "q-bio": 4,
+        "q-fin": 5,
+        "econ": 3,
+        "math": 1,
+        "stat": 2,
+        "cs": 4,
+        "eess": 1
+      }
+    },
+    "79": {
+      "size": 8,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.875,
+      "category_distribution": {
+        "math": 1,
+        "cs": 7
+      }
+    },
+    "80": {
+      "size": 29,
+      "dominant_category": "cs",
+      "dominant_count": 26,
+      "purity": 0.896551724137931,
+      "category_distribution": {
+        "cs": 26,
+        "econ": 1,
+        "physics": 1,
+        "eess": 1
+      }
+    },
+    "81": {
+      "size": 22,
+      "dominant_category": "physics",
+      "dominant_count": 22,
+      "purity": 1.0,
+      "category_distribution": {
+        "physics": 22
+      }
+    },
+    "82": {
+      "size": 13,
+      "dominant_category": "cs",
+      "dominant_count": 12,
+      "purity": 0.9230769230769231,
+      "category_distribution": {
+        "cs": 12,
+        "math": 1
+      }
+    },
+    "83": {
+      "size": 23,
+      "dominant_category": "cs",
+      "dominant_count": 17,
+      "purity": 0.7391304347826086,
+      "category_distribution": {
+        "cs": 17,
+        "q-fin": 2,
+        "q-bio": 2,
+        "econ": 1,
+        "eess": 1
+      }
+    },
+    "84": {
+      "size": 15,
+      "dominant_category": "q-bio",
+      "dominant_count": 4,
+      "purity": 0.26666666666666666,
+      "category_distribution": {
+        "q-bio": 4,
+        "q-fin": 3,
+        "physics": 4,
+        "econ": 1,
+        "math": 2,
+        "cs": 1
+      }
+    },
+    "85": {
+      "size": 15,
+      "dominant_category": "math",
+      "dominant_count": 14,
+      "purity": 0.9333333333333333,
+      "category_distribution": {
+        "math": 14,
+        "cs": 1
+      }
+    },
+    "86": {
+      "size": 18,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.3888888888888889,
+      "category_distribution": {
+        "cs": 7,
+        "stat": 2,
+        "q-fin": 3,
+        "econ": 2,
+        "eess": 1,
+        "physics": 2,
+        "math": 1
+      }
+    },
+    "87": {
+      "size": 38,
+      "dominant_category": "cs",
+      "dominant_count": 22,
+      "purity": 0.5789473684210527,
+      "category_distribution": {
+        "cs": 22,
+        "q-fin": 4,
+        "q-bio": 1,
+        "physics": 2,
+        "econ": 2,
+        "stat": 4,
+        "eess": 3
+      }
+    },
+    "88": {
+      "size": 20,
+      "dominant_category": "physics",
+      "dominant_count": 5,
+      "purity": 0.25,
+      "category_distribution": {
+        "eess": 3,
+        "q-bio": 4,
+        "q-fin": 3,
+        "econ": 1,
+        "stat": 3,
+        "physics": 5,
+        "cs": 1
+      }
+    },
+    "89": {
+      "size": 10,
+      "dominant_category": "cs",
+      "dominant_count": 10,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 10
+      }
+    },
+    "90": {
+      "size": 15,
+      "dominant_category": "physics",
+      "dominant_count": 7,
+      "purity": 0.4666666666666667,
+      "category_distribution": {
+        "physics": 7,
+        "q-bio": 3,
+        "stat": 2,
+        "econ": 2,
+        "q-fin": 1
+      }
+    },
+    "91": {
+      "size": 23,
+      "dominant_category": "physics",
+      "dominant_count": 19,
+      "purity": 0.8260869565217391,
+      "category_distribution": {
+        "physics": 19,
+        "q-bio": 4
+      }
+    },
+    "92": {
+      "size": 29,
+      "dominant_category": "physics",
+      "dominant_count": 19,
+      "purity": 0.6551724137931034,
+      "category_distribution": {
+        "physics": 19,
+        "q-fin": 3,
+        "math": 6,
+        "stat": 1
+      }
+    },
+    "93": {
+      "size": 19,
+      "dominant_category": "math",
+      "dominant_count": 13,
+      "purity": 0.6842105263157895,
+      "category_distribution": {
+        "physics": 6,
+        "math": 13
+      }
+    },
+    "94": {
+      "size": 22,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 0.3181818181818182,
+      "category_distribution": {
+        "cs": 7,
+        "physics": 4,
+        "q-bio": 2,
+        "q-fin": 2,
+        "econ": 2,
+        "eess": 1,
+        "math": 2,
+        "stat": 2
+      }
+    },
+    "95": {
+      "size": 14,
+      "dominant_category": "physics",
+      "dominant_count": 7,
+      "purity": 0.5,
+      "category_distribution": {
+        "q-fin": 1,
+        "math": 6,
+        "physics": 7
+      }
+    },
+    "96": {
+      "size": 15,
+      "dominant_category": "math",
+      "dominant_count": 9,
+      "purity": 0.6,
+      "category_distribution": {
+        "physics": 6,
+        "math": 9
+      }
+    },
+    "97": {
+      "size": 11,
+      "dominant_category": "cs",
+      "dominant_count": 11,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 11
+      }
+    },
+    "98": {
+      "size": 10,
+      "dominant_category": "physics",
+      "dominant_count": 8,
+      "purity": 0.8,
+      "category_distribution": {
+        "physics": 8,
+        "math": 2
+      }
+    },
+    "99": {
+      "size": 16,
+      "dominant_category": "math",
+      "dominant_count": 16,
+      "purity": 1.0,
+      "category_distribution": {
+        "math": 16
+      }
+    },
+    "100": {
+      "size": 28,
+      "dominant_category": "cs",
+      "dominant_count": 25,
+      "purity": 0.8928571428571429,
+      "category_distribution": {
+        "cs": 25,
+        "q-fin": 1,
+        "q-bio": 1,
+        "physics": 1
+      }
+    },
+    "101": {
+      "size": 25,
+      "dominant_category": "cs",
+      "dominant_count": 18,
+      "purity": 0.72,
+      "category_distribution": {
+        "cs": 18,
+        "q-bio": 2,
+        "eess": 5
+      }
+    },
+    "102": {
+      "size": 28,
+      "dominant_category": "math",
+      "dominant_count": 26,
+      "purity": 0.9285714285714286,
+      "category_distribution": {
+        "math": 26,
+        "physics": 2
+      }
+    },
+    "103": {
+      "size": 7,
+      "dominant_category": "cs",
+      "dominant_count": 7,
+      "purity": 1.0,
+      "category_distribution": {
+        "cs": 7
+      }
+    },
+    "104": {
+      "size": 22,
+      "dominant_category": "physics",
+      "dominant_count": 19,
+      "purity": 0.8636363636363636,
+      "category_distribution": {
+        "physics": 19,
+        "math": 3
+      }
+    },
+    "105": {
+      "size": 12,
+      "dominant_category": "physics",
+      "dominant_count": 12,
+      "purity": 1.0,
+      "category_distribution": {
+        "physics": 12
+      }
+    },
+    "106": {
+      "size": 14,
+      "dominant_category": "math",
+      "dominant_count": 6,
+      "purity": 0.42857142857142855,
+      "category_distribution": {
+        "q-bio": 1,
+        "q-fin": 4,
+        "econ": 1,
+        "math": 6,
+        "physics": 1,
+        "cs": 1
+      }
+    },
+    "107": {
+      "size": 15,
+      "dominant_category": "cs",
+      "dominant_count": 6,
+      "purity": 0.4,
+      "category_distribution": {
+        "q-fin": 1,
+        "math": 5,
+        "cs": 6,
+        "physics": 1,
+        "econ": 2
+      }
+    },
+    "108": {
+      "size": 18,
+      "dominant_category": "math",
+      "dominant_count": 15,
+      "purity": 0.8333333333333334,
+      "category_distribution": {
+        "math": 15,
+        "physics": 2,
+        "cs": 1
+      }
+    },
+    "109": {
+      "size": 30,
+      "dominant_category": "cs",
+      "dominant_count": 24,
+      "purity": 0.8,
+      "category_distribution": {
+        "cs": 24,
+        "physics": 2,
+        "stat": 1,
+        "econ": 1,
+        "q-bio": 1,
+        "eess": 1
+      }
+    },
+    "110": {
+      "size": 16,
+      "dominant_category": "cs",
+      "dominant_count": 12,
+      "purity": 0.75,
+      "category_distribution": {
+        "cs": 12,
+        "q-fin": 1,
+        "q-bio": 2,
+        "econ": 1
+      }
+    },
+    "111": {
+      "size": 13,
+      "dominant_category": "math",
+      "dominant_count": 4,
+      "purity": 0.3076923076923077,
+      "category_distribution": {
+        "q-fin": 1,
+        "math": 4,
+        "q-bio": 1,
+        "physics": 4,
+        "cs": 1,
+        "stat": 2
+      }
+    },
+    "112": {
+      "size": 16,
+      "dominant_category": "cs",
+      "dominant_count": 9,
+      "purity": 0.5625,
+      "category_distribution": {
+        "stat": 2,
+        "q-fin": 2,
+        "q-bio": 1,
+        "cs": 9,
+        "eess": 2
+      }
+    },
+    "113": {
+      "size": 22,
+      "dominant_category": "math",
+      "dominant_count": 21,
+      "purity": 0.9545454545454546,
+      "category_distribution": {
+        "math": 21,
+        "physics": 1
+      }
+    },
+    "114": {
+      "size": 5,
+      "dominant_category": "cs",
+      "dominant_count": 4,
+      "purity": 0.8,
+      "category_distribution": {
+        "cs": 4,
+        "math": 1
+      }
+    },
+    "115": {
+      "size": 24,
+      "dominant_category": "cs",
+      "dominant_count": 17,
+      "purity": 0.7083333333333334,
+      "category_distribution": {
+        "cs": 17,
+        "q-fin": 5,
+        "stat": 2
+      }
+    },
+    "116": {
+      "size": 30,
+      "dominant_category": "cs",
+      "dominant_count": 23,
+      "purity": 0.7666666666666667,
+      "category_distribution": {
+        "cs": 23,
+        "q-bio": 2,
+        "q-fin": 2,
+        "econ": 2,
+        "eess": 1
+      }
+    },
+    "117": {
+      "size": 20,
+      "dominant_category": "physics",
+      "dominant_count": 8,
+      "purity": 0.4,
+      "category_distribution": {
+        "q-bio": 7,
+        "physics": 8,
+        "q-fin": 2,
+        "econ": 1,
+        "stat": 2
+      }
+    }
+  },
+  "processed_at": "2026-02-09T20:06:01.868617"
+}

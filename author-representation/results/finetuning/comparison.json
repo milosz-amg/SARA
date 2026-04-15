@@ -1,0 +1,82 @@
+{
+  "original_model": "BAAI/bge-base-en-v1.5",
+  "finetuned_model": "/home/jakub/Projekty/SARA/ArXiv/models/bge-base-cosent-finetuned/final",
+  "num_papers": 18880,
+  "evaluated_at": "2026-02-16T17:51:57.707424",
+  "results": {
+    "original": {
+      "clustering": {
+        "8": {
+          "subcategory_purity": 9.518008474576272,
+          "main_category_purity": 65.75741525423729,
+          "fuzzy_purity": 74.17902542372882,
+          "silhouette_score": 0.381330281496048,
+          "variance_explained": 0.12185370922088623
+        },
+        "20": {
+          "subcategory_purity": 11.430084745762711,
+          "main_category_purity": 67.13453389830508,
+          "fuzzy_purity": 75.12711864406779,
+          "silhouette_score": 0.32907232642173767,
+          "variance_explained": 0.12185370922088623
+        },
+        "118": {
+          "subcategory_purity": 13.379237288135592,
+          "main_category_purity": 68.0667372881356,
+          "fuzzy_purity": 74.13665254237289,
+          "silhouette_score": 0.3237450420856476,
+          "variance_explained": 0.12185370922088623
+        }
+      },
+      "retrieval": {
+        "P@1": 0.74,
+        "R@1": 0.0015190122013961503,
+        "P@3": 0.7065,
+        "R@3": 0.004294494823046358,
+        "P@5": 0.684,
+        "R@5": 0.006853862435331186,
+        "P@10": 0.6536500000000001,
+        "R@10": 0.012944663157381532,
+        "P@20": 0.6245,
+        "R@20": 0.02439032894132076
+      }
+    },
+    "finetuned": {
+      "clustering": {
+        "8": {
+          "subcategory_purity": 10.090042372881355,
+          "main_category_purity": 70.49258474576271,
+          "fuzzy_purity": 80.85805084745763,
+          "silhouette_score": 0.43775519728660583,
+          "variance_explained": 0.2937390208244324
+        },
+        "20": {
+          "subcategory_purity": 12.934322033898304,
+          "main_category_purity": 72.60063559322035,
+          "fuzzy_purity": 79.99470338983052,
+          "silhouette_score": 0.34941035509109497,
+          "variance_explained": 0.2937390208244324
+        },
+        "118": {
+          "subcategory_purity": 16.165254237288135,
+          "main_category_purity": 73.7552966101695,
+          "fuzzy_purity": 80.59322033898304,
+          "silhouette_score": 0.3272479772567749,
+          "variance_explained": 0.2937390208244324
+        }
+      },
+      "retrieval": {
+        "P@1": 0.758,
+        "R@1": 0.0015338481285021594,
+        "P@3": 0.7296666666666668,
+        "R@3": 0.004358007775060397,
+        "P@5": 0.7127,
+        "R@5": 0.007076403700572151,
+        "P@10": 0.6898,
+        "R@10": 0.013572542578878431,
+        "P@20": 0.6674249999999999,
+        "R@20": 0.025998420570320792
+      }
+    }
+  }
+}

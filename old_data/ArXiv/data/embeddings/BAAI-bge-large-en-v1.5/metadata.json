@@ -1,0 +1,26 @@
+{
+  "model_name": "BAAI/bge-large-en-v1.5",
+  "dimension": 1024,
+  "num_papers": 2397,
+  "batch_size": 128,
+  "generation_time_seconds": 148.4458589553833,
+  "avg_time_per_paper": 0.06192985354834514,
+  "stats": {
+    "shape": [
+      2397,
+      1024
+    ],
+    "mean": -0.00022088593686930835,
+    "std": 0.031249219551682472,
+    "min": -0.13774506747722626,
+    "max": 0.3061458468437195,
+    "norm_mean": 1.0,
+    "norm_std": 3.011770033367611e-08
+  },
+  "shape": [
+    2397,
+    1024
+  ],
+  "dtype": "float32",
+  "saved_at": "2026-02-03T18:18:37"
+}

@@ -1,0 +1,26 @@
+{
+  "model_name": "Alibaba-NLP/gte-large-en-v1.5",
+  "dimension": 1024,
+  "num_papers": 2397,
+  "batch_size": 128,
+  "generation_time_seconds": 404.9461133480072,
+  "avg_time_per_paper": 0.16893872062912274,
+  "stats": {
+    "shape": [
+      2397,
+      1024
+    ],
+    "mean": -0.0016113523161038756,
+    "std": 0.031208429485559464,
+    "min": -0.6138981580734253,
+    "max": 0.15749844908714294,
+    "norm_mean": 1.0,
+    "norm_std": 4.0009023649645314e-08
+  },
+  "shape": [
+    2397,
+    1024
+  ],
+  "dtype": "float32",
+  "saved_at": "2026-02-03T18:27:30"
+}

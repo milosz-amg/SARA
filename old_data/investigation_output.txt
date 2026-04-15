@@ -1,0 +1,200 @@
+====================================================================================================
+ INVESTIGATING 5 FAILED VALIDATION QUERIES
+====================================================================================================
+
+====================================================================================================
+Q005: oncologist researching cancer immunotherapy
+====================================================================================================
+
+[1] SQL CHECK: Does data exist in database?
+--------------------------------------------------------------------------------
+Total authors matching concepts: 22309
+After applying filters: 2728
+
+Top 5 authors by citations:
+  - Piotr Rutkowski: h=108, cit=81608, works=1733
+  - Maciej Wiznerowicz: h=83, cit=78893, works=199
+  - Jan Lubiński: h=121, cit=75508, works=1314
+  - Irmina Maria Michałek: h=40, cit=61090, works=110
+  - Jolanta Lissowska: h=110, cit=59953, works=732
+
+[2] SEMANTIC SEARCH CHECK: Can embeddings find it?
+--------------------------------------------------------------------------------
+Top 10 semantic matches (NO filters):
+  1. Andrzej Kazarnowisz (sim=0.758, h=1, cit=49)
+  2. J. Zalucki (sim=0.756, h=1, cit=15)
+  3. Karolina Szatan (sim=0.754, h=1, cit=15)
+  4. Jan Waleswski (sim=0.753, h=1, cit=7)
+  5. Agnieszka Sobecka-Giel (sim=0.749, h=0, cit=0)
+  6. Natalia Bocer (sim=0.749, h=0, cit=0)
+  7. Karolina Lomperta (sim=0.742, h=4, cit=41)
+  8. K. Dyttus-Cebulok (sim=0.742, h=0, cit=0)
+  9. Zofia Specht-Szwoch (sim=0.742, h=1, cit=41)
+  10. Agnieszka Kaczmar-Dybko (sim=0.741, h=3, cit=33)
+❌ Semantic search error: list index out of range
+
+[3] DIAGNOSIS
+--------------------------------------------------------------------------------
+⚠️  PROBLEM: Data exists, but semantic search CANNOT FIND it
+   → 2728 researchers meet criteria
+   → But semantic search doesn't return them in top 50
+   → May need even larger candidate pool or query reformulation
+
+====================================================================================================
+Q007: molecular biologist studying CRISPR gene editing
+====================================================================================================
+
+[1] SQL CHECK: Does data exist in database?
+--------------------------------------------------------------------------------
+Total authors matching concepts: 6108
+After applying filters: 563
+
+Top 5 authors by citations:
+  - Raymond J. MacDonald: h=63, cit=35804, works=196
+  - Kurt W. Kohn: h=95, cit=31416, works=434
+  - Stanisław Krajewski: h=77, cit=26945, works=273
+  - Per A. Peterson: h=71, cit=22515, works=196
+  - Daniel J. Capon: h=42, cit=17714, works=68
+
+[2] SEMANTIC SEARCH CHECK: Can embeddings find it?
+--------------------------------------------------------------------------------
+Top 10 semantic matches (NO filters):
+  1. D M Knipe (sim=0.725, h=1, cit=17)
+  2. Lip Hon E. Chin (sim=0.723, h=1, cit=85)
+  3. E Borys (sim=0.722, h=1, cit=1)
+  4. Mary K. DeBenedettl (sim=0.721, h=1, cit=455)
+  5. Y. H. Nguyen-yue (sim=0.721, h=1, cit=13)
+  6. Adam Kraszweski (sim=0.717, h=0, cit=0)
+  7. Katarzyna Burkiewicz (sim=0.715, h=0, cit=0)
+  8. K Weisshart (sim=0.714, h=2, cit=52)
+  9. E Weld (sim=0.713, h=1, cit=28)
+  10. Alyse Gellis (sim=0.713, h=1, cit=99)
+❌ Semantic search error: list index out of range
+
+[3] DIAGNOSIS
+--------------------------------------------------------------------------------
+⚠️  PROBLEM: Data exists, but semantic search CANNOT FIND it
+   → 563 researchers meet criteria
+   → But semantic search doesn't return them in top 50
+   → May need even larger candidate pool or query reformulation
+
+====================================================================================================
+Q012: cybersecurity and cryptography specialist
+====================================================================================================
+
+[1] SQL CHECK: Does data exist in database?
+--------------------------------------------------------------------------------
+Total authors matching concepts: 8782
+After applying filters: 746
+
+Top 5 authors by citations:
+  - Erol Gelenbe: h=75, cit=21219, works=791
+  - M. A. Abramowicz: h=58, cit=12752, works=370
+  - Karol Horodecki: h=20, cit=10976, works=101
+  - Marek Pawlicki: h=27, cit=9327, works=306
+  - B. Czerny: h=42, cit=8356, works=534
+
+[2] SEMANTIC SEARCH CHECK: Can embeddings find it?
+--------------------------------------------------------------------------------
+Top 10 semantic matches (NO filters):
+  1. Monika Olchowik (sim=0.738, h=0, cit=0)
+  2. Maksym Brzȩczek (sim=0.732, h=1, cit=6)
+  3. Szymon Grzebielec (sim=0.729, h=0, cit=0)
+  4. Szymon Maj (sim=0.727, h=0, cit=0)
+  5. Przemysław KROGULEC (sim=0.725, h=0, cit=0)
+  6. Rafał Pachnia (sim=0.722, h=1, cit=2)
+  7. Wojciech Nowakowski (sim=0.721, h=1, cit=2)
+  8. Tomasz Szeliga (sim=0.720, h=1, cit=1)
+  9. Wiktor Sędkowski (sim=0.718, h=1, cit=2)
+  10. Pawel Glebocki (sim=0.716, h=1, cit=7)
+❌ Semantic search error: list index out of range
+
+[3] DIAGNOSIS
+--------------------------------------------------------------------------------
+⚠️  PROBLEM: Data exists, but semantic search CANNOT FIND it
+   → 746 researchers meet criteria
+   → But semantic search doesn't return them in top 50
+   → May need even larger candidate pool or query reformulation
+
+====================================================================================================
+Q014: renewable energy photovoltaics solar cells
+====================================================================================================
+
+[1] SQL CHECK: Does data exist in database?
+--------------------------------------------------------------------------------
+Total works matching concepts: 8062
+After applying filters: 503
+
+Top 5 works by citations:
+  - Single-Junction Organic Solar Cell with over 15% Efficiency Using Fuse...
+    2019, 5138 citations
+  - State of the Art of Finite Control Set Model Predictive Control in Pow...
+    2012, 1624 citations
+  - Consensus statement for stability assessment and reporting for perovsk...
+    2020, 1317 citations
+  - Zero Energy Building – A review of definitions and calculation methodo...
+    2010, 1092 citations
+  - Progress Report on Natural Fiber Reinforced Composites
+    2013, 901 citations
+
+[3] DIAGNOSIS
+--------------------------------------------------------------------------------
+✓ Data EXISTS: 503 items meet criteria
+
+====================================================================================================
+Q018: robotics AI industrial automation manufacturing
+====================================================================================================
+
+[1] SQL CHECK: Does data exist in database?
+--------------------------------------------------------------------------------
+Total works matching concepts: 13690
+After applying filters: 414
+
+Top 5 works by citations:
+  - Observation of Gravitational Waves from a Binary Black Hole Merger
+    2016, 12672 citations
+  - GW151226: Observation of Gravitational Waves from a 22-Solar-Mass Bina...
+    2016, 3289 citations
+  - AGREE—Analytical GREEnness Metric Approach and Software
+    2020, 2555 citations
+  - GW170104: Observation of a 50-Solar-Mass Binary Black Hole Coalescence...
+    2017, 2348 citations
+  - GW170814: A Three-Detector Observation of Gravitational Waves from a B...
+    2017, 2015 citations
+
+[3] DIAGNOSIS
+--------------------------------------------------------------------------------
+✓ Data EXISTS: 414 items meet criteria
+
+
+====================================================================================================
+ SUMMARY
+====================================================================================================
+
+Q005:
+  Total in DB: 22309
+  After filters: 2728
+  Semantic matches (top 50): 0
+  High-quality matches (top 50): 0
+
+Q007:
+  Total in DB: 6108
+  After filters: 563
+  Semantic matches (top 50): 0
+  High-quality matches (top 50): 0
+
+Q012:
+  Total in DB: 8782
+  After filters: 746
+  Semantic matches (top 50): 0
+  High-quality matches (top 50): 0
+
+Q014:
+  Total in DB: 8062
+  After filters: 503
+
+Q018:
+  Total in DB: 13690
+  After filters: 414
+
+✓ Results saved to investigation_5_failed_queries.json

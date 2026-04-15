@@ -1,0 +1,73 @@
+====================================================================================================
+ TESTING REFORMULATED QUERIES
+====================================================================================================
+
+Strategy: Change from PROFESSION-based to RESEARCH-AREA-based queries
+
+====================================================================================================
+Q005
+====================================================================================================
+
+❌ ORIGINAL: 'oncologist researching cancer immunotherapy'
+   Filters: {'min_citations': 500}
+   Results: 0
+   ⚠️  NO RESULTS
+
+✅ REFORMULATED: 'cancer treatment immunotherapy tumor therapy'
+   Filters: {'min_citations': 500}
+   Results: 0
+   ⚠️  NO RESULTS
+
+   ➡️  NO CHANGE: 0 results
+
+====================================================================================================
+Q007
+====================================================================================================
+
+❌ ORIGINAL: 'molecular biologist studying CRISPR gene editing'
+   Filters: {'min_h_index': 15}
+   ❌ Error: search_similar_authors() got an unexpected keyword argument 'min_h_index'
+
+✅ REFORMULATED: 'CRISPR gene editing genome modification'
+   Filters: {'min_h_index': 15}
+   ❌ Error: search_similar_authors() got an unexpected keyword argument 'min_h_index'
+
+   ➡️  NO CHANGE: 0 results
+
+====================================================================================================
+Q012
+====================================================================================================
+
+❌ ORIGINAL: 'cybersecurity and cryptography specialist'
+   Filters: {'min_works': 20}
+   Results: 0
+   ⚠️  NO RESULTS
+
+✅ REFORMULATED: 'cryptography encryption network security computer security'
+   Filters: {'min_works': 20}
+   Results: 0
+   ⚠️  NO RESULTS
+
+   ➡️  NO CHANGE: 0 results
+
+
+====================================================================================================
+ SUMMARY
+====================================================================================================
+
+Q005:
+  Original:     0 results (top: None)
+  Reformulated: 0 results (top: None)
+  ❌ Still 0 results
+
+Q007:
+  Original:     0 results (top: None)
+  Reformulated: 0 results (top: None)
+  ❌ Still 0 results
+
+Q012:
+  Original:     0 results (top: None)
+  Reformulated: 0 results (top: None)
+  ❌ Still 0 results
+
+✓ Results saved to reformulated_queries_test.json

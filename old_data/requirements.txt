@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+openai
+openpyxl
+langchain
+langchain-openai
+langchain-core
+langchain-community
+faiss-cpu
+tqdm
+python-dotenv
+numpy
+polymorph
+pandas
+requests

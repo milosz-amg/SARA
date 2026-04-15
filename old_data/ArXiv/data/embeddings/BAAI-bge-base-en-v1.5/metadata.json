@@ -1,0 +1,26 @@
+{
+  "model_name": "BAAI/bge-base-en-v1.5",
+  "dimension": 768,
+  "num_papers": 2397,
+  "batch_size": 256,
+  "generation_time_seconds": 28.711719751358032,
+  "avg_time_per_paper": 0.01197818929969046,
+  "stats": {
+    "shape": [
+      2397,
+      768
+    ],
+    "mean": -0.0006658233469352126,
+    "std": 0.03607824817299843,
+    "min": -0.31566041707992554,
+    "max": 0.1631440371274948,
+    "norm_mean": 1.0,
+    "norm_std": 3.132384662762888e-08
+  },
+  "shape": [
+    2397,
+    768
+  ],
+  "dtype": "float32",
+  "saved_at": "2026-02-04T11:39:14"
+}

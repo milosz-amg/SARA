@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-10-11",
+    "description": "Validation dataset for SARA semantic search",
+    "total_queries": 24,
+    "target_queries": 100
+  },
+  "query_categories": {
+    "medical_research": "Badania medyczne i zdrowie",
+    "computer_science": "Informatyka i AI",
+    "physics": "Fizyka i matematyka",
+    "environmental": "Środowisko i klimat",
+    "social_sciences": "Nauki społeczne",
+    "engineering": "Inżynieria i technologia",
+    "biology": "Biologia i chemia",
+    "interdisciplinary": "Badania interdyscyplinarne"
+  },
+  "queries": [
+    {
+      "id": "Q001",
+      "category": "medical_research",
+      "query_pl": "kardiolog specjalizujący się w niewydolności serca",
+      "query_en": "cardiologist specializing in heart failure",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Cardiology", "Heart Failure", "Internal Medicine"],
+        "min_citations": 1000,
+        "min_h_index": 20
+      },
+      "notes": "Piotr Ponikowski powinien być w top 3"
+    },
+    {
+      "id": "Q002",
+      "category": "computer_science",
+      "query_pl": "ekspert uczenia maszynowego i sztucznej inteligencji",
+      "query_en": "machine learning and artificial intelligence expert",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Machine Learning", "Artificial Intelligence", "Computer Science"],
+        "min_works": 20
+      },
+      "notes": "Szeroki zakres AI/ML"
+    },
+    {
+      "id": "Q003",
+      "category": "physics",
+      "query_pl": "fizyk zajmujący się fyzyką cząstek elementarnych",
+      "query_en": "physicist working on particle physics",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Particle Physics", "High Energy Physics", "Physics"],
+        "min_h_index": 30
+      },
+      "notes": "CERN collaborations expected"
+    },
+    {
+      "id": "Q004",
+      "category": "environmental",
+      "query_pl": "badacz zmian klimatycznych i globalnego ocieplenia",
+      "query_en": "climate change and global warming researcher",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Climate Change", "Environmental Science", "Global Warming"],
+        "min_works": 30
+      },
+      "notes": "Interdisciplinary - climate modeling, policy"
+    },
+    {
+      "id": "Q005",
+      "category": "medical_research",
+      "query_pl": "onkolog prowadzący badania nad immunoterapią nowotworów",
+      "query_en": "oncologist researching cancer immunotherapy",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Oncology", "Immunotherapy", "Cancer Research"],
+        "min_citations": 500
+      },
+      "notes": "Hot topic - recent publications important"
+    },
+    {
+      "id": "Q006",
+      "category": "computer_science",
+      "query_pl": "badacz deep learning w przetwarzaniu obrazów medycznych",
+      "query_en": "researcher focused on deep learning for medical image processing",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Deep Learning", "Medical Imaging", "Computer Vision"],
+        "min_h_index": 15,
+        "min_works": 20
+      },
+      "notes": "Interdisciplinary CS + Medicine"
+    },
+    {
+      "id": "Q007",
+      "category": "biology",
+      "query_pl": "biolog molekularny badający mechanizmy edycji genów CRISPR",
+      "query_en": "molecular biologist studying CRISPR gene editing mechanisms",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Molecular Biology", "CRISPR", "Gene Editing", "Genetics"],
+        "min_h_index": 15
+      },
+      "notes": "Nobel-prize level topic"
+    },
+    {
+      "id": "Q008",
+      "category": "physics",
+      "query_pl": "fizyk badający detekcję fal grawitacyjnych",
+      "query_en": "physicist specializing in gravitational wave detection",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Gravitational Waves", "Physics", "Astronomy"],
+        "min_h_index": 25,
+        "min_works": 30
+      },
+      "notes": "LIGO detection paper should be top result"
+    },
+    {
+      "id": "Q009",
+      "category": "engineering",
+      "query_pl": "inżynier materiałów zajmujący się nanomateriałami i grafenami",
+      "query_en": "materials engineer working on nanomaterials and graphene",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Materials Science", "Nanotechnology", "Graphene"],
+        "min_works": 25
+      },
+      "notes": "Applied physics/engineering"
+    },
+    {
+      "id": "Q010",
+      "category": "social_sciences",
+      "query_pl": "ekonomista badający ekonomię behawioralną i podejmowanie decyzji",
+      "query_en": "economist studying behavioral economics and decision making",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Economics", "Behavioral Economics", "Decision Making"],
+        "min_h_index": 10
+      },
+      "notes": "Nobel economics topic"
+    },
+    {
+      "id": "Q011",
+      "category": "medical_research",
+      "query_pl": "badacz kliniczny prowadzący próby szczepionek przeciwko COVID-19",
+      "query_en": "clinical researcher leading COVID-19 vaccine trials",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["COVID-19", "Vaccines", "Clinical Trials", "Immunology"],
+        "min_citations": 500,
+        "min_works": 20
+      },
+      "notes": "High impact papers expected"
+    },
+    {
+      "id": "Q012",
+      "category": "computer_science",
+      "query_pl": "specjalista cyberbezpieczeństwa i kryptografii",
+      "query_en": "cybersecurity and cryptography specialist",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Computer Security", "Cryptography", "Computer Science"],
+        "min_works": 20
+      },
+      "notes": "Theory + applied security"
+    },
+    {
+      "id": "Q013",
+      "category": "interdisciplinary",
+      "query_pl": "badacz AI w diagnostyce medycznej i radiologii",
+      "query_en": "researcher working on AI for medical diagnostics and radiology",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Artificial Intelligence", "Medical Imaging", "Radiology", "Diagnostics"],
+        "min_h_index": 15,
+        "min_works": 25
+      },
+      "notes": "Hot interdisciplinary topic"
+    },
+    {
+      "id": "Q014",
+      "category": "environmental",
+      "query_pl": "ekspert energii odnawialnej i fotowoltaiki",
+      "query_en": "expert in renewable energy and photovoltaics",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Renewable Energy", "Solar Energy", "Photovoltaics"],
+        "min_works": 25,
+        "min_h_index": 12
+      },
+      "notes": "Applied research + policy"
+    },
+    {
+      "id": "Q015",
+      "category": "biology",
+      "query_pl": "naukowiec badający chorobę Alzheimera i neurodegenerację",
+      "query_en": "scientist researching Alzheimer's disease and neurodegeneration",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Alzheimer Disease", "Neurodegenerative Diseases", "Neuroscience"],
+        "min_citations": 300,
+        "min_h_index": 20
+      },
+      "notes": "Long-term major research area"
+    },
+    {
+      "id": "Q016",
+      "category": "computer_science",
+      "query_pl": "specjalista NLP i modeli językowych",
+      "query_en": "NLP researcher focusing on language models",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Natural Language Processing", "Machine Learning", "Computational Linguistics"],
+        "min_citations": 200,
+        "min_works": 30
+      },
+      "notes": "Transformers/BERT/GPT era"
+    },
+    {
+      "id": "Q017",
+      "category": "physics",
+      "query_pl": "fizyk kwantowy badający komputery kwantowe",
+      "query_en": "quantum physicist studying quantum computers",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Quantum Physics", "Quantum Computing", "Physics"],
+        "min_h_index": 15
+      },
+      "notes": "Theory + experimental implementations"
+    },
+    {
+      "id": "Q018",
+      "category": "engineering",
+      "query_pl": "inżynier robotyki i AI w automatyce przemysłowej",
+      "query_en": "robotics engineer focused on AI in industrial automation",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Robotics", "Artificial Intelligence", "Automation", "Engineering"],
+        "min_works": 20,
+        "min_h_index": 12
+      },
+      "notes": "Applied AI + hardware"
+    },
+    {
+      "id": "Q019",
+      "category": "social_sciences",
+      "query_pl": "psycholog społeczny badający wpływ mediów społecznościowych",
+      "query_en": "social psychologist studying social media impact",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Psychology", "Social Psychology", "Social Media"],
+        "min_works": 15
+      },
+      "notes": "Contemporary social science"
+    },
+    {
+      "id": "Q020",
+      "category": "interdisciplinary",
+      "query_pl": "urbanista specjalizujący się w zrównoważonym rozwoju miast",
+      "query_en": "urban planner specializing in sustainable city development",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Urban Planning", "Sustainability", "Environmental Science"],
+        "min_works": 15,
+        "min_citations": 100
+      },
+      "notes": "Policy + engineering + social science"
+    },
+    {
+      "id": "Q021",
+      "category": "computer_science",
+      "query_pl": "badacz z UAM zajmujący się walidacją chatbotów",
+      "query_en": "AMU researcher working on chatbot validation",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Chatbots", "Human-Computer Interaction", "Computer Science"],
+        "affiliation": "Adam Mickiewicz University",
+        "min_works": 10
+      },
+      "notes": "Focus on evaluation and validation of conversational agents"
+    },
+    {
+      "id": "Q022",
+      "category": "computer_science",
+      "query_pl": "Kim jest Patryk Żywica?",
+      "query_en": "Who is Patryk Żywica?",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Computer Science", "Human-Computer Interaction"],
+        "affiliation": "Adam Mickiewicz University"
+      },
+      "notes": "Direct name search; should return detailed profile for Patryk Żywica"
+    },
+    {
+      "id": "Q023",
+      "category": "computer_science",
+      "query_pl": "badacz z UAM specjalizujący się w zbiorach rozmytych",
+      "query_en": "AMU researcher focusing on fuzzy sets",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Fuzzy Sets", "Mathematics", "Artificial Intelligence"],
+        "affiliation": "Adam Mickiewicz University",
+        "min_h_index": 10
+      },
+      "notes": "Should highlight fuzzy logic / fuzzy sets expertise"
+    },
+    {
+      "id": "Q024",
+      "category": "computer_science",
+      "query_pl": "badacz informatyki z UAM zajmujący się sztuczną empatią",
+      "query_en": "AMU computer science researcher working on artificial empathy",
+      "search_type": "authors",
+      "expected_characteristics": {
+        "concepts": ["Artificial Intelligence", "Affective Computing", "Human-Computer Interaction"],
+        "affiliation": "Adam Mickiewicz University",
+        "min_works": 15
+      },
+      "notes": "Artificial empathy / affective computing at AMU"
+    }
+  ]
+}

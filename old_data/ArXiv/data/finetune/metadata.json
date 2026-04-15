@@ -1,0 +1,19 @@
+{
+  "mode": "scored",
+  "total_papers": 17890,
+  "train_papers": 12462,
+  "val_papers": 2617,
+  "test_papers": 2811,
+  "train_pairs": 77578,
+  "val_pairs": 16247,
+  "val_triplets": 7816,
+  "test_triplets": 8412,
+  "pairs_per_paper": 8,
+  "triplets_per_paper": 3,
+  "train_ratio": 0.7,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "min_papers_filter": 10,
+  "max_papers_cap": 300,
+  "num_categories": 137
+}

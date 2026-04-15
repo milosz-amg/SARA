@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-11T15:11:26.525989",
+    "total_queries": 20,
+    "version": "1.0"
+  },
+  "queries": [
+    {
+      "query_id": "Q001",
+      "query_text": "cardiologist specializing in heart failure",
+      "category": "medical_research",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 1000::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q002",
+      "query_text": "machine learning and artificial intelligence expert",
+      "category": "computer_science",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 20::vector) as similarity\n                                          ^\n"
+    },
+    {
+      "query_id": "Q003",
+      "query_text": "physicist working on particle physics",
+      "category": "physics",
+      "search_type": "authors",
+      "elapsed_time": 0.025375843048095703,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "CERN collaborations expected"
+    },
+    {
+      "query_id": "Q004",
+      "query_text": "climate change and global warming researcher",
+      "category": "environmental",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 30::vector) as similarity\n                                          ^\n"
+    },
+    {
+      "query_id": "Q005",
+      "query_text": "oncologist researching cancer immunotherapy",
+      "category": "medical_research",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 500::vector) as similarity\n                                           ^\n"
+    },
+    {
+      "query_id": "Q006",
+      "query_text": "deep learning for medical image processing",
+      "category": "computer_science",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2018::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q007",
+      "query_text": "molecular biologist studying CRISPR gene editing mechanisms",
+      "category": "biology",
+      "search_type": "authors",
+      "elapsed_time": 0.02389693260192871,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "Nobel-prize level topic"
+    },
+    {
+      "query_id": "Q008",
+      "query_text": "gravitational wave detection",
+      "category": "physics",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2015::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q009",
+      "query_text": "materials engineer working on nanomaterials and graphene",
+      "category": "engineering",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 25::vector) as similarity\n                                          ^\n"
+    },
+    {
+      "query_id": "Q010",
+      "query_text": "economist studying behavioral economics and decision making",
+      "category": "social_sciences",
+      "search_type": "authors",
+      "elapsed_time": 0.02360677719116211,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "Nobel economics topic"
+    },
+    {
+      "query_id": "Q011",
+      "query_text": "COVID-19 vaccine clinical trials",
+      "category": "medical_research",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2020::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q012",
+      "query_text": "cybersecurity and cryptography specialist",
+      "category": "computer_science",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 20::vector) as similarity\n                                          ^\n"
+    },
+    {
+      "query_id": "Q013",
+      "query_text": "artificial intelligence in medical diagnostics and radiology",
+      "category": "interdisciplinary",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2019::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q014",
+      "query_text": "renewable energy and photovoltaics",
+      "category": "environmental",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2015::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q015",
+      "query_text": "Alzheimer's disease and neurodegeneration research",
+      "category": "biology",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 100::vector) as similarity\n                                           ^\n"
+    },
+    {
+      "query_id": "Q016",
+      "query_text": "natural language processing and language models",
+      "category": "computer_science",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2017::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q017",
+      "query_text": "quantum physicist studying quantum computers",
+      "category": "physics",
+      "search_type": "authors",
+      "elapsed_time": 0.023218154907226562,
+      "analysis": {
+        "has_results": false,
+        "result_count": 0,
+        "avg_similarity": 0.0,
+        "min_similarity": 0.0,
+        "max_similarity": 0.0,
+        "concept_match_rate": 0.0,
+        "avg_h_index": 0.0,
+        "avg_citations": 0.0,
+        "top_result": null
+      },
+      "notes": "Theory + experimental implementations"
+    },
+    {
+      "query_id": "Q018",
+      "query_text": "robotics and AI in industrial automation",
+      "category": "engineering",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2016::vector) as similarity\n                                            ^\n"
+    },
+    {
+      "query_id": "Q019",
+      "query_text": "social psychologist studying social media impact",
+      "category": "social_sciences",
+      "search_type": "authors",
+      "error": "cannot cast type integer to vector\nLINE 14:             1 - (embedding <=> 15::vector) as similarity\n                                          ^\n"
+    },
+    {
+      "query_id": "Q020",
+      "query_text": "sustainable urban development and city planning",
+      "category": "interdisciplinary",
+      "search_type": "works",
+      "error": "cannot cast type integer to vector\nLINE 16:             1 - (embedding <=> 2015::vector) as similarity\n                                            ^\n"
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "authors": 4,
+    "works": 0,
+    "avg_elapsed": 0.004804885387420655,
+    "avg_similarity": 0.0,
+    "avg_results": 0.0
+  }
+}

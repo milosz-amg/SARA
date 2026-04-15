@@ -1,0 +1,26 @@
+{
+  "model_name": "sentence-transformers/all-mpnet-base-v2",
+  "dimension": 768,
+  "num_papers": 2397,
+  "batch_size": 256,
+  "generation_time_seconds": 38.743999004364014,
+  "avg_time_per_paper": 0.016163537340160208,
+  "stats": {
+    "shape": [
+      2397,
+      768
+    ],
+    "mean": 9.755362043506466e-06,
+    "std": 0.03608439117670059,
+    "min": -0.20725801587104797,
+    "max": 0.1764107495546341,
+    "norm_mean": 1.0,
+    "norm_std": 3.0338345169411696e-08
+  },
+  "shape": [
+    2397,
+    768
+  ],
+  "dtype": "float32",
+  "saved_at": "2026-02-04T11:38:46"
+}

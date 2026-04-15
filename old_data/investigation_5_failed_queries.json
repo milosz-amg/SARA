@@ -1,0 +1,37 @@
+[
+  {
+    "query_id": "Q005",
+    "total_count": 22309,
+    "filtered_count": 2728,
+    "semantic_in_50": 0,
+    "high_quality_in_50": 0
+  },
+  {
+    "query_id": "Q007",
+    "total_count": 6108,
+    "filtered_count": 563,
+    "semantic_in_50": 0,
+    "high_quality_in_50": 0
+  },
+  {
+    "query_id": "Q012",
+    "total_count": 8782,
+    "filtered_count": 746,
+    "semantic_in_50": 0,
+    "high_quality_in_50": 0
+  },
+  {
+    "query_id": "Q014",
+    "total_count": 8062,
+    "filtered_count": 503,
+    "semantic_in_50": null,
+    "high_quality_in_50": null
+  },
+  {
+    "query_id": "Q018",
+    "total_count": 13690,
+    "filtered_count": 414,
+    "semantic_in_50": null,
+    "high_quality_in_50": null
+  }
+]

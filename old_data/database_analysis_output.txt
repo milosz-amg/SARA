@@ -1,0 +1,581 @@
+
+████████████████████████████████████████████████████████████████████████████████
+  🔬 SARA DATABASE COVERAGE ANALYSIS
+  ────────────────────────────────────────────────────────────────────────────
+  Generated: 2025-10-11 16:27:09
+████████████████████████████████████████████████████████████████████████████████
+
+
+🎯 PART 1: OVERALL DISTRIBUTIONS
+
+████████████████████████████████████████████████████████████████████████████████
+  H-INDEX DISTRIBUTION ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 H-Index Distribution by Range
+================================================================================
+
+SQL:
+
+    SELECT
+      CASE
+        WHEN h_index = 0 THEN '0'
+        WHEN h_index BETWEEN 1 AND 5 THEN '1-5'
+        WHEN h_index BETWEEN 6 AND 10 THEN '6-10'
+        WHEN h_index BETWEEN 11 AND 20 THEN '11-20'
+        WHEN h_index BETWEEN 21 AND 30 THEN '21-30'
+        WHEN h_index BETWEEN 31 AND 50 THEN '31-50'
+        WHEN h_index BETWEEN 51 AND 100 THEN '51-100'
+        WHEN h_index > 100 THEN '100+'
+      END as h_index_range,
+      COUNT(*) as count,
+      ROUND(100.0 * COUNT(*) / SUM(COUNT(*)) OVER (), 2) as percentage
+    FROM authors
+    GROUP BY h_index_range
+    ORDER BY MIN(h_index);
+    
+
+h_index_range        | count                | percentage          
+------------------------------------------------------------------
+0                    | 119416               | 27.26               
+1-5                  | 250126               | 57.11               
+6-10                 | 36214                | 8.27                
+11-20                | 23558                | 5.38                
+21-30                | 5822                 | 1.33                
+31-50                | 2265                 | 0.52                
+51-100               | 521                  | 0.12                
+100+                 | 78                   | 0.02                
+
+✓ Returned 8 row(s)
+
+================================================================================
+📊 Authors Meeting H-Index Thresholds
+================================================================================
+
+SQL:
+
+    SELECT
+      COUNT(CASE WHEN h_index >= 5 THEN 1 END) as h_gte_5,
+      COUNT(CASE WHEN h_index >= 10 THEN 1 END) as h_gte_10,
+      COUNT(CASE WHEN h_index >= 15 THEN 1 END) as h_gte_15,
+      COUNT(CASE WHEN h_index >= 20 THEN 1 END) as h_gte_20,
+      COUNT(CASE WHEN h_index >= 30 THEN 1 END) as h_gte_30,
+      COUNT(CASE WHEN h_index >= 50 THEN 1 END) as h_gte_50,
+      COUNT(CASE WHEN h_index >= 100 THEN 1 END) as h_gte_100,
+      COUNT(*) as total
+    FROM authors;
+    
+
+h_gte_5              | h_gte_10             | h_gte_15             | h_gte_20             | h_gte_30             | h_gte_50             | h_gte_100            | total               
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+81996                | 36987                | 18826                | 9821                 | 3171                 | 636                  | 84                   | 438000              
+
+✓ Returned 1 row(s)
+
+████████████████████████████████████████████████████████████████████████████████
+  CITATION DISTRIBUTION ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 Citation Distribution by Range
+================================================================================
+
+SQL:
+
+    SELECT
+      CASE
+        WHEN cited_by_count = 0 THEN '0'
+        WHEN cited_by_count BETWEEN 1 AND 100 THEN '1-100'
+        WHEN cited_by_count BETWEEN 101 AND 500 THEN '101-500'
+        WHEN cited_by_count BETWEEN 501 AND 1000 THEN '501-1000'
+        WHEN cited_by_count BETWEEN 1001 AND 5000 THEN '1001-5000'
+        WHEN cited_by_count BETWEEN 5001 AND 10000 THEN '5001-10000'
+        WHEN cited_by_count BETWEEN 10001 AND 50000 THEN '10001-50000'
+        WHEN cited_by_count > 50000 THEN '50000+'
+      END as citations_range,
+      COUNT(*) as count,
+      ROUND(100.0 * COUNT(*) / SUM(COUNT(*)) OVER (), 2) as percentage
+    FROM authors
+    GROUP BY citations_range
+    ORDER BY MIN(cited_by_count);
+    
+
+citations_range      | count                | percentage          
+------------------------------------------------------------------
+0                    | 119187               | 27.21               
+1-100                | 236383               | 53.97               
+101-500              | 52614                | 12.01               
+501-1000             | 14195                | 3.24                
+1001-5000            | 13545                | 3.09                
+5001-10000           | 1266                 | 0.29                
+10001-50000          | 729                  | 0.17                
+50000+               | 81                   | 0.02                
+
+✓ Returned 8 row(s)
+
+================================================================================
+📊 Authors Meeting Citation Thresholds
+================================================================================
+
+SQL:
+
+    SELECT
+      COUNT(CASE WHEN cited_by_count >= 100 THEN 1 END) as cit_gte_100,
+      COUNT(CASE WHEN cited_by_count >= 500 THEN 1 END) as cit_gte_500,
+      COUNT(CASE WHEN cited_by_count >= 1000 THEN 1 END) as cit_gte_1000,
+      COUNT(CASE WHEN cited_by_count >= 5000 THEN 1 END) as cit_gte_5000,
+      COUNT(CASE WHEN cited_by_count >= 10000 THEN 1 END) as cit_gte_10000,
+      COUNT(*) as total
+    FROM authors;
+    
+
+cit_gte_100          | cit_gte_500          | cit_gte_1000         | cit_gte_5000         | cit_gte_10000        | total               
+---------------------------------------------------------------------------------------------------------------------------------------
+82844                | 29866                | 15639                | 2077                 | 810                  | 438000              
+
+✓ Returned 1 row(s)
+
+
+🎯 PART 2: DOMAIN-SPECIFIC ANALYSES
+
+████████████████████████████████████████████████████████████████████████████████
+  Q001: CARDIOLOGY ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 Cardiology Researchers - Statistics
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as total_cardiologists,
+           MIN(h_index) as min_h,
+           MAX(h_index) as max_h,
+           ROUND(AVG(h_index), 1) as avg_h,
+           MIN(cited_by_count) as min_cit,
+           MAX(cited_by_count) as max_cit,
+           ROUND(AVG(cited_by_count), 0) as avg_cit
+    FROM authors
+    WHERE concepts::text ILIKE '%cardio%';
+    
+
+total_cardiologists  | min_h                | max_h                | avg_h                | min_cit              | max_cit              | avg_cit             
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+18274                | 0                    | 174                  | 3.9                  | 0                    | 265330               | 308                 
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Top 10 Cardiologists by Citations
+================================================================================
+
+SQL:
+
+    SELECT display_name,
+           h_index,
+           cited_by_count,
+           works_count,
+           last_known_institution_name
+    FROM authors
+    WHERE concepts::text ILIKE '%cardio%'
+    ORDER BY cited_by_count DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | works_count          | last_known_institution_name
+-----------------------------------------------------------------------------------------------------------------------
+Piotr Ponikowski     | 174                  | 265330               | 1456                 | Wroclaw Medical Univ
+Michał Tendera       | 104                  | 171026               | 643                  | Medical University o
+Maciej Banach        | 131                  | 157360               | 1542                 | John Paul II Catholi
+Adam Torbicki        | 101                  | 148231               | 549                  | Postgraduate School 
+Andrzej Budaj        | 96                   | 83854                | 443                  | Grochowski Hospital 
+Ewa A. Jankowska     | 75                   | 71907                | 700                  | Wroclaw Medical Univ
+Krzysztof Narkiewicz | 80                   | 70595                | 948                  | Gdańsk Medical Unive
+Andrzej Więcek       | 70                   | 40545                | 947                  | Medical University o
+Piotr Jankowski      | 38                   | 37506                | 432                  | Postgraduate School 
+Lis Neubeck          | 54                   | 34901                | 322                  | Edinburgh Napier Uni
+
+✓ Returned 10 row(s)
+
+================================================================================
+📊 Cardiologists Meeting Strict Requirements (cit>=1000, h>=20)
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as count_strict
+    FROM authors
+    WHERE concepts::text ILIKE '%cardio%'
+      AND cited_by_count >= 1000
+      AND h_index >= 20;
+    
+
+count_strict        
+--------------------
+505                 
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Cardiologists with Relaxed Requirements (cit>=500, h>=10)
+================================================================================
+
+SQL:
+
+    SELECT display_name, h_index, cited_by_count, works_count
+    FROM authors
+    WHERE concepts::text ILIKE '%cardio%'
+      AND cited_by_count >= 500
+      AND h_index >= 10
+    ORDER BY cited_by_count DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | works_count         
+-----------------------------------------------------------------------------------------
+Piotr Ponikowski     | 174                  | 265330               | 1456                
+Michał Tendera       | 104                  | 171026               | 643                 
+Maciej Banach        | 131                  | 157360               | 1542                
+Adam Torbicki        | 101                  | 148231               | 549                 
+Andrzej Budaj        | 96                   | 83854                | 443                 
+Ewa A. Jankowska     | 75                   | 71907                | 700                 
+Krzysztof Narkiewicz | 80                   | 70595                | 948                 
+Andrzej Więcek       | 70                   | 40545                | 947                 
+Piotr Jankowski      | 38                   | 37506                | 432                 
+Lis Neubeck          | 54                   | 34901                | 322                 
+
+✓ Returned 10 row(s)
+
+████████████████████████████████████████████████████████████████████████████████
+  Q005: ONCOLOGY IMMUNOTHERAPY ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 Oncology Researchers - Statistics
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as total_oncologists,
+           MIN(cited_by_count) as min_cit,
+           MAX(cited_by_count) as max_cit,
+           ROUND(AVG(cited_by_count), 0) as avg_cit,
+           MIN(h_index) as min_h,
+           MAX(h_index) as max_h,
+           ROUND(AVG(h_index), 1) as avg_h
+    FROM authors
+    WHERE concepts::text ILIKE '%oncolog%'
+       OR concepts::text ILIKE '%cancer%';
+    
+
+total_oncologists    | min_cit              | max_cit              | avg_cit              | min_h                | max_h                | avg_h               
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+21643                | 0                    | 81608                | 347                  | 0                    | 121                  | 4.6                 
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Top 10 Oncology Researchers by Citations
+================================================================================
+
+SQL:
+
+    SELECT display_name, h_index, cited_by_count, works_count,
+           last_known_institution_name
+    FROM authors
+    WHERE concepts::text ILIKE '%oncolog%' OR concepts::text ILIKE '%cancer%'
+    ORDER BY cited_by_count DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | works_count          | last_known_institution_name
+-----------------------------------------------------------------------------------------------------------------------
+Piotr Rutkowski      | 108                  | 81608                | 1733                 | The Maria Sklodowska
+Maciej Wiznerowicz   | 83                   | 78893                | 199                  | International Instit
+Jan Lubiński         | 121                  | 75508                | 1314                 | Pomeranian Medical U
+Irmina Maria Michałe | 40                   | 61090                | 110                  | The Maria Sklodowska
+Jolanta Lissowska    | 110                  | 59953                | 732                  | The Maria Sklodowska
+Stefano Volinia      | 92                   | 57017                | 503                  | University of Warsaw
+Jacek Jassem         | 86                   | 53835                | 1004                 | Gdańsk Medical Unive
+Dawid Murawa         | 47                   | 52234                | 276                  | University of Zielon
+Witold Kycler        | 36                   | 49803                | 108                  | Greater Poland Cance
+A. Bandura           | 16                   | 45725                | 30                   | Gdańsk Medical Unive
+
+✓ Returned 10 row(s)
+
+================================================================================
+📊 Oncologists with Immunotherapy Focus
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as count_with_immuno,
+           MIN(cited_by_count) as min_cit,
+           MAX(cited_by_count) as max_cit
+    FROM authors
+    WHERE (concepts::text ILIKE '%oncolog%' OR concepts::text ILIKE '%cancer%')
+      AND concepts::text ILIKE '%immuno%';
+    
+
+count_with_immuno    | min_cit              | max_cit             
+------------------------------------------------------------------
+9587                 | 0                    | 81608               
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Oncologists Meeting Strict Requirements (cit>=500)
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as count_strict
+    FROM authors
+    WHERE (concepts::text ILIKE '%oncolog%' OR concepts::text ILIKE '%cancer%')
+      AND cited_by_count >= 500;
+    
+
+count_strict        
+--------------------
+2695                
+
+✓ Returned 1 row(s)
+
+████████████████████████████████████████████████████████████████████████████████
+  Q003 & Q017: QUANTUM PHYSICS & COMPUTING ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 Quantum Researchers - Statistics
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as total_quantum,
+           MIN(h_index) as min_h,
+           MAX(h_index) as max_h,
+           ROUND(AVG(h_index), 1) as avg_h,
+           MIN(cited_by_count) as min_cit,
+           MAX(cited_by_count) as max_cit
+    FROM authors
+    WHERE concepts::text ILIKE '%quantum%';
+    
+
+total_quantum        | min_h                | max_h                | avg_h                | min_cit              | max_cit             
+---------------------------------------------------------------------------------------------------------------------------------------
+111326               | 0                    | 152                  | 5.0                  | 0                    | 117670              
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Top 10 Quantum Researchers by H-Index
+================================================================================
+
+SQL:
+
+    SELECT display_name, h_index, cited_by_count, works_count,
+           last_known_institution_name
+    FROM authors
+    WHERE concepts::text ILIKE '%quantum%'
+    ORDER BY h_index DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | works_count          | last_known_institution_name
+-----------------------------------------------------------------------------------------------------------------------
+K. Piotrzkowski      | 152                  | 117670               | 1649                 | AGH University of Kr
+A. Olszewski         | 149                  | 115538               | 1790                 | Institute of Nuclear
+W. Dąbrowski         | 148                  | 114707               | 2132                 | AGH University of Kr
+K. Doroba            | 148                  | 117611               | 2238                 | University of Warsaw
+P. Zalewski          | 148                  | 117002               | 2235                 | National Centre for 
+M. Szleper           | 148                  | 107222               | 2101                 | National Centre for 
+E. Banaś             | 148                  | 115939               | 1924                 | Institute of Nuclear
+P. A. Bruckman de Re | 147                  | 111592               | 1809                 | Institute of Nuclear
+K. Korcyl            | 147                  | 113889               | 2004                 | Institute of Nuclear
+T. Bołd              | 147                  | 112827               | 1897                 | AGH University of Kr
+
+✓ Returned 10 row(s)
+
+================================================================================
+📊 Quantum Computing Researchers
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as count_quantum_computing,
+           MAX(h_index) as max_h
+    FROM authors
+    WHERE concepts::text ILIKE '%quantum%'
+      AND (concepts::text ILIKE '%comput%' OR concepts::text ILIKE '%algorithm%');
+    
+
+count_quantum_computing | max_h               
+----------------------------------------------
+68672                | 152                 
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Quantum Researchers with h>=15 (showing concepts)
+================================================================================
+
+SQL:
+
+    SELECT display_name, h_index, cited_by_count,
+           jsonb_array_elements(concepts)->>'display_name' as concept
+    FROM authors
+    WHERE concepts::text ILIKE '%quantum%'
+      AND h_index >= 15
+    ORDER BY h_index DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | concept             
+-----------------------------------------------------------------------------------------
+K. Piotrzkowski      | 152                  | 117670               | Physics             
+K. Piotrzkowski      | 152                  | 117670               | Quantum mechanics   
+K. Piotrzkowski      | 152                  | 117670               | Particle physics    
+K. Piotrzkowski      | 152                  | 117670               | Nuclear physics     
+K. Piotrzkowski      | 152                  | 117670               | Large Hadron Collide
+K. Piotrzkowski      | 152                  | 117670               | Astronomy           
+K. Piotrzkowski      | 152                  | 117670               | Astrophysics        
+K. Piotrzkowski      | 152                  | 117670               | Mathematics         
+K. Piotrzkowski      | 152                  | 117670               | Quark               
+K. Piotrzkowski      | 152                  | 117670               | Engineering         
+
+✓ Returned 10 row(s)
+
+████████████████████████████████████████████████████████████████████████████████
+  Q018: ROBOTICS & AUTOMATION ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 Robotics/Automation Researchers - Statistics
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as total_robotics,
+           MIN(h_index) as min_h,
+           MAX(h_index) as max_h,
+           ROUND(AVG(h_index), 1) as avg_h
+    FROM authors
+    WHERE concepts::text ILIKE '%robot%'
+       OR concepts::text ILIKE '%automat%';
+    
+
+total_robotics       | min_h                | max_h                | avg_h               
+-----------------------------------------------------------------------------------------
+2895                 | 0                    | 58                   | 2.7                 
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Top 10 Robotics Researchers by Citations
+================================================================================
+
+SQL:
+
+    SELECT display_name, h_index, cited_by_count, works_count,
+           last_known_institution_name
+    FROM authors
+    WHERE concepts::text ILIKE '%robot%'
+    ORDER BY cited_by_count DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | works_count          | last_known_institution_name
+-----------------------------------------------------------------------------------------------------------------------
+Thomas Bak           | 28                   | 4027                 | 172                  | WSPIA University of 
+Karol Seweryn        | 23                   | 3419                 | 169                  | Centrum Badań Kosmic
+Tadeusz Mikołajczyk  | 30                   | 3016                 | 117                  | Bydgoszcz University
+Jim Nickolaou        | 5                    | 2930                 | 6                    | General Motors (Pola
+Eduardo Bayro–Corroc | 26                   | 2557                 | 346                  | Poznań University of
+Bipin Indurkhya      | 23                   | 2531                 | 238                  | Jagiellonian Univers
+Wen Qi               | 27                   | 2472                 | 122                  | Gdansk University of
+Andrzej Kasiński     | 18                   | 1914                 | 102                  | Poznań University of
+Monika Frontczak     | 6                    | 1875                 | 12                   | Nicolaus Copernicus 
+Wojciech Blajer      | 24                   | 1851                 | 114                  | Kazimierz Pułaski Un
+
+✓ Returned 10 row(s)
+
+████████████████████████████████████████████████████████████████████████████████
+  Q010: ECONOMICS (BEHAVIORAL) ANALYSIS
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+📊 Economics Researchers - Statistics
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as total_economists,
+           MIN(h_index) as min_h,
+           MAX(h_index) as max_h,
+           ROUND(AVG(h_index), 1) as avg_h
+    FROM authors
+    WHERE concepts::text ILIKE '%econom%';
+    
+
+total_economists     | min_h                | max_h                | avg_h               
+-----------------------------------------------------------------------------------------
+65210                | 0                    | 152                  | 3.0                 
+
+✓ Returned 1 row(s)
+
+================================================================================
+📊 Top 10 Economists by H-Index
+================================================================================
+
+SQL:
+
+    SELECT display_name, h_index, cited_by_count, works_count,
+           last_known_institution_name
+    FROM authors
+    WHERE concepts::text ILIKE '%econom%'
+    ORDER BY h_index DESC
+    LIMIT 10;
+    
+
+display_name         | h_index              | cited_by_count       | works_count          | last_known_institution_name
+-----------------------------------------------------------------------------------------------------------------------
+K. Piotrzkowski      | 152                  | 117670               | 1649                 | AGH University of Kr
+K. Doroba            | 148                  | 117611               | 2238                 | University of Warsaw
+P. Zalewski          | 148                  | 117002               | 2235                 | National Centre for 
+M. Szleper           | 148                  | 107222               | 2101                 | National Centre for 
+J. Królikowski       | 145                  | 113220               | 2385                 | University of Warsaw
+M. Górski            | 145                  | 113823               | 2212                 | National Centre for 
+A. Kalinowski        | 145                  | 110268               | 2013                 | University of Warsaw
+M. Bluj              | 145                  | 110226               | 2002                 | National Centre for 
+M. Konecki           | 144                  | 107772               | 2039                 | University of Warsaw
+B. Boimska           | 138                  | 93586                | 1809                 | National Centre for 
+
+✓ Returned 10 row(s)
+
+================================================================================
+📊 Behavioral Economics Researchers
+================================================================================
+
+SQL:
+
+    SELECT COUNT(*) as count_behavioral,
+           MAX(h_index) as max_h
+    FROM authors
+    WHERE concepts::text ILIKE '%econom%'
+      AND (concepts::text ILIKE '%behavior%' OR concepts::text ILIKE '%decision%');
+    
+
+count_behavioral     | max_h               
+-------------------------------------------
+373                  | 42                  
+
+✓ Returned 1 row(s)
+
+
+████████████████████████████████████████████████████████████████████████████████
+  ✅ ANALYSIS COMPLETE!
+████████████████████████████████████████████████████████████████████████████████
+
+💾 Full results saved to: database_coverage_analysis_20251011_162739.json
+

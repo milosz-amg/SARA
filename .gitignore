@@ -1,7 +1,71 @@
-Materials
+# Virtual environments
+venv/
+**/venv/
+.venv/
+**/.venv/
+env/
+**/__pycache__/
+*.pyc
+
+# Large data files / binaries (>100MB)
+*.dump
+*.tar
+*.tar.gz
+*.zip
+*.safetensors
+*.arrow
+*.db
+
+# Exception: arxiv_papers.db (38MB, commitowany dla szybkiego startu)
+!author-representation/data/arxiv_papers.db
+
+# author-representation/ — poza repo trzymamy tylko artefakty >100MB oraz regenerowalne
+author-representation/data/raw/
+author-representation/data/embeddings/
+author-representation/data/finetune/
+author-representation/models/bge-base-cosent-finetuned/final/
+# (nie ignorujemy models/bge-base-cosent-finetuned/README.md — instrukcja odtworzenia)
+
+# Specific large files
+old_data/data/polish_works_api.json
+old_data/data/polish_authors_api.json
+old_data/data/uam_works.json
+old_data/data/uam_authors.json
+old_data/pgdata_volume.tar.gz
+
+# Prompts / notes / planning documents (not part of the actual project)
+old_data/goal.md
+old_data/steps.md
+old_data/SHARING_SUMMARY.md
+old_data/MILESTONE_1_COMPLETED.md
+old_data/MILESTONE_2_READY_TO_RUN.md
+old_data/LLM_ENHANCED_EMBEDDINGS_PLAN.md
+old_data/LLM_ENHANCED_EMBEDDINGS_PLAN_MILESTONE_1.md
+old_data/FAILED_QUERIES_INVESTIGATION.md
+old_data/DATABASE_ANALYSIS_SUMMARY.md
+old_data/KEYWORD_EXTRACTION_OPTIMIZATION.md
+old_data/ArXiv/scripts/notki.md
+old_data/ArXiv/IMPLEMENTATION_PLAN.md
+old_data/meeting_notes/
+old_data/PCA_GRAPH/opis_postepow_j_wieczorek.md
+old_data/ArXiv/opis_postepow_j_paszke.md
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
 .env
-.venv
-*venv
-__pycache__/*
-__pycache__
-OpenAlex/
+.env.local
+*.key
+credentials.json

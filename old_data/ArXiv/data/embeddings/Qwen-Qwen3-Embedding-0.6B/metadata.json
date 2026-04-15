@@ -1,0 +1,26 @@
+{
+  "model_name": "Qwen/Qwen3-Embedding-0.6B",
+  "dimension": 1024,
+  "num_papers": 2397,
+  "batch_size": 128,
+  "generation_time_seconds": 8630.626839876175,
+  "avg_time_per_paper": 3.6005952606909366,
+  "stats": {
+    "shape": [
+      2397,
+      1024
+    ],
+    "mean": -0.0002969556662719697,
+    "std": 0.031248589977622032,
+    "min": -0.196218803524971,
+    "max": 0.1585986614227295,
+    "norm_mean": 1.0,
+    "norm_std": 3.055739838941918e-08
+  },
+  "shape": [
+    2397,
+    1024
+  ],
+  "dtype": "float32",
+  "saved_at": "2026-02-04T10:43:17"
+}

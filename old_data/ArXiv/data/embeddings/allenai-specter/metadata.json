@@ -1,0 +1,26 @@
+{
+  "model_name": "allenai-specter",
+  "dimension": 768,
+  "num_papers": 2397,
+  "batch_size": 256,
+  "generation_time_seconds": 36.719043254852295,
+  "avg_time_per_paper": 0.015318749793430245,
+  "stats": {
+    "shape": [
+      2397,
+      768
+    ],
+    "mean": -0.00029546782025136054,
+    "std": 0.03608318418264389,
+    "min": -0.734545111656189,
+    "max": 0.1931760609149933,
+    "norm_mean": 1.0,
+    "norm_std": 3.956198213472817e-08
+  },
+  "shape": [
+    2397,
+    768
+  ],
+  "dtype": "float32",
+  "saved_at": "2026-02-04T12:06:32"
+}

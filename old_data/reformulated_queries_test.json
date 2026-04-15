@@ -1,0 +1,26 @@
+[
+  {
+    "query_id": "Q005",
+    "original_count": 0,
+    "reformulated_count": 0,
+    "improvement": 0,
+    "original_top": null,
+    "reformulated_top": null
+  },
+  {
+    "query_id": "Q007",
+    "original_count": 10,
+    "reformulated_count": 10,
+    "improvement": 0,
+    "original_top": "J S Gibbs",
+    "reformulated_top": "J S Gibbs"
+  },
+  {
+    "query_id": "Q012",
+    "original_count": 0,
+    "reformulated_count": 0,
+    "improvement": 0,
+    "original_top": null,
+    "reformulated_top": null
+  }
+]

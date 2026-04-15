@@ -1,0 +1,20 @@
+To jest instrukcja jak podzielony jest plik listy_rankingowe.json:
+
+"tytul.pl" / "tytul.en" – tytuł
+
+"jednostka.poziom1" / "jednostka.poziom2" – uczelnia / wydział
+
+"kierownik.*" – informacje o kierowniku
+
+"koszt" – budżet
+
+"dataaktualizacji" – data ostatniej aktualizacji
+
+Przykład:
+Tytuł: Ikoniczność w gramatyce i leksyce polskiego języka migowego (PJM)
+Tytuł EN: Iconicity in the grammar and lexicon of Polish Sign Language (PJM)
+Uczelnia: Uniwersytet Warszawski, Wydział Polonistyki
+Kierownik: dr Paweł Rutkowski
+Koszt: 774240
+Data aktualizacji: 22.12.2023
+
