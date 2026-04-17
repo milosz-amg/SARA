@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+
+# large OpenAlex dump files — download manually
+data/uam_authors.json
+data/uam_works.json
+
+# selenium artifacts
+*.png
