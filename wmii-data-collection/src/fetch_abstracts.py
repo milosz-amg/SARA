@@ -6,18 +6,34 @@ import pandas as pd
 from pathlib import Path
 from typing import List, Dict
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+
 DATA_DIR = Path(__file__).parent.parent / "data"
 
-# Input: ORCIDs to scrape. Pipeline generates this from scientists_with_identifiers.csv,
-# but wmii_orcid.csv (pre-existing seed file) is used as fallback if the full
-# pipeline hasn't been run yet.
 ORCID_SOURCES = [
-    DATA_DIR / "scientists_with_identifiers.csv",  # preferred: output of step 2
-    DATA_DIR / "wmii_orcid.csv",                   # fallback: pre-existing seed
+    DATA_DIR / "scientists_with_identifiers.csv",
+    DATA_DIR / "wmii_orcid.csv",
 ]
 
-OUTPUT_FILE = DATA_DIR / "wmii_publications.csv"
+OUTPUT_ALL   = DATA_DIR / "wmii_publications.csv"
+OUTPUT_CLEAN = DATA_DIR / "wmii_publications_with_abstracts.csv"
 
+
+def has_abstract(val) -> bool:
+    return bool(val and str(val).strip())
+
+def has_doi(val) -> bool:
+    return bool(val and str(val).strip())
+
+def save_both(df: pd.DataFrame):
+    df.to_csv(OUTPUT_ALL, index=False, encoding="utf-8")
+    df[df["abstract"].apply(has_abstract)].to_csv(OUTPUT_CLEAN, index=False, encoding="utf-8")
+
+
+# ── OpenAlex API scraper ─────────────────────────────────────────────────────
 
 class OpenAlexScraper:
     def __init__(self):
@@ -81,10 +97,8 @@ class OpenAlexScraper:
 
     def _process_work(self, work: Dict, main_orcid: str) -> Dict:
         work_id = work.get("id", "").split("/")[-1]
-
         primary_location = work.get("primary_location") or {}
         source = primary_location.get("source") or {}
-
         topics = work.get("topics", [])
         keywords = work.get("keywords", [])
         authorships = work.get("authorships", [])
@@ -107,13 +121,13 @@ class OpenAlexScraper:
         return {
             "main_author_orcid":  main_orcid,
             "openalex_id":        work_id,
-            "title":              work.get("title", ""),
-            "publication_year":   work.get("publication_year", ""),
-            "publication_date":   work.get("publication_date", ""),
-            "doi":                work.get("doi", ""),
-            "type":               work.get("type", ""),
-            "cited_by_count":     work.get("cited_by_count", 0),
-            "journal":            source.get("display_name", ""),
+            "title":              work.get("title") or "",
+            "publication_year":   work.get("publication_year") or "",
+            "publication_date":   work.get("publication_date") or "",
+            "doi":                work.get("doi") or "",
+            "type":               work.get("type") or "",
+            "cited_by_count":     work.get("cited_by_count") or 0,
+            "journal":            source.get("display_name") or "",
             "topics":             "; ".join(t.get("display_name", "") for t in topics[:5] if t.get("display_name")),
             "co_authors":         "; ".join(co_authors),
             "co_author_orcids":   "; ".join(co_author_orcids),
@@ -148,8 +162,7 @@ class OpenAlexScraper:
             try:
                 works = self.get_works_for_orcid(orcid)
                 all_results.extend(works)
-                # Save progress after each ORCID
-                pd.DataFrame(all_results).to_csv(OUTPUT_FILE, index=False, encoding="utf-8")
+                save_both(pd.DataFrame(all_results))
                 print(f"  Progress saved — {len(all_results)} total works so far")
             except Exception as e:
                 print(f"  ERROR for {orcid}: {e}")
@@ -159,15 +172,118 @@ class OpenAlexScraper:
         return all_results
 
 
+# ── Selenium DOI abstract fetcher ────────────────────────────────────────────
+
+class DOIAbstractFetcher:
+    SELECTORS = [
+        "div.abstract.author",
+        "div#abs0010",
+        "section.abstract",
+        "div.Abstract",
+        "section[data-title='Abstract']",
+        "div#Abs1-content",
+        "section#Abs1",
+        "section.article-section__abstract",
+        "div.article-section__content",
+        "div.art-abstract",
+        "section.html-abstract",
+        "div.abstract-text",
+        "div.abstract",
+        "div[id*='abstract']",
+        "section[id*='abstract']",
+        "div[class*='abstract']",
+        "section[class*='abstract']",
+    ]
+
+    def __init__(self, headless=True):
+        chrome_options = Options()
+        if headless:
+            chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--window-size=1920,1080")
+        self.driver = webdriver.Chrome(options=chrome_options)
+        self.wait = WebDriverWait(self.driver, 10)
+
+    def fetch(self, doi_url: str) -> str:
+        if not doi_url or not str(doi_url).strip():
+            return ""
+        try:
+            print(f"    Fetching: {str(doi_url)[:70]}...")
+            self.driver.get(str(doi_url))
+            time.sleep(3)
+
+            for selector in self.SELECTORS:
+                try:
+                    elem = self.driver.find_element(By.CSS_SELECTOR, selector)
+                    paragraphs = elem.find_elements(By.TAG_NAME, "p")
+                    text = (
+                        " ".join(p.text for p in paragraphs if p.text.strip())
+                        if paragraphs else elem.text
+                    )
+                    text = re.sub(r"^Abstract\s*", "", text, flags=re.IGNORECASE).strip()
+                    if len(text) > 50:
+                        print(f"      ✓ Found ({len(text)} chars)")
+                        return text
+                except Exception:
+                    continue
+
+            print("      ✗ Not found")
+            return ""
+        except Exception as e:
+            print(f"      ✗ Error: {str(e)[:60]}")
+            return ""
+
+    def close(self):
+        if self.driver:
+            self.driver.quit()
+
+    def fill_missing(self, df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+
+        no_abstract = ~df["abstract"].apply(has_abstract)
+        has_doi_mask = df["doi"].fillna("").str.strip().ne("")
+        missing_idx = df[no_abstract & has_doi_mask].index
+
+        print(f"\nDOI fallback: {len(missing_idx)} records missing abstract but have DOI")
+
+        if len(missing_idx) == 0:
+            return df
+
+        success = 0
+
+        for i, idx in enumerate(missing_idx):
+            title = str(df.at[idx, "title"] or "")[:60]
+            doi   = str(df.at[idx, "doi"] or "")
+            print(f"  [{i+1}/{len(missing_idx)}] {title}...")
+
+            abstract = self.fetch(doi)
+            if abstract:
+                df.at[idx, "abstract"] = abstract
+                success += 1
+
+            if (i + 1) % 10 == 0:
+                save_both(df)
+                print(f"  Progress saved ({success} fetched so far)")
+
+            time.sleep(2)
+
+        save_both(df)
+        print(f"  DOI fallback done — {success}/{len(missing_idx)} abstracts fetched")
+        return df
+
+
+# ── Helpers ──────────────────────────────────────────────────────────────────
+
 def load_orcids() -> List[str]:
     for path in ORCID_SOURCES:
         if path.exists():
             print(f"Loading ORCIDs from {path}")
             with open(path, encoding="utf-8") as f:
-                reader = csv.DictReader(f)
                 orcids = [
                     row["orcid"].strip()
-                    for row in reader
+                    for row in csv.DictReader(f)
                     if row.get("orcid", "").strip()
                 ]
             print(f"  Loaded {len(orcids)} ORCIDs")
@@ -179,21 +295,14 @@ def load_orcids() -> List[str]:
 
 
 def fill_abstracts_from_duplicates(df: pd.DataFrame) -> pd.DataFrame:
-    """Copy abstracts from duplicate records (same title or DOI) that do have one."""
     df = df.copy()
-    df["_title_norm"] = df["title"].str.lower().str.strip()
+    df["_title_norm"] = df["title"].fillna("").str.lower().str.strip()
+    df["_doi_norm"]   = df["doi"].fillna("").str.strip()
     filled = 0
 
-    def has_abstract(val):
-        return bool(val and str(val).strip())
-
-    for col in ["_title_norm", "doi"]:
-        if col == "doi":
-            df_sub = df[df["doi"].notna() & (df["doi"].str.strip() != "")]
-        else:
-            df_sub = df
-
-        for key, group in df_sub.groupby(col):
+    for col in ["_title_norm", "_doi_norm"]:
+        df_sub = df[df[col] != ""]
+        for _, group in df_sub.groupby(col):
             if len(group) < 2:
                 continue
             have = group[group["abstract"].apply(has_abstract)]
@@ -205,10 +314,12 @@ def fill_abstracts_from_duplicates(df: pd.DataFrame) -> pd.DataFrame:
                         df.at[idx, "abstract"] = abstract_to_copy
                         filled += 1
 
-    df = df.drop(columns=["_title_norm"])
+    df = df.drop(columns=["_title_norm", "_doi_norm"])
     print(f"  Filled {filled} abstracts from duplicates")
     return df
 
+
+# ── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -217,6 +328,7 @@ def main():
     if not orcids:
         return
 
+    # Step A: OpenAlex API
     scraper = OpenAlexScraper()
     results = scraper.scrape_orcids(orcids)
 
@@ -225,28 +337,37 @@ def main():
         return
 
     df = pd.DataFrame(results)
-
     total = len(df)
-    with_abstract_before = df["abstract"].apply(lambda x: bool(x and str(x).strip())).sum()
-    print(f"\nBefore dedup fill: {with_abstract_before}/{total} have abstracts")
 
+    with_abstract = df["abstract"].apply(has_abstract).sum()
+    print(f"\nAfter API:          {with_abstract}/{total} have abstracts")
+
+    # Step B: fill from duplicates
     df = fill_abstracts_from_duplicates(df)
+    with_abstract = df["abstract"].apply(has_abstract).sum()
+    print(f"After dedup fill:   {with_abstract}/{total} have abstracts")
+    save_both(df)
+    print("Checkpoint saved after dedup fill")
 
-    with_abstract_after = df["abstract"].apply(lambda x: bool(x and str(x).strip())).sum()
-    print(f"After dedup fill:  {with_abstract_after}/{total} have abstracts")
+    # Step C: Selenium DOI fallback
+    doi_fetcher = DOIAbstractFetcher(headless=True)
+    try:
+        df = doi_fetcher.fill_missing(df)
+    finally:
+        doi_fetcher.close()
 
-    # Keep only records WITH abstracts as the final clean dataset
-    df_final = df[df["abstract"].apply(lambda x: bool(x and str(x).strip()))].copy()
+    with_abstract_final = df["abstract"].apply(has_abstract).sum()
+    print(f"After DOI fallback: {with_abstract_final}/{total} have abstracts")
 
-    df_final.to_csv(OUTPUT_FILE, index=False, encoding="utf-8")
+    save_both(df)
 
     print(f"\n{'='*60}")
     print(f"DONE")
     print(f"{'='*60}")
-    print(f"  Total works found:      {total}")
-    print(f"  With abstracts:         {with_abstract_after} ({with_abstract_after/total*100:.1f}%)")
-    print(f"  Final dataset:          {len(df_final)} records")
-    print(f"  Output:                 {OUTPUT_FILE}")
+    print(f"  Total works:            {total}")
+    print(f"  With abstracts:         {with_abstract_final} ({with_abstract_final/total*100:.1f}%)")
+    print(f"  All records:            {OUTPUT_ALL}")
+    print(f"  With abstracts only:    {OUTPUT_CLEAN}")
     print(f"{'='*60}")
 
 
