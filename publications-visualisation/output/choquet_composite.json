@@ -1,0 +1,40 @@
+{
+  "method": "Choquet integral with 2-additive fuzzy measure (Kojadinovic 2004)",
+  "shapley_weights": {
+    "knn_recall": 0.127,
+    "trustworthiness": 0.143,
+    "neighborhood_hit": 0.1338,
+    "spearman_r": 0.1887,
+    "distance_preservation": 0.1474,
+    "kruskal_stress": 0.0684,
+    "pearson_r": 0.1918
+  },
+  "choquet_ranking": [
+    "lda",
+    "pacmap",
+    "umap",
+    "tsne",
+    "isomap",
+    "pca",
+    "centroid",
+    "spectral"
+  ],
+  "shapley_ranking": [
+    "pacmap",
+    "lda",
+    "umap",
+    "isomap",
+    "tsne",
+    "pca",
+    "centroid",
+    "spectral"
+  ],
+  "local_share": 0.4038,
+  "global_share": 0.5962,
+  "references": [
+    "Kojadinovic (2004) doi:10.1016/S0377-2217(02)00752-1",
+    "Grabisch (1997) doi:10.1016/S0165-0114(96)00168-2",
+    "Venna & Kaski (2006) doi:10.1016/j.neunet.2006.05.014",
+    "Lee & Verleysen (2009) doi:10.1016/j.neucom.2008.12.017"
+  ]
+}

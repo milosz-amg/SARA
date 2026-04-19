@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMiI UAM — Publication Embeddings</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08090d;--panel:rgba(10,12,20,0.95);--card:rgba(18,21,34,0.95);
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.04);
+  --text:#d0d0dc;--text2:#555;--text3:#888;
+  --accent:#5b8def;--accent2:#42d4f4;--good:#3cb44b;--warn:#f58231;--bad:#e6194b;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;user-select:none}
+
+/* ── topbar ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
+  background:rgba(8,9,13,0.97);border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  display:flex;align-items:center;gap:0;
+}
+.topbar-title{padding:0 18px;font-size:13px;font-weight:700;color:#fff;letter-spacing:-.02em;white-space:nowrap;border-right:1px solid var(--border)}
+.tab-bar{display:flex;height:100%;gap:0}
+.tab{padding:0 18px;font-size:11px;font-weight:500;color:var(--text2);cursor:pointer;
+  border:none;background:none;font-family:'DM Sans',sans-serif;
+  border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.topbar-sub{margin-left:auto;padding-right:18px;font-size:10px;color:var(--text2);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+
+/* ── loading ── */
+.loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:14px}
+.spinner{width:42px;height:42px;border:3px solid rgba(255,255,255,0.08);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{color:var(--text);font-size:13px}
+.loading-progress{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2)}
+
+/* ── tab pages ── */
+.tab-page{display:none;position:fixed;top:48px;left:0;right:0;bottom:0}
+.tab-page.active{display:block}
+
+/* ══════════════════════════════════════════════
+   TAB 1 — SCATTER
+   ══════════════════════════════════════════════ */
+.fp{position:absolute;z-index:100;background:var(--panel);border:1px solid var(--border);border-radius:12px;backdrop-filter:blur(24px);box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+
+.method-panel{top:10px;left:50%;transform:translateX(-50%);padding:5px 8px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.method-tabs{display:flex;gap:2px;flex-wrap:wrap;justify-content:center}
+.method-tab{padding:5px 11px;border-radius:7px;font-size:11px;font-weight:500;cursor:pointer;color:var(--text2);border:none;background:rgba(255,255,255,0.03);transition:all .18s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.method-tab:hover:not(.active){color:var(--text);background:rgba(255,255,255,0.06)}
+.method-tab.active{background:rgba(91,141,239,0.18);color:var(--accent);border:1px solid rgba(91,141,239,0.3)}
+.method-tab.linear{border-left:3px solid rgba(91,141,239,0.4)}
+.method-tab.non-linear{border-left:3px solid rgba(66,212,244,0.4)}
+.method-desc{font-size:10px;color:var(--text2);text-align:center;font-style:italic;max-width:480px;line-height:1.4}
+
+.search-panel{top:78px;left:10px;padding:0;width:250px}
+.search-wrap{position:relative}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#444;font-size:13px;pointer-events:none}
+.search-input{width:100%;padding:9px 12px 9px 32px;border:none;border-radius:12px;background:transparent;color:#fff;font-size:12px;font-family:'DM Sans',sans-serif;outline:none}
+.search-input::placeholder{color:#444}
+.search-results{max-height:220px;overflow-y:auto;border-top:1px solid var(--border);display:none}
+.search-results.show{display:block}
+.search-result{padding:7px 12px;cursor:pointer;font-size:11px;border-bottom:1px solid rgba(255,255,255,0.03);transition:background .15s}
+.search-result:hover{background:rgba(91,141,239,0.08)}
+.sr-name{color:#fff;font-weight:500}
+.sr-count{color:var(--text2);font-family:'JetBrains Mono',monospace;font-size:10px}
+
+.year-panel{top:78px;right:10px;padding:12px 14px;width:210px}
+.year-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);display:block;margin-bottom:5px}
+.year-display{font-family:'JetBrains Mono',monospace;font-size:12px;color:#fff;text-align:center;margin-bottom:5px}
+.year-slider{position:relative;height:20px}
+.year-slider input[type=range]{position:absolute;width:100%;height:4px;background:none;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer;pointer-events:none}
+.year-slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:var(--accent);border-radius:50%;cursor:pointer;pointer-events:all}
+.year-slider input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--accent);border-radius:50%;border:none;cursor:pointer;pointer-events:all}
+#yrMin{z-index:3}
+#yrMax{z-index:4}
+
+.legend{bottom:10px;left:10px;padding:10px 12px;max-width:200px}
+.legend-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:7px}
+.legend-item{display:flex;align-items:center;gap:6px;padding:2px 0;cursor:pointer;border-radius:5px;transition:background .15s}
+.legend-item:hover{background:rgba(255,255,255,0.04)}
+.legend-item.dimmed{opacity:.28}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.legend-item span{font-size:10px;color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.legend-count{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text2)}
+
+.author-panel{bottom:10px;right:10px;width:300px;max-height:420px;overflow-y:auto;padding:14px;display:none}
+.author-panel.show{display:block}
+.ap-close{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--text2);font-size:16px;cursor:pointer;padding:2px 6px;border-radius:5px}
+.ap-close:hover{color:#fff;background:rgba(255,255,255,0.07)}
+.author-panel h2{font-size:13px;color:#fff;padding-right:24px;margin-bottom:4px}
+.ap-meta{font-size:10px;color:var(--text2);margin-bottom:10px;font-family:'JetBrains Mono',monospace}
+.ap-section{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin:8px 0 5px}
+.paper-item{display:flex;gap:7px;margin:3px 0;font-size:10px}
+.pi-year{color:var(--text2);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.pi-title{color:var(--text);line-height:1.4}
+
+.zoom-controls{bottom:10px;left:50%;transform:translateX(-50%);padding:4px 6px;display:flex;gap:4px}
+.zoom-btn{padding:5px 10px;border:none;border-radius:7px;background:rgba(255,255,255,0.05);color:var(--text);cursor:pointer;font-size:13px;font-family:'JetBrains Mono',monospace;transition:background .15s}
+.zoom-btn:hover{background:rgba(255,255,255,0.1)}
+
+.tooltip{position:fixed;pointer-events:none;background:rgba(8,9,13,0.97);border:1px solid var(--border);border-radius:10px;padding:8px 12px;display:none;z-index:300;max-width:340px}
+.tt-title{font-size:11px;color:#fff;margin-bottom:3px;line-height:1.4}
+.tt-meta{font-size:10px;color:var(--text2)}
+
+/* ══════════════════════════════════════════════
+   TABS 2 & 3 — METRICS / K-ANALYSIS
+   ══════════════════════════════════════════════ */
+.scroll-page{height:100%;overflow-y:auto;padding:24px 24px 60px;max-width:1200px;margin:0 auto}
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text2);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* method cards */
+.methods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:36px}
+.method-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;cursor:pointer;transition:border-color .2s,transform .15s;position:relative}
+.method-card:hover{border-color:rgba(91,141,239,0.35);transform:translateY(-1px)}
+.method-card.rank-1{border-color:rgba(255,215,0,0.35)}
+.method-card.rank-2{border-color:rgba(192,192,192,0.25)}
+.method-card.rank-3{border-color:rgba(205,127,50,0.25)}
+.mc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.mc-name{font-size:13px;font-weight:700;color:#fff}
+.mc-kind{font-size:9px;padding:2px 7px;border-radius:10px;font-family:'JetBrains Mono',monospace}
+.mc-kind.linear{background:rgba(91,141,239,0.15);color:var(--accent)}
+.mc-kind.non-linear{background:rgba(66,212,244,0.15);color:var(--accent2)}
+.mc-rank{position:absolute;top:10px;right:10px;font-size:16px}
+.mc-hero{text-align:center;margin:8px 0 12px}
+.mc-hero-val{font-size:32px;font-weight:700;font-family:'JetBrains Mono',monospace;line-height:1}
+.mc-hero-label{font-size:9px;color:var(--text2);margin-top:3px;text-transform:uppercase;letter-spacing:.1em}
+.mc-bar-track{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-bottom:12px}
+.mc-bar-fill{height:100%;border-radius:2px}
+.mc-row{display:flex;align-items:center;gap:6px;margin:3px 0;font-size:10px}
+.mc-row-label{width:108px;color:var(--text2);flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-row-bar{flex:1;height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden}
+.mc-row-bar-fill{height:100%;border-radius:2px}
+.mc-row-val{width:44px;font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right}
+.mc-desc{font-size:9px;color:#333;margin-top:9px;line-height:1.5;font-style:italic}
+.mc-warn{font-size:9px;color:#693;margin-top:5px;line-height:1.4}
+
+/* metrics table */
+.metrics-table-wrap{overflow-x:auto;margin-bottom:36px}
+.metrics-table{width:100%;border-collapse:collapse;font-size:11px}
+.metrics-table th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);padding:7px 12px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none}
+.metrics-table th:first-child{text-align:left}
+.metrics-table th:hover{color:var(--text)}
+.metrics-table th.sorted{color:var(--accent)}
+.metrics-table td{padding:6px 12px;text-align:right;border-bottom:1px solid var(--border2);font-family:'JetBrains Mono',monospace;font-size:10px}
+.metrics-table td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;color:#fff;font-size:11px}
+.metrics-table tr:hover td{background:rgba(255,255,255,0.025)}
+.cell-good{color:var(--good)!important}
+.cell-ok{color:var(--warn)!important}
+.cell-bad{color:var(--bad)!important}
+.sort-arrow{font-size:8px;opacity:.4;margin-left:2px}
+.sort-arrow.active{opacity:1;color:var(--accent)}
+
+/* k-analysis */
+.ka-empty{padding:32px;text-align:center;background:var(--card);border:1px dashed rgba(255,255,255,0.08);border-radius:12px;color:var(--text2);font-size:12px;line-height:1.8}
+.ka-empty code{font-family:'JetBrains Mono',monospace;color:var(--accent2);font-size:11px}
+.ka-consensus-banner{background:rgba(66,212,244,0.06);border:1px solid rgba(66,212,244,0.2);border-radius:12px;padding:18px 22px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:16px}
+.ka-big-k{font-size:56px;font-weight:700;font-family:'JetBrains Mono',monospace;color:var(--accent2);line-height:1}
+.ka-banner-body{flex:1;min-width:200px}
+.ka-banner-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:5px}
+.ka-banner-detail{font-size:12px;color:var(--text);line-height:1.7}
+.ka-rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.ka-rec-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 15px}
+.ka-rec-method{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text2);margin-bottom:5px}
+.ka-rec-k{font-size:30px;font-weight:700;font-family:'JetBrains Mono',monospace;color:#fff;line-height:1}
+.ka-rec-val{font-size:10px;color:var(--text2);margin-top:3px;font-family:'JetBrains Mono',monospace}
+.ka-rec-desc{font-size:9px;color:#444;margin-top:6px;line-height:1.5}
+.ka-charts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.ka-chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.ka-chart-label{font-size:11px;font-weight:600;margin-bottom:2px}
+.ka-chart-hint{font-size:9px;color:var(--text2);margin-bottom:8px;font-style:italic}
+canvas.spark{width:100%;height:130px;display:block}
+.ka-table-wrap{overflow-x:auto}
+.ka-table{width:100%;border-collapse:collapse;font-size:11px}
+.ka-table th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);padding:6px 10px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+.ka-table th:first-child{text-align:center}
+.ka-table td{padding:5px 10px;text-align:right;border-bottom:1px solid var(--border2);font-family:'JetBrains Mono',monospace;font-size:10px}
+.ka-table td:first-child{text-align:center;font-weight:700;color:#fff}
+.ka-table tr:hover td{background:rgba(255,255,255,0.025)}
+.ka-table tr.best td{background:rgba(66,212,244,0.05)}
+.ka-table tr.best td:first-child{color:var(--accent2)}
+.ka-badge{display:inline-block;font-size:8px;padding:1px 5px;border-radius:8px;background:rgba(66,212,244,0.18);color:var(--accent2);font-family:'JetBrains Mono',monospace;vertical-align:middle;margin-left:4px}
+
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:3px}
+@media(max-width:900px){.ka-rec-grid,.ka-charts-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.ka-rec-grid,.ka-charts-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Loading embeddings…</div>
+  <div class="loading-progress" id="loadingProgress">Fetching vis_methods.json…</div>
+</div>
+
+<!-- ── TOPBAR ── -->
+<div class="topbar">
+  <div class="topbar-title">WMiI UAM</div>
+  <div class="tab-bar">
+    <button class="tab active" data-tab="scatter">Scatter Plot</button>
+    <button class="tab" data-tab="metrics">DR Metrics</button>
+    <button class="tab" data-tab="kanalysis">K-Analysis</button>
+  </div>
+  <div class="topbar-sub" id="topbarSub">Loading…</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 1 — SCATTER
+     ══════════════════════════════════════ -->
+<div class="tab-page active" id="tab-scatter">
+  <div class="fp method-panel">
+    <div class="method-tabs" id="methodTabs"></div>
+    <div class="method-desc" id="methodDesc"></div>
+  </div>
+  <div class="fp search-panel">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" id="searchInput" type="text" placeholder="Search author or title…" autocomplete="off"/>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+  <div class="fp year-panel">
+    <span class="year-label">Publication Year</span>
+    <div class="year-display"><span id="yrFrom">–</span> — <span id="yrTo">–</span></div>
+    <div class="year-slider">
+      <input type="range" id="yrMin"/>
+      <input type="range" id="yrMax"/>
+    </div>
+  </div>
+  <div class="fp legend" id="legend"></div>
+  <div class="fp author-panel" id="authorPanel">
+    <button class="ap-close" id="apClose">×</button>
+    <h2 id="apName"></h2>
+    <div class="ap-meta" id="apMeta"></div>
+    <div id="apPapers"></div>
+  </div>
+  <div class="fp zoom-controls">
+    <button class="zoom-btn" id="zoomIn">+</button>
+    <button class="zoom-btn" id="zoomOut">−</button>
+    <button class="zoom-btn" id="zoomReset">⌂</button>
+  </div>
+  <canvas id="cv"></canvas>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 2 — DR METRICS
+     ══════════════════════════════════════ -->
+<div class="tab-page" id="tab-metrics">
+  <div class="scroll-page">
+    <div class="section-title">Dimensionality Reduction Methods — ranked by Composite Score</div>
+    <div class="methods-grid" id="methodsGrid"></div>
+    <div class="section-title">Full Metrics Table — click column header to sort</div>
+    <div class="metrics-table-wrap">
+      <table class="metrics-table">
+        <thead id="metricsHead"></thead>
+        <tbody id="metricsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TAB 3 — K-ANALYSIS
+     ══════════════════════════════════════ -->
+<div class="tab-page" id="tab-kanalysis">
+  <div class="scroll-page">
+    <div class="section-title">Optimal K Analysis</div>
+    <div id="kaSection">
+      <div class="ka-empty">No k-analysis data found. Run <code>find_optimal_k.py</code> first.</div>
+    </div>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip">
+  <div class="tt-title" id="ttTitle"></div>
+  <div class="tt-meta"  id="ttMeta"></div>
+</div>
+
+<script>
+'use strict';
+
+// ══════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════
+let DATA, COLORS, N_CLUSTERS, METHOD_ORDER, METHODS_META, WHEEL_ANGLES;
+let currentMethod=null, currentView='method';
+let activeCluster=null, highlightAuthor=null;
+let yearRange=[1970,2025], searchTerm='', hoveredIdx=-1;
+let zoom=1, panX=0, panY=0, W, H, dragging=false, lastM={x:0,y:0};
+
+// ══════════════════════════════════════════════════════════════════
+// TAB SWITCHING
+// ══════════════════════════════════════════════════════════════════
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-page').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    if(btn.dataset.tab==='scatter'){ resize(); draw(); }
+  };
+});
+
+// ══════════════════════════════════════════════════════════════════
+// DATA LOADING
+// ══════════════════════════════════════════════════════════════════
+fetch('vis_methods.json')
+  .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status} — vis_methods.json not found`); return r.json(); })
+  .then(data=>{
+    DATA=data; COLORS=data.colors; N_CLUSTERS=data.n_clusters;
+    METHOD_ORDER=data.method_order; METHODS_META=data.methods;
+    currentMethod=METHOD_ORDER[0]; WHEEL_ANGLES=data.wheel_angles||null;
+    const [yMin,yMax]=data.year_range; yearRange=[yMin,yMax];
+    ['yrMin','yrMax'].forEach(id=>{ const el=document.getElementById(id); el.min=yMin; el.max=yMax; el.value=id==='yrMin'?yMin:yMax; });
+    document.getElementById('yrFrom').textContent=yMin;
+    document.getElementById('yrTo').textContent=yMax;
+    const unique=new Set(data.points.map(p=>p.author).filter(Boolean));
+    document.getElementById('topbarSub').textContent=`${data.n_points} papers · ${unique.size} authors · ${N_CLUSTERS} clusters`;
+    document.getElementById('loadingOverlay').style.display='none';
+    buildTabs(); buildLegend(); resize(); autoFit(); draw();
+    buildMethodCards(); buildMetricsTable();
+    // k-analysis: standalone file wins over embedded
+    fetch('k_metrics.json')
+      .then(r=>r.ok?r.json():null).then(ka=>{
+        if(ka&&ka.consensus_k) buildKAnalysis(ka);
+        else if(data.k_analysis) buildKAnalysis(data.k_analysis);
+      }).catch(()=>{ if(data.k_analysis) buildKAnalysis(data.k_analysis); });
+  })
+  .catch(err=>{
+    document.querySelector('.loading-text').textContent='Failed to load vis_methods.json';
+    document.getElementById('loadingProgress').textContent=err.message;
+  });
+
+// ══════════════════════════════════════════════════════════════════
+// SCATTER
+// ══════════════════════════════════════════════════════════════════
+const cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+function resize(){
+  const page=document.getElementById('tab-scatter');
+  W=cv.width=page.offsetWidth; H=cv.height=page.offsetHeight; draw();
+}
+window.onresize=resize;
+
+function toScreen(x,y){ const s=Math.min(W,H)*0.38; return [panX+x*zoom*s, panY+y*zoom*s]; }
+
+function ptXY(p){
+  if(currentView==='wheel'){
+    let x=0,y=0; (p.axes||[]).forEach((a,i)=>{ x+=a*Math.cos(WHEEL_ANGLES[i]); y+=a*Math.sin(WHEEL_ANGLES[i]); }); return [x,y];
+  }
+  return [p[currentMethod+'_x'], p[currentMethod+'_y']];
+}
+
+function autoFit(){
+  const xs=[],ys=[];
+  DATA.points.forEach(p=>{ const[x,y]=ptXY(p); if(x!=null){xs.push(x);ys.push(y);} });
+  const xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);
+  const span=Math.max(xmax-xmin,ymax-ymin)||1;
+  zoom=1.6/span; panX=W/2-((xmin+xmax)/2)*zoom*Math.min(W,H)*0.38; panY=H/2-((ymin+ymax)/2)*zoom*Math.min(W,H)*0.38;
+}
+
+function visible(p){
+  if(activeCluster!==null&&p.cluster!==activeCluster) return false;
+  if(p.year!=null&&(p.year<yearRange[0]||p.year>yearRange[1])) return false;
+  if(searchTerm&&!(p.author||'').toLowerCase().includes(searchTerm)&&!(p.title||'').toLowerCase().includes(searchTerm)) return false;
+  return true;
+}
+
+function draw(){
+  if(!DATA) return;
+  ctx.clearRect(0,0,W,H);
+  if(currentView==='wheel'&&WHEEL_ANGLES){
+    const[cx,cy]=toScreen(0,0); const R=Math.min(W,H)*0.38*zoom*1.2;
+    ctx.save(); ctx.font='bold 12px DM Sans'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    WHEEL_ANGLES.forEach((a,i)=>{
+      ctx.strokeStyle=COLORS[i]+'44'; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a)); ctx.stroke();
+      ctx.fillStyle=COLORS[i]+'cc';
+      ctx.fillText(DATA.cluster_names[i]||`C${i}`, cx+R*0.82*Math.cos(a), cy+R*0.82*Math.sin(a));
+    });
+    ctx.restore();
+  }
+  DATA.points.forEach((p,i)=>{
+    const[x,y]=ptXY(p); if(x==null) return;
+    const[sx,sy]=toScreen(x,y); if(sx<-20||sx>W+20||sy<-20||sy>H+20) return;
+    const vis=visible(p), hot=i===hoveredIdx||(highlightAuthor&&p.author===highlightAuthor);
+    const alpha=!vis?0.04:hot?1.0:0.55; const r=hot?5:3;
+    ctx.fillStyle=COLORS[p.cluster]+Math.round(alpha*255).toString(16).padStart(2,'0');
+    ctx.beginPath(); ctx.arc(sx,sy,r,0,Math.PI*2); ctx.fill();
+    if(hot){ ctx.strokeStyle=COLORS[p.cluster]; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(sx,sy,8,0,Math.PI*2); ctx.stroke(); }
+  });
+}
+
+function buildTabs(){
+  const el=document.getElementById('methodTabs');
+  let html=METHOD_ORDER.map(k=>{ const m=METHODS_META[k]; return `<button class="method-tab ${m.kind}${k===currentMethod?' active':''}" data-key="${k}" data-view="method">${m.short}</button>`; }).join('');
+  html+=`<button class="method-tab${currentView==='wheel'?' active':''}" style="border-left:3px solid rgba(255,200,0,0.5)" data-key="wheel" data-view="wheel">⬤ Wheel</button>`;
+  el.innerHTML=html;
+  el.querySelectorAll('.method-tab').forEach(btn=>{ btn.onclick=()=>{
+    el.querySelectorAll('.method-tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    if(btn.dataset.view==='wheel'){currentView='wheel';}else{currentView='method';currentMethod=btn.dataset.key;}
+    updateMethodDesc(); autoFit(); draw();
+  };});
+  updateMethodDesc();
+}
+
+function updateMethodDesc(){
+  if(currentView==='wheel'){
+    document.getElementById('methodDesc').textContent='Axis Wheel — position = weighted sum of cosine similarities to cluster centroids.';
+  } else {
+    const m=METHODS_META[currentMethod];
+    document.getElementById('methodDesc').textContent=m.long+(m.warning?' ⚠ '+m.warning:'');
+  }
+}
+
+function buildLegend(){
+  const counts=new Array(N_CLUSTERS).fill(0); DATA.points.forEach(p=>counts[p.cluster]++);
+  let h='<div class="legend-title">Clusters — K-Means 768D</div>';
+  for(let i=0;i<N_CLUSTERS;i++){
+    const name=DATA.cluster_names[i]||`Cluster ${i}`, dim=activeCluster!==null&&activeCluster!==i?'dimmed':'';
+    h+=`<div class="legend-item ${dim}" data-c="${i}"><div class="legend-dot" style="background:${COLORS[i]}"></div><span title="${name}">${name.length>18?name.slice(0,16)+'…':name}</span><span class="legend-count">${counts[i]}</span></div>`;
+  }
+  document.getElementById('legend').innerHTML=h;
+  document.getElementById('legend').querySelectorAll('.legend-item').forEach(e=>{ e.onclick=()=>{ activeCluster=activeCluster===+e.dataset.c?null:+e.dataset.c; buildLegend(); draw(); }; });
+}
+
+const searchInput=document.getElementById('searchInput'), searchBox=document.getElementById('searchResults');
+searchInput.addEventListener('input',()=>{
+  searchTerm=searchInput.value.trim().toLowerCase();
+  if(!searchTerm){searchBox.classList.remove('show');highlightAuthor=null;draw();return;}
+  const ac={};
+  DATA.points.forEach(p=>{ if(!p.author) return; if(p.author.toLowerCase().includes(searchTerm)||(p.title||'').toLowerCase().includes(searchTerm)) ac[p.author]=(ac[p.author]||0)+1; });
+  const hits=Object.entries(ac).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  if(hits.length){ searchBox.innerHTML=hits.map(([n,c])=>`<div class="search-result" data-name="${n}"><span class="sr-name">${n}</span><span class="sr-count">${c} papers</span></div>`).join(''); searchBox.classList.add('show'); searchBox.querySelectorAll('.search-result').forEach(e=>e.onclick=()=>pickAuthor(e.dataset.name)); }
+  else{ searchBox.innerHTML='<div style="padding:8px 12px;font-size:11px;color:#444">No results</div>'; searchBox.classList.add('show'); }
+  draw();
+});
+
+function pickAuthor(name){ highlightAuthor=name; searchTerm=name.toLowerCase(); searchInput.value=name; searchBox.classList.remove('show'); showAuthorPanel(name); draw(); }
+
+function showAuthorPanel(name){
+  const papers=DATA.points.filter(p=>p.author===name).sort((a,b)=>(b.year||0)-(a.year||0));
+  if(!papers.length) return;
+  document.getElementById('apName').textContent=name;
+  const yrs=papers.map(p=>p.year).filter(Boolean);
+  document.getElementById('apMeta').textContent=`${papers.length} papers · ${yrs.length?Math.min(...yrs)+'–'+Math.max(...yrs):''}`;
+  let h='<div class="ap-section">Papers</div>';
+  papers.slice(0,40).forEach(p=>{ h+=`<div class="paper-item"><span class="pi-year">${p.year||'–'}</span><span class="pi-title">${p.title||'(no title)'}</span></div>`; });
+  if(papers.length>40) h+=`<div class="paper-item" style="color:#444">…and ${papers.length-40} more</div>`;
+  document.getElementById('apPapers').innerHTML=h; document.getElementById('authorPanel').classList.add('show');
+}
+document.getElementById('apClose').onclick=()=>{ document.getElementById('authorPanel').classList.remove('show'); highlightAuthor=null; searchTerm=''; searchInput.value=''; draw(); };
+
+const yrMin=document.getElementById('yrMin'), yrMax=document.getElementById('yrMax');
+function updateYear(){
+  let lo=+yrMin.value, hi=+yrMax.value;
+  if(lo>hi)[lo,hi]=[hi,lo];
+  yearRange=[lo,hi];
+  document.getElementById('yrFrom').textContent=lo;
+  document.getElementById('yrTo').textContent=hi;
+  // whichever thumb is closer to left gets higher z-index so it stays grabbable
+  const pct=(+yrMin.value - +yrMin.min) / (+yrMin.max - +yrMin.min);
+  yrMin.style.zIndex = pct < 0.5 ? 5 : 3;
+  yrMax.style.zIndex = pct < 0.5 ? 3 : 5;
+  draw();
+}
+yrMin.oninput=yrMax.oninput=updateYear;
+
+const tooltip=document.getElementById('tooltip');
+function showTip(i,clientX,clientY){
+  const p=DATA.points[i]; document.getElementById('ttTitle').textContent=p.title||`Paper #${i}`;
+  document.getElementById('ttMeta').innerHTML=(p.author?`<b>${p.author}</b><br>`:'')+`Cluster ${p.cluster} · ${p.year||'–'}`;
+  tooltip.style.display='block'; let tx=clientX+14,ty=clientY-8; if(tx+340>window.innerWidth)tx=clientX-354; if(ty<8)ty=8; tooltip.style.left=tx+'px'; tooltip.style.top=ty+'px';
+}
+
+cv.addEventListener('mousedown',e=>{dragging=true;lastM={x:e.clientX,y:e.clientY};cv.style.cursor='grabbing';});
+cv.addEventListener('mousemove',e=>{
+  if(dragging){panX+=e.clientX-lastM.x;panY+=e.clientY-lastM.y;lastM={x:e.clientX,y:e.clientY};draw();return;}
+  const rect=cv.getBoundingClientRect();
+  const mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  let best=-1,bestD=13;
+  DATA.points.forEach((p,i)=>{ const[x,y]=ptXY(p); if(x==null||!visible(p))return; const[sx,sy]=toScreen(x,y); const d=Math.hypot(sx-mx,sy-my); if(d<bestD){bestD=d;best=i;} });
+  if(best!==hoveredIdx){ hoveredIdx=best; draw(); if(best>=0)showTip(best,e.clientX,e.clientY); else tooltip.style.display='none'; }
+  else if(best>=0){ let tx=e.clientX+14,ty=e.clientY-8; if(tx+340>window.innerWidth)tx=e.clientX-354; if(ty<8)ty=8; tooltip.style.left=tx+'px'; tooltip.style.top=ty+'px'; }
+});
+cv.addEventListener('mouseup',()=>{dragging=false;cv.style.cursor='crosshair';});
+cv.addEventListener('mouseleave',()=>{hoveredIdx=-1;tooltip.style.display='none';draw();});
+cv.addEventListener('dblclick',e=>{ const rect=cv.getBoundingClientRect(); const mx=e.clientX-rect.left,my=e.clientY-rect.top; DATA.points.forEach((p,i)=>{ if(!visible(p)||!p.author)return; const[x,y]=ptXY(p); const[sx,sy]=toScreen(x,y); if(Math.hypot(sx-mx,sy-my)<12)pickAuthor(p.author); }); });
+cv.addEventListener('wheel',e=>{ e.preventDefault(); const f=e.deltaY>0?0.88:1.12; panX=e.clientX-(e.clientX-panX)*f; panY=e.clientY-(e.clientY-panY)*f; zoom*=f; draw(); },{passive:false});
+document.getElementById('zoomIn').onclick=()=>{ const c=[W/2,H/2]; panX=c[0]-(c[0]-panX)*1.3; panY=c[1]-(c[1]-panY)*1.3; zoom*=1.3; draw(); };
+document.getElementById('zoomOut').onclick=()=>{ const c=[W/2,H/2]; panX=c[0]-(c[0]-panX)*0.77; panY=c[1]-(c[1]-panY)*0.77; zoom*=0.77; draw(); };
+document.getElementById('zoomReset').onclick=()=>{ autoFit(); draw(); };
+
+// ══════════════════════════════════════════════════════════════════
+// DR METRICS
+// ══════════════════════════════════════════════════════════════════
+function cmColor(v){ return v>0.8?'var(--good)':v>0.65?'var(--warn)':'var(--bad)'; }
+function cellClass(vals,val,lower){
+  const s=[...vals].sort((a,b)=>lower?a-b:b-a);
+  const rank=s.indexOf(val),n=vals.length;
+  return rank<n*0.3?'cell-good':rank<n*0.65?'cell-ok':'cell-bad';
+}
+
+function buildMethodCards(){
+  const{methods,method_order}=DATA;
+  const hasNew=method_order.some(k=>methods[k].custom_metric?.knn_recall!==undefined);
+  const sorted=[...method_order].sort((a,b)=>{
+    const va=hasNew?(methods[a].custom_metric?.composite_score??0):(methods[a].custom_metric?.distance_preservation??0);
+    const vb=hasNew?(methods[b].custom_metric?.composite_score??0):(methods[b].custom_metric?.distance_preservation??0);
+    return vb-va;
+  });
+  const medals=['🥇','🥈','🥉'];
+  document.getElementById('methodsGrid').innerHTML=sorted.map((k,rank)=>{
+    const m=methods[k],cm=m.custom_metric; if(!cm) return '';
+    const heroVal=hasNew?cm.composite_score:cm.distance_preservation;
+    const heroLabel=hasNew?'Composite Score':'Distance Pres.';
+    const hColor=cmColor(heroVal);
+    const rows=hasNew?[
+      ['kNN Recall@100',cm.knn_recall,'#e6194b',false],
+      ['Trustworthiness',cm.trustworthiness,'#3cb44b',false],
+      ['Neighbourhood Hit',cm.neighborhood_hit,'#f58231',false],
+      ['Spearman ρ',cm.spearman_r,'#42d4f4',false],
+      ['SPDE',cm.distance_preservation,cmColor(cm.distance_preservation),false],
+      ['Kruskal Stress',cm.kruskal_stress,'#911eb4',true],
+    ]:[
+      ['Dist. Pres.',cm.distance_preservation,cmColor(cm.distance_preservation),false],
+      ['Pearson r',cm.pearson_r,'#42d4f4',false],
+      ['Mean Abs Err',cm.mae,'#5b8def',true],
+    ];
+    const rowsHtml=rows.map(([lbl,val,color,lower])=>{
+      const barW=lower?Math.max(0,1-val/2):Math.max(0,val);
+      return `<div class="mc-row"><span class="mc-row-label" title="${lbl}">${lbl}</span><div class="mc-row-bar"><div class="mc-row-bar-fill" style="width:${barW*100}%;background:${color}"></div></div><span class="mc-row-val" style="color:${color}">${val?.toFixed(4)??'—'}</span></div>`;
+    }).join('');
+    return `<div class="method-card ${rank<3?'rank-'+(rank+1):''}">
+      <div class="mc-rank">${medals[rank]||''}</div>
+      <div class="mc-header"><span class="mc-name">${m.short}</span><span class="mc-kind ${m.kind}">${m.kind}</span></div>
+      <div class="mc-hero"><div class="mc-hero-val" style="color:${hColor}">${heroVal?.toFixed(4)??'—'}</div><div class="mc-hero-label">${heroLabel}</div></div>
+      <div class="mc-bar-track"><div class="mc-bar-fill" style="width:${(heroVal||0)*100}%;background:${hColor}"></div></div>
+      <div class="mc-rows">${rowsHtml}</div>
+      <div class="mc-desc">${m.long}</div>
+      ${m.warning?`<div class="mc-warn">⚠ ${m.warning}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+let sortCol='composite_score',sortAsc=false;
+function buildMetricsTable(){
+  const{methods,method_order}=DATA;
+  const hasNew=method_order.some(k=>methods[k].custom_metric?.knn_recall!==undefined);
+  const cols=hasNew?[
+    {key:'name',label:'Method',num:false,lower:false},
+    {key:'composite_score',label:'Composite ↑',num:true,lower:false},
+    {key:'knn_recall',label:'kNN Recall ↑',num:true,lower:false},
+    {key:'trustworthiness',label:'Trust ↑',num:true,lower:false},
+    {key:'neighborhood_hit',label:'Nbhd Hit ↑',num:true,lower:false},
+    {key:'spearman_r',label:'Spearman ↑',num:true,lower:false},
+    {key:'distance_preservation',label:'SPDE ↑',num:true,lower:false},
+    {key:'kruskal_stress',label:'Stress ↓',num:true,lower:true},
+    {key:'pearson_r',label:'Pearson ↑',num:true,lower:false},
+    {key:'elapsed_s',label:'Time (s)',num:true,lower:true},
+  ]:[
+    {key:'name',label:'Method',num:false,lower:false},
+    {key:'distance_preservation',label:'SPDE ↑',num:true,lower:false},
+    {key:'pearson_r',label:'Pearson ↑',num:true,lower:false},
+    {key:'mae',label:'MAE ↓',num:true,lower:true},
+    {key:'elapsed_s',label:'Time (s)',num:true,lower:true},
+  ];
+  function getVal(k,colKey){
+    const m=methods[k];
+    if(colKey==='name') return m.short;
+    if(colKey==='elapsed_s') return m.elapsed_s;
+    return m.custom_metric?.[colKey]??null;
+  }
+  function renderTable(){
+    document.getElementById('metricsHead').innerHTML='<tr>'+cols.map(c=>{
+      const arrow=c.key===sortCol?`<span class="sort-arrow active">${sortAsc?'▲':'▼'}</span>`:`<span class="sort-arrow">▼</span>`;
+      return `<th class="${c.key===sortCol?'sorted':''}" data-key="${c.key}">${c.label} ${arrow}</th>`;
+    }).join('')+'</tr>';
+    document.getElementById('metricsHead').querySelectorAll('th').forEach(th=>{
+      th.onclick=()=>{ if(sortCol===th.dataset.key)sortAsc=!sortAsc; else{sortCol=th.dataset.key;sortAsc=false;} renderTable(); };
+    });
+    const rows=[...method_order].sort((a,b)=>{
+      const va=getVal(a,sortCol),vb=getVal(b,sortCol);
+      if(va==null&&vb==null) return 0; if(va==null) return 1; if(vb==null) return -1;
+      const cmp=typeof va==='string'?va.localeCompare(vb):va-vb;
+      return sortAsc?cmp:-cmp;
+    });
+    const numCols=cols.filter(c=>c.num&&c.key!=='name');
+    const colVals={};
+    numCols.forEach(c=>{ colVals[c.key]=method_order.map(k=>getVal(k,c.key)).filter(v=>v!=null); });
+    document.getElementById('metricsBody').innerHTML=rows.map(k=>{
+      const m=methods[k];
+      return '<tr>'+cols.map(c=>{
+        const val=getVal(k,c.key);
+        if(c.key==='name') return `<td${m.warning?' title="⚠ Supervised"':''}>${m.short}${m.warning?' ⚠':''}</td>`;
+        if(val==null) return `<td style="color:#333">—</td>`;
+        const cls=c.num?cellClass(colVals[c.key],val,c.lower):'';
+        return `<td class="${cls}">${typeof val==='number'?val.toFixed(4):val}</td>`;
+      }).join('')+'</tr>';
+    }).join('');
+  }
+  renderTable();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// K-ANALYSIS
+// ══════════════════════════════════════════════════════════════════
+function buildKAnalysis(ka){
+  const sec=document.getElementById('kaSection');
+  const R=ka.results,ks=R.map(r=>r.k),cK=ka.consensus_k;
+  const methodMeta={
+    elbow:{label:'Elbow',key:'elbow_k',color:'#5b8def',desc:'2nd derivative of inertia — kink point',val:null},
+    sil:{label:'Silhouette',key:'best_sil_k',color:'#3cb44b',desc:'Max mean cohesion vs. separation',val:'best_sil_val'},
+    gap:{label:'Gap Statistic',key:'gap_k',color:'#f58231',desc:'Tibshirani: first k beating random by margin',val:null},
+    ch:{label:'Calinski-Harabasz',key:'best_ch_k',color:'#42d4f4',desc:'Max between/within cluster variance ratio',val:'best_ch_val'},
+    db:{label:'Davies-Bouldin',key:'best_db_k',color:'#e6194b',desc:'Min average inter-cluster similarity',val:'best_db_val'},
+    stab:{label:'Stability',key:'best_stab_k',color:'#911eb4',desc:'Max bootstrap Jaccard consistency',val:'best_stab_val'},
+  };
+  const recHtml=Object.entries(methodMeta).map(([id,m])=>{
+    const rk=ka[m.key],vStr=m.val&&ka[m.val]!=null?`val = ${ka[m.val]}`:'';
+    return `<div class="ka-rec-card"><div class="ka-rec-method" style="color:${m.color}">${m.label}</div><div class="ka-rec-k" style="color:${+rk===cK?m.color:'#fff'}">${rk}${+rk===cK?' ★':''}</div>${vStr?`<div class="ka-rec-val">${vStr}</div>`:''}<div class="ka-rec-desc">${m.desc}</div></div>`;
+  }).join('');
+  const charts=[
+    {id:'sp-composite',key:'composite',label:'Composite Score',color:'#42d4f4',lower:false,hint:'Weighted normalised score — higher = better k'},
+    {id:'sp-inertia',key:'inertia',label:'Inertia',color:'#5b8def',lower:true,hint:'Look for kink where curve flattens'},
+    {id:'sp-sil',key:'silhouette',label:'Silhouette',color:'#3cb44b',lower:false,hint:'Higher = better cohesion vs. separation'},
+    {id:'sp-gap',key:'gap',label:'Gap Statistic',color:'#f58231',lower:false,hint:'Higher = more distinct vs. random data'},
+    {id:'sp-ch',key:'calinski_harabasz',label:'Calinski-Harabasz',color:'#42d4f4',lower:false,hint:'Higher = better between/within ratio'},
+    {id:'sp-db',key:'davies_bouldin',label:'Davies-Bouldin',color:'#e6194b',lower:true,hint:'Lower = more separated clusters'},
+    {id:'sp-stab',key:'stability',label:'Stability (Jaccard)',color:'#911eb4',lower:false,hint:'Higher = more reproducible solution'},
+  ].filter(c=>R[0][c.key]!=null);
+  const colDefs=[
+    {h:'k',f:r=>r.k,cls:()=>''},
+    {h:'Composite ↑',f:r=>(r.composite??'—').toFixed?r.composite.toFixed(4):'—',cls:(r,a)=>r.composite!=null?cellClass(a.map(x=>x.composite??0),r.composite,false):''},
+    {h:'Inertia',f:r=>r.inertia.toLocaleString(),cls:(r,a)=>cellClass(a.map(x=>x.inertia),r.inertia,true)},
+    {h:'Silhouette ↑',f:r=>r.silhouette.toFixed(4),cls:(r,a)=>cellClass(a.map(x=>x.silhouette),r.silhouette,false)},
+    {h:'Gap ↑',f:r=>r.gap?.toFixed(4)??'—',cls:(r,a)=>r.gap!=null?cellClass(a.map(x=>x.gap??0),r.gap,false):''},
+    {h:'CH ↑',f:r=>r.calinski_harabasz?.toLocaleString(undefined,{maximumFractionDigits:1})??'—',cls:(r,a)=>r.calinski_harabasz!=null?cellClass(a.map(x=>x.calinski_harabasz??0),r.calinski_harabasz,false):''},
+    {h:'DB ↓',f:r=>r.davies_bouldin?.toFixed(4)??'—',cls:(r,a)=>r.davies_bouldin!=null?cellClass(a.map(x=>x.davies_bouldin??99),r.davies_bouldin,true):''},
+    {h:'Stability ↑',f:r=>r.stability?.toFixed(4)??'—',cls:(r,a)=>r.stability!=null?cellClass(a.map(x=>x.stability??0),r.stability,false):''},
+  ];
+  const thead=colDefs.map(c=>`<th>${c.h}</th>`).join('');
+  const tbody=R.map(r=>{
+    const best=r.k===cK;
+    const cells=colDefs.map(c=>`<td class="${c.cls(r,R)}">${c.f(r)}${best&&c.h==='k'?'<span class="ka-badge">★</span>':''}</td>`).join('');
+    return `<tr class="${best?'best':''}">${cells}</tr>`;
+  }).join('');
+  sec.innerHTML=`
+    <div class="ka-consensus-banner">
+      <div><div style="font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Consensus k (composite score)</div><div class="ka-big-k">${cK}</div></div>
+      <div class="ka-banner-body">
+        <div class="ka-banner-label">Weighted normalised composite: Sil×0.30 · Elbow×0.25 · DB(inv)×0.20 · CH×0.15 · Gap×0.10</div>
+        <div class="ka-banner-detail">
+          Elbow → <b>${ka.elbow_k}</b> &nbsp;·&nbsp; Silhouette → <b>${ka.best_sil_k}</b> (${ka.best_sil_val}) &nbsp;·&nbsp; Gap → <b>${ka.gap_k}</b><br>
+          CH → <b>${ka.best_ch_k}</b> &nbsp;·&nbsp; DB → <b>${ka.best_db_k}</b> (${ka.best_db_val}) &nbsp;·&nbsp; Stability → <b>${ka.best_stab_k}</b> (${ka.best_stab_val})
+        </div>
+      </div>
+    </div>
+    <div class="ka-rec-grid">${recHtml}</div>
+    <div class="ka-charts-grid">${charts.map(c=>`<div class="ka-chart-card"><div class="ka-chart-label" style="color:${c.color}">${c.label}</div><div class="ka-chart-hint">${c.hint} &nbsp;(${c.lower?'↓ lower':'↑ higher'} = better)</div><canvas class="spark" id="${c.id}"></canvas></div>`).join('')}</div>
+    <div class="ka-table-wrap"><table class="ka-table"><thead><tr>${thead}</tr></thead><tbody>${tbody}</tbody></table></div>`;
+  requestAnimationFrame(()=>{
+    charts.forEach(c=>{ const el=document.getElementById(c.id); if(!el) return; drawSpark(el,ks,R.map(r=>r[c.key]??0),c.color,c.lower,cK); });
+  });
+}
+
+function drawSpark(el,ks,vals,color,lowerBetter,cK){
+  const dpr=window.devicePixelRatio||1,W=el.offsetWidth||300,H=130;
+  el.width=W*dpr; el.height=H*dpr; el.style.width=W+'px'; el.style.height=H+'px';
+  const c=el.getContext('2d'); c.scale(dpr,dpr);
+  const PAD={top:8,right:10,bottom:26,left:48},cW=W-PAD.left-PAD.right,cH=H-PAD.top-PAD.bottom;
+  const mn=Math.min(...vals),mx=Math.max(...vals),rng=mx-mn||1;
+  const px=i=>PAD.left+(i/(ks.length-1))*cW, py=v=>PAD.top+cH-((v-mn)/rng)*cH;
+  [0,1,2].forEach(g=>{ const y=PAD.top+g/2*cH; c.strokeStyle='rgba(255,255,255,0.04)'; c.lineWidth=1; c.beginPath(); c.moveTo(PAD.left,y); c.lineTo(PAD.left+cW,y); c.stroke(); c.fillStyle='#444'; c.font='8px JetBrains Mono'; c.textAlign='right'; c.fillText((mx-g/2*rng).toPrecision(3),PAD.left-4,y+3); });
+  c.save(); c.beginPath(); c.moveTo(px(0),PAD.top+cH); vals.forEach((v,i)=>c.lineTo(px(i),py(v))); c.lineTo(px(vals.length-1),PAD.top+cH); c.closePath();
+  const g2=c.createLinearGradient(0,PAD.top,0,PAD.top+cH); g2.addColorStop(0,color+'44'); g2.addColorStop(1,color+'06'); c.fillStyle=g2; c.fill(); c.restore();
+  c.strokeStyle=color; c.lineWidth=2; c.lineJoin='round'; c.beginPath(); vals.forEach((v,i)=>i===0?c.moveTo(px(i),py(v)):c.lineTo(px(i),py(v))); c.stroke();
+  c.fillStyle='#444'; c.font='8px JetBrains Mono'; c.textAlign='center'; ks.forEach((k,i)=>{ if(ks.length>12&&i%2!==0) return; c.fillText(k,px(i),H-PAD.bottom+11); });
+  const ci=ks.indexOf(cK); if(ci>=0){ c.strokeStyle='rgba(255,255,255,0.15)'; c.lineWidth=1; c.setLineDash([3,4]); c.beginPath(); c.moveTo(px(ci),PAD.top); c.lineTo(px(ci),PAD.top+cH); c.stroke(); c.setLineDash([]); }
+  vals.forEach((v,i)=>{ const ki=ks[i],isCon=ki===cK,isOpt=lowerBetter?v===Math.min(...vals):v===Math.max(...vals); c.fillStyle=isCon?'#fff':isOpt?color:color+'77'; c.beginPath(); c.arc(px(i),py(v),isCon?4.5:isOpt?3.5:2,0,Math.PI*2); c.fill(); if(isCon){c.strokeStyle=color;c.lineWidth=2;c.beginPath();c.arc(px(i),py(v),8,0,Math.PI*2);c.stroke();c.fillStyle=color;c.font='bold 8px JetBrains Mono';c.textAlign='center';c.fillText(`k=${ki}`,px(i),py(v)-12);}else if(isOpt){c.fillStyle=color;c.font='bold 8px JetBrains Mono';c.textAlign='center';c.fillText(`k=${ki}`,px(i),py(v)-9);} });
+}
+</script>
+</body>
+</html>

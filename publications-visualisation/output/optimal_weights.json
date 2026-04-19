@@ -1,0 +1,13 @@
+{
+  "weights": {
+    "knn_recall": 0.0344,
+    "trustworthiness": 0.0002,
+    "neighborhood_hit": 0.366,
+    "spearman_r": 0.059,
+    "distance_preservation": 0.1546,
+    "kruskal_stress": 0.3283,
+    "pearson_r": 0.0576
+  },
+  "mean_spearman_r": 0.381,
+  "method": "max mean Spearman rank correlation across all individual metrics"
+}
