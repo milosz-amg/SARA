@@ -636,9 +636,20 @@ i~$\sim\!0{,}99$ dla $k=10$, lecz rozkład jest heterogeniczny ---
 sama liczba prac nie wystarcza do oceny wiarygodności, co uzasadnia
 wprowadzenie wielowymiarowego schematu diagnostycznego.}
 
-% TODO: Uzupełnić rozkład decyzji po wygenerowaniu policy.csv:
-% SINGLE: X autorów (Y%), MULTI: X autorów (Y%),
-% LOW_CONF: X autorów (Y%), AMBIGUOUS: X autorów (Y%).
+Schemat diagnostyczny przypisuje każdemu autorowi jedną z~czterech
+etykiet na podstawie \emph{silhouette}$_{\max}$ (sygnał struktury
+klastrowej, próg $0{,}15$) oraz $\overline{\text{stab}}(5)$ (sygnał
+stabilności wg~\cite{rolewski2024}, próg adaptacyjny $P_{25}=0{,}994$
+wyznaczony na rozkładzie naszego korpusu): \textbf{SINGLE} ---
+$7$~autorów ($6{,}1\%$, profil monotematyczny --- niski silhouette,
+wysoka stabilność); \textbf{MULTI} --- $98$ autorów ($85{,}2\%$, wyraźna
+struktura klastrowa, dekompozycja na $k\!>\!1$ centroidów);
+\textbf{LOW\_CONF} --- $9$~autorów ($7{,}8\%$, $n\!<\!5$ prac);
+\textbf{AMBIGUOUS} --- $1$~autor ($0{,}9\%$, niska stabilność bez
+struktury klastrowej). Próg $P_{25}$ zastępuje stałą Rolewskiego
+$0{,}95$, która dla embeddingów po dostrojeniu CoSENT staje się
+trywialnie spełniona ($100\%$ autorów ją przekracza) --- konsekwencja
+,,ściśnięcia'' przestrzeni opisanego w~tab.~\ref{tab:dept}.
 
 
 % ------------------------------------------------------------
@@ -700,34 +711,54 @@ Porównano trzy warianty reprezentacji autorów na wizualizacji:
         SINGLE/MULTI/LOW\_CONF/AMBIGUOUS.
 \end{enumerate}
 
-% TODO: Tabela porównawcza wariantów — do uzupełnienia po eksperymencie.
 \begin{table}[t]
 \centering
 \caption{Porównanie trzech wariantów reprezentacji autorów
-na zadaniu separacji 14~\hl{jednostek} WMI.}
+na zadaniu separacji 14~\hl{jednostek} WMI ($n=92$ autorów
+z~jednoznacznym przypisaniem). NN@$k$ liczone z~wykluczeniem punktów
+tego samego autora.}
 \label{tab:variants}
 \small
-\begin{tabular}{@{}lcccc@{}}
+\begin{tabular}{@{}lcccccc@{}}
 \toprule
-Wariant & Punkty & NMI & NN@1 & Interpret. \\
+Wariant & Punkty & NMI & NN@1 & NN@5 & Purity & Sil. \\
 \midrule
-baseline   & 115 & \textit{TODO} & \textit{TODO} & --- \\
-aggressive & 298 & \textit{TODO} & \textit{TODO} & \textit{TODO} \\
-adaptive   & \textit{TODO} & \textit{TODO} & \textit{TODO} & \textit{TODO} \\
+baseline   &  $92$ & \textbf{0{,}702} & \textbf{0{,}663} & 0{,}478 & \textbf{0{,}620} & \phantom{$-$}\textbf{0{,}060} \\
+aggressive & $259$ & 0{,}541          & 0{,}591          & \textbf{0{,}548} & 0{,}583 & $-$0{,}001 \\
+adaptive   & $242$ & 0{,}504          & 0{,}599          & 0{,}541 & 0{,}566 & $-$0{,}027 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Wariant baseline daje $115$~punktów o~najwyższej kompletności, lecz
-gubi informację o~wielotorowości --- autor interdyscyplinarny jest
-nieinformatywnie umieszczony ,,pomiędzy'' swoimi obszarami. Wariant
-aggressive generuje $298$~punktów, maksymalizując interpretowalność
-klastrów, lecz zawiera szumowe dekompozycje autorów o~jednorodnym
-profilu. Wariant adaptive ($n$ punktów zależne od profilu) oferuje
-kompromis: wielomodalność ujawniana jest tylko tam, gdzie jest
-wsparta zarówno diagnostyką stabilności, jak i~strukturą klastrową.
+Wyniki przeczą intuicyjnemu założeniu ,,więcej punktów = lepsza
+reprezentacja''. Wariant \textbf{baseline} osiąga najwyższe NMI
+($0{,}702$) i~Purity ($0{,}620$) na zadaniu separacji jednostek ---
+pojedynczy centroid kondensuje pełną informację o~autorze i~pozwala
+algorytmowi K-Means efektywniej rekonstruować strukturę
+organizacyjną. Wariant \textbf{aggressive} obniża NMI o~$16$~pp,
+ponieważ wymuszone dekompozycje autorów monotematycznych generują
+sztuczne sąsiedztwa międzyautorskie, rozmywając granice jednostek.
 
-% TODO: Po uzyskaniu wyników — rozwinąć dyskusję.
+Wariant \textbf{adaptive} ($242$~punkty wobec $259$ w~aggressive ---
+$17$ punktów mniej dzięki klasyfikacji SINGLE/LOW\_CONF/AMBIGUOUS)
+plasuje się pośrodku, lecz zachowuje ważną własność: \emph{lepszą
+lokalną wierność niż aggressive} (NN@1 $+0{,}9$~pp), przy
+porównywalnej liczbie punktów. Pokazuje to, że selektywna decyzja
+o~dekompozycji (oparta zarówno na strukturze klastrowej, jak i~na
+stabilności profilu) ogranicza szum wprowadzany przez wymuszone
+podziały.
+
+Kluczowa obserwacja jest jednak metodologiczna: \emph{zadanie
+separacji jednostek nie jest właściwym kryterium oceny dla
+wieloklastrowej reprezentacji}. Multi-cluster z~definicji rozszczepia
+profile autorów interdyscyplinarnych w~różne regiony przestrzeni ---
+co \emph{powinno} obniżyć metryki klasyfikacji per-jednostka, ponieważ
+informatyk publikujący w~biologii obliczeniowej jest reprezentowany
+zarówno blisko Z.~Sztucznej Inteligencji, jak i~Z.~Biologii. Cel
+multi-cluster to ujawnienie tej interdyscyplinarności, a~nie
+wzmocnienie podziału na jednostki. Tabela~\ref{tab:variants} stanowi
+zatem \emph{cenę} jaką płacimy za dodatkową interpretowalność, a~nie
+miarę jakości w~jej własnym celu.
 
 
 % ------------------------------------------------------------
@@ -862,6 +893,13 @@ P.~J.~Rousseeuw,
 \emph{Silhouettes: a~Graphical Aid to the Interpretation
 and Validation of Cluster Analysis},
 Computational and Applied Mathematics, 20:53--65, 1987.
+
+\bibitem{rolewski2024}
+M.~Rolewski,
+\emph{SARA --- profilowanie badaczy na~podstawie ich~działalności
+naukowej oraz analiza zachowań profili w~zależności od~zastosowanych
+podejść profilowania},
+Praca magisterska, Wydział Matematyki i~Informatyki UAM, Poznań, 2024.
 
 \end{thebibliography}
 
