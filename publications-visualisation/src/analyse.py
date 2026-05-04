@@ -108,7 +108,7 @@ def quality_metrics(emb, coords, labels, sample_n=METRIC_N, seed=SEED):
     Kruskal Stress    classic MDS stress (lower = better)
     SPDE              Scaled Pairwise Distance Error (global fidelity)
     Pearson r         linear correlation of pairwise distances
-    Composite         0.4*kNN + 0.3*Trust + 0.2*Spearman + 0.1*(1-stress)
+    Composite         mean(kNN, Trust, NH, (Spear+1)/2, (Pearson+1)/2, SPDE, 1/(1+stress))
     """
     rng = np.random.default_rng(seed)
     idx = rng.choice(len(emb), min(sample_n, len(emb)), replace=False)
@@ -145,7 +145,30 @@ def quality_metrics(emb, coords, labels, sample_n=METRIC_N, seed=SEED):
     ]
     nbhit = float(np.mean(nh))
 
-    comp = 0.4 * knn + 0.3 * trust + 0.2 * max(spear, 0) + 0.1 * (1 - min(stress / 2, 1))
+        # --- Equal-weight composite score ---
+
+    metrics_raw = {
+        "knn": knn,
+        "trust": trust,
+        "nh": nbhit,
+        "spearman": spear,
+        "pearson": pearson,
+        "spde": spde,
+        "stress": stress,
+    }
+
+    # Normalize correlation metrics from [-1,1] -> [0,1]
+    metrics_norm = {
+        "knn": metrics_raw["knn"],
+        "trust": metrics_raw["trust"],
+        "nh": metrics_raw["nh"],
+        "spearman": (metrics_raw["spearman"] + 1) / 2,
+        "pearson": (metrics_raw["pearson"] + 1) / 2,
+        "spde": metrics_raw["spde"],
+        "stress": 1 / (1 + metrics_raw["stress"]),
+    }
+
+    comp = float(np.mean(list(metrics_norm.values())))
 
     # Per-point SPDE on a 200-pt subsample (expensive)
     pp = []
@@ -465,9 +488,9 @@ def main():
     print("\n" + "=" * 88)
     print("  QUALITY METRICS — kNN Recall 0.15-0.57 is NORMAL for 768D -> 2D")
     print("=" * 88)
-    print(f"  {'Method':<14} {'kNN':>7} {'Trust':>7} {'Comp':>7} "
-          f"{'NbHit':>7} {'Spear':>7} {'SPDE':>7} {'Stress':>8}")
-    print(f"  {'-'*14} {'-'*7} {'-'*7} {'-'*7} {'-'*7} {'-'*7} {'-'*7} {'-'*8}")
+    print(f"  {'Method':<14} {'kNN':>7} {'Trust':>7} {'NbHit':>7} "
+          f"{'Spear':>7} {'Pearson':>8} {'SPDE':>7} {'Stress':>8}")
+    print(f"  {'-'*14} {'-'*7} {'-'*7} {'-'*7} {'-'*7} {'-'*8} {'-'*7} {'-'*8}")
     for k in method_order:
         m  = out["methods"][k]
         cm = m.get("custom_metric", {})
@@ -475,9 +498,9 @@ def main():
         print(f"  {m['short']:<14} "
               f"{cm.get('knn_recall',0):>7.4f} "
               f"{cm.get('trustworthiness',0):>7.4f} "
-              f"{cm.get('composite_score',0):>7.4f} "
               f"{cm.get('neighborhood_hit',0):>7.4f} "
               f"{cm.get('spearman_r',0):>7.4f} "
+              f"{cm.get('pearson_r',0):>8.4f} "
               f"{cm.get('distance_preservation',0):>7.4f} "
               f"{cm.get('kruskal_stress',0):>8.4f}{w}")
 

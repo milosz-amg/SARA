@@ -1,0 +1,362 @@
+{
+  "n_seeds": 10,
+  "methods": {
+    "t-SNE": {
+      "choquet_mean": 0.7984,
+      "choquet_std": 0.0013,
+      "choquet_min": 0.7956,
+      "choquet_max": 0.7999,
+      "wins": 5,
+      "per_seed": [
+        {
+          "seed": 0,
+          "choquet": 0.7967640108587696,
+          "knn_recall": 0.607,
+          "trustworthiness": 0.9681,
+          "neighborhood_hit": 0.8933,
+          "spearman_r": 0.56,
+          "pearson_r": 0.5982,
+          "distance_preservation": 0.8033,
+          "kruskal_stress": 0.5103
+        },
+        {
+          "seed": 1,
+          "choquet": 0.7977076995632899,
+          "knn_recall": 0.615,
+          "trustworthiness": 0.9696,
+          "neighborhood_hit": 0.8857,
+          "spearman_r": 0.5642,
+          "pearson_r": 0.6045,
+          "distance_preservation": 0.8029,
+          "kruskal_stress": 0.5113
+        },
+        {
+          "seed": 2,
+          "choquet": 0.799333631326585,
+          "knn_recall": 0.6117,
+          "trustworthiness": 0.9696,
+          "neighborhood_hit": 0.9018,
+          "spearman_r": 0.5553,
+          "pearson_r": 0.596,
+          "distance_preservation": 0.8052,
+          "kruskal_stress": 0.5016
+        },
+        {
+          "seed": 3,
+          "choquet": 0.795643821622337,
+          "knn_recall": 0.6091,
+          "trustworthiness": 0.9692,
+          "neighborhood_hit": 0.8861,
+          "spearman_r": 0.5579,
+          "pearson_r": 0.5964,
+          "distance_preservation": 0.802,
+          "kruskal_stress": 0.5114
+        },
+        {
+          "seed": 4,
+          "choquet": 0.799843675041876,
+          "knn_recall": 0.6107,
+          "trustworthiness": 0.9694,
+          "neighborhood_hit": 0.8894,
+          "spearman_r": 0.5705,
+          "pearson_r": 0.6096,
+          "distance_preservation": 0.8077,
+          "kruskal_stress": 0.4925
+        },
+        {
+          "seed": 5,
+          "choquet": 0.7987101655629139,
+          "knn_recall": 0.6165,
+          "trustworthiness": 0.9676,
+          "neighborhood_hit": 0.9041,
+          "spearman_r": 0.5511,
+          "pearson_r": 0.5934,
+          "distance_preservation": 0.8009,
+          "kruskal_stress": 0.51
+        },
+        {
+          "seed": 6,
+          "choquet": 0.798129784726794,
+          "knn_recall": 0.6155,
+          "trustworthiness": 0.9696,
+          "neighborhood_hit": 0.8997,
+          "spearman_r": 0.5564,
+          "pearson_r": 0.5998,
+          "distance_preservation": 0.7976,
+          "kruskal_stress": 0.519
+        },
+        {
+          "seed": 7,
+          "choquet": 0.7998942694530304,
+          "knn_recall": 0.6112,
+          "trustworthiness": 0.968,
+          "neighborhood_hit": 0.8996,
+          "spearman_r": 0.558,
+          "pearson_r": 0.5986,
+          "distance_preservation": 0.8074,
+          "kruskal_stress": 0.4882
+        },
+        {
+          "seed": 8,
+          "choquet": 0.7985707923557148,
+          "knn_recall": 0.6102,
+          "trustworthiness": 0.9678,
+          "neighborhood_hit": 0.894,
+          "spearman_r": 0.5684,
+          "pearson_r": 0.6071,
+          "distance_preservation": 0.8023,
+          "kruskal_stress": 0.5057
+        },
+        {
+          "seed": 9,
+          "choquet": 0.7995297944269191,
+          "knn_recall": 0.6106,
+          "trustworthiness": 0.9682,
+          "neighborhood_hit": 0.8997,
+          "spearman_r": 0.5791,
+          "pearson_r": 0.6173,
+          "distance_preservation": 0.7966,
+          "kruskal_stress": 0.5216
+        }
+      ]
+    },
+    "UMAP": {
+      "choquet_mean": 0.7888,
+      "choquet_std": 0.0072,
+      "choquet_min": 0.7792,
+      "choquet_max": 0.8017,
+      "wins": 2,
+      "per_seed": [
+        {
+          "seed": 0,
+          "choquet": 0.7860696563289685,
+          "knn_recall": 0.5758,
+          "trustworthiness": 0.9526,
+          "neighborhood_hit": 0.8857,
+          "spearman_r": 0.6864,
+          "pearson_r": 0.6912,
+          "distance_preservation": 0.7488,
+          "kruskal_stress": 0.7412
+        },
+        {
+          "seed": 1,
+          "choquet": 0.7825169522194282,
+          "knn_recall": 0.5842,
+          "trustworthiness": 0.9519,
+          "neighborhood_hit": 0.8708,
+          "spearman_r": 0.6738,
+          "pearson_r": 0.6533,
+          "distance_preservation": 0.7477,
+          "kruskal_stress": 0.7099
+        },
+        {
+          "seed": 2,
+          "choquet": 0.7896140035107877,
+          "knn_recall": 0.5762,
+          "trustworthiness": 0.9477,
+          "neighborhood_hit": 0.8888,
+          "spearman_r": 0.6242,
+          "pearson_r": 0.6395,
+          "distance_preservation": 0.7847,
+          "kruskal_stress": 0.5666
+        },
+        {
+          "seed": 3,
+          "choquet": 0.7878023711217184,
+          "knn_recall": 0.5841,
+          "trustworthiness": 0.9537,
+          "neighborhood_hit": 0.8802,
+          "spearman_r": 0.6616,
+          "pearson_r": 0.6733,
+          "distance_preservation": 0.7609,
+          "kruskal_stress": 0.676
+        },
+        {
+          "seed": 4,
+          "choquet": 0.7931708018839259,
+          "knn_recall": 0.5897,
+          "trustworthiness": 0.9546,
+          "neighborhood_hit": 0.8742,
+          "spearman_r": 0.6901,
+          "pearson_r": 0.6914,
+          "distance_preservation": 0.7688,
+          "kruskal_stress": 0.6455
+        },
+        {
+          "seed": 5,
+          "choquet": 0.8017421016893012,
+          "knn_recall": 0.5855,
+          "trustworthiness": 0.9593,
+          "neighborhood_hit": 0.8879,
+          "spearman_r": 0.665,
+          "pearson_r": 0.672,
+          "distance_preservation": 0.7955,
+          "kruskal_stress": 0.5095
+        },
+        {
+          "seed": 6,
+          "choquet": 0.7817831753652816,
+          "knn_recall": 0.5886,
+          "trustworthiness": 0.9535,
+          "neighborhood_hit": 0.8905,
+          "spearman_r": 0.6165,
+          "pearson_r": 0.609,
+          "distance_preservation": 0.7509,
+          "kruskal_stress": 0.6631
+        },
+        {
+          "seed": 7,
+          "choquet": 0.7861871404050383,
+          "knn_recall": 0.5881,
+          "trustworthiness": 0.9557,
+          "neighborhood_hit": 0.8909,
+          "spearman_r": 0.6034,
+          "pearson_r": 0.6155,
+          "distance_preservation": 0.7712,
+          "kruskal_stress": 0.6196
+        },
+        {
+          "seed": 8,
+          "choquet": 0.7791648146756897,
+          "knn_recall": 0.5842,
+          "trustworthiness": 0.9482,
+          "neighborhood_hit": 0.8851,
+          "spearman_r": 0.6319,
+          "pearson_r": 0.6465,
+          "distance_preservation": 0.7438,
+          "kruskal_stress": 0.7437
+        },
+        {
+          "seed": 9,
+          "choquet": 0.8002657908783362,
+          "knn_recall": 0.5856,
+          "trustworthiness": 0.9603,
+          "neighborhood_hit": 0.8929,
+          "spearman_r": 0.6993,
+          "pearson_r": 0.7004,
+          "distance_preservation": 0.7737,
+          "kruskal_stress": 0.5962
+        }
+      ]
+    },
+    "PaCMAP": {
+      "choquet_mean": 0.7942,
+      "choquet_std": 0.0045,
+      "choquet_min": 0.7877,
+      "choquet_max": 0.8012,
+      "wins": 3,
+      "per_seed": [
+        {
+          "seed": 0,
+          "choquet": 0.7971874436059873,
+          "knn_recall": 0.5805,
+          "trustworthiness": 0.96,
+          "neighborhood_hit": 0.889,
+          "spearman_r": 0.6727,
+          "pearson_r": 0.6969,
+          "distance_preservation": 0.7795,
+          "kruskal_stress": 0.6101
+        },
+        {
+          "seed": 1,
+          "choquet": 0.801232707356248,
+          "knn_recall": 0.5951,
+          "trustworthiness": 0.9578,
+          "neighborhood_hit": 0.8861,
+          "spearman_r": 0.6724,
+          "pearson_r": 0.6856,
+          "distance_preservation": 0.7886,
+          "kruskal_stress": 0.5565
+        },
+        {
+          "seed": 2,
+          "choquet": 0.7919709506196139,
+          "knn_recall": 0.5787,
+          "trustworthiness": 0.9579,
+          "neighborhood_hit": 0.8819,
+          "spearman_r": 0.6427,
+          "pearson_r": 0.6598,
+          "distance_preservation": 0.782,
+          "kruskal_stress": 0.5897
+        },
+        {
+          "seed": 3,
+          "choquet": 0.7894342666507947,
+          "knn_recall": 0.582,
+          "trustworthiness": 0.9584,
+          "neighborhood_hit": 0.8804,
+          "spearman_r": 0.6693,
+          "pearson_r": 0.6848,
+          "distance_preservation": 0.7606,
+          "kruskal_stress": 0.6801
+        },
+        {
+          "seed": 4,
+          "choquet": 0.7978848489663686,
+          "knn_recall": 0.5822,
+          "trustworthiness": 0.9618,
+          "neighborhood_hit": 0.8871,
+          "spearman_r": 0.6872,
+          "pearson_r": 0.7013,
+          "distance_preservation": 0.7768,
+          "kruskal_stress": 0.6205
+        },
+        {
+          "seed": 5,
+          "choquet": 0.7935101746178785,
+          "knn_recall": 0.5942,
+          "trustworthiness": 0.9612,
+          "neighborhood_hit": 0.8995,
+          "spearman_r": 0.6887,
+          "pearson_r": 0.6938,
+          "distance_preservation": 0.749,
+          "kruskal_stress": 0.7272
+        },
+        {
+          "seed": 6,
+          "choquet": 0.7941945606060606,
+          "knn_recall": 0.5827,
+          "trustworthiness": 0.9582,
+          "neighborhood_hit": 0.8919,
+          "spearman_r": 0.6748,
+          "pearson_r": 0.6971,
+          "distance_preservation": 0.7642,
+          "kruskal_stress": 0.65
+        },
+        {
+          "seed": 7,
+          "choquet": 0.8000541514174473,
+          "knn_recall": 0.5882,
+          "trustworthiness": 0.9611,
+          "neighborhood_hit": 0.9046,
+          "spearman_r": 0.69,
+          "pearson_r": 0.7051,
+          "distance_preservation": 0.7693,
+          "kruskal_stress": 0.6438
+        },
+        {
+          "seed": 8,
+          "choquet": 0.7889088074080697,
+          "knn_recall": 0.5766,
+          "trustworthiness": 0.9589,
+          "neighborhood_hit": 0.8866,
+          "spearman_r": 0.6691,
+          "pearson_r": 0.6793,
+          "distance_preservation": 0.7578,
+          "kruskal_stress": 0.6779
+        },
+        {
+          "seed": 9,
+          "choquet": 0.787687937934662,
+          "knn_recall": 0.589,
+          "trustworthiness": 0.9602,
+          "neighborhood_hit": 0.8939,
+          "spearman_r": 0.6422,
+          "pearson_r": 0.6688,
+          "distance_preservation": 0.7504,
+          "kruskal_stress": 0.7111
+        }
+      ]
+    }
+  }
+}
