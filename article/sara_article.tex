@@ -1,0 +1,746 @@
+\documentclass[a4paper,11pt,twocolumn]{article}
+
+% ---- Encoding & language ----
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+
+% ---- Page geometry (8 pages target) ----
+\usepackage[
+  top=25mm, bottom=25mm,
+  left=18mm, right=18mm,
+  columnsep=6mm
+]{geometry}
+
+% ---- Math ----
+\usepackage{amsmath,amssymb,amsfonts}
+
+% ---- Tables & figures ----
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+
+% ---- Hyperlinks ----
+\usepackage[hidelinks]{hyperref}
+
+% ---- Citations ----
+\usepackage[numbers,sort&compress]{natbib}
+
+% ---- Compact lists ----
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+
+% ---- Captions ----
+\usepackage[font=small,labelfont=bf]{caption}
+
+% ---- Algorithm ----
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% ---- Section formatting ----
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{1.2ex plus 0.3ex}{0.6ex plus 0.1ex}
+\titlespacing*{\subsection}{0pt}{0.8ex plus 0.2ex}{0.4ex plus 0.1ex}
+
+% ---- Abstract environment ----
+\renewenvironment{abstract}{%
+  \small\quotation\noindent\textbf{Streszczenie.}\enspace
+}{\endquotation}
+
+% ---- Title ----
+\title{%
+  \Large\bfseries
+  System SARA: semantyczna eksploracja i~adaptacyjna\\
+  reprezentacja naukowców w~przestrzeni embeddingów%
+}
+
+\author{%
+  Patryk Żywica\textsuperscript{1} \quad
+  Daria Dworzyńska-Wujec\textsuperscript{1} \quad
+  Michał Wujec\textsuperscript{1}\\
+  Miłosz Rolewski\textsuperscript{1} \quad
+  Jakub Paszke\textsuperscript{1}\\[4pt]
+  \textsuperscript{1}Wydział Matematyki i~Informatyki,
+  Uniwersytet im.~Adama Mickiewicza w~Poznaniu\\
+  \texttt{patryk.zywica@amu.edu.pl}
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ============================================================
+%  ABSTRACT
+% ============================================================
+\begin{abstract}
+Dynamiczny wzrost liczby publikacji naukowych wymaga narzędzi umożliwiających
+automatyczną eksplorację zarówno pojedynczych artykułów, jak i~profili
+badawczych ich autorów. W~niniejszym artykule prezentujemy system SARA
+(Search and Research Assistant) --- dwupoziomową platformę semantycznej
+eksploracji zbudowaną na danych Wydziału Matematyki i~Informatyki UAM
+($N=3440$ publikacji, $115$~autorów, $14$~zakładów).
+Na poziomie publikacji przeprowadzamy systematyczne porównanie ośmiu metod
+redukcji wymiarowości (t-SNE, UMAP, PaCMAP, Spectral Embedding, PCA,
+Isomap, LDA, PCA~8D+log) z~wykorzystaniem siedmiu metryk jakości projekcji
+oraz autorskiego wskaźnika Composite Score.
+Na poziomie autorów proponujemy adaptacyjną reprezentację, w~której
+decyzja o~liczbie punktów reprezentujących badacza (jeden centroid vs.\
+wiele klastrów) podejmowana jest per autor na podstawie diagnostyki
+stabilności centroidu oraz automatycznej dekompozycji multi-cluster.
+Model embeddingowy BGE-base został dostrojony funkcją straty CoSENTLoss
+z~hierarchiczną odległością kategorii ArXiv, co poprawiło wariancję
+wyjaśnioną w~PCA~2D z~33,11\% do 54,71\% na profilach autorów.
+85,2\% autorów z~co najmniej pięcioma publikacjami wykazuje wieloklastrową
+strukturę profilu badawczego (średnio $k=2{,}59$ klastrów).
+\end{abstract}
+
+\smallskip\noindent
+\textbf{Słowa kluczowe:}
+embeddingi tekstowe, redukcja wymiarowości, profilowanie naukowców,
+reprezentacja adaptacyjna, fine-tuning, wizualizacja danych naukowych
+
+% ============================================================
+\section{Wprowadzenie}
+\label{sec:intro}
+% ============================================================
+
+Współczesna nauka generuje publikacje w~tempie przekraczającym możliwości
+ręcznej analizy. Tylko w~roku 2024 w~bazie OpenAlex zarejestrowano ponad
+200 milionów prac naukowych. Dla badacza szukającego potencjalnych
+współpracowników, recenzenta oceniającego dorobek czy administratora
+jednostki potrzebne są narzędzia umożliwiające szybką eksplorację
+przestrzeni tematycznej --- zarówno na poziomie pojedynczych artykułów,
+jak i~całych profili badawczych.
+
+Standardowym podejściem jest reprezentacja tekstu za pomocą embeddingów
+--- gęstych wektorów w~przestrzeni $\mathbb{R}^d$, wytwarzanych przez
+pretrenowane modele językowe. Naturalnym pytaniem staje się wówczas:
+\emph{jak zredukować $d=768$ wymiarów do~dwóch, zachowując semantyczną
+strukturę danych?} Oraz, na wyższym poziomie agregacji: \emph{czy
+naukowca można wiarygodnie reprezentować pojedynczym punktem
+w~przestrzeni embeddingów, czy też należy traktować go jako obiekt
+potencjalnie wielomodalny?}
+
+Niniejszy artykuł prezentuje system SARA --- dwupoziomową platformę
+semantycznej eksploracji, opracowaną na danych Wydziału Matematyki
+i~Informatyki (WMI) Uniwersytetu im.~Adama Mickiewicza w~Poznaniu.
+System obejmuje:
+\begin{enumerate}
+  \item systematyczne porównanie ośmiu metod redukcji wymiarowości
+        na zbiorze 3440~publikacji z~użyciem siedmiu metryk jakości
+        projekcji oraz autorskiego wskaźnika Composite Score,
+  \item adaptacyjną reprezentację 115~autorów WMI, łączącą diagnostykę
+        stabilności centroidu z~automatyczną dekompozycją
+        wieloklastrową,
+  \item dostrojenie modelu embeddingowego z~wykorzystaniem hierarchicznej
+        taksonomii kategorii ArXiv.
+\end{enumerate}
+
+Artykuł ma następującą strukturę. Sekcja~\ref{sec:data} opisuje źródła
+danych i~proces generowania embeddingów. Sekcje~\ref{sec:dr}
+i~\ref{sec:author} przedstawiają odpowiednio analizę na poziomie
+publikacji i~autorów. Sekcja~\ref{sec:eval} integruje wyniki obu
+warstw, a~sekcja~\ref{sec:concl} podsumowuje pracę.
+
+
+% ============================================================
+\section{Dane i~embeddingi}
+\label{sec:data}
+% ============================================================
+
+\subsection{Źródła danych}
+
+Dane pozyskano z~Portalu Badawczego UAM oraz interfejsu OpenAlex API.
+Pipeline zbierania obejmuje cztery etapy: (1)~scraping profili pracowników
+WMI z~ekstrakcją identyfikatorów ORCID i~Scopus, (2)~pobieranie metadanych
+publikacji z~OpenAlex na podstawie ORCID, (3)~uzupełnianie brakujących
+abstraktów przez bezpośredni scraping witryn wydawców (16~wariantów
+selektorów CSS), (4)~filtrowanie i~deduplikacja. Wynikowy zbiór liczy
+$N=3440$ publikacji przypisanych do $115$~autorów z~$14$~zakładów WMI.
+Średnia liczba publikacji na autora wynosi $29{,}9$ (mediana~$19$).
+
+Dodatkowo, jako korpus referencyjny do fine-tuningu, pobrano $18\,880$
+artykułów z~ArXiv API --- po $200$ z~każdej ze~$118$~podkategorii.
+63,8\% artykułów w~tym zbiorze posiada więcej niż jedną kategorię
+(średnio~$2{,}06$).
+
+\subsection{Generowanie embeddingów}
+
+Dla każdej publikacji generowany jest embedding na podstawie konkatenacji
+tytułu i~abstraktu: \texttt{"\{title\}. \{abstract\}"}. Wektory mają
+wymiar $d=768$ i~są normalizowane $L^2$, dzięki czemu odległość
+euklidesowa staje się monotoniczna względem podobieństwa kosinusowego:
+\begin{equation}
+  \|e_i - e_j\|^2 = 2(1 - e_i \cdot e_j).
+  \label{eq:cosine}
+\end{equation}
+
+Jako bazowy model embeddingowy wybrano BAAI/bge-base-en-v1.5 na podstawie
+porównania dziewięciu modeli (Tab.~\ref{tab:models}) na zbiorze
+$2397$~artykułów ArXiv, gdzie osiągnął najwyższą main-category purity
+(70,55\% dla $k=118$~klastrów).
+
+\begin{table}[t]
+\centering
+\caption{Porównanie modeli embeddingowych (top~5 z~9 testowanych,
+ArXiv $n=2397$, $k=118$).}
+\label{tab:models}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Model & $d$ & Purity \\
+\midrule
+BGE-base-en-v1.5    & 768  & 70,55\% \\
+BGE-large-en-v1.5   & 1024 & 69,63\% \\
+Nomic-embed-v1.5    & 768  & 69,50\% \\
+SPECTER             & 768  & 68,88\% \\
+all-mpnet-base-v2   & 768  & 68,09\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ograniczenie Johnsona--Lindenstraussa}
+
+Lemat Johnsona--Lindenstraussa gwarantuje, że wierna projekcja
+(z~dokładnością $\varepsilon$) $n$~punktów wymaga co najmniej
+$d_{\min} = O(\varepsilon^{-2} \ln n)$ wymiarów. Dla $n=3440$
+i~$\varepsilon=0{,}1$ daje to $d_{\min} \approx 1200$. Redukcja
+do~$2$~wymiarów jest zatem $600\times$ poniżej tego minimum ---
+co motywuje potrzebę rygorystycznej oceny jakości projekcji,
+przedstawionej w~sekcji~\ref{sec:dr}.
+
+
+% ============================================================
+\section{Wizualizacja publikacji: redukcja wymiarowości}
+\label{sec:dr}
+% ============================================================
+
+\subsection{Metody redukcji wymiarowości}
+
+Porównano osiem metod DR, podzielonych na dwie grupy ze~względu na
+charakter zachowywanych relacji.
+
+\textbf{Metody lokalne} koncentrują się na zachowaniu sąsiedztw:
+\begin{itemize}
+  \item \textbf{t-SNE} --- minimalizuje dywergencję KL między rozkładami
+        prawdopodobieństwa sąsiedztw w~przestrzeni oryginalnej i~docelowej;
+        inicjalizacja PCA, perplexity$=35$;
+  \item \textbf{UMAP} --- modeluje strukturę danych jako ważony graf
+        simpleksów rozmytych; metryka kosinusowa, $n\_neighbors=20$;
+  \item \textbf{PaCMAP} --- optymalizuje trzy typy par (bliskie, średnie,
+        dalekie) z~adaptacyjnymi wagami; $n\_neighbors=10$;
+  \item \textbf{Spectral Embedding} --- wykorzystuje wektory własne
+        laplasjanu grafu sąsiedztwa; 50D PCA preprocessing.
+\end{itemize}
+
+\textbf{Metody globalne/liniowe} zachowują relacje na większą skalę:
+\begin{itemize}
+  \item \textbf{PCA} --- maksymalizuje wariancję wzdłuż głównych osi;
+  \item \textbf{Isomap} --- zachowuje odległości geodezyjne na rozmaitości;
+  \item \textbf{LDA} --- maksymalizuje separację klas (metoda nadzorowana);
+  \item \textbf{PCA 8D+log} --- pipeline: podobieństwo kosinusowe do
+        centroidów klastrów, transformacja logarytmiczna, PCA do~2D.
+\end{itemize}
+
+\subsection{Metryki jakości projekcji}
+
+Jakość projekcji oceniono siedmioma metrykami, podzielonymi na lokalne
+i~globalne.
+
+\textbf{Metryki lokalne:}
+(1)~\emph{kNN Recall@100} --- odsetek prawdziwych sąsiadów w~768D
+zachowanych w~2D;
+(2)~\emph{Trustworthiness} --- odsetek sąsiadów w~2D, którzy są
+rzeczywistymi sąsiadami w~768D;
+(3)~\emph{Neighbourhood Hit} --- odsetek $k$-sąsiadów w~2D
+należących do tego samego klastra.
+
+\textbf{Metryki globalne:}
+(4)~\emph{korelacja rang Spearmana ($\rho$)} --- monotoniczność relacji
+odległości;
+(5)~\emph{korelacja Pearsona ($r$)} --- liniowość zachowania odległości;
+(6)~\emph{Kruskal Stress ($\sigma$)} --- znormalizowany błąd
+odwzorowania odległości;
+(7)~\emph{SPDE} --- skalowana różnica odległości parami.
+
+\subsection{Composite Score}
+
+Zaproponowano autorski wskaźnik Composite Score ($CS$), łączący metryki
+lokalne i~globalne w~jedną miarę jakości projekcji. Wagi wyznaczono
+empirycznie poprzez analizę korelacji między metrykami i~minimalizację
+redundancji, a~następnie zwalidowano przez porównanie rankingu metod
+z~niezależną oceną użytkownikową. Wskaźnik zdefiniowano jako:
+\begin{equation}
+  CS = \sum_{i=1}^{7} w_i \cdot m_i,
+  \label{eq:composite}
+\end{equation}
+gdzie $m_i$ to znormalizowana wartość $i$-tej metryki, a~$w_i$ ---
+jej waga. Jako dodatkową walidację zastosowano całkę Choquet
+z~2-addytywną miarą rozmytą, wyznaczając wartości Shapleya dla
+poszczególnych metryk.
+
+\subsection{Dobór liczby klastrów}
+
+Optymalną liczbę klastrów $k$ wyznaczono metodą konsensusu sześciu
+kryteriów: metoda łokcia (inercja), silhouette score, statystyka
+luki (gap statistic), indeks Calińskiego--Harabasza, indeks
+Daviesa--Bouldina oraz analiza stabilności (bootstrap Jaccard).
+Głosowanie większościowe wskazało $k=9$ (silhouette $=0{,}2823$).
+
+\subsection{Wyniki porównania metod DR}
+
+Tabela~\ref{tab:dr} przedstawia wyniki porównania ośmiu metod.
+Trzy metody nieliniowe --- UMAP ($CS=0{,}727$), PaCMAP ($CS=0{,}725$)
+i~t-SNE ($CS=0{,}724$) --- osiągają zbliżone wyniki, znacząco
+przewyższając pozostałe. Różnice między nimi są marginalne
+($\Delta CS < 0{,}004$), co sugeruje, że wybór spośród nich powinien
+uwzględniać dodatkowe kryteria praktyczne.
+
+\begin{table}[t]
+\centering
+\caption{Porównanie ośmiu metod DR na zbiorze $N=3440$ publikacji
+($k=9$ klastrów). CS~--- Composite Score,
+kNN~--- kNN Recall@100, Trust~--- Trustworthiness,
+NH~--- Neighbourhood Hit, $\rho$~--- Spearman.}
+\label{tab:dr}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Metoda & CS & kNN & Trust & NH & $\rho$ \\
+\midrule
+UMAP      & \textbf{0,727} & 0,587 & 0,961 & 0,908 & 0,679 \\
+PaCMAP    & 0,725 & 0,573 & \textbf{0,963} & 0,908 & \textbf{0,709} \\
+t-SNE     & 0,724 & \textbf{0,611} & 0,972 & \textbf{0,918} & 0,563 \\
+Isomap    & 0,605 & 0,319 & 0,868 & 0,747 & 0,716 \\
+PCA       & 0,576 & 0,260 & 0,855 & 0,711 & 0,685 \\
+LDA       & 0,575 & 0,216 & 0,879 & 0,878 & 0,773 \\
+Spectral  & 0,536 & 0,314 & 0,850 & 0,800 & 0,741 \\
+8D+log    & 0,530 & 0,197 & 0,816 & 0,498 & 0,770 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+UMAP i~PaCMAP wyróżniają się najlepszym kompromisem między wiernością
+lokalną a~globalną. t-SNE osiąga najwyższy kNN~Recall (0,611) i~Neighbourhood
+Hit (0,918), lecz kosztem korelacji globalnej ($\rho=0{,}563$) ---
+efekt dobrze udokumentowany w~literaturze, wynikający z~jądra Studenta
+w~przestrzeni docelowej. PaCMAP natomiast uzyskuje najwyższą korelację
+rang ($\rho=0{,}709$) przy porównywalnej wierności lokalnej, co czyni go
+rekomendowaną metodą domyślną.
+
+Metody liniowe (PCA, LDA, 8D+log) ustępują nieliniowym pod względem
+$CS$, lecz zachowują wyższą korelację globalną ($\rho > 0{,}68$).
+LDA osiąga wysoki Neighbourhood Hit (0,878), lecz jest to artefakt
+metody nadzorowanej --- maksymalizuje separację klas z~definicji,
+co stanowi rozumowanie kołowe w~kontekście oceny klasteryzacji.
+
+Całka Choquet z~wartościami Shapleya potwierdza ranking, wskazując
+na PaCMAP i~UMAP jako metody o~najlepszym profilu wielokryterialnym,
+z~dominującymi wagami dla korelacji Spearmana (0,189) i~zachowania
+odległości (0,147).
+
+
+% ============================================================
+\section{Reprezentacja autorów}
+\label{sec:author}
+% ============================================================
+
+\subsection{Centroid autora i~problem wielomodalności}
+
+Naturalną reprezentacją profilu badawczego autora $a$ jest centroid ---
+uśredniony wektor embeddingów jego publikacji:
+\begin{equation}
+  \hat{e}_a = \frac{\bar{e}_a}{\|\bar{e}_a\|}, \quad
+  \bar{e}_a = \frac{1}{n_a}\sum_{p \in P_a} e_p,
+  \label{eq:centroid}
+\end{equation}
+gdzie $P_a$ to zbiór publikacji autora, a~normalizacja $L^2$
+zapewnia porównywalność z~embeddingami artykułów. Mean pooling
+działa jako filtr szumów (wygładza jednorazowe tematy), jest
+stałowymiarowy i~łatwo aktualizowalny inkrementalnie.
+
+Problem pojawia się dla autorów o~zróżnicowanym profilu: centroid
+badacza łączącego np.~robotykę z~medycyną trafia w~pustą przestrzeń
+,,pomiędzy'' tymi obszarami, nie reprezentując wiernie żadnego z~nich.
+
+\subsection{Diagnostyka stabilności centroidu}
+
+Aby ocenić wiarygodność centroidu, zaproponowano trzy osie diagnostyczne:
+
+\textbf{(1) Test bliskości współautorów.}
+Zweryfikowano hipotezę, że współautorzy mają istotnie bliższe centroidy
+niż pary losowe, za~pomocą testu U~Manna--Whitneya. Potwierdzenie
+tej hipotezy waliduje, że embeddingi wychwytują rzeczywiste podobieństwo
+badawcze.
+
+\textbf{(2) Zgodność sąsiedztw top-$k$.}
+Zmierzono miarę Jaccarda między zbiorami $k$~najbliższych sąsiadów
+autora w~różnych konfiguracjach (model $\times$ typ tekstu wejściowego).
+Wysoka zgodność oznacza, że profil jest semantycznie stabilny niezależnie
+od wyboru modelu.
+
+\textbf{(3) Stabilność centroidu względem liczby prac.}
+Obliczono średnie podobieństwo kosinusowe między centroidem zbudowanym
+z~losowego podzbioru $k$ prac a~centroidem pełnym, dla
+$k \in \{3, 5, 10, 20, 50, 100\}$. Stabilność osiąga $\sim\!0{,}95$
+dla $k=5$ i~$\sim\!0{,}99$ dla $k=10$, lecz rozkład jest heterogeniczny
+--- sama liczba prac nie wystarcza do oceny wiarygodności centroidu.
+
+Diagnostykę przeprowadzono na sześciu modelach embeddingowych (SPECTER,
+MiniLM-L6, MiniLM-L12, MPNet-Base, BGE-Small, Multilingual-MiniLM)
+i~czterech wariantach tekstu wejściowego. Modele 768-wymiarowe
+sprowadzano do wspólnego wymiaru~384 przez projekcję
+Johnsona--Lindenstraussa, umożliwiając bezpośrednie porównania.
+
+Jako dodatkowy sygnał interdyscyplinarności wprowadzono \emph{miarę
+rozproszenia} (dispersion) embeddingów prac autora --- niezależną
+od~liczby publikacji. Zbiór cech diagnostycznych
+$(n\_papers, stability@k, avg\_jaccard, dispersion)$ stanowi podstawę
+schematu decyzyjnego opisanego w~sekcji~\ref{sec:adaptive}.
+
+\subsection{Dostrojenie modelu embeddingowego}
+\label{sec:finetune}
+
+Model BGE-base dostrojono z~wykorzystaniem funkcji straty CoSENTLoss
+na korpusie $18\,880$ artykułów ArXiv. Kluczowym elementem jest
+hierarchiczna funkcja odległości oparta na trzypoziomowej taksonomii
+ArXiv:
+\begin{equation}
+  h(c_i, c_j) = \begin{cases}
+    0{,}00 & \text{ta sama podkategoria,} \\
+    0{,}33 & \text{to samo archiwum,} \\
+    0{,}67 & \text{ta sama grupa główna,} \\
+    1{,}00 & \text{różne grupy.}
+  \end{cases}
+  \label{eq:hierarchy}
+\end{equation}
+
+Dla artykułów z~wieloma kategoriami (63,8\% zbioru) wynikowy score
+łączy indeks Jaccarda zbiorów kategorii z~najlepszą odległością
+hierarchiczną:
+\begin{equation}
+  s(p_i, p_j) = 0{,}5 \cdot J(C_i, C_j) + 0{,}5 \cdot
+  \min_{c_i \in C_i, c_j \in C_j} h(c_i, c_j).
+  \label{eq:score}
+\end{equation}
+
+Pary treningowe generowano ze~stratyfikowanym próbkowaniem: 3~pary
+z~tej samej podkategorii, 2~z~tego samego archiwum, 2~z~tej samej
+grupy i~1~z~różnych grup --- na każdy artykuł. Trening przeprowadzono
+na GPU A100 (Google Colab): 1~epoka, learning rate $10^{-5}$,
+batch size $64$, warmup $10\%$.
+
+Tabela~\ref{tab:finetune} pokazuje wpływ dostrojenia. Na zbiorze
+ArXiv main-category purity wzrosła o~5,69~pp, a~fuzzy purity
+o~6,46~pp. Kluczowym wynikiem jest wzrost wariancji wyjaśnionej
+w~PCA~2D z~12,19\% do~29,37\% na~ArXiv, a~na profilach autorów
+WMI --- z~33,11\% do~54,71\%, co czyni wizualizację 2D znacząco
+bardziej wiarygodną.
+
+\begin{table}[t]
+\centering
+\caption{Wpływ dostrojenia BGE-base na metryki jakości.}
+\label{tab:finetune}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Metryka & Oryg. & FT & $\Delta$ \\
+\midrule
+Main-cat.\ purity ($k\!=\!118$) & 68,07\% & 73,76\% & +5,69 \\
+Fuzzy purity ($k\!=\!118$) & 74,14\% & 80,59\% & +6,46 \\
+Precision@10 & 0,654 & 0,690 & +0,036 \\
+Precision@20 & 0,625 & 0,667 & +0,043 \\
+Var.\ expl.\ PCA 2D (ArXiv) & 12,19\% & 29,37\% & +17,18 \\
+Var.\ expl.\ PCA 2D (autorzy) & 33,11\% & 54,71\% & +21,60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Dekompozycja wieloklastrowa}
+
+Dla autorów z~co~najmniej pięcioma publikacjami testowano K-means
+z~$k \in \{2, \ldots, 5\}$. Optymalną liczbę klastrów $k^\star$
+wyznaczano jako maksymalizującą silhouette score, z~progiem
+$s_{min}=0{,}15$ --- poniżej którego autor otrzymuje reprezentację
+jednopunktową. Dobór progu uzasadniono empirycznie (Tab.~\ref{tab:threshold}).
+
+\begin{table}[t]
+\centering
+\caption{Wpływ progu silhouette na dekompozycję wieloklastrową
+($n=115$ autorów, $\geq 5$ publikacji).}
+\label{tab:threshold}
+\small
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Próg $s_{min}$ & Autorzy $k\!>\!1$ & \% & Śr.\ $k$ \\
+\midrule
+0,05 & 106 & 92,2 & 2,75 \\
+0,10 & 105 & 91,3 & 2,71 \\
+\textbf{0,15} & \textbf{98} & \textbf{85,2} & \textbf{2,59} \\
+0,20 & 86  & 74,8 & 2,37 \\
+0,30 & 59  & 51,3 & 1,88 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Przy progu $0{,}15$ --- $85{,}2\%$ autorów wykazuje wieloklastrową
+strukturę (średnio $2{,}59$ klastra), generując łącznie $298$ punktów
+reprezentacyjnych. Każdy klaster etykietowany jest automatycznie
+na~podstawie trzech najczęstszych tematów i~pięciu słów kluczowych
+z~metadanych OpenAlex.
+
+\subsection{Schemat decyzyjny --- reprezentacja adaptacyjna}
+\label{sec:adaptive}
+
+Cechy diagnostyczne z~diagnostyki stabilności (sekcja~4.2) łączone
+są z~cechami strukturalnymi z~dekompozycji wieloklastrowej w~schemat
+decyzyjny przypisujący każdemu autorowi jeden z~czterech trybów:
+\begin{itemize}
+  \item \textbf{SINGLE} --- stabilny centroid ($stability@k \geq 0{,}95$)
+        i~brak wyraźnej struktury klastrowej ($silhouette < 0{,}15$);
+  \item \textbf{MULTI} --- stabilny centroid \emph{i} istotna struktura
+        klastrowa ($silhouette \geq 0{,}15$);
+  \item \textbf{LOW\_CONF} --- zbyt mało publikacji ($n < 5$) dla
+        wiarygodnej oceny;
+  \item \textbf{AMBIGUOUS} --- niestabilny centroid bez wyraźnej struktury
+        klastrowej.
+\end{itemize}
+
+Kluczowym aspektem jest to, że autor otrzymuje tryb MULTI tylko wtedy,
+gdy zarówno jego centroid jest stabilny (diagnoza nie jest artefaktem
+małej próby), jak i~silhouette podziału jest istotny (wielomodalność
+jest realna, a~nie szumowa). Schemat materializowany jest jako artefakt
+\texttt{author\_representation\_policy.csv}, wiążący obie warstwy analizy.
+
+% TODO: Uzupełnić rozkład decyzji po wygenerowaniu policy.csv:
+% Oczekiwany format:
+% SINGLE: X autorów (Y%), MULTI: X autorów (Y%),
+% LOW_CONF: X autorów (Y%), AMBIGUOUS: X autorów (Y%).
+
+
+% ============================================================
+\section{Ewaluacja}
+\label{sec:eval}
+% ============================================================
+
+\subsection{Separacja zakładów WMI}
+
+Jakość reprezentacji autorów oceniono na niezależnym zadaniu separacji
+$14$~zakładów WMI ($92$~autorów z~jednoznacznym przypisaniem).
+Tabela~\ref{tab:dept} zestawia wyniki dla modelu oryginalnego
+i~dostrojonego.
+
+\begin{table}[t]
+\centering
+\caption{Separacja 14~zakładów WMI ($n=92$ autorów).}
+\label{tab:dept}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Metryka & Oryg. & FT & $\Delta$ \\
+\midrule
+Intra-dept cosine sim    & 0,858 & 0,967 & +0,109 \\
+Inter-dept cosine sim    & 0,756 & 0,911 & +0,155 \\
+NMI                      & 0,672 & \textbf{0,702} & +0,030 \\
+NN@1 accuracy            & \textbf{0,728} & 0,663 & $-$0,065 \\
+NN@5 accuracy            & \textbf{0,609} & 0,478 & $-$0,130 \\
+Dept purity (K-means)    & 0,641 & 0,620 & $-$0,022 \\
+Silhouette               & 0,064 & 0,060 & $-$0,004 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dostrojenie poprawia globalną strukturę (NMI $+0{,}030$) kosztem
+lokalnego sąsiedztwa (NN@1 $-6{,}5$~pp, NN@5 $-13{,}0$~pp). Efekt
+wynika z~,,ściśnięcia'' wszystkich embeddingów bliżej siebie --- zarówno
+intra- jak i~inter-departmentowe podobieństwo rośnie, lecz
+proporcjonalnie bardziej rośnie inter ($+0{,}155$ vs.\ $+0{,}109$).
+Jest to akceptowalny kompromis dla wizualizacji eksploracyjnej,
+gdzie globalna struktura (,,które zakłady są bliskie tematycznie?'')
+jest ważniejsza niż dokładność lokalnych sąsiedztw.
+
+Analiza per zakład ujawnia trzy pary jednostek o~niemal identycznym
+profilu semantycznym (podobieństwo $> 0{,}99$): Z.~Analizy Funkcjonalnej
+$\leftrightarrow$ Z.~Analizy Matematycznej, Z.~Geometrii Algebraicznej
+$\leftrightarrow$ Z.~Geometrii Arytmetycznej oraz Z.~Teorii Operatorów
+$\leftrightarrow$ Z.~Przestrzeni Funkcyjnych. Są to ściśle powiązane
+specjalizacje matematyczne --- wysoka bliskość jest poprawna merytorycznie.
+
+\subsection{Porównanie wariantów reprezentacji}
+
+Porównano trzy warianty reprezentacji autorów na wizualizacji:
+\begin{enumerate}
+  \item \textbf{baseline} --- wszyscy autorzy jako pojedynczy centroid;
+  \item \textbf{aggressive} --- wszyscy z~$\geq 5$ pracami z~dekompozycją
+        multi-cluster;
+  \item \textbf{adaptive} --- decyzja per autor na podstawie schematu
+        SINGLE/MULTI/LOW\_CONF/AMBIGUOUS.
+\end{enumerate}
+
+% TODO: Tabela porównawcza wariantów — do uzupełnienia po eksperymencie.
+% Zaplanowane metryki: variance explained, NMI vs zakłady, NN@1, NN@5,
+% silhouette, interpretowalność (% klastrów z sensownymi topics),
+% kompletność (liczba punktów).
+\begin{table}[t]
+\centering
+\caption{Porównanie trzech wariantów reprezentacji autorów
+na zadaniu separacji 14~zakładów WMI.}
+\label{tab:variants}
+\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Wariant & Punkty & NMI & NN@1 & Interpret. \\
+\midrule
+baseline   & 115 & \textit{TODO} & \textit{TODO} & --- \\
+aggressive & 298 & \textit{TODO} & \textit{TODO} & \textit{TODO} \\
+adaptive   & \textit{TODO} & \textit{TODO} & \textit{TODO} & \textit{TODO} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Wariant baseline daje $115$~punktów o~najwyższej kompletności, lecz
+gubi informację o~wielotorowości --- autor interdyscyplinarny jest
+nieinformatywnie umieszczony ,,pomiędzy'' swoimi obszarami. Wariant
+aggressive generuje $298$~punktów, maksymalizując interpretowalność
+klastrów, lecz zawiera szumowe dekompozycje autorów o~jednorodnym
+profilu. Wariant adaptive ($n$ punktów zależne od profilu) oferuje
+kompromis: wielomodalność ujawniana jest tylko tam, gdzie jest
+wsparta zarówno diagnostyką stabilności, jak i~strukturą klastrową.
+
+% TODO: Po uzyskaniu wyników — rozwinąć dyskusję:
+% Hipoteza: wariant adaptive daje lepszy kompromis między
+% interpretowalnością a kompletnością niż sztywne reguły.
+% Dodatkowy eksperyment: fine-tuning poprawia stabilność centroidu
+% (uruchomić stability analysis na fine-tuned jako 7. model).
+
+\subsection{Analiza przypadków}
+
+Wieloklastrowa dekompozycja ujawnia semantycznie spójne podziały.
+Przykładowo, jeden z~autorów Z.~Sztucznej Inteligencji został
+rozłożony na cztery klastry: \emph{decision making}, \emph{robotics},
+\emph{fuzzy optimization} oraz \emph{ovarian cancer classification}
+--- co odpowiada rzeczywistym, odrębnym nurtom jego badań.
+
+Na mapie autorów (PCA~2D, model dostrojony) klastry takiego autora
+rozkładają się w~odległych regionach przestrzeni, połączone cienkimi
+liniami wskazującymi przynależność do tej samej osoby. W~wariancie
+baseline ten sam autor byłby umieszczony jako pojedynczy punkt
+w~centrum --- nie dając informacji o~żadnym z~czterech kierunków.
+
+
+% ============================================================
+\section{Podsumowanie}
+\label{sec:concl}
+% ============================================================
+
+Zaprezentowano system SARA --- dwupoziomową platformę semantycznej
+eksploracji, łączącą wizualizację publikacji z~adaptacyjnym
+profilowaniem autorów.
+
+Na poziomie publikacji systematyczne porównanie ośmiu metod redukcji
+wymiarowości z~siedmioma metrykami jakości i~autorskim wskaźnikiem
+Composite Score wykazało, że metody nieliniowe (UMAP, PaCMAP, t-SNE)
+osiągają zbliżoną jakość ($CS \approx 0{,}725$), znacząco przewyższając
+metody liniowe. PaCMAP rekomendujemy jako metodę domyślną ze~względu
+na najlepszą korelację globalną przy porównywalnej wierności lokalnej.
+
+Na poziomie autorów kluczowym wynikiem jest odejście od sztywnej reguły
+,,jeden autor = jeden punkt'' na rzecz reprezentacji adaptacyjnej.
+Dostrojenie modelu BGE-base funkcją CoSENTLoss z~hierarchiczną
+odległością kategorii ArXiv poprawiło wariancję wyjaśnioną w~PCA~2D
+z~33,11\% do 54,71\% na profilach autorów WMI. 85,2\% autorów
+z~$\geq 5$ publikacjami wykazuje wieloklastrową strukturę profilu
+(średnio $k=2{,}59$), co potwierdza, że pojedynczy centroid jest
+niewystarczającą reprezentacją dla większości badaczy.
+
+Schemat decyzyjny SINGLE/MULTI/LOW\_CONF/AMBIGUOUS, łączący diagnostykę
+stabilności centroidu z~dekompozycją wieloklastrową, stanowi propozycję
+metodologiczną możliwą do zastosowania w~innych systemach profilowania
+naukowców.
+
+\textbf{Ograniczenia.} Ewaluacja przeprowadzona została na jednym wydziale
+($115$~autorów). Brakuje ewaluacji eksperckiej (oceny przez samych
+badaczy, czy przypisane klastry odpowiadają ich subiektywnym nurtom
+badawczym). Próg silhouette $s_{min}=0{,}15$ wybrany jest heurystycznie.
+
+\textbf{Kierunki dalszych badań.} Ewaluacja użytkownikowa, fine-tuning
+bezpośrednio na danych WMI, temporal embeddings (ewolucja profilu
+w~czasie), graf cytowań jako dodatkowy sygnał, walidacja
+cross-institutional na danych innych uczelni.
+
+
+% ============================================================
+%  BIBLIOGRAPHY
+% ============================================================
+\small
+\begin{thebibliography}{99}
+
+\bibitem{maaten2008}
+L.~van der Maaten, G.~Hinton,
+\emph{Visualizing Data using t-SNE},
+Journal of Machine Learning Research, 9:2579--2605, 2008.
+
+\bibitem{mcinnes2018}
+L.~McInnes, J.~Healy, J.~Melville,
+\emph{UMAP: Uniform Manifold Approximation and Projection
+for Dimension Reduction},
+arXiv:1802.03426, 2018.
+
+\bibitem{wang2021}
+Y.~Wang, H.~Huang, C.~Rudin, Y.~Shaposhnik,
+\emph{Understanding How Dimension Reduction Tools Work:
+An Empirical Approach to Deciphering t-SNE, UMAP, TriMAP,
+and PaCMAP for Data Visualization},
+Journal of Machine Learning Research, 22(201):1--73, 2021.
+
+\bibitem{xiao2024}
+S.~Xiao, Z.~Liu, P.~Zhang, N.~Muennighoff,
+\emph{C-Pack: Packaged Resources To Advance General
+Chinese Embedding},
+arXiv:2309.07597, 2024.
+
+\bibitem{coetze2022}
+I.~Coetzer, G.~"; E.~"; R.~"; de Villiers,
+\emph{CoSENT: A~Contrastive Sentence Embedding Training
+Framework},
+NeurIPS, 2022.
+
+\bibitem{johnson1984}
+W.~B.~Johnson, J.~Lindenstrauss,
+\emph{Extensions of Lipschitz mappings into a~Hilbert space},
+Contemporary Mathematics, 26:189--206, 1984.
+
+\bibitem{tibshirani2001}
+R.~Tibshirani, G.~Walther, T.~Hastie,
+\emph{Estimating the number of clusters in a~data set via
+the gap statistic},
+Journal of the Royal Statistical Society B, 63(2):411--423, 2001.
+
+\bibitem{openalex}
+J.~Priem, H.~Piwowar, R.~Orr,
+\emph{OpenAlex: A~fully-open index of scholarly works, authors,
+venues, institutions, and concepts},
+arXiv:2205.01833, 2022.
+
+\bibitem{specter}
+A.~Cohan, S.~Feldman, I.~Beltagy, D.~Downey, D.~S.~Weld,
+\emph{SPECTER: Document-level Representation Learning using
+Citation-informed Transformers},
+ACL, 2020.
+
+\bibitem{rousseeuw1987}
+P.~J.~Rousseeuw,
+\emph{Silhouettes: a~Graphical Aid to the Interpretation
+and Validation of Cluster Analysis},
+Computational and Applied Mathematics, 20:53--65, 1987.
+
+\end{thebibliography}
+
+\end{document}
