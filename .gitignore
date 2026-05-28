@@ -53,6 +53,21 @@ old_data/ArXiv/opis_postepow_j_paszke.md
 # Logs
 *.log
 
+# LaTeX build artifacts
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Artykuł naukowy — trzymany poza repo kodu (przekazywany osobno)
+article/
+
+# Luźne dokumenty / materiały pomocnicze (nie część projektu)
+mag2proba.pdf
+rekomendacje.md
+
 # IDE
 .vscode/
 .idea/
