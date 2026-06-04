@@ -1,8 +1,6 @@
-# SARA — Search and Research Assistant
+# SARA - Search and Research Assistant
 
 Repozytorium spinające część badawczo-rozwojową projektu **SARA**: budowę i ewaluację **mapy dorobku naukowego** pracowników Wydziału Matematyki i Informatyki UAM na podstawie embeddingów tekstowych ich publikacji.
-
-**Autor:** Jakub Paszke · **Wydział:** WMiI UAM
 
 ## Cel projektu
 
@@ -63,7 +61,7 @@ Pełny pipeline (od zbierania danych) opisują README poszczególnych modułów 
 
 ## Oczekiwany wynik
 
-- **Najszybsza weryfikacja (bez uruchamiania):** otwórz [site/index.html](site/index.html) w przeglądarce — gotowa statyczna strona-explorer z mapą autorów, eksploracją publikacji i porównaniem metod redukcji wymiarowości.
+- **Najszybsza weryfikacja (bez uruchamiania):** otwórz [site/index.html](site/index.html) lub [https://s473587.students.wmi.amu.edu.pl/index.html](https://s473587.students.wmi.amu.edu.pl/index.html) w przeglądarce — gotowa statyczna strona-explorer z mapą autorów, eksploracją publikacji i porównaniem metod redukcji wymiarowości.
 - **Moduł 3:** w `publications-visualisation/output/` powstają `vis_methods.json` + `vis_methods.html` (interaktywna mapa), `k_metrics.json`, `robustness_results.json`; scorery wypisują ranking metod DR.
 - **Moduł 2:** interaktywne mapy autorów WMiI (`results/wmi_authors/*.html`) — gotowe artefakty są dołączone, można je otworzyć w przeglądarce bez ponownego liczenia.
 
