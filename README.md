@@ -1,10 +1,13 @@
-# SARA - Search and Research Assistant
+# SARA — Search and Research Assistant
 
 Repozytorium spinające część badawczo-rozwojową projektu **SARA**: budowę i ewaluację **mapy dorobku naukowego** pracowników Wydziału Matematyki i Informatyki UAM na podstawie embeddingów tekstowych ich publikacji.
 
+**Autorzy:** Daria Dworzyńska-Wujec · Jakub Paszke · Miłosz Rolewski · Michał Wujec
+**Wydział:** WMiI UAM
+
 ## Cel projektu
 
-Projekt podejmuje dwa powiązane problemy badawcze (pełny opis w artykule naukowym przekazywanym komisji osobno):
+Projekt podejmuje dwa powiązane problemy badawcze:
 
 1. **Reprezentacja autora** — czy naukowca można wiarygodnie reprezentować pojedynczym punktem (centroidem) w przestrzeni embeddingów, czy potrzebna jest reprezentacja wielopunktowa uwzględniająca wielomodalność profilu badawczego. Proponujemy **reprezentację adaptacyjną**: liczbę punktów dobiera się per autor na podstawie diagnostyki stabilności centroidu i automatycznej dekompozycji multi-cluster.
 2. **Wizualizacja** — systematyczne porównanie ośmiu metod redukcji wymiarowości pod kątem jakości projekcji 2D zbiorów publikacji, z autorskim wskaźnikiem **Composite Score** agregującym siedem metryk lokalnych i globalnych.
@@ -25,7 +28,6 @@ wmii-data-collection/         ← MODUŁ 1: zbieranie danych (profile + publikac
 author-representation/        ← MODUŁ 2: embeddingi, fine-tuning, reprezentacja adaptacyjna, mapa autorów
 publications-visualisation/   ← MODUŁ 3: porównanie metod redukcji wymiarowości + Composite Score
 site/                         ← gotowa statyczna strona-explorer (wizualizacje do otwarcia w przeglądarce)
-old_data/                     ← archiwum: wcześniejszy prototyp asystenta RAG (poza zakresem oceny)
 ```
 
 Artykuł naukowy opisujący część badawczą (LaTeX + PDF) jest przekazywany komisji osobno (zgodnie z rekomendacjami dot. materiałów poza repozytorium kodu).
@@ -36,7 +38,7 @@ Artykuł naukowy opisujący część badawczą (LaTeX + PDF) jest przekazywany k
 | **author-representation** | Generuje i dostraja embeddingi, buduje reprezentację adaptacyjną i interaktywną mapę autorów WMiI | publikacje → mapy HTML, metryki separacji zakładów | [link](author-representation/README.md) |
 | **publications-visualisation** | Porównuje 8 metod redukcji wymiarowości i wyłania najlepszą wskaźnikiem Composite Score | `embeddings.npy` → ranking metod DR, `vis_methods.html` | [link](publications-visualisation/README.md) |
 
-**Zależność:** moduł 3 czyta dane wyprodukowane przez moduł 1 (`wmii-data-collection/data/embeddings.npy`). Moduł 2 jest samodzielny (pracuje na własnym zbiorze ArXiv + danych WMiI).
+**Zależność:** moduły 2 i 3 czytają dane wyprodukowane przez moduł 1 (`wmii-data-collection/data/`); dodatkowo moduł 2 korzysta z własnego zbioru ArXiv potrzebnego do fine-tuningu.
 
 ## Wymagania
 
@@ -54,15 +56,15 @@ Każdy moduł uruchamia się we własnym środowisku wirtualnym. Najprostszy sce
 cd publications-visualisation
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-./run_visualisation.sh --no-tsne        # szybki wariant demonstracyjny
+./run_visualisation.sh                  # pełne uruchomienie demonstracyjne
 ```
 
-Pełny pipeline (od zbierania danych) opisują README poszczególnych modułów — kolejność: **moduł 1 → moduł 3** oraz niezależnie **moduł 2**.
+Pełny pipeline (od zbierania danych) opisują README poszczególnych modułów — kolejność: **moduł 1 → moduł 2 / moduł 3**.
 
 ## Oczekiwany wynik
 
 - **Najszybsza weryfikacja (bez uruchamiania):** otwórz [site/index.html](site/index.html) lub [https://s473587.students.wmi.amu.edu.pl/index.html](https://s473587.students.wmi.amu.edu.pl/index.html) w przeglądarce — gotowa statyczna strona-explorer z mapą autorów, eksploracją publikacji i porównaniem metod redukcji wymiarowości.
-- **Moduł 3:** w `publications-visualisation/output/` powstają `vis_methods.json` + `vis_methods.html` (interaktywna mapa), `k_metrics.json`, `robustness_results.json`; scorery wypisują ranking metod DR.
+- **Moduł 3:** w `publications-visualisation/output/` powstają `vis_methods.json` + `vis_methods.html` (interaktywna mapa), `k_metrics.json`, `robustness_results.json`; skrypty agregujące metryki wypisują ranking metod DR.
 - **Moduł 2:** interaktywne mapy autorów WMiI (`results/wmi_authors/*.html`) — gotowe artefakty są dołączone, można je otworzyć w przeglądarce bez ponownego liczenia.
 
 ## Dane
@@ -77,7 +79,7 @@ Trzy poziomy sprawdzenia (zgodnie z rekomendacjami):
 
 1. **Uruchomienie** — instalacja i przebieg modułu 3 na CPU (scenariusz wyżej).
 2. **Demonstracja** — interaktywne mapy autorów (moduł 2) i porównanie metod DR (moduł 3) z dołączonych artefaktów.
-3. **Weryfikacja wyników** — metryki z artykułu odtwarzalne ze skryptów ewaluacyjnych: [author-representation/scripts/10_evaluate_dept_separation.py](author-representation/scripts/10_evaluate_dept_separation.py) (separacja zakładów), scorery Composite w module 3.
+3. **Weryfikacja wyników** — metryki z artykułu odtwarzalne ze skryptów ewaluacyjnych: [author-representation/scripts/10_evaluate_dept_separation.py](author-representation/scripts/10_evaluate_dept_separation.py) (separacja zakładów), skrypty agregujące metryki Composite w module 3.
 
 Pełna regeneracja embeddingów i fine-tuning wymagają GPU/Colab i kilkudziesięciu minut–godzin; do oceny wystarczają dołączone artefakty.
 
@@ -85,7 +87,7 @@ Pełna regeneracja embeddingów i fine-tuning wymagają GPU/Colab i kilkudziesi�
 
 Projekt ma charakter badawczy — jakość weryfikowana jest empirycznie, nie testami jednostkowymi:
 
-- **Moduł 3:** eksperyment odporności na losowość (wiele ziaren + testy istotności Wilcoxona) oraz trzy niezależne scorery (Choquet / Sugeno / trimmed-mean), które powinny dawać spójny ranking.
+- **Moduł 3:** eksperyment odporności na losowość (wiele ziaren + testy istotności Wilcoxona) oraz trzy niezależne skrypty agregujące metryki (Choquet / Sugeno / trimmed-mean), które powinny dawać spójny ranking.
 - **Moduł 2:** metryki separacji zakładów (intra/inter similarity, NN@k, NMI, purity) liczone skryptami ewaluacyjnymi.
 
 ## Dokumentacja
@@ -99,4 +101,3 @@ Projekt ma charakter badawczy — jakość weryfikowana jest empirycznie, nie te
 - **Wieloskładnikowość:** projekt to trzy moduły uruchamiane osobno; pełny przepływ wymaga uruchomienia modułu 1 przed modułem 3.
 - **Zasoby:** generowanie embeddingów i fine-tuning wymagają GPU; fine-tuning realizowany był na Google Colab (A100). Do weryfikacji dołączono gotowe artefakty.
 - **Dane zewnętrzne:** zależność od dostępności ArXiv API, OpenAlex API i struktury Portalu Badawczego UAM (scraping może wymagać aktualizacji selektorów).
-- **`old_data/`** to wcześniejszy prototyp asystenta (RAG na Azure) — pozostawiony jako archiwum, **nie jest częścią ocenianego rozwiązania**.
