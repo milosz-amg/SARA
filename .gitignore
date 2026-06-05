@@ -84,3 +84,7 @@ Thumbs.db
 .env.local
 *.key
 credentials.json
+
+# Claude Code / AI agents config
+.claude/
+CLAUDE.md
