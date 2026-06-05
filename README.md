@@ -1,4 +1,4 @@
-# SARA — Search and Research Assistant
+# SARA - Search and Research Assistant
 
 Repozytorium spinające część badawczo-rozwojową projektu **SARA**: budowę i ewaluację **mapy dorobku naukowego** pracowników Wydziału Matematyki i Informatyki UAM na podstawie embeddingów tekstowych ich publikacji.
 
@@ -9,8 +9,8 @@ Repozytorium spinające część badawczo-rozwojową projektu **SARA**: budowę 
 
 Projekt podejmuje dwa powiązane problemy badawcze:
 
-1. **Reprezentacja autora** — czy naukowca można wiarygodnie reprezentować pojedynczym punktem (centroidem) w przestrzeni embeddingów, czy potrzebna jest reprezentacja wielopunktowa uwzględniająca wielomodalność profilu badawczego. Proponujemy **reprezentację adaptacyjną**: liczbę punktów dobiera się per autor na podstawie diagnostyki stabilności centroidu i automatycznej dekompozycji multi-cluster.
-2. **Wizualizacja** — systematyczne porównanie ośmiu metod redukcji wymiarowości pod kątem jakości projekcji 2D zbiorów publikacji, z autorskim wskaźnikiem **Composite Score** agregującym siedem metryk lokalnych i globalnych.
+1. **Reprezentacja autora** - czy naukowca można wiarygodnie reprezentować pojedynczym punktem (centroidem) w przestrzeni embeddingów, czy potrzebna jest reprezentacja wielopunktowa uwzględniająca wielomodalność profilu badawczego. Proponujemy **reprezentację adaptacyjną**: liczbę punktów dobiera się per autor na podstawie diagnostyki stabilności centroidu i automatycznej dekompozycji multi-cluster.
+2. **Wizualizacja** - systematyczne porównanie ośmiu metod redukcji wymiarowości pod kątem jakości projekcji 2D zbiorów publikacji, z autorskim wskaźnikiem **Composite Score** agregującym siedem metryk lokalnych i globalnych.
 
 Najważniejsze rezultaty (na zbiorze N = 3440 publikacji, 115 autorów, 14 jednostek):
 
@@ -44,13 +44,13 @@ Artykuł naukowy opisujący część badawczą (LaTeX + PDF) jest przekazywany k
 
 - Python 3.10+, system Linux/macOS/WSL
 - Zależności instalowane per moduł z jego `requirements.txt`
-- **GPU (CUDA)** zalecane do generowania embeddingów w module 2; fine-tuning BGE wymaga Google Colab (A100/T4) — szczegóły w [author-representation/README.md](author-representation/README.md)
+- **GPU (CUDA)** zalecane do generowania embeddingów w module 2; fine-tuning BGE wymaga Google Colab (A100/T4)
 - Moduły 1 i 3 działają na CPU
-- Dostęp do internetu (ArXiv API, OpenAlex API, Portal Badawczy UAM) — **bez kluczy API** (oba API są publiczne)
+- Dostęp do internetu (ArXiv API, OpenAlex API, Portal Badawczy UAM) - **bez kluczy API** (oba API są publiczne)
 
 ## Instalacja i uruchomienie demonstracji
 
-Każdy moduł uruchamia się we własnym środowisku wirtualnym. Najprostszy scenariusz demonstracyjny — **porównanie metod wizualizacji na gotowych embeddingach** (moduł 3, działa na CPU, kilka–kilkanaście minut):
+Każdy moduł uruchamia się we własnym środowisku wirtualnym. Najprostszy scenariusz demonstracyjny - **porównanie metod wizualizacji na gotowych embeddingach** (moduł 3, działa na CPU, kilka-kilkanaście minut):
 
 ```bash
 cd publications-visualisation
@@ -59,40 +59,40 @@ pip install -r requirements.txt
 ./run_visualisation.sh                  # pełne uruchomienie demonstracyjne
 ```
 
-Pełny pipeline (od zbierania danych) opisują README poszczególnych modułów — kolejność: **moduł 1 → moduł 2 / moduł 3**.
+Pełny pipeline (od zbierania danych) opisują README poszczególnych modułów - kolejność: **moduł 1 → moduł 2 / moduł 3**.
 
 ## Oczekiwany wynik
 
-- **Najszybsza weryfikacja (bez uruchamiania):** otwórz [site/index.html](site/index.html) lub [https://s473587.students.wmi.amu.edu.pl/index.html](https://s473587.students.wmi.amu.edu.pl/index.html) w przeglądarce — gotowa statyczna strona-explorer z mapą autorów, eksploracją publikacji i porównaniem metod redukcji wymiarowości.
+- **Najszybsza weryfikacja (bez uruchamiania):** otwórz [site/index.html](site/index.html) lub [https://s473587.students.wmi.amu.edu.pl/index.html](https://s473587.students.wmi.amu.edu.pl/index.html) w przeglądarce - gotowa statyczna strona-explorer z mapą autorów, eksploracją publikacji i porównaniem metod redukcji wymiarowości.
 - **Moduł 3:** w `publications-visualisation/output/` powstają `vis_methods.json` + `vis_methods.html` (interaktywna mapa), `k_metrics.json`, `robustness_results.json`; skrypty agregujące metryki wypisują ranking metod DR.
-- **Moduł 2:** interaktywne mapy autorów WMiI (`results/wmi_authors/*.html`) — gotowe artefakty są dołączone, można je otworzyć w przeglądarce bez ponownego liczenia.
+- **Moduł 2:** interaktywne mapy autorów WMiI (`results/wmi_authors/*.html`) - gotowe artefakty są dołączone, można je otworzyć w przeglądarce bez ponownego liczenia.
 
 ## Dane
 
 - **Dane publiczne, bez kluczy:** ArXiv API i OpenAlex API są otwarte; Portal Badawczy UAM jest scrapowany bez logowania.
-- **Gotowe artefakty w repo:** embeddingi WMiI (`wmii-data-collection/data/`), baza ArXiv (`author-representation/data/arxiv_papers.db`), wyniki wizualizacji (`publications-visualisation/output/`) — pozwalają zweryfikować wyniki bez pełnej regeneracji.
+- **Gotowe artefakty w repo:** embeddingi WMiI (`wmii-data-collection/data/`), baza ArXiv (`author-representation/data/arxiv_papers.db`), wyniki wizualizacji (`publications-visualisation/output/`) - pozwalają zweryfikować wyniki bez pełnej regeneracji.
 - **Duże pliki opcjonalne** (dumpy OpenAlex, model fine-tuned >100 MB) są poza repo; instrukcje pobrania w README modułów. Link do współdzielonego folderu OneDrive podany w [wmii-data-collection/README.md](wmii-data-collection/README.md).
 
 ## Reprodukcja lub weryfikacja wyników
 
 Trzy poziomy sprawdzenia (zgodnie z rekomendacjami):
 
-1. **Uruchomienie** — instalacja i przebieg modułu 3 na CPU (scenariusz wyżej).
-2. **Demonstracja** — interaktywne mapy autorów (moduł 2) i porównanie metod DR (moduł 3) z dołączonych artefaktów.
-3. **Weryfikacja wyników** — metryki z artykułu odtwarzalne ze skryptów ewaluacyjnych: [author-representation/scripts/10_evaluate_dept_separation.py](author-representation/scripts/10_evaluate_dept_separation.py) (separacja zakładów), skrypty agregujące metryki Composite w module 3.
+1. **Uruchomienie** - instalacja i przebieg modułu 3 na CPU (scenariusz wyżej).
+2. **Demonstracja** - interaktywne mapy autorów (moduł 2) i porównanie metod DR (moduł 3) z dołączonych artefaktów.
+3. **Weryfikacja wyników** - metryki z artykułu odtwarzalne ze skryptów ewaluacyjnych: [author-representation/scripts/10_evaluate_dept_separation.py](author-representation/scripts/10_evaluate_dept_separation.py) (separacja zakładów), skrypty agregujące metryki Composite w module 3.
 
-Pełna regeneracja embeddingów i fine-tuning wymagają GPU/Colab i kilkudziesięciu minut–godzin; do oceny wystarczają dołączone artefakty.
+Pełna regeneracja embeddingów i fine-tuning wymagają GPU/Colab i kilkudziesięciu minut-godzin; do oceny wystarczają dołączone artefakty.
 
 ## Testy i jakość rozwiązania
 
-Projekt ma charakter badawczy — jakość weryfikowana jest empirycznie, nie testami jednostkowymi:
+Projekt ma charakter badawczy - jakość weryfikowana jest empirycznie, nie testami jednostkowymi:
 
 - **Moduł 3:** eksperyment odporności na losowość (wiele ziaren + testy istotności Wilcoxona) oraz trzy niezależne skrypty agregujące metryki (Choquet / Sugeno / trimmed-mean), które powinny dawać spójny ranking.
 - **Moduł 2:** metryki separacji zakładów (intra/inter similarity, NN@k, NMI, purity) liczone skryptami ewaluacyjnymi.
 
 ## Dokumentacja
 
-- **Artykuł naukowy** (część badawcza, LaTeX + PDF) — przekazywany komisji osobno
+- **Artykuł naukowy** (część badawcza, LaTeX + PDF) - przekazywany komisji osobno
 - **Dokumentacja modułów:** README + szczegółowe opisy w `author-representation/docs/`
 - **Referencja skryptów wizualizacji:** [publications-visualisation/src/README.MD](publications-visualisation/src/README.MD)
 

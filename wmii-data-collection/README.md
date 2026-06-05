@@ -1,110 +1,111 @@
-# SARA — UAM WMiI Research Data Pipeline
+# SARA - pipeline zbierania danych WMiI UAM
 
-Collects publication data for WMiI UAM faculty members from the UAM Research Portal and OpenAlex API.
+Pobiera dane o publikacjach pracowników naukowych WMiI UAM z Portalu Badawczego
+UAM i OpenAlex API.
 
-## Pipeline overview
+## Przegląd pipeline'u
 
 ```
-Step 1: research_portal_scraper.py
-  → Scrapes scientist profiles from UAM Research Portal
-  → Output: data/scientists_data.csv
+Krok 1: research_portal_scraper.py
+  -> scraping profili pracowników z Portalu Badawczego UAM
+  -> wyjście: data/scientists_data.csv
 
-Step 2: extract_identifiers.py
-  → Visits each profile, extracts ORCID + Scopus + Scholar IDs
-  → Output: data/scientists_with_identifiers.csv  ← key intermediate file
+Krok 2: extract_identifiers.py
+  -> wchodzi na każdy profil, wyciąga identyfikatory ORCID + Scopus + Scholar
+  -> wyjście: data/scientists_with_identifiers.csv  <- kluczowy plik pośredni
 
-Step 3: filter_data.py  [optional — requires large OpenAlex dump files]
-  → Filters pre-downloaded OpenAlex dumps by faculty ORCIDs
-  → Output: data/wmii_authors.json, data/wmii_works.json
+Krok 3: filter_data.py  [opcjonalny - wymaga dużych dumpów OpenAlex]
+  -> filtruje pobrane wcześniej dumpy OpenAlex po ORCID-ach pracowników WMiI
+  -> wyjście: data/wmii_authors.json, data/wmii_works.json
 
-Step 4: fetch_abstracts.py
-  → Calls OpenAlex API for each ORCID, fetches all publications + abstracts
-  → Fills missing abstracts from duplicate records (same title or DOI)
-  → For still-missing abstracts: opens DOI links via Selenium, scrapes publisher pages
-     (ScienceDirect, Springer, Wiley, MDPI, IEEE and others)
-  → Falls back to data/wmii_orcid.csv if Step 2 hasn't run yet
-  → Output: data/wmii_publications.csv                ← all records
-            data/wmii_publications_with_abstracts.csv ← only records with abstracts
+Krok 4: fetch_abstracts.py
+  -> wywołuje OpenAlex API dla każdego ORCID-a, pobiera wszystkie publikacje + abstrakty
+  -> uzupełnia brakujące abstrakty z rekordów duplikatów (ten sam tytuł lub DOI)
+  -> dla wciąż brakujących abstraktów: otwiera linki DOI przez Selenium
+     i scrapuje strony wydawców (ScienceDirect, Springer, Wiley, MDPI, IEEE i inne)
+  -> jeżeli Krok 2 nie został uruchomiony, używa data/wmii_orcid.csv jako fallback
+  -> wyjście: data/wmii_publications.csv                <- wszystkie rekordy
+              data/wmii_publications_with_abstracts.csv <- tylko rekordy z abstraktami
 ```
 
-## Project structure
+## Struktura katalogu
 
 ```
 .
-├── run_pipeline.sh              # Run the full pipeline
+├── run_pipeline.sh                       # uruchomienie pełnego pipeline'u
 ├── requirements.txt
 ├── src/
-│   ├── research_portal_scraper.py   # Step 1
-│   ├── extract_identifiers.py       # Step 2
-│   ├── filter_data.py               # Step 3 (optional)
-│   └── fetch_abstracts.py           # Step 4
+│   ├── research_portal_scraper.py        # Krok 1
+│   ├── extract_identifiers.py            # Krok 2
+│   ├── filter_data.py                    # Krok 3 (opcjonalny)
+│   └── fetch_abstracts.py                # Krok 4
 └── data/
-    ├── wmii_orcid.csv               # Seed ORCID list (pre-existing fallback)
-    ├── uam_authors.json             # [optional input] OpenAlex authors dump
-    ├── uam_works.json               # [optional input] OpenAlex works dump
-    ├── scientists_data.csv          # [output] Step 1
-    ├── scientists_with_identifiers.csv      # [output] Step 2
-    ├── wmii_authors.json            # [output] Step 3
-    ├── wmii_works.json              # [output] Step 3
-    ├── wmii_publications.csv        # [output] Step 4 — all records
-    └── wmii_publications_with_abstracts.csv # [output] Step 4 — abstracts only
+    ├── wmii_orcid.csv                    # lista ORCID-ów (fallback startowy)
+    ├── uam_authors.json                  # [wejście opcjonalne] dump autorów OpenAlex
+    ├── uam_works.json                    # [wejście opcjonalne] dump prac OpenAlex
+    ├── scientists_data.csv               # [wyjście] Krok 1
+    ├── scientists_with_identifiers.csv   # [wyjście] Krok 2
+    ├── wmii_authors.json                 # [wyjście] Krok 3
+    ├── wmii_works.json                   # [wyjście] Krok 3
+    ├── wmii_publications.csv             # [wyjście] Krok 4 - wszystkie rekordy
+    └── wmii_publications_with_abstracts.csv  # [wyjście] Krok 4 - tylko z abstraktami
 ```
 
-## Output files
+## Pliki wynikowe
 
-| File | Description |
-|------|-------------|
-| `scientists_with_identifiers.csv` | Faculty profiles with ORCID, Scopus, Scholar IDs |
-| `wmii_publications.csv` | All publications including those with missing abstracts |
-| `wmii_publications_with_abstracts.csv` | Publications with abstracts only — ready for analysis |
-| `wmii_authors.json` | OpenAlex author records (Step 3 only) |
-| `wmii_works.json` | OpenAlex work records (Step 3 only) |
+| Plik | Opis |
+|------|------|
+| `scientists_with_identifiers.csv` | Profile pracowników wraz z ORCID, Scopus i Scholar ID |
+| `wmii_publications.csv` | Wszystkie publikacje (również te bez abstraktu) |
+| `wmii_publications_with_abstracts.csv` | Publikacje z abstraktem, gotowe do analizy |
+| `wmii_authors.json` | Rekordy autorów z OpenAlex (tylko Krok 3) |
+| `wmii_works.json` | Rekordy prac z OpenAlex (tylko Krok 3) |
 
-## Setup
+## Instalacja
 
 ```bash
 pip install -r requirements.txt
 chmod +x run_pipeline.sh
 ```
 
-Optional — download OpenAlex dump files for Step 3:
+Opcjonalnie - pobranie dumpów OpenAlex dla Kroku 3:
 > https://uam-my.sharepoint.com/:f:/r/personal/jakpas3_st_amu_edu_pl/Documents/SARA?csf=1&web=1&e=RlhsKV
 
-Place `uam_authors.json` and `uam_works.json` in `data/`.
+Plik `uam_authors.json` i `uam_works.json` należy umieścić w `data/`.
 
-## Usage
+## Uruchomienie
 
 ```bash
-# Full pipeline (Steps 1–4)
+# pełny pipeline (Kroki 1-4)
 ./run_pipeline.sh
 
-# Or run steps individually:
-python src/research_portal_scraper.py   # Step 1
-python src/extract_identifiers.py       # Step 2
-python src/filter_data.py               # Step 3 (optional)
-python src/fetch_abstracts.py           # Step 4
+# albo poszczególne kroki:
+python src/research_portal_scraper.py   # Krok 1
+python src/extract_identifiers.py       # Krok 2
+python src/filter_data.py               # Krok 3 (opcjonalny)
+python src/fetch_abstracts.py           # Krok 4
 
-# Step 4 can be run standalone using the seed file:
-# data/wmii_orcid.csv is used automatically if scientists_with_identifiers.csv
-# doesn't exist yet
+# Krok 4 może działać samodzielnie korzystając z pliku startowego:
+# data/wmii_orcid.csv jest używany automatycznie, jeżeli
+# scientists_with_identifiers.csv jeszcze nie istnieje
 ```
 
-## Column reference — wmii_publications.csv
+## Opis kolumn - wmii_publications.csv
 
-| Column | Description |
-|--------|-------------|
-| `main_author_orcid` | Faculty member's ORCID |
-| `openalex_id` | OpenAlex work ID |
-| `title` | Publication title |
-| `publication_year` | Year |
-| `publication_date` | Full date |
-| `doi` | DOI link |
-| `type` | article / book-chapter / etc. |
-| `cited_by_count` | Citation count |
-| `journal` | Journal or venue name |
-| `topics` | Research topics (semicolon-separated) |
-| `co_authors` | Co-author names (semicolon-separated) |
-| `co_author_orcids` | Co-author ORCIDs (semicolon-separated) |
-| `num_co_authors` | Number of co-authors |
-| `abstract` | Full abstract text |
-| `keywords` | Keywords (semicolon-separated) |
+| Kolumna | Opis |
+|---------|------|
+| `main_author_orcid` | ORCID pracownika |
+| `openalex_id` | identyfikator pracy w OpenAlex |
+| `title` | tytuł publikacji |
+| `publication_year` | rok publikacji |
+| `publication_date` | pełna data publikacji |
+| `doi` | link DOI |
+| `type` | typ pracy (article / book-chapter / itd.) |
+| `cited_by_count` | liczba cytowań |
+| `journal` | nazwa czasopisma / venue |
+| `topics` | tematy badawcze (oddzielone średnikami) |
+| `co_authors` | nazwiska współautorów (oddzielone średnikami) |
+| `co_author_orcids` | ORCID-y współautorów (oddzielone średnikami) |
+| `num_co_authors` | liczba współautorów |
+| `abstract` | pełny tekst abstraktu |
+| `keywords` | słowa kluczowe (oddzielone średnikami) |

@@ -1,4 +1,4 @@
-# Publications Visualisation — Script Reference
+# Publications Visualisation - Script Reference
 
 Quick reference for running each script individually.
 For the full automated pipeline, use `./run_visualisation.sh`.
@@ -30,7 +30,7 @@ All commands below assume you're in `publications-visualisation/src/` with your 
 
 ---
 
-## Step 1 — `find_optimal_k.py`
+## Step 1 - `find_optimal_k.py`
 
 Finds the optimal number of K-Means clusters using 6 methods (Elbow, Silhouette, Gap, Calinski-Harabasz, Davies-Bouldin, Stability) combined into a weighted composite score.
 
@@ -61,14 +61,14 @@ python find_optimal_k.py \
 
 ---
 
-## Step 2 — `analyse.py`
+## Step 2 - `analyse.py`
 
 Projects embeddings to 2D using 8 DR methods (UMAP, t-SNE, PaCMAP, Isomap, Spectral, PCA, PCA-8D, LDA) and evaluates each with 7 quality metrics. Produces the main JSON consumed by `vis_methods.html`.
 
 **Output:** `output/vis_methods.json`
 
 ```bash
-# Minimal — use k from step 1
+# Minimal - use k from step 1
 python analyse.py --clusters 9
 
 # With k-analysis JSON (enables k-analysis tab in the HTML viewer)
@@ -93,7 +93,7 @@ python analyse.py --clusters 9 --no-tsne
 |---|---|---|
 | `--embeddings` | `../wmii-data-collection/data/embeddings.npy` | Path to embeddings |
 | `--metadata` | `../wmii-data-collection/data/embeddings_metadata.csv` | Paper metadata CSV |
-| `--scientists` | `../wmii-data-collection/data/scientists_with_identifiers.csv` | Optional — adds author names |
+| `--scientists` | `../wmii-data-collection/data/scientists_with_identifiers.csv` | Optional - adds author names |
 | `--clusters` | `9` | Number of K-Means clusters |
 | `--output` | `../output/vis_methods.json` | Output JSON path |
 | `--k-analysis` | `None` | Pass `k_metrics.json` to embed k-analysis in output |
@@ -102,7 +102,7 @@ python analyse.py --clusters 9 --no-tsne
 
 ---
 
-## Step 3 — `robustness_experiment.py`
+## Step 3 - `robustness_experiment.py`
 
 Runs t-SNE, UMAP, and PaCMAP each with N independent random seeds and computes Choquet scores per run. Reports mean ± std, win counts, and Wilcoxon significance tests between method pairs.
 
@@ -136,7 +136,7 @@ python robustness_experiment.py \
 
 ## Scoring scripts
 
-The three scripts below all take the same `--input` argument pointing at `vis_methods.json`. They print results to stdout only — no output files are written.
+The three scripts below all take the same `--input` argument pointing at `vis_methods.json`. They print results to stdout only - no output files are written.
 
 ### `choquet_composite.py`
 
@@ -152,7 +152,7 @@ Prints: capacity validation, singleton weights, pairwise interactions, per-metho
 
 ### `sugeno_composite.py`
 
-Aggregates using a Sugeno (bottleneck) integral with a λ-fuzzy measure. Tested across λ ∈ {0, −0.3, −0.6, −0.9, +0.3, +0.6} — useful for checking sensitivity to the redundancy/synergy assumption.
+Aggregates using a Sugeno (bottleneck) integral with a λ-fuzzy measure. Tested across λ ∈ {0, −0.3, −0.6, −0.9, +0.3, +0.6} - useful for checking sensitivity to the redundancy/synergy assumption.
 
 ```bash
 python sugeno_composite.py --input ../output/vis_methods.json
@@ -170,7 +170,7 @@ python sugeno_composite.py --input ../output/vis_methods.json --show-metrics
 
 ### `trimmed_composite.py`
 
-Simple trimmed-mean baseline — drops the best and worst metric per method and averages the rest. Useful as a sanity check against the Choquet ranking.
+Simple trimmed-mean baseline - drops the best and worst metric per method and averages the rest. Useful as a sanity check against the Choquet ranking.
 
 ```bash
 python trimmed_composite.py --input ../output/vis_methods.json
