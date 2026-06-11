@@ -58,13 +58,13 @@ def normalize_metrics(cm):
 # ──────────────────────────────────────────────────────────────────────────────
 
 SINGLETONS = {
-    "knn":      0.17,
-    "trust":    0.17,
-    "nh":       0.16,
-    "spearman": 0.15,
-    "pearson":  0.15,
-    "spde":     0.10,
-    "stress":   0.10,
+    "knn":      0.2,
+    "trust":    0.2,
+    "nh":       0.2,
+    "spearman": 0.2,
+    "pearson":  0.2,
+    "spde":     0.2,
+    "stress":   0.2,
 }
 
 
