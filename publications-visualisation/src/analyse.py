@@ -32,7 +32,7 @@ DR methods
   Isomap     geodesic manifold distances
   Spectral   Graph Laplacian eigenvectors
   PCA        linear baseline
-  PCA 8D+log 8-axis centroid pipeline (original approach)
+  PCA 9D+log 9-axis centroid pipeline (original approach)
   LDA        supervised; inter-cluster distances artificially inflated
 """
 
@@ -293,7 +293,7 @@ def run_pca(emb):
 
 
 def run_centroid(emb, centroids):
-    """8-axis centroid pipeline: cosine -> log -> PCA (original approach)."""
+    """9-axis centroid pipeline: cosine -> log -> PCA (original approach)."""
     t0  = time.time()
     b   = cosine_similarity(emb, centroids)
     b   = MinMaxScaler().fit_transform(np.log(b - b.min() + 0.01))
@@ -302,7 +302,7 @@ def run_centroid(emb, centroids):
     v   = float(pca.explained_variance_ratio_.sum() * 100)
     return _scale(c), round(time.time() - t0, 2), {
         "variance_explained": round(v, 2),
-        "note": "8-axis centroid log pipeline",
+        "note": "9-axis centroid log pipeline",
     }
 
 
@@ -327,7 +327,7 @@ METHODS_CONFIG = [
     ("isomap",   "Isomap",     "Isometric Mapping (geodesic distances)",             "non-linear"),
     ("spectral", "Spectral",   "Spectral Embedding (Laplacian Eigenmaps)",           "non-linear"),
     ("pca",      "PCA",        "Principal Component Analysis (linear baseline)",     "linear"),
-    ("centroid", "PCA 8D+log", "8-Axis Centroid Pipeline (log transform)",           "linear"),
+    ("centroid", "PCA 9D+log", "9-Axis Centroid Pipeline (log transform)",           "linear"),
     ("lda",      "LDA",        "Linear Discriminant Analysis (supervised, biased)",  "linear"),
 ]
 

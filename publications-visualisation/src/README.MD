@@ -63,7 +63,7 @@ python find_optimal_k.py \
 
 ## Step 2 - `analyse.py`
 
-Projects embeddings to 2D using 8 DR methods (UMAP, t-SNE, PaCMAP, Isomap, Spectral, PCA, PCA-8D, LDA) and evaluates each with 7 quality metrics. Produces the main JSON consumed by `vis_methods.html`.
+Projects embeddings to 2D using 8 DR methods (UMAP, t-SNE, PaCMAP, Isomap, Spectral, PCA, PCA-9D, LDA) and evaluates each with 7 quality metrics. Produces the main JSON consumed by `vis_methods.html`.
 
 **Output:** `output/vis_methods.json`
 

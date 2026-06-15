@@ -7,7 +7,7 @@ Moduł systemu **SARA**. Rzutuje embeddingi publikacji naukowców WMiI UAM do 2D
 Odpowiedź na pytanie: *która metoda redukcji wymiarowości daje najwierniejszą 2D-mapę dorobku naukowego?* Pipeline:
 
 1. dobiera optymalną liczbę klastrów `k` (6 metod złożonych w jeden wskaźnik),
-2. rzutuje embeddingi 8 metodami DR (UMAP, t-SNE, PaCMAP, Isomap, Spectral, PCA, PCA-8D, LDA) i liczy 7 metryk jakości,
+2. rzutuje embeddingi 8 metodami DR (UMAP, t-SNE, PaCMAP, Isomap, Spectral, PCA, PCA-9D, LDA) i liczy 7 metryk jakości,
 3. sprawdza odporność t-SNE/UMAP/PaCMAP na losowość (wiele ziaren + testy Wilcoxona),
 4. agreguje metryki całką Choqueta i porównuje z wariantami Sugeno / trimmed-mean.
 
